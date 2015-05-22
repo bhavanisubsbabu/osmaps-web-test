@@ -1,0 +1,4 @@
+sampler_label,aggregate_report_count,average,aggregate_report_min,aggregate_report_max,aggregate_report_stddev,aggregate_report_error%,aggregate_report_rate,aggregate_report_bandwidth,average_bytes
+/osmaps/scripts/getClientHasAuthorisation.php,200,956,247,4594,956.3061695398603,0.0,23.537719195010002,12.596357537954573,548.0
+FindPOIs,200,2337,666,6221,1316.5904289109806,0.02,21.05041574571098,22.179717102147144,1078.935
+TOTAL,400,1646,247,6221,1342.0100493662483,0.01,40.95423364390294,32.5341191960172,813.4675
