@@ -110,5 +110,11 @@ public void i_can_access_OS_maps_as_a_guest_user_to_subscribe_via_upsell()  thro
 
 }
 
+@Given("^I am on Mapshop app$")
+public void i_am_on_Mapshop_app() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	mainPage.launch_app();
+
+}
 
 }

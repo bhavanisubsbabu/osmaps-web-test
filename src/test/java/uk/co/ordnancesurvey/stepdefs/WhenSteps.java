@@ -218,7 +218,8 @@ Thread.sleep(4000);
 	@When("^I Select POI \"(.*?)\"$")
 	public void i_select_poi(String Arg1) throws Throwable {
 		
-	Thread.sleep(3000);
+	Thread.sleep(5000);
+	//mainPage.waitForElementPresent(obj.mapfeatures,10000);
 	mainPage.clickLinkByXpath(obj.mapfeatures);
 		Thread.sleep(3000);		
 //mainPage.clickLinkByXpath(obj.poi_Attractions);
@@ -361,7 +362,8 @@ Thread.sleep(4000);
 		@When("^I enter start location$")
 		public void i_enter_start_location() throws Throwable {
 			mainPage.set_textBox(obj.ab_startLocation, "London");
-			mainPage.hitEnterKey(obj.ab_startLocation);
+			Thread.sleep(3000);
+		    mainPage.hitEnterKey(obj.ab_startLocation);
 		    // Write code here that turns the phrase above into concrete actions
 		   // throw new PendingException();
 		}
@@ -370,6 +372,7 @@ Thread.sleep(4000);
 		public void i_enter_finish_location() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 		  mainPage.set_textBox(obj.ab_finishLocation,"Southampton");
+		  Thread.sleep(3000);
 		  mainPage.hitEnterKey(obj.ab_finishLocation);
 		}
 
@@ -403,15 +406,25 @@ Thread.sleep(4000);
 		    // Write code here that turns the phrase above into concrete actions
 		    mainPage.locatePOI(14);
 		    Thread.sleep(2000);
-		    if(mainPage.IsElementPresent("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']"))
-		    	mainPage.clickLinkByXpath("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']");
-		    
-		      	mainPage.clickLinkByXpath("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Pin to Map']");
-		      	Thread.sleep(3000);
-		      	//mainPage.clickLinkByXpath("//div[@id='Window_1_ExternalContentFrame_Close']");
+		    if (mainPage.IsElementDisplayed(".//*[@id='more-info-dropped-pin']"))
+		    {
+		    	mainPage.clickLinkByXpath(".//*[@id='more-info-dropped-pin']");
+		    	Thread.sleep(4000);
+		    	mainPage.clickLinkByXpath("//div[contains(@class,'pin-to-map-icon')]')]");
+			    Thread.sleep(2000);
+		    }
+		   
+		        
+		      
 		   mainPage.PageRefresh();   
 		   
 		}
+		@When("^I open leisure mapstack$")
+		public void i_open_leisure_mapstack() throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		   mainPage.openMapstack();
+		}
+		
 		@When("^I logout from aplication$")
 		public void i_logout_from_aplication() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions

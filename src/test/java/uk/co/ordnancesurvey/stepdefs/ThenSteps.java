@@ -395,6 +395,12 @@ public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
 		    
 		}
 		
+		@Then("^I should not be able to see leisuremapstack$")
+		public void i_should_not_be_able_to_see_leisuremapstack() throws Throwable {
+			mainPage.verify_subscriptionUpsell();
+		}
+
+		
 		@Then("^I Should see the Route \"(.*?)\" on the sidebar$")
 		public void i_should_see_the_route_on_the_sidebars(String arg1) throws Throwable {
 
@@ -473,6 +479,13 @@ public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
 		   // throw new PendingException();
 			assertTrue("Failed: A-B route not found, please check manually",mainPage.IsElementDisplayed(obj.ab_resultPopup));
 		}		
+		
+		@Then("^I should be able to save A-B directions$")
+		public void i_should_be_able_to_save_A_B_directions() throws Throwable {
+		   mainPage.save_ABroute();
+		   
+		}
+		
 		
 		//**************************BASIC SMOKE TEST *******************************
 
@@ -615,6 +628,13 @@ public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	 mainPage.verify_UserLogin(arg1);   
 	}
+	
+	@Then("^I should be able to see my details in my account page$")
+	public void i_should_be_able_to_see_my_details_in_my_account_page() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    
+	}
+	
 	
 	}
 	

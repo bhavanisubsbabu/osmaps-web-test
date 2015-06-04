@@ -166,7 +166,9 @@ public class Html5Page {
 		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 
-	 	System.out.print(waypoint);
+	 	//action.dragAndDropBy(waypoint, 100,200).build().perform();
+	 	
+		 System.out.print(waypoint);
 		
 		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
 		 Thread.sleep(4000);
@@ -319,6 +321,21 @@ public class Html5Page {
 		 else{
 			 System.out.println("Save button not enabled");
 		 }
+	 }
+	 //* The purpose of this funciton is to save ab route in backend.
+	 
+	 public void save_ABroute() throws InterruptedException{
+		  Thread.sleep(4000);
+		 Actions action = new Actions(driver);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 
+		 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('routeABResultsSaveBtn');");
+		 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
+			action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
+			action.moveToElement(route_save).click(route_save).build().perform();
+		
+		 this.close_ABroutecreateDialog();
+		 
 	 }
 	 
 	 public void scroll_sidePane()
@@ -483,9 +500,22 @@ if(IsElementPresent(".//*[@id='Window_1_Content']/div[18]/div/div[3]/div[2]"))
 else {
 	driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
 }
+	
+
 		 
 		 
-		 
+	 }
+	 public void close_ABroutecreateDialog() throws InterruptedException{
+		 Thread.sleep(5000);
+		 for (String winHandle : driver.getWindowHandles()) {
+		     driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		 }
+	if(IsElementPresent(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div"))
+		 driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div")).click();
+	else {
+		assertTrue("Failed:Cannot save AB Route,please check manually",IsElementPresent(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div"));
+	driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
+	}
 	 }
 	 
 	 public void close_registrationDialog() throws InterruptedException{
@@ -634,8 +664,9 @@ Thread.sleep(3000);
 		this.driver.findElement(By.xpath((locator))).sendKeys(value);
 	}
 	
-	public void hitEnterKey(String locator){
+	public void hitEnterKey(String locator) throws InterruptedException{
 		this.driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
 		
 	}
 	//--click link by xpath
@@ -786,6 +817,7 @@ Thread.sleep(3000);
 	public void openMapstack() throws InterruptedException{
 		Thread.sleep(6000);
 		driver.findElement(By.xpath(obj.mapStackButton)).click();
+		driver.findElement(By.xpath(".//*[@id='Window_1_Btn_Leisure50k']")).click();
 		Thread.sleep(2000);
 		
 	}
@@ -805,12 +837,24 @@ Thread.sleep(3000);
 	
 public void verifyMapstackButtons_Subscriber() throws InterruptedException{
 	Thread.sleep(2000);
-	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.map125)).isDisplayed());
-	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.map150)).isDisplayed());
-	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.zoomMap)).isDisplayed());
-	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
-
+	//Verify 25k map
+	assertTrue("Failed:, MapStack 25k not found",IsElementPresent(".//*[@id='zoom-level-two']"));
+	//zoom in to 25k level 
+	driver.findElement(By.xpath(".//*[@id='zoom-slider-plus']")).click();
+	driver.findElement(By.xpath(".//*[@id='zoom-slider-plus']")).click();	
+     Thread.sleep(4000);
+	//Verify 50k map stack
+	assertTrue("Failed:, MapStack 25k not found",IsElementPresent(".//*[@id='zoom-level-one']"));
+	
+	 Thread.sleep(4000);
 }
+public void verify_subscriptionUpsell() throws InterruptedException{
+	Thread.sleep(4000);
+	 assertTrue("Failed:subscription upsel not displayed", IsElementPresent(".//*[@id='users-only-common-box']/div/div[2]/div[6]"));
+	
+}
+
+
 
 public void Verify_StarRatings_Popup(){
 	
@@ -1175,8 +1219,8 @@ public void Verify_Get_Directions() throws InterruptedException{
 // lib funtions related AB routing
 
 public void openABwindow() throws InterruptedException{
-	Thread.sleep(2000);
-	driver.findElement(By.id(obj.Get_Directions)).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath(obj.DirectionsTab)).click();
 
 }
 

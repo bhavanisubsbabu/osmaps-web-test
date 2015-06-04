@@ -21,7 +21,7 @@ public class ObjectRepository {
 	public final String groups = ".//*[@id='Window_1_Btn_Mode_Group']";
 	public final String mapfeatures = ".//*[@id='main-top-bar-places']";
 	// public final String MapFeatures=".//*[@id='Window_1_Btn_Mode_POI']";
-	public final String mapStackButton=".//*[@id='layers_icon']";
+	public final String mapStackButton=".//*[@id='layer_menu']";
 	
 	
 //Search box object
@@ -81,10 +81,10 @@ public class ObjectRepository {
 	
 	
 	public final String ab_Directionstab = ".//*[@id='MyRouteAB']";
-	public final String ab_startLocation="//input[@id='Window_1_Search_Input']";
-	public final String ab_finishLocation="//input[@id='routeABSearchInput1']";
-	public final String ab_getDirectionBttn="//div[@id='routeABGetBtn']";
-	public final String ab_carIcon="//img[@id='routeABTypeDrive']";
+	public final String ab_startLocation=".//*[@id='routeABSearchInput0']";
+	public final String ab_finishLocation=".//*[@id='routeABSearchInput1']";
+	public final String ab_getDirectionBttn=".//*[@id='routeABGetBtn']";
+	public final String ab_carIcon=".//*[@id='routeABTypeDrive']";
 	public final String ab_walkIcon="//img[@id='routeABTypeWalk']";
 	public final String ab_resultPopup="//div[@class='AB_PopUp_Details']";
 	//public final String ab_walk_resultPopup="";
@@ -99,7 +99,7 @@ public class ObjectRepository {
 	public final String CustomRoute_Save = ".//*[@id='createRouteSave']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
-	public final String CustomrRoute_Edit="html/body/div[2]/div[2]/div[16]/div[1]/div[2]";
+	public final String CustomrRoute_Edit=".//*[@id='myRouteList']/div/div[1]/div[4]]";
 
 	public final String CustomRoute_RouteName = ".//*[@id='saveRouteNameInput']";
 	public final String CustomRoute_RouteNotes = ".//*[@id='saveRouteNoteInput']";
@@ -222,7 +222,7 @@ public class ObjectRepository {
 	//My Routes
 	public final String My_Routes = ".//*[@id='MyRouteMy']";
 	//Get Directions
-	public final String Get_Directions = ".//*[@id='MyRouteAB']";
+	public final String Get_Directions = ".//*[@id='main-top-bar-directions']";
 	//Import GPX 	
 	public final String ImportGPX=".//*[@id='MyRouteImport']";
 	

@@ -3,7 +3,7 @@ As a getamap registered user
 In order to navigate
 I want to create route on map
 
-
+@regression
 Scenario: Create Route and Save as registered user
 Given I am on getamap app
 When I login as registered user
@@ -12,7 +12,7 @@ And  Save the route.
 
 # @TODO:JT disabled failing test - needs fixing!
 
-@regression
+@Current
 Scenario: Create Route and Save as Subscriber 
 Given I am on getamap app
 When I login as subscriber user
@@ -20,7 +20,7 @@ Then I should be able to create route
 And  Save the route.
 
 
-# @TODO:JT disabled failing test - needs fixing!
+
 
 @regression
 Scenario: Create Route and Save as Subscriber 
@@ -29,7 +29,7 @@ When I login as subscriber user
 Then I should be able to create route
 And  Save the route.
 
-
+@regression
 Scenario: Create Route and Save and Edit as registered user
 Given I am on getamap app
 When I login as registered user
@@ -37,8 +37,6 @@ Then I should be able to create route
 And  Save the route.
 And I should be able to edit route
 
-
-# @TODO:JT disabled failing test - needs fixing!
 
 @regression
 Scenario: Create Route and Save and Edit as subscriber user
