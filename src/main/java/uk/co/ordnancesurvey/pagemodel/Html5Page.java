@@ -510,11 +510,11 @@ else {
 		 for (String winHandle : driver.getWindowHandles()) {
 		     driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		 }
-	if(IsElementPresent(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div"))
-		 driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div")).click();
+	if(IsElementPresent(".//*[@id='Window_1_Content']/div[20]/div/div[2]/div"))
+		 driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[20]/div/div[2]/div")).click();
 	else {
-		assertTrue("Failed:Cannot save AB Route,please check manually",IsElementPresent(".//*[@id='Window_1_Content']/div[19]/div/div[2]/div"));
-	driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
+		assertTrue("Failed:Cannot save AB Route,please check manually",IsElementPresent(".//*[@id='Window_1_Content']/div[20]/div/div[2]/div"));
+	//driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
 	}
 	 }
 	 
