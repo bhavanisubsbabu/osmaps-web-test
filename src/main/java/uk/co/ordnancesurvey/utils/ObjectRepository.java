@@ -99,7 +99,7 @@ public class ObjectRepository {
 	public final String CustomRoute_Save = ".//*[@id='createRouteSave']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
-	public final String CustomrRoute_Edit=".//*[@id='myRouteList']/div/div[1]/div[4]]";
+	public final String CustomrRoute_Edit=".//*[@id='Window_1_Content']/div[16]/div[1]/div[2]";
 
 	public final String CustomRoute_RouteName = ".//*[@id='saveRouteNameInput']";
 	public final String CustomRoute_RouteNotes = ".//*[@id='saveRouteNoteInput']";
