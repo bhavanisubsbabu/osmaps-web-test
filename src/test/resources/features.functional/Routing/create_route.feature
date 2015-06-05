@@ -12,7 +12,7 @@ And  Save the route.
 
 # @TODO:JT disabled failing test - needs fixing!
 
-@Current
+@regression
 Scenario: Create Route and Save as Subscriber 
 Given I am on getamap app
 When I login as subscriber user
