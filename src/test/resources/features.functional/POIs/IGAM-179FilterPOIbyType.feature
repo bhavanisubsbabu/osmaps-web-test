@@ -37,7 +37,7 @@ Scenario Outline: Verify user able to filter POIs By type
 	Then I should see "<total>" POIs and clustered POIs
  Examples:
  |total|
- |23|
+ |17|
    
     
 
