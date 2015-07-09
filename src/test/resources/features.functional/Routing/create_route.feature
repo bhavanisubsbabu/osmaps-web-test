@@ -91,5 +91,18 @@ Scenario: Create route type as other
 	Then I should be able to create route
 	And  Save the route as other
 
+# create route with line style
 
+@regression	
+Scenario: Create route with line style and difficulty
+	Given I am on getamap app
+	When I login as registered user
+	Then I should be able to create route
+	And  Save as customed route
 
+@regression
+Scenario: Create route with line style and difficulty
+	Given I am on getamap app
+	When I login as subscriber user
+	Then I should be able to create route
+	And  Save as customed route
