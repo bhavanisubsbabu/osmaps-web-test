@@ -131,14 +131,34 @@ public class ThenSteps {
 				
 			}
 			else {
-			mainPage.save_route();
+			mainPage.save_route("default");
 			}
 		} catch (InterruptedException e) {
 	
 			e.printStackTrace();
 		}
-
 	}
+
+		@Then("^Save as customed route$")
+		public void save_as_customed_route() throws Throwable {
+			try {
+				if(platform.equalsIgnoreCase("Mobile")){
+					
+					
+				}
+				else {
+				mainPage.save_route("custom");
+				}
+			} catch (InterruptedException e) {
+		
+				e.printStackTrace();
+			}
+		    // Write code here that turns the phrase above into concrete actions
+		    //throw new PendingException();
+		}
+
+		
+	
 	//save and edit route.
 	@Then("^I should be able to edit route$")
 	public void i_should_be_able_to_edit_route() throws Throwable {
