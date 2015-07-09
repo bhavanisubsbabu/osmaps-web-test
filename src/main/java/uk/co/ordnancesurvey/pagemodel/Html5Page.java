@@ -104,6 +104,8 @@ public class Html5Page {
 		 
 	 }
 	 
+//Generic Functions performed on the map
+	 
 	 
 	 
 	 public void zoomout(){
@@ -112,6 +114,19 @@ public class Html5Page {
 	 
 	 public void zoomIn(){
 		 driver.findElement(By.xpath(obj.ZoomIn)).click();
+	 }
+	 
+	 public void rightClick_onMap() throws InterruptedException{
+		 this.zoomIn();
+		 Thread.sleep(3000);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 Actions action = new Actions(driver);
+		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");
+		action.clickAndHold(waypoint).build().perform();
+		//Action a = new Action();
+		
+	  
+		 
 	 }
 	 
 	 public void open_25kmap(){
@@ -165,7 +180,8 @@ public class Html5Page {
 		 Thread.sleep(3000);	
 		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 
+		// defines the webelement on the map to click 
+		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); 
 	 	//action.dragAndDropBy(waypoint, 100,200).build().perform();
 	 	
 		 System.out.print(waypoint);
@@ -223,7 +239,7 @@ public class Html5Page {
 	 
 	 //--Saves routes in the db
 	 
-	 public void save_route() throws InterruptedException{
+	 public void save_route(String routeStyle) throws InterruptedException{
 		 Thread.sleep(2000);
 		 Actions action = new Actions(driver);
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -241,10 +257,14 @@ public class Html5Page {
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteNotes)).sendKeys(Keys.ENTER);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteNotes)).sendKeys("12345##//");
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
+			 
 			 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('saveRouteBtn');");
 			 WebElement route_walk =(WebElement)js.executeScript("return document.getElementById('btn_activity_walking');");
+			 WebElement route_difficulty =(WebElement)js.executeScript("return document.getElementById('btn_difficulty_intermediate');");
 			 WebElement route_public =(WebElement)js.executeScript("return document.getElementById('btn_view_everyone');");
 			 WebElement route_cycle =(WebElement)js.executeScript("return document.getElementById('btn_activity_cycling');");
+			 WebElement route_color =(WebElement)js.executeScript("return document.getElementsByClassName('save-route-color-picker')[0].children[2];");
+			// WebElement route_surface =(WebElement)js.executeScript("return document.getElementById('document.getElementById('btn_surface_concrete')');");
 			 //driver.findElement(By.xpath(".//*[@id='saveParent']/div")).click();
 			 //driver.findElement(By.xpath(".//*[@id='saveParent']/div")).sendKeys(Keys.ARROW_DOWN);
 			 
@@ -252,6 +272,18 @@ public class Html5Page {
 			action.moveToElement(route_save).perform();
 			action.moveToElement(route_public,0,800).click(route_public).build().perform();
 			Thread.sleep(3000);
+			if(routeStyle.equals("custom"))
+			 {
+				action.moveToElement(route_difficulty).perform();
+				action.moveToElement(route_difficulty).click().build().perform();
+				Thread.sleep(4000);
+				
+			  action.moveToElement(route_color).perform();			
+			  action.moveToElement(route_color).click(route_color).build().perform();
+			  Thread.sleep(3000);
+				 
+				 
+			 }
 			action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
@@ -1328,7 +1360,7 @@ for (String winHandle : driver.getWindowHandles()) {
 }
 driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
 Thread.sleep(3000);	
-driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
+driver.findElement(By.xpath(obj.delete_OkButton)).click();
 Thread.sleep(2000);	
 
 
