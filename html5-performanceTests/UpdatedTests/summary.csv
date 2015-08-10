@@ -1,0 +1,4 @@
+sampler_label,aggregate_report_count,average,aggregate_report_min,aggregate_report_max,aggregate_report_stddev,aggregate_report_error%,aggregate_report_rate,aggregate_report_bandwidth,average_bytes
+RegisteredUserLogin,1,631,631,631,0.0,0.0,1.5847860538827259,0.6298905507131537,407.0
+DiscoverRoutes,1,329,329,329,0.0,0.0,3.0395136778115504,15.722953077507599,5297.0
+TOTAL,2,480,329,631,151.0,0.0,2.081165452653486,5.796370967741936,2852.0
