@@ -1,11 +1,13 @@
 Introduction:
-============ 
+===============
+
 This document is intended to help in setting up and running OSMaps web application automation test scripts
  
 Prerequisites:
-============
-Java JDK 
-Eclipse with Maven plugin installed 
+===============
+
+* Java JDK 
+* Eclipse with Maven plugin installed 
 
 Setup:
 ============
@@ -21,10 +23,12 @@ OSMaps Web App folder is added to eclipse and
 
 Framework Description:
 ============
+
 Our automation tests are designed in Page Object Model over the top of cucumber jvm.
 
 src/test/resources:
 ------------------- 
+
 Resources folder contains cucumber feature files, configuration files and browser drivers
  
 * BDD scenarios are created in features folder and are organized with tags 
@@ -34,7 +38,8 @@ Resources folder contains cucumber feature files, configuration files and browse
 * Test Config-prod.properties file consists environment and details for running tests on Prod server
  
 src/main/java:
--------------- 
+-----------------
+
 This folder contains 2 packages pagemodel and utils. 
  * Pagemodel package we have Html5Page.java class, this class consists of reusable functions performing specific test logic like login, search, create route, etc.,
  * utils package we have AppProperties.java and ObjectRepository classes.
