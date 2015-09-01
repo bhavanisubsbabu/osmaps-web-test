@@ -634,8 +634,9 @@ Thread.sleep(3000);
 		this.driver.findElement(By.xpath((locator))).sendKeys(value);
 	}
 	
-	public void hitEnterKey(String locator){
+	public void hitEnterKey(String locator) throws InterruptedException{
 		this.driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
 		
 	}
 	//--click link by xpath
@@ -675,7 +676,7 @@ Thread.sleep(3000);
 	 	 
 	 	 // System.out.println("Logo not found");
 	 	// captureScreen(this.getClass().getSimpleName(), this.testName.getMethodName());
-	 	 //System.out.println("Element not found on the page");
+	 	 System.out.println("Element not found on the page");
 	 	 return false;
 	  }
 	 }
@@ -802,12 +803,15 @@ Thread.sleep(3000);
 		
 	}
 	
+	/*	@Author Ravi Kunaparaju
+	 * 	updated assert as mapstack buttons for guest, registered and subscribed users are same now, when clicked on these buttons based on user type allowed maps are displayed or prompted to subscribe
+	 */
 	
 public void verifyMapstackButtons_Subscriber() throws InterruptedException{
 	Thread.sleep(2000);
-	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.map125)).isDisplayed());
-	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.map150)).isDisplayed());
-	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.zoomMap)).isDisplayed());
+	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
+	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
+	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
 	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
 
 }
@@ -830,11 +834,15 @@ public void Verify_StarRatings_SidePanel(){
 
 }
 
-public void verifyMapstackButtons_registered(){
-	
-	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.zoomMap)).isDisplayed());
-	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
+/*	@Author Ravi Kunaparaju
+ * 	updated assert as mapstack buttons for guest, registered and subscribed users are same now, when clicked on these buttons based on user type allowed maps are displayed or prompted to subscribe
+ */
 
+public void verifyMapstackButtons_registered(){
+	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
+	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
+	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
+	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
 }
 
 
@@ -1176,7 +1184,9 @@ public void Verify_Get_Directions() throws InterruptedException{
 
 public void openABwindow() throws InterruptedException{
 	Thread.sleep(2000);
-	driver.findElement(By.id(obj.Get_Directions)).click();
+	driver.findElement(By.xpath(obj.Routes_Tab)).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath(obj.Get_Directions)).click();
 
 }
 
@@ -1314,6 +1324,42 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 	assertTrue("Failed:Login was not successfull",driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).getText().contains(usertype));
 }
 
+/*	@Author Ravi Kunaparaju
+ * 	Added this method to select  a map type from mapstack options 
+ */
 
+	public void selectMapType(String maptype) throws InterruptedException{
+		driver.findElement(By.xpath(maptype)).click();
+		Thread.sleep(3000);
+	}
+	
+	public void snapZoom(){
+		if(IsElementDisplayed(obj.Snapdisabled)){
+			for(int i=0;i<3;i++){zoomIn();}
+		}
+	}
+
+	public void createDpnRoute() throws InterruptedException{
+		 Actions action = new Actions(driver);
+		 driver.findElement(By.xpath(obj.RoutesTab)).click();	    				 		 
+		 Thread.sleep(3000);	
+		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); 
+		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
+		 Thread.sleep(4000);
+		 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
+		 Thread.sleep(4000);
+		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
+		 Thread.sleep(4000);
+		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+		
+	}
+		
+		
+
+	
+	
+	
 }
 

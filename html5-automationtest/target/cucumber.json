@@ -1,0 +1,225 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 8,
+        "name": "Discover single scenario as  guest",
+        "description": "",
+        "id": "discover-route;discover-single-scenario-as--guest",
+        "after": [
+          {
+            "result": {
+              "duration": 86214,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GivenSteps.takeScreenshot(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 12088049426,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I am on getamap app",
+            "match": {
+              "location": "GivenSteps.i_am_on_getamap_app()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8279978865,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I login as guest user",
+            "match": {
+              "location": "WhenSteps.i_login_as_guest_user()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 19309445679,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I click Discover under routes",
+            "match": {
+              "location": "WhenSteps.i_click_Discover_under_routes()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22199770,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I should see available public routes in that map view area",
+            "match": {
+              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 14,
+        "name": "Discover single route as registered user",
+        "description": "",
+        "id": "discover-route;discover-single-route-as-registered-user",
+        "after": [
+          {
+            "result": {
+              "duration": 34486,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GivenSteps.takeScreenshot(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3979063064,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I am on getamap app",
+            "match": {
+              "location": "GivenSteps.i_am_on_getamap_app()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 17839506756,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I login as registered user",
+            "match": {
+              "location": "WhenSteps.i_login_as_registered_user()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 19299486697,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I click Discover under routes",
+            "match": {
+              "location": "WhenSteps.i_click_Discover_under_routes()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 19364962,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I should see available public routes in that map view area",
+            "match": {
+              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 22,
+        "name": "Discover single scenario as  subscriber",
+        "description": "",
+        "id": "discover-route;discover-single-scenario-as--subscriber",
+        "after": [
+          {
+            "result": {
+              "duration": 33664,
+              "status": "passed"
+            },
+            "match": {
+              "location": "GivenSteps.takeScreenshot(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3058346550,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I am on getamap app",
+            "match": {
+              "location": "GivenSteps.i_am_on_getamap_app()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 26720006766,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I login as subscriber user",
+            "match": {
+              "location": "WhenSteps.i_login_as_subscriber_user()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 19311939324,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I click Discover under routes",
+            "match": {
+              "location": "WhenSteps.i_click_Discover_under_routes()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16758827,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I should see available public routes in that map view area",
+            "match": {
+              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 21,
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Discover route",
+    "description": "As a user \r\nI order to plan my journy\r\nI should be able to discover existing routes",
+    "id": "discover-route",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features.functional/Routing/DiscoverRoute.feature"
+  }
+]

@@ -183,8 +183,12 @@ Thread.sleep(4000);
 	
 	@When("^I click Discover under routes$")
 	public void i_click_Discover_under_routes() throws Throwable {
+		
+		mainPage.set_textBox(obj.searchBox, "London");
+		mainPage.hitEnterKey(obj.searchBox);
+		Thread.sleep(2000);
 		mainPage.click_discoverRoutes();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 	}
 	
 	@When("^I open routes menu$")

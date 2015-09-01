@@ -16,12 +16,13 @@ public class ObjectRepository {
 	
 	@FindBy(how = How.XPATH, using = ".//*[@id='Window_1_Btn_Mode_Route']")
 	public WebElement routes;
+	
 
 	// public final String routes= ".//*[@id='Window_1_Btn_Mode_Route']";
 	public final String groups = ".//*[@id='Window_1_Btn_Mode_Group']";
 	public final String mapfeatures = ".//*[@id='main-top-bar-places']";
 	// public final String MapFeatures=".//*[@id='Window_1_Btn_Mode_POI']";
-	public final String mapStackButton=".//*[@id='layers_icon']";
+	public final String mapStackButton="//*[@id='layer_menu']";
 	
 	
 //Search box object
@@ -81,8 +82,8 @@ public class ObjectRepository {
 	
 	
 	public final String ab_Directionstab = ".//*[@id='MyRouteAB']";
-	public final String ab_startLocation="//input[@id='Window_1_Search_Input']";
-	public final String ab_finishLocation="//input[@id='routeABSearchInput1']";
+	public final String ab_startLocation="//*[@id='routeABSearchInput0']";
+	public final String ab_finishLocation="//*[@id='routeABSearchInput1']";
 	public final String ab_getDirectionBttn="//div[@id='routeABGetBtn']";
 	public final String ab_carIcon="//img[@id='routeABTypeDrive']";
 	public final String ab_walkIcon="//img[@id='routeABTypeWalk']";
@@ -123,18 +124,24 @@ public class ObjectRepository {
 	public final String DiscoverRoutes_routeType_Run = ".//*[@id='discSelectRouteTypeRun']";
 	public final String DiscoverRoutes_routeType_Walk = ".//*[@id='discSelectRouteTypeWalk']";
 	public final String DiscoverRoutes_routeType_Cycle = ".//*[@id='discSelectRouteTypeCycle']";
-	public final String DiscoverRoutes_routeType_Other = ".//*[@id='discSelectRouteTypeOther']";
+	public final String DiscoverRoutes_routeType_Other = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div[1]/div[5]";
 	public final String DiscoverRoutes_routeType_All = ".//*[@id='discSelectRouteTypeAll']";
 	public final String DiscoverRoutes_routeFiler_Distance_List = ".//*[@id='discSelectDistance']/option";
 	public final String DiscoverRoutes_route_List_FirstRoute = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]";
-	public final String DiscoverRoutes_route_List_FirstRoute_ViewLink = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]";
+//@Author Ravi Kunaparaju, updated xpath
+	public final String DiscoverRoutes_route_List_FirstRoute_ViewLink = "./html/body/div[2]/div[2]/div[17]/div[1]/div[4]/div/div[1]/div[4]/div[1]/div[2]";
 	public final String DiscoverRoutes_route_POI_RouteName = ".//*[@id='discPopupContent']/div[2]/div/b";
 
-	// 1:25 and 1:50 maps
-	public final String map125 = "html/body/div[2]/div[2]/div[11]/div/ul/li[4]/div";
-	public final String map150 = "html/body/div[2]/div[2]/div[11]/div/ul/li[3]/div";
-	public final String zoomMap="html/body/div[2]/div[2]/div[11]/div/ul/li[1]/div";
-	public final String AerialMap="html/body/div[2]/div[2]/div[11]/div/ul/li[2]/div";
+	
+	/*
+	 * 	@Author Ravi Kunaparaju
+	 *  Updated map stack elements to select map type
+	 */
+	
+	public final String standardMap = "//*[@id='Window_1_Btn_ZoomMap']";
+	public final String standardAndLeisureMap = "//*[@id='Window_1_Btn_Leisure50k']";
+	public final String nationalParkPathwaysMap="//*[@id='Window_1_Btn_NationalParks']";
+	public final String AerialMap="//*[@id='Window_1_Btn_BingAerial']";
 	
 	
 	//Elements for POI
@@ -211,8 +218,7 @@ public class ObjectRepository {
 	public final String Close_Map_Features_Panel = ".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[1]";
 	
 	//ROUTES TAB
-	public final String Routes_Tab = ".//*[@id='Window_1_Btn_Mode_Route']";
-	
+	public final String Routes_Tab = ".//*[@id='main-top-bar-routes']";	
 	//Close
 	public final String Routes_Tab_Close_Button = ".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[1]";
 	//Discover Routes
@@ -221,8 +227,17 @@ public class ObjectRepository {
 	public final String Create_Custom_Trail = ".//*[@id='MyRouteCreate']";
 	//My Routes
 	public final String My_Routes = ".//*[@id='MyRouteMy']";
+	/*
+	 * @Author Ravi Kunaparaju
+	 * Adding element Directions to fix ABDirections test failures
+	 * 
+	 * Directions
+	 */
+	
+	public final String Directions = ".//*[@id='main-top-bar-directions']";
+	
 	//Get Directions
-	public final String Get_Directions = ".//*[@id='MyRouteAB']";
+	public final String Get_Directions = ".//*[@id='MyRouteAB']";//*[@id="main-top-bar-directions"];
 	//Import GPX 	
 	public final String ImportGPX=".//*[@id='MyRouteImport']";
 	
@@ -245,6 +260,16 @@ public class ObjectRepository {
 	
 	//Close Get Directions Panel
 	public final String Sign_up_for_paid_subscription = ".//*[@id='Window_1_Login_Header']/div[4]";
+	
+	
+	/*
+	 * @Author Ravi Kunaparaju
+	 * Added snap for DPN 
+	 */
+	public final String SnapActive = ".//div[contains(@class,'tooltipstered active')][text()='Snap']";
+	public final String Snapdisabled = ".//div[contains(@class,'tooltipstered')][text()='Snap']" ;
+	
+	
 	
 
 }

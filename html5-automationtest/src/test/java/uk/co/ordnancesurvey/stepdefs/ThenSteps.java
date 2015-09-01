@@ -172,7 +172,7 @@ public class ThenSteps {
 			{
 				Thread.sleep(2000);
 				mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");
-				mainPage.clickLinkByXpath(obj.map125);
+				mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
 				
 			
 			}
@@ -182,7 +182,7 @@ public class ThenSteps {
 		{
 			Thread.sleep(2000);
 			mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");	
-			mainPage.clickLinkByXpath(obj.map150);
+			mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
 		}
 				
 				mainPage.OpenRoutesmenu();
