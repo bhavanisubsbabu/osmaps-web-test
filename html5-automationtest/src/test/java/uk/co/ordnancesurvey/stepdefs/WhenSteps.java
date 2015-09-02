@@ -484,6 +484,49 @@ Thread.sleep(4000);
 		    mainPage.choose_toRegisternewUser();
 		    
 		}		
+/* 
+ * @Author Ravi Kunaparaju
+ * Added when steps for POI
+ * 		
+ */
+		@When("^I search for location$")
+		public void i_search_for_location() throws Throwable {
+			mainPage.set_textBox(obj.searchBox, "London");
+			mainPage.hitEnterKey(obj.searchBox);
+		}
+
+		@When("^from Places I selected POI Castles and Attractions$")
+		public void from_Places_I_selected_POI_Castles_and_Attractions() throws Throwable {
+			Thread.sleep(1000);
+			mainPage.clickLinkByXpath(obj.mapfeatures);
+			Thread.sleep(2000);		
+			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
+			Thread.sleep(2000);
+		}
 		
+		@When("^from Places I select POI Castles and Attractions$")
+		public void from_Places_I_select_POI_Castles_and_Attractions() throws Throwable {
+			mainPage.set_textBox(obj.searchBox, "Windsor Castle");
+			mainPage.hitEnterKey(obj.searchBox);
+			Thread.sleep(1000);
+			mainPage.clickLinkByXpath(obj.mapfeatures);
+			Thread.sleep(1000);		
+			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
+			Thread.sleep(2000);
+		}
+
+		@When("^click on a POI and select more info$")
+		public void click_on_a_POI_and_select_more_info() throws Throwable {
+		    mainPage.viewPOI();
+		}
 		
+		@When("^select pin POI to map$")
+		public void select_pin_POI_to_map() throws Throwable {
+		    mainPage.pinPOI();
+		}
+		@When("^unpin POI from map$")
+		public void unpin_POI_from_map() throws Throwable {
+		    mainPage.unpinPOI();
+		}
+
 }

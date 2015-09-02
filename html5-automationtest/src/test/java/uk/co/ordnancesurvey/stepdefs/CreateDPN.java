@@ -1,17 +1,10 @@
 package uk.co.ordnancesurvey.stepdefs;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import uk.co.ordnancesurvey.pagemodel.Html5Page;
 import uk.co.ordnancesurvey.utils.*;
-import cucumber.api.PendingException;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -38,7 +31,6 @@ public class CreateDPN {
 	public void i_select_create_custom_route_from_routes() throws Throwable {
 		mainPage.set_textBox(obj.searchBox, "New Forest");
 		mainPage.hitEnterKey(obj.searchBox);
-		//mainPage.plot_newRoute();
 	}
 
 	@When("^I zoom-in map till snap is enabled and plot a route$")

@@ -30,160 +30,116 @@ public class ThenSteps {
 	ObjectRepository obj = new ObjectRepository();
 	
 
-	public ThenSteps(SharedWebDriver driver){
+		public ThenSteps(SharedWebDriver driver){
 		
-		this.driver=driver;
-		mainPage = PageFactory.initElements(driver,
-	            Html5Page.class);
-			
-		
-	}
+			this.driver=driver;
+			mainPage = PageFactory.initElements(driver,Html5Page.class);
+		}
 
 	
-	@Then("^I should be able to create route$")
-	public void i_should_be_able_to_create_route()   {
-		
-			try {
-				
+		@Then("^I should be able to create route$")
+		public void i_should_be_able_to_create_route(){
+			try {			
 				if(platform.equalsIgnoreCase("Mobile")){
 					mainPage.plot_newRoute_onMobile();
-					
-					
 				}
-				else {
-					
-				
-				//mainPage.OpenRoutesmenu();
-				
-				
+				else {				
 				mainPage.plot_newRoute();
 				}
 			} catch (InterruptedException e) {
 		
 				e.printStackTrace();
 			}
-			
-					
-
-	
-
-	}
+		}
 	
 	
-	@Then("^I should be able to create route on mapstack\"(.*?)\"$")
-	public void i_should_be_able_to_create_route_on_mapstack(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+		@Then("^I should be able to create route on mapstack\"(.*?)\"$")
+		public void i_should_be_able_to_create_route_on_mapstack(String arg1) throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
 		
-		try {
+			try {
 			
+				if(platform.equalsIgnoreCase("Mobile")){
+				mainPage.plot_newRoute_onMobile();		
+				}
+				else {			
+				mainPage.plot_newRoute_MapStack();			
+				}
+			} 
+			catch (InterruptedException e) {
+			e.printStackTrace();
+			}
+		}
+	
+		@Then("^I should be able to create route in \"(.*?)\"$")
+		public void i_should_be_able_to_create_route_in(String arg1) throws Throwable {
+			try {
+			
+				if(platform.equalsIgnoreCase("Mobile")){
+					mainPage.plot_newRoute_onMobile();
+				}
+				else {
+					mainPage.plot_newRoute_MapStack();
+				}
+			} 
+			catch (InterruptedException e) {	
+			e.printStackTrace();
+			}
+		}
+	
+	
+		@Then("^Save the route\\.$")
+		public void save_the_route()  {
+			try {
+				if(platform.equalsIgnoreCase("Mobile")){	
+				}
+				else {
+					mainPage.save_route();
+				}
+			}
+			catch (InterruptedException e) {
+			e.printStackTrace();
+			}	
+		}
+	
+		//save and edit route.
+		@Then("^I should be able to edit route$")
+		public void i_should_be_able_to_edit_route() throws Throwable {
 			if(platform.equalsIgnoreCase("Mobile")){
-				mainPage.plot_newRoute_onMobile();
-				
-				
 			}
 			else {
-				
-			
-			mainPage.plot_newRoute_MapStack();
-			
-			
-			//mainPage.plot_newRoute();
+				mainPage.eidt_saved_route();
 			}
-		} catch (InterruptedException e) {
-	
-			e.printStackTrace();
 		}
-		
-	    
-	}
 	
-	@Then("^I should be able to create route in \"(.*?)\"$")
-	public void i_should_be_able_to_create_route_in(String arg1) throws Throwable {
-      try {
-			
-			if(platform.equalsIgnoreCase("Mobile")){
-				mainPage.plot_newRoute_onMobile();
-				
-				
-			}
-			else {
-				
-			
-			mainPage.plot_newRoute_MapStack();
-			
-			
-			//mainPage.plot_newRoute();
-			}
-		} catch (InterruptedException e) {
+		//save as private route
 	
-			e.printStackTrace();
-		}
-		
-	    
-	}
-	
-	
-	@Then("^Save the route\\.$")
-	public void save_the_route()  {
-		try {
-			if(platform.equalsIgnoreCase("Mobile")){
-				
-				
-			}
-			else {
-			mainPage.save_route();
-			}
-		} catch (InterruptedException e) {
-	
-			e.printStackTrace();
+		@Then("^Save the route as private$")
+		public void save_the_route_as_private() throws Throwable {
+			mainPage.save_route_run("no");
 		}
 
-	}
-	//save and edit route.
-	@Then("^I should be able to edit route$")
-	public void i_should_be_able_to_edit_route() throws Throwable {
-		if(platform.equalsIgnoreCase("Mobile")){
-			
-			
+	
+		//-verify route exist on the map
+		@Then("^I should see available public routes in that map view area$")
+		public void i_should_see_available_public_routes_in_that_map_view_area() throws Throwable {
+			mainPage.IsElementPresent(obj.Route_list);
 		}
-		else {
-	    mainPage.eidt_saved_route();
-		}
-	}
 	
-	//save as private route
-	
-	@Then("^Save the route as private$")
-	public void save_the_route_as_private() throws Throwable {
-		mainPage.save_route_run("no");
-	}
-
-	
-	//-verify route exist on the map
-	@Then("^I should see available public routes in that map view area$")
-	public void i_should_see_available_public_routes_in_that_map_view_area() throws Throwable {
-	   mainPage.IsElementPresent(obj.Route_list);
-	}
-	@Then("^I should be able to create route on \"(.*?)\"km Map$")
-	public void i_should_be_able_to_create_route_on_k_Map(int arg1)  {	
-	
-		try {
-			if (arg1==25)
-			{
-				Thread.sleep(2000);
-				mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");
-				mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
-				
-			
-			}
-		else
-		
-		if (arg1==50)
-		{
-			Thread.sleep(2000);
-			mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");	
-			mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
-		}
+		@Then("^I should be able to create route on \"(.*?)\"km Map$")
+		public void i_should_be_able_to_create_route_on_k_Map(int arg1)  {	
+			try {
+				if (arg1==25){
+					Thread.sleep(2000);
+					mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");
+					mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
+				}
+				else	
+					if (arg1==50){
+						Thread.sleep(2000);
+						mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");	
+						mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
+					}
 				
 				mainPage.OpenRoutesmenu();
 				mainPage.zoomIn();
@@ -194,18 +150,14 @@ public class ThenSteps {
 				Thread.sleep(3000);
 				
 				mainPage.plot_newRoute();
-	} catch (InterruptedException e) {
-			
+			} 
+			catch (InterruptedException e) {	
 				e.printStackTrace();
 			}	
-			
+		}
 
-	}
-
-	
-	
-	@Then("^I should be able to verify \"(.*?)\" on \"(.*?)\"$")
-	public void i_should_be_able_to_verify(String Arg1,int Arg2) throws Throwable {
+		@Then("^I should be able to verify \"(.*?)\" on \"(.*?)\"$")
+		public void i_should_be_able_to_verify(String Arg1,int Arg2) throws Throwable {
 			for (int j = 0; j < 6; j++) {
 				
 				mainPage.zoomIn();
@@ -220,43 +172,44 @@ public class ThenSteps {
 				mainPage.zoomout();
 			}
 
-	} 
-	@Then("^I should be able to verify POI with \"(.*?)\" and \"(.*?)\" on Zoomstack\"(.*?)\"$")
-	public void i_should_be_able_to_verify_POI_on_Zoomstack(int poiIndex,String poiText, int zoomstack) {
+		} 
+		@Then("^I should be able to verify POI with \"(.*?)\" and \"(.*?)\" on Zoomstack\"(.*?)\"$")
+		public void i_should_be_able_to_verify_POI_on_Zoomstack(int poiIndex,String poiText, int zoomstack) {
 			
 		 try {
-			 mainPage.locatePOI(3);
+			 	mainPage.locatePOI(3);
 			 
-			 for (int i = 1; i <= zoomstack; i++) {
-				 mainPage.zoomIn();
+			 	for (int i = 1; i <= zoomstack; i++) {
+			 		mainPage.zoomIn();
 				
-			}
-			 mainPage.locatePOI(poiIndex);
-			String poiInfo= mainPage.getText(".//*[@id='Window_1_Content']/div[15]/div[1]/div/div[3]");
+			 	}
+			 	mainPage.locatePOI(poiIndex);
+			 	String poiInfo= mainPage.getText(".//*[@id='Window_1_Content']/div[15]/div[1]/div/div[3]");
 			
-			assertTrue(poiInfo.contains(poiText));
+				assertTrue(poiInfo.contains(poiText));
 	
-		} catch (InterruptedException e) {
+		 	} 
+		 	catch (InterruptedException e) {
 			
-			e.printStackTrace();
+				e.printStackTrace();
+			}
+		
 		}
-		
-	}
 
 
-	@Then("^I should be able to see side bar with POI detail information \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
-	public void i_should_be_able_to_see_side_bar_with_POI_detail_information(String arg1,String arg2,String arg3,String arg4) throws InterruptedException  {
-		Thread.sleep(2000);
-	String AddressLines=mainPage.getText(".//*[@id='Window_1_Content']/div[12]/div[1]/div");
+		@Then("^I should be able to see side bar with POI detail information \"(.*?)\" \"(.*?)\" \"(.*?)\" \"(.*?)\"$")
+		public void i_should_be_able_to_see_side_bar_with_POI_detail_information(String arg1,String arg2,String arg3,String arg4) throws InterruptedException  {
+			Thread.sleep(2000);
+			String AddressLines=mainPage.getText(".//*[@id='Window_1_Content']/div[12]/div[1]/div");
 
-	assertTrue(AddressLines.contains(arg1));
-	assertTrue(AddressLines.contains(arg2));
-	assertTrue(AddressLines.contains(arg3));
-	assertTrue(AddressLines.contains(arg4));
+			assertTrue(AddressLines.contains(arg1));
+			assertTrue(AddressLines.contains(arg2));
+			assertTrue(AddressLines.contains(arg3));
+			assertTrue(AddressLines.contains(arg4));
 
 		
-	}
-	//find POI Categories on the POI side panel
+		}
+		//find POI Categories on the POI side panel
 		@Then("^I should be able to see the POI Categories$")
 		public void i_should_be_able_to_see_the_POI_Categories() throws Throwable {
 		  
@@ -265,14 +218,14 @@ public class ThenSteps {
 		}
 	
 
-@Then("^I should see \"(.*?)\" POIs and clustered POIs$")
-public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
+		@Then("^I should see \"(.*?)\" POIs and clustered POIs$")
+		public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
+    		// Write code here that turns the phrase above into concrete actions
 	
- int total_pois=mainPage.filter_POIbyType();
- assertTrue("Failed: Total POIs returned" + total_pois + " doesn't match to expected"+arg1+" value",(Integer.parseInt(arg1)==total_pois ));
+			int total_pois=mainPage.filter_POIbyType();
+			assertTrue("Failed: Total POIs returned" + total_pois + " doesn't match to expected"+arg1+" value",(Integer.parseInt(arg1)==total_pois ));
    
-}
+		}
 
 
 		@Then("^by sub category \"(.*?)\"$")
@@ -537,84 +490,111 @@ public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
 					}
 					
 						
-	@Then("^I should be given an option to upgrade to a Registered user by completing the registration process within the application$")
-	public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	mainPage.registernewUser();
-	Thread.sleep(2000);
+		@Then("^I should be given an option to upgrade to a Registered user by completing the registration process within the application$")
+		public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.registernewUser();
+			Thread.sleep(2000);
 
 						
-}
+		}
 						
-	@Then("^I should be able to register by completing the registration process within the application$")
-	public void i_should_be_able_to_register_by_completing_the_registration_process_within_the_application() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	mainPage.registernewUser();
-	Thread.sleep(2000);
-}
+		@Then("^I should be able to register by completing the registration process within the application$")
+		public void i_should_be_able_to_register_by_completing_the_registration_process_within_the_application() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.registernewUser();
+			Thread.sleep(2000);
+		}
 							
-	@Then("^I should be getting errors when entering incorrect details in the registration process within the application$")
-	public void I_should_be_getiing_errors_when_entering_incorrect_details_in_the_registration_process_within_the_application() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	mainPage.registernewUser2();
-	Thread.sleep(2000);
+		@Then("^I should be getting errors when entering incorrect details in the registration process within the application$")
+		public void I_should_be_getiing_errors_when_entering_incorrect_details_in_the_registration_process_within_the_application() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.registernewUser2();
+			Thread.sleep(2000);
 								
-}
+		}
 							
-	@Then("^I should be given an option to upgrade to subscribed user by completing the subscription process within the application$")
-	public void i_should_be_given_an_option_to_upgrade_to_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	mainPage.subscribenewUser();
-	Thread.sleep(2000);
+		@Then("^I should be given an option to upgrade to subscribed user by completing the subscription process within the application$")
+		public void i_should_be_given_an_option_to_upgrade_to_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.subscribenewUser();
+			Thread.sleep(2000);
 	
-
-
-}
-	@Then("^I should be able to upgrade to a subscribed user by completing the subscription process within the application$")
-	public void i_should_be_able_to_upgrade_to_a_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	//driver.findElement(By.cssSelector(".productItem")).click();
-	Thread.sleep(2000);
-	mainPage.registernewUser();
-	Thread.sleep(2000);
-		
-}
+		}
 	
-	@Then("^I should be able to delete any route from my routes$")
-	public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {
-	// Write code here that turns the phrase above into concrete actions
-	mainPage.clickLinkByXpath(obj.RoutesTab);
-	Thread.sleep(2000);
-	mainPage.Delete_route_from_my_routes();
-
-}
+		@Then("^I should be able to upgrade to a subscribed user by completing the subscription process within the application$")
+		public void i_should_be_able_to_upgrade_to_a_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			//driver.findElement(By.cssSelector(".productItem")).click();
+			Thread.sleep(2000);
+			mainPage.registernewUser();
+			Thread.sleep(2000);
+		}
+	
+		@Then("^I should be able to delete any route from my routes$")
+		public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.clickLinkByXpath(obj.RoutesTab);
+			Thread.sleep(2000);
+			mainPage.Delete_route_from_my_routes();
+		}
 	
 	
 	
 //smoke test functions
 
-	@Then("^I should be able to see all options on top menu bar$")
-	public void i_should_be_able_to_see_all_options_on_top_menu_bar() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    mainPage.verify_topMenuBar();
-	}
+		@Then("^I should be able to see all options on top menu bar$")
+		public void i_should_be_able_to_see_all_options_on_top_menu_bar() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.verify_topMenuBar();
+		}
 
 	
 	
 	
-	@Then("^I should be able to find all route options$")
-	public void i_should_be_able_to_find_all_route_options() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    mainPage.verify_routesMenu();
-	}
+		@Then("^I should be able to find all route options$")
+		public void i_should_be_able_to_find_all_route_options() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.verify_routesMenu();
+		}
 
 	
 	
-	@Then("^I should see \"(.*?)\" top right corner$")
-	public void i_should_see_top_right_corner(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	 mainPage.verify_UserLogin(arg1);   
-	}
-	
-	}
+		@Then("^I should see \"(.*?)\" top right corner$")
+		public void i_should_see_top_right_corner(String arg1) throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			mainPage.verify_UserLogin(arg1);   
+		}
+
+/*
+ * @Author Ravi Kunaparaju
+ * 	
+ */
+		@Then("^I should list of clustered POIs for that location$")
+		public void i_should_list_of_clustered_POIs_for_that_location() throws Throwable {
+			mainPage.IsElementPresent(obj.POICastelsLondon);
+	    
+		}
+		
+		@Then("^I should see a right side panel view with details$")
+		public void i_should_see_a_right_side_panel_view_with_details() throws Throwable {
+		    mainPage.assertPOI();
+		}
+		
+		@Then("^I should see POI on map after logging into the application as registered user$")
+		public void i_should_see_POI_on_map_after_logging_into_the_application() throws Throwable {
+		    mainPage.signOUt();
+		    mainPage.open_login_window();
+		    mainPage.signIn(AppProperties.get("regUname"),AppProperties.get("regPwd"));
+		    mainPage.verifyPinOnMap();
+		}
+
+		@Then("^POI should be removed from map and when user refreshes POI shouldn't br visible$")
+		public void poi_should_be_removed_from_map_and_when_user_refreshes_POI_shouldn_t_br_visible() throws Throwable {
+		    mainPage.PageRefresh();
+		    Thread.sleep(2000);
+		    mainPage.elementDoesntExists(obj.POI);
+		}
+
+}
 	

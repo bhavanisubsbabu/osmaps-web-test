@@ -3,14 +3,14 @@
     "line": 1,
     "elements": [
       {
-        "line": 8,
-        "name": "Discover single scenario as  guest",
+        "line": 51,
+        "name": "User should be able to pin POI to map and see when logs back to the applciation",
         "description": "",
-        "id": "discover-route;discover-single-scenario-as--guest",
+        "id": "map-features;user-should-be-able-to-pin-poi-to-map-and-see-when-logs-back-to-the-applciation",
         "after": [
           {
             "result": {
-              "duration": 86214,
+              "duration": 91552,
               "status": "passed"
             },
             "match": {
@@ -23,10 +23,10 @@
         "steps": [
           {
             "result": {
-              "duration": 12088049426,
+              "duration": 11116792451,
               "status": "passed"
             },
-            "line": 9,
+            "line": 53,
             "name": "I am on getamap app",
             "match": {
               "location": "GivenSteps.i_am_on_getamap_app()"
@@ -35,79 +35,10 @@
           },
           {
             "result": {
-              "duration": 8279978865,
+              "duration": 20058629825,
               "status": "passed"
             },
-            "line": 10,
-            "name": "I login as guest user",
-            "match": {
-              "location": "WhenSteps.i_login_as_guest_user()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 19309445679,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "I click Discover under routes",
-            "match": {
-              "location": "WhenSteps.i_click_Discover_under_routes()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 22199770,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "I should see available public routes in that map view area",
-            "match": {
-              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
-            },
-            "keyword": "Then "
-          }
-        ]
-      },
-      {
-        "line": 14,
-        "name": "Discover single route as registered user",
-        "description": "",
-        "id": "discover-route;discover-single-route-as-registered-user",
-        "after": [
-          {
-            "result": {
-              "duration": 34486,
-              "status": "passed"
-            },
-            "match": {
-              "location": "GivenSteps.takeScreenshot(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3979063064,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "I am on getamap app",
-            "match": {
-              "location": "GivenSteps.i_am_on_getamap_app()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 17839506756,
-              "status": "passed"
-            },
-            "line": 16,
+            "line": 54,
             "name": "I login as registered user",
             "match": {
               "location": "WhenSteps.i_login_as_registered_user()"
@@ -116,39 +47,69 @@
           },
           {
             "result": {
-              "duration": 19299486697,
+              "duration": 11393007856,
               "status": "passed"
             },
-            "line": 17,
-            "name": "I click Discover under routes",
+            "line": 55,
+            "name": "from Places I select POI Castles and Attractions",
             "match": {
-              "location": "WhenSteps.i_click_Discover_under_routes()"
+              "location": "WhenSteps.from_Places_I_select_POI_Castles_and_Attractions()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 19364962,
+              "duration": 3151555286,
               "status": "passed"
             },
-            "line": 18,
-            "name": "I should see available public routes in that map view area",
+            "line": 56,
+            "name": "click on a POI and select more info",
             "match": {
-              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
+              "location": "WhenSteps.click_on_a_POI_and_select_more_info()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1703041845,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "select pin POI to map",
+            "match": {
+              "location": "WhenSteps.select_pin_POI_to_map()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 14346728024,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "I should see POI on map after logging into the application as registered user",
+            "match": {
+              "location": "ThenSteps.i_should_see_POI_on_map_after_logging_into_the_application()"
             },
             "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 50,
+            "name": "@wip"
           }
         ]
       },
       {
-        "line": 22,
-        "name": "Discover single scenario as  subscriber",
+        "line": 60,
+        "name": "User should be able to unpin POI from map",
         "description": "",
-        "id": "discover-route;discover-single-scenario-as--subscriber",
+        "id": "map-features;user-should-be-able-to-unpin-poi-from-map",
         "after": [
           {
             "result": {
-              "duration": 33664,
+              "duration": 32844,
               "status": "passed"
             },
             "match": {
@@ -161,10 +122,10 @@
         "steps": [
           {
             "result": {
-              "duration": 3058346550,
+              "duration": 2629721926,
               "status": "passed"
             },
-            "line": 23,
+            "line": 62,
             "name": "I am on getamap app",
             "match": {
               "location": "GivenSteps.i_am_on_getamap_app()"
@@ -173,53 +134,77 @@
           },
           {
             "result": {
-              "duration": 26720006766,
+              "duration": 23711849251,
               "status": "passed"
             },
-            "line": 24,
-            "name": "I login as subscriber user",
+            "line": 63,
+            "name": "I login as registered user",
             "match": {
-              "location": "WhenSteps.i_login_as_subscriber_user()"
+              "location": "WhenSteps.i_login_as_registered_user()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 19311939324,
+              "duration": 11365765782,
               "status": "passed"
             },
-            "line": 25,
-            "name": "I click Discover under routes",
+            "line": 64,
+            "name": "from Places I select POI Castles and Attractions",
             "match": {
-              "location": "WhenSteps.i_click_Discover_under_routes()"
+              "location": "WhenSteps.from_Places_I_select_POI_Castles_and_Attractions()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 16758827,
+              "duration": 3237291705,
               "status": "passed"
             },
-            "line": 26,
-            "name": "I should see available public routes in that map view area",
+            "line": 65,
+            "name": "click on a POI and select more info",
             "match": {
-              "location": "ThenSteps.i_should_see_available_public_routes_in_that_map_view_area()"
+              "location": "WhenSteps.click_on_a_POI_and_select_more_info()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 104976166,
+              "status": "passed"
+            },
+            "line": 66,
+            "name": "unpin POI from map",
+            "match": {
+              "location": "WhenSteps.unpin_POI_from_map()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3181018404,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "POI should be removed from map and when user refreshes POI shouldn\u0027t br visible",
+            "match": {
+              "location": "ThenSteps.poi_should_be_removed_from_map_and_when_user_refreshes_POI_shouldn_t_br_visible()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "line": 21,
-            "name": "@regression"
+            "line": 59,
+            "name": "@wip"
           }
         ]
       }
     ],
-    "name": "Discover route",
-    "description": "As a user \r\nI order to plan my journy\r\nI should be able to discover existing routes",
-    "id": "discover-route",
+    "name": "Map features",
+    "description": "In order to choose and display POIs by one or more categories\r\nAs a getamap user \r\nI should be able to filter POI by Type",
+    "id": "map-features",
     "keyword": "Feature",
-    "uri": "src/test/resources/features.functional/Routing/DiscoverRoute.feature"
+    "uri": "src/test/resources/features.functional/POIs/POI.feature"
   }
 ]

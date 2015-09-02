@@ -269,7 +269,27 @@ public class ObjectRepository {
 	public final String SnapActive = ".//div[contains(@class,'tooltipstered active')][text()='Snap']";
 	public final String Snapdisabled = ".//div[contains(@class,'tooltipstered')][text()='Snap']" ;
 	
+	/*
+	 * POI castles london location assert element cluster image for castles
+	 */
+	public final String POICastelsLondon = "/html/body/div[2]/div[2]/div[1]/div/div[1]/div[8]/svg/g[3]/g[1]/image[17]";
 	
+	/*
+	 *  POI
+	 */
+	public final String POI = "//*[starts-with(@id,'OpenLayers_Geometry_Point_')]";
+	/*
+	 * POI window
+	 */
+	public final String POIMoreInfo = "//*[@id='more-info-dropped-pin']";
+	public final String POIGetMeHere = "//*[@id='directions-dropped-pin']";
+	public final String POIVerification = "/html/body/div[2]/div[2]/div[16]/div/div[4]/div/div[1]/div[8]/div[3]";
+	/*
+	 * POI Panel
+	 */
+	public final String POIpin = "//*[contains(@class,'pin-to-map-icon')]";
+	public final String POIunpin = "//*[contains(@class,'unpin-from-map-icon')]";
 	
-
+	//*[@id="OpenLayers_Geometry_Point_514"]
+	
 }

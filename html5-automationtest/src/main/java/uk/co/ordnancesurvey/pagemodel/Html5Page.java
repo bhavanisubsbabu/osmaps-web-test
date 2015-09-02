@@ -206,6 +206,19 @@ public class Html5Page {
 		 }
 	 }
 	 
+	 /*
+	  * @Ravi Kunaparaju
+	  * adding login function	
+	  */
+	 
+	 public void signIn(String userName, String Password) throws InterruptedException{
+		 this.waitForElementPresent(obj.login_email_address, 3);
+		 Thread.sleep(500);
+		 set_textBox(obj.login_email_address, userName);
+		 set_textBox(obj.login_pwd,Password);
+		 clickLinkByXpath(obj.login_button);
+		 Thread.sleep(1000);
+	 }
 	 
 	//log out from application
 	 
@@ -681,6 +694,14 @@ Thread.sleep(3000);
 	  }
 	 }
 	 
+	 public boolean elementDoesntExists(String element){
+		 
+		if(driver.findElement(By.xpath(element)).isDisplayed()){ 
+		 return false;
+		}
+		return true;
+	 }
+	 
 	 public boolean IsElementDisplayed(String xpath){
 		  boolean flag;
 		  if (driver.findElement(By.xpath(xpath)).isDisplayed())
@@ -692,6 +713,52 @@ Thread.sleep(3000);
 	return flag;
 	 }
 	 
+	 
+	 /*
+	  * @Ravi Kunaparaju
+	  * New POI methods
+	  */
+	 
+	 public void viewPOI() throws InterruptedException{
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.POI)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.POIMoreInfo)).click();
+		Thread.sleep(1000);
+	 }
+	 
+	 public void assertPOI() throws InterruptedException{
+			Thread.sleep(1000);
+			this.IsElementPresent(obj.POIVerification);
+			Thread.sleep(1000);
+	 }
+	 
+	 public void pinPOI() throws InterruptedException{
+		 if(this.IsElementPresent(obj.POIunpin)){
+			 unpinPOI();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(obj.POIMoreInfo)).click();
+			 Thread.sleep(1000);
+		 }
+		 this.waitForElementPresent(obj.POIpin,10);	
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath(obj.POIpin)).click();
+		 Thread.sleep(500);
+		 this.waitForElementPresent(obj.POIunpin,10);
+	 }
+	 
+	 public void unpinPOI() throws InterruptedException{
+		 	this.waitForElementPresent(obj.POIunpin,3);
+		 	driver.findElement(By.xpath(obj.POIunpin)).click();
+		 	this.waitForElementPresent(obj.POIpin,3);
+	 }
+	 
+	 public void verifyPinOnMap() throws InterruptedException{
+		 this.waitForElementPresent(obj.POI, 3);
+		 Thread.sleep(1000);
+		 this.IsElementPresent(obj.POI);
+		 
+	 }
 	 
 	 //filter POI by Type
 	 public  int filter_POIbyType(){
@@ -1338,6 +1405,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			for(int i=0;i<3;i++){zoomIn();}
 		}
 	}
+	
 
 	public void createDpnRoute() throws InterruptedException{
 		 Actions action = new Actions(driver);
