@@ -161,6 +161,14 @@ public class ObjectRepository {
 	public final String star_rating_pop_up = ".//*[@id='discPopupContent']/div[1]";
 	public final String star_rating_discover_routes = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[1]";
 	
+	/*
+	 * @Ravi Kunaparaju
+	 * Star Ratings  
+	 */
+	public final String star_ratings_discover_routes = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div/div[4]/div/div[1]/div[1]/div[1]/div[1]";
+	public final String user_count_discover_routes = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div/div[4]/div/div[1]/div[1]/div[1]/div[2]";
+	public final String route_popup_moreInfo = "/html/body/div[2]/div[2]/div[16]/div/div[4]/span[1]";
+	
 	
 	// Turn on Live Map
 	

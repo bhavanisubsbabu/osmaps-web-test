@@ -362,18 +362,10 @@ public class ThenSteps {
 
 		@Then("^I should see ratings for Discover routes$")
 		public void i_should_see_ratings_for_Discover_routes() throws Throwable {
-			//mainPage.zoomIn();
-			Thread.sleep(3000);
-			String ratings_onrouteList=mainPage.getText(".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[1]/div[2]");
-			if (ratings_onrouteList.equals("(1)")){
-			mainPage.zoomIn();
-			mainPage.clickLinkByXpath(obj.DiscoverRoutes_route_List_FirstRoute);
-			}
+		
 			
-		    else {
-		    	mainPage.clickLinkByXpath(obj.DiscoverRoutes_route_List_FirstRoute);
-				mainPage.Verify_StarRatings_Popup();
-			}}
+		
+		}
 
 
 	

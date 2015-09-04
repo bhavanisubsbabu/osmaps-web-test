@@ -4,16 +4,20 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.gargoylesoftware.htmlunit.javascript.host.Document;
@@ -21,6 +25,7 @@ import com.steadystate.css.parser.Locatable;
 
 import uk.co.ordnancesurvey.utils.AppProperties;
 import uk.co.ordnancesurvey.utils.ObjectRepository;
+
 
 public class Html5Page {
 	private static final boolean Exception = false;
@@ -46,12 +51,25 @@ public class Html5Page {
 	 
 	 
 	 public void waitForElementPresent(String xpath,long sec){
-		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-		}
+		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
+		 		 
+		 int i=0;
+		 while(i<10){
+			 try {
+				 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+				 break;
+			 	}
+			 catch(StaleElementReferenceException e) {
+				 e.getMessage();
+				}
+		 		
+		 	}
+			  		
+	}
 
 
 	
-	 public  void ClickAt( WebDriver driver, String selector, int x, int y)
+	 public void ClickAt( WebDriver driver, String selector, int x, int y)
 	 {
 	 	
 		 
@@ -1423,8 +1441,23 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
 		
 	}
+
+/*
+ *@Ravi Kunaparaju
+ *Added methods for star ratings and user rate count assertions 
+ */
+		public void verifyRouteRatings() throws InterruptedException{
+			this.waitForElementPresent(obj.star_ratings_discover_routes, 5);
+			Thread.sleep(500);
+			this.IsElementDisplayed(obj.star_ratings_discover_routes);
+			this.IsElementDisplayed(obj.user_count_discover_routes);
+		}
 		
-		
+		public void rateRoute() throws InterruptedException{
+			driver.findElement(By.xpath(obj.star_ratings_discover_routes)).click();
+			this.waitForElementPresent(obj.route_popup_moreInfo, 5);
+			Thread.sleep(500);
+		}
 
 	
 	

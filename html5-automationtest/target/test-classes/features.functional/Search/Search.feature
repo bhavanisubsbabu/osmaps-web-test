@@ -25,8 +25,6 @@ Examples:
 |Newbury|
 
 
-# @TODO:JT disabled failing test - needs fixing!
-
 @regression
 Scenario Outline: Search a place as subscriber
 Given I am on getamap app

@@ -3,8 +3,6 @@ Feature:
   In order to view ratings
   I should have permissions to authored routes
 
-  
-  @wip
   Scenario: Verify guest user can view a route rating
     Given I am on getamap app
     When I login as guest user

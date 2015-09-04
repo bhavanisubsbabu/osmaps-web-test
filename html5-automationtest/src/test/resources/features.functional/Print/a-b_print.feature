@@ -55,7 +55,6 @@ Scenario: Print zoom map as guest with public route on it
 	And I open Print panel
 	Then I should be able to print zoom maps with Routes in it
 
-Scenario: Print created routes on zoom maps
-	Given I am on the 
+
 
 

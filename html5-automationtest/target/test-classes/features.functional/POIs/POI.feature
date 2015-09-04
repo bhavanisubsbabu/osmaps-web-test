@@ -1,35 +1,28 @@
+@regression
 Feature: Map features
  In order to choose and display POIs by one or more categories
 	As a getamap user 
 	I should be able to filter POI by Type
 
-
-@regression
-Scenario: Verify POI Categories displayed on POI Panel(guest)
+Scenario: Verify POI Categories displayed on POI Panel for guest user
 	Given I am on getamap app
 	When I login as guest user
 	And I open Map features menu
 	Then I should be able to see the POI Categories
 
-
-@regression
-Scenario: Verify POI Categories displayed on POI Panel(registered)
+Scenario: Verify POI Categories displayed on POI Panel for registered user
 	Given I am on getamap app
 	When I login as registered user
 	And I open Map features menu
 	Then I should be able to see the POI Categories
 
 
-# @TODO:JT disabled failing test - needs fixing!
-
-@regression
-Scenario: Verify POI Categories displayed on POI Panel(subscriber)
+Scenario: Verify POI Categories displayed on POI Panel
 	Given I am on getamap app
 	When I login as subscriber user
 	And I open Map features menu
 	Then I should be able to see the POI Categories
 
-@regression  
 Scenario: User should select POIs By type for a location
 
 	Given I am on getamap app
@@ -38,7 +31,6 @@ Scenario: User should select POIs By type for a location
 	And from Places I selected POI Castles and Attractions
 	Then I should list of clustered POIs for that location    
 
-@regression
 Scenario: User should be able to view a POI
 
 	Given I am on getamap app
@@ -46,9 +38,8 @@ Scenario: User should be able to view a POI
 	And from Places I select POI Castles and Attractions
 	And click on a POI and select more info
 	Then I should see a right side panel view with details
-
 @wip
-Scenario: User should be able to pin POI to map and see when logs back to the applciation
+Scenario: User should be able to pin POI to map and see when logs back to the application
 
 	Given I am on getamap app
 	When I login as registered user
