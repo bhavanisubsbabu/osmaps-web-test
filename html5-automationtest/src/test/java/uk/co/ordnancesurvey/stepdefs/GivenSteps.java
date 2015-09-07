@@ -26,7 +26,7 @@ public class GivenSteps {
 	@Given("^I am on getamap app$")
 	public void i_am_on_getamap_app()  throws Throwable {
 		mainPage.launch_app();
-		Thread.sleep(2000);
+		
 		
 		 // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
@@ -36,7 +36,7 @@ public class GivenSteps {
 	public void i_am_on_OSMaps() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		mainPage.launch_app();
-		Thread.sleep(2000);
+		
 	}
 	
 	
@@ -44,21 +44,19 @@ public class GivenSteps {
 	@Given("^I can access OS maps as a guest user$")
 	public void i_can_access_OS_maps_as_a_guest_user()  throws Throwable {
 		mainPage.launch_app();
-		Thread.sleep(2000);
+		
 		mainPage.close_carousel();
 		mainPage.signOUt();
-		Thread.sleep(2000);
-		//mainPage.close_login_window();
-		Thread.sleep(2000);
+		
 		
 	}
 		
 		@Given("^I can access OS maps as a guest user to register$")
 		public void i_can_access_OS_maps_as_a_guest_user_to_register()  throws Throwable {
 			mainPage.launch_app();
-			Thread.sleep(2000);
+			
 			mainPage.close_carousel();
-			Thread.sleep(2000);
+			
 		
 	
 	
@@ -91,23 +89,15 @@ public class GivenSteps {
 @Given("^I can access OS maps as a guest user to subscribe$")
 public void i_can_access_OS_maps_as_a_guest_user_to_subscribe()  throws Throwable {
 	mainPage.launch_app();
-	Thread.sleep(2000);
 	mainPage.close_carousel();			
-	Thread.sleep(2000);
-
-
-
 }
 
 @Given("^I can access OS maps as a guest user to subscribe via upsell$")
 public void i_can_access_OS_maps_as_a_guest_user_to_subscribe_via_upsell()  throws Throwable {
 	mainPage.launch_app();
-	Thread.sleep(2000);
 	mainPage.close_carousel();
-	Thread.sleep(2000);
+	mainPage.waitForElementPresent(".//*[@id='login-form']/div/div[3]/div[1]/div", 3);
 	driver.findElement(By.xpath(".//*[@id='login-form']/div/div[3]/div[1]/div")).click();
-	Thread.sleep(2000);
-
 }
 
 

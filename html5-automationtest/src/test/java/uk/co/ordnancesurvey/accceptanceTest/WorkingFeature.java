@@ -7,9 +7,9 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		format = {"pretty", "html:target/reports/workingset"}, 
-			features = {"src/test/resources/features.functional/Route Ratings/RateDiscoverRoute.feature"},glue="uk.co.ordnancesurvey.stepdefs")
+			features = {"src/test/resources/features.functional/Routing"},glue="uk.co.ordnancesurvey.stepdefs", tags="@wip")
 
 
 public class WorkingFeature {
-
+	
 }

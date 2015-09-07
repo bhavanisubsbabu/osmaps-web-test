@@ -49,14 +49,20 @@ public class Html5Page {
 		 
 	 }
 	 
-	 
 	 public void waitForElementPresent(String xpath,long sec){
+		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		}
+	 
+	 public void waitForElementClickable(String xpath,long sec){
+		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		}
+	 public void waitForElementPresentifStale(String xpath){
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
 		 		 
 		 int i=0;
 		 while(i<10){
 			 try {
-				 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+				 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 				 break;
 			 	}
 			 catch(StaleElementReferenceException e) {
@@ -87,48 +93,44 @@ public class Html5Page {
 	 
 	 // Open Routes top nav
 	 public void OpenRoutesmenu() throws InterruptedException{
-		 Thread.sleep(5000);
-    driver.findElement(By.xpath(obj.RoutesTab)).click();
-    Thread.sleep(3000);
+		 //Thread.sleep(5000);
+		 this.waitForElementPresent(obj.RoutesTab, 5);
+		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 //Thread.sleep(3000);
 		 this.zoomIn();this.zoomIn();
 		 this.zoomIn();
 		 this.zoomIn();
-		 this.zoomIn();
-			 
-		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
-		 
+		 this.zoomIn();	 
+		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click(); 
 	 }
 	
 	
 	 //Open Discover Routes mode
 	 
 	 public void click_discoverRoutes() throws InterruptedException{
-		 Thread.sleep(5000);
-			driver.findElement(By.xpath(obj.RoutesTab)).click();
-			Thread.sleep(2000);
-			
-			clickLinkByXpath(obj.RoutesTab_DiscoverRoutes);
-			//driver.findElement(By.xpath(".//*[@id='MyRouteDiscover']")).click();
-			Thread.sleep(3000);
+		 this.waitForElementPresent(obj.RoutesTab, 3);
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 this.waitForElementPresent(obj.RoutesTab_DiscoverRoutes, 3);
+		 Thread.sleep(200);
+		 clickLinkByXpath(obj.RoutesTab_DiscoverRoutes);
 		}
 	 
 	 public void open_myRoutes() throws InterruptedException{
-		 Thread.sleep(5000);
-			driver.findElement(By.xpath(obj.RoutesTab)).click();
-			Thread.sleep(2000);
-			
-			clickLinkByXpath(obj.My_Routes);			
-			Thread.sleep(3000);
-		 
+		 this.waitForElementPresent(obj.RoutesTab, 3);
+		 Thread.sleep(500);
+		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 Thread.sleep(200);
+		 this.waitForElementPresent(obj.RoutesTab, 3);
+		 clickLinkByXpath(obj.My_Routes);					  
 	 }
-	 
-	 
 	 
 	 public void zoomout(){
 		 driver.findElement(By.xpath(obj.ZoomOut)).click();
 	 }
 	 
 	 public void zoomIn(){
+		 this.waitForElementPresent(obj.ZoomIn, 5);
 		 driver.findElement(By.xpath(obj.ZoomIn)).click();
 	 }
 	 
@@ -171,47 +173,47 @@ public class Html5Page {
 	 }
 	 
 	 public void plot_newRoute() throws InterruptedException{
-		 Thread.sleep(3000);
+		 //Thread.sleep(3000);
 		 Actions action = new Actions(driver);
+		 this.waitForElementPresent(obj.RoutesTab, 5);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
 		    Thread.sleep(3000);
 				 this.zoomIn();
 				 this.zoomIn();
 				 this.zoomIn();
-				 this.zoomIn();	 
-				 
-		 Thread.sleep(3000);	
+				 this.zoomIn();	 		 
+		 //Thread.sleep(3000);
+		 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
 		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 
-	 	System.out.print(waypoint);
-		
+	 	System.out.print(waypoint);		
 		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
 		 //System.out.println("Waypoint created");
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
 	 }
 	 
 	 public void plot_newRoute_MapStack() throws InterruptedException{
 		 Actions action = new Actions(driver);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
-		    Thread.sleep(3000);
-		    driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();	 			 
-		  JavascriptExecutor js = (JavascriptExecutor) driver;
+		 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
+		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();	 			 
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 
-	 	System.out.print(waypoint);
+	 	 System.out.print(waypoint);
 		
 		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
 		 //System.out.println("Waypoint created");
-		 Thread.sleep(4000);
+		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
 	 }
 	 
@@ -235,16 +237,16 @@ public class Html5Page {
 		 set_textBox(obj.login_email_address, userName);
 		 set_textBox(obj.login_pwd,Password);
 		 clickLinkByXpath(obj.login_button);
-		 Thread.sleep(1000);
+		 //Thread.sleep(1000);
 	 }
 	 
 	//log out from application
 	 
 	 public void signOUt() throws InterruptedException{
-		 Thread.sleep(2000);
+		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
 		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
 			driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		 Thread.sleep(2000);
+		// Thread.sleep(2000);
 		 
 		 
 	 }
@@ -286,14 +288,14 @@ public class Html5Page {
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			//clickLinkByXpath(obj.CustomRoute_RouteSave);
 			// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-			 Thread.sleep(5000);
+			// Thread.sleep(5000);
 			 //handling confirmation dialogue box
 			 this.close_routecreateDialog();	
 			 //System.out.print(driver.findElement(By.xpath(".//*[@id='routeDetailName']")).getText());
-			 Thread.sleep(3000);
+			 //Thread.sleep(3000);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			// assertTrue("Failed:Route is not created properly, please check manaully",driver.findElement(By.xpath(".//*[@id='routeDetailName']")).getText().contains(route_name));
-			 Thread.sleep(4000);
+			 //Thread.sleep(4000);
 			//this.signOUt();
 		 }
 		 else{
@@ -304,13 +306,15 @@ public class Html5Page {
 	 public void eidt_saved_route() throws InterruptedException{
 		 Actions action = new Actions(driver);
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 
-		driver.findElement(By.xpath(obj.CustomrRoute_Edit)).click();
-		Thread.sleep(4000);
-		this.waitForElementPresent(obj.CustomRoute_Save, 5);
+		this.waitForElementClickable((obj.CustomrRoute_Edit), 5);
+		 Thread.sleep(1000);
+		driver.findElement(By.cssSelector(obj.CustomrRoute_Edit)).click();
+		//Thread.sleep(4000);
+		this.waitForElementPresent(obj.CustomRoute_Save, 5);		
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 			 
 		 {
+			 Thread.sleep(1000);
 			 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
 			//Thread.sleep(20000);
 			//defining all dom elements
@@ -320,7 +324,7 @@ public class Html5Page {
 			
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(Keys.END);;
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys("-AutoEdited"); //enter route name
-			 Thread.sleep(2000);
+			// Thread.sleep(2000);
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
 			 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('saveRouteBtn');");
 			 WebElement route_walk =(WebElement)js.executeScript("return document.getElementById('btn_activity_walking');");
@@ -330,21 +334,21 @@ public class Html5Page {
 			 //driver.findElement(By.xpath(".//*[@id='saveParent']/div")).sendKeys(Keys.ARROW_DOWN);
 			 
 			
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 			action.moveToElement(route_save).perform();
 			action.moveToElement(route_public,0,800).click(route_public).build().perform();
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 			action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			//clickLinkByXpath(obj.CustomRoute_RouteSave);
 			// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-			 Thread.sleep(5000);
+			// Thread.sleep(5000);
 			 //handling confirmation dialogue box
 			 this.close_routecreateDialog();
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			// assertTrue("Failed:Route is not created, please check manaully",driver.findElement(By.xpath(".//*[@id='routeDetailName']")).getText().contains("AutoTestRoute14"));
-			 Thread.sleep(4000);
+			// Thread.sleep(4000);
 			this.signOUt();
 		 }
 		 else{
@@ -391,7 +395,7 @@ public class Html5Page {
 			
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); //enter route name
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
 			 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('saveRouteBtn');");
 			 WebElement route_walk =(WebElement)js.executeScript("return document.getElementById('btn_activity_walking');");
@@ -410,7 +414,7 @@ public class Html5Page {
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			//clickLinkByXpath(obj.CustomRoute_RouteSave);
 			// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-			 Thread.sleep(5000);
+			// Thread.sleep(5000);
 			 //handling confirmation dialogue box
 			 this.close_routecreateDialog();	
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
@@ -439,7 +443,7 @@ public class Html5Page {
 				
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); //enter route name
-				 Thread.sleep(2000);
+				 //Thread.sleep(2000);
 				 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
 				 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('saveRouteBtn');");
 				 WebElement route_run =(WebElement)js.executeScript("return document.getElementById('btn_activity_running');");
@@ -450,7 +454,7 @@ public class Html5Page {
 				 //driver.findElement(By.xpath(".//*[@id='saveParent']/div")).sendKeys(Keys.ARROW_DOWN);
 				 driver.findElement(By.xpath(".//*[@id='save-route-route-type-select']/div[3]")).click();
 			
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				action.moveToElement(route_save).perform();
 				if(flag.equals("yes"))
 				{
@@ -464,12 +468,12 @@ public class Html5Page {
 				
 				//clickLinkByXpath(obj.CustomRoute_RouteSave);
 				// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-				 Thread.sleep(5000);
+				 //Thread.sleep(5000);
 				 //handling confirmation dialogue box
 				 this.close_routecreateDialog();	
 				 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 				 //assertTrue("Failed:Route is not created, please check manaully",driver.findElement(By.xpath(".//*[@id='routeDetailName']")).getText().contains("AutoTestRoute14"));
-				 Thread.sleep(4000);
+				 //Thread.sleep(4000);
 				 this.signOUt();
 			 }
 			 else{
@@ -482,20 +486,25 @@ public class Html5Page {
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 		 {
 			 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
+			 this.waitForElementPresent(obj.CustomRoute_RouteName, 5);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); //enter route name
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
+			 this.waitForElementPresent(obj.CustomRoute_Type_Running, 5);
 			 driver.findElement(By.xpath(obj.CustomRoute_Type_Running)).click(); // set route type as running
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
 			 //driver.findElement(By.xpath(".//*[@id='saveRouteViewSettingsRadioEveryone']")).click();    // set route as public 
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
+			 this.waitForElementPresent(obj.CustomRoute_RouteSave, 5);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteSave)).click();
-			 Thread.sleep(4000);
+			 //Thread.sleep(4000);
+			 this.waitForElementPresent(".//*[@id='Window_1_UserIcon']", 5);
 			 driver.findElement(By.xpath(".//*[@id='Window_1_UserIcon']")).click();
-			 Thread.sleep(4000);
+			 //Thread.sleep(4000);
+			 this.waitForElementPresent(".//*[@id='Window_1_CU_Action']", 5);
 			 driver.findElement(By.xpath(".//*[@id='Window_1_CU_Action']")).click();
-			 Thread.sleep(4000);
+			 //Thread.sleep(4000);
 			 
 		 }
 		 else{
@@ -505,22 +514,19 @@ public class Html5Page {
 	 
 	 
 	 public void close_routecreateDialog() throws InterruptedException{
-		 Thread.sleep(5000);
+		 Thread.sleep(2000);
 		 for (String winHandle : driver.getWindowHandles()) {
 		     driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		 }
-if(IsElementPresent(".//*[@id='Window_1_Content']/div[18]/div/div[3]/div[2]"))
+		 if(IsElementPresent(".//*[@id='Window_1_Content']/div[18]/div/div[3]/div[2]"))
 		 driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[18]/div/div[3]/div[2]")).click();
-else {
-	driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
-}
-		 
-		 
-		 
+		 else {
+			 driver.findElement(By.cssSelector(".Basic_Btn.dialogButton.dialogButtonAlt")).click();
+		 }
 	 }
 	 
 	 public void close_registrationDialog() throws InterruptedException{
-		 Thread.sleep(5000);
+		// Thread.sleep(5000);
 		
 		 
 		 for (String winHandle : driver.getWindowHandles()) {
@@ -528,7 +534,7 @@ else {
 		 }
 if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 		 driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();
-Thread.sleep(3000);
+//Thread.sleep(3000);
 		 
 	 }	 
 	 
@@ -551,7 +557,7 @@ Thread.sleep(3000);
 			 
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); //enter route name
-			 Thread.sleep(2000);
+			// Thread.sleep(2000);
 			 switch(type){
 			 case "Running" :	
 				 action.moveToElement(route_type_cycle).perform();
@@ -601,6 +607,7 @@ Thread.sleep(3000);
 	 public void launch_app(){		
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
+		 this.waitForElementPresent("//div[@id='carouselCheckbox']", 10000);
 	 }
 	 
 	 
@@ -612,15 +619,15 @@ Thread.sleep(3000);
 	 //* Login Functions //
 	 
 	 public void open_login_window() throws InterruptedException{
-		  Thread.sleep(3000);
+		 //Thread.sleep(3000);
 		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']"))			  
 			 driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
 		  else {
 			  this.signOUt();
-			  Thread.sleep(2000);
+		//	  Thread.sleep(2000);
 			  driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
 		  }
-			 Thread.sleep(2000);
+		//	 Thread.sleep(2000);
 			 
 			 
  
@@ -628,46 +635,47 @@ Thread.sleep(3000);
 	 
 	 //Closing the Login Window Popup
 	 public void close_login_window() throws InterruptedException{
-		  Thread.sleep(3000);	 
+		//  Thread.sleep(3000);	 
 			 if(this.IsElementPresent(obj.login_email_address))
 			 {
 			
 				 this.driver.findElement(By.xpath(".//*[@id='Window_1_Login_Close']")).click();
 			 }
 
-			 Thread.sleep(3000);
+		//	 Thread.sleep(3000);
 			  
 	  }
 	 
 	//Open Map Features
 	 
 		 public void open_Mapfeatures() throws InterruptedException{
-			 Thread.sleep(3000);
+		//	 Thread.sleep(3000);
 			 this.clickLinkByXpath(obj.mapfeatures); //opening map features menu
-			 Thread.sleep(3000);
+		//	 Thread.sleep(3000);
 		 }
 	 
 	 
 	 
 	 public void verify_poi_categories_exist() throws InterruptedException{
-		 Thread.sleep(4000);
+		// Thread.sleep(4000);
 			
 		 assertTrue("Failed:, Category Live update not found",driver.findElement(By.xpath("//div[contains(@class,'POI_Parent_Name')]")).getText().contains("Weather"));
 		// assertTrue("Failed:, Category not found",driver.findElement(By.xpath("//div[contains(@class,'POI_Parent_Name')]")).getText().contains("Attractions"));
-		 Thread.sleep(2000);
+	//	 Thread.sleep(2000);
 		// assertTrue("Failed:, Category not found",driver.findElement(By.xpath("//*[@class='sidePaneBodyContainer']/div[1]/div[5]/div[1]")).getText().contains("Eating and drinking"));
 		// assertTrue("Failed:, Category not found",driver.findElement(By.xpath("//*[@class='sidePaneBodyContainer']/div[1]/div[6]/div[1]")).getText().contains("Entertainment"));
 		// assertTrue("Failed:, Category not found",driver.findElement(By.xpath("//*[@class='sidePaneBodyContainer']/div[1]/div[7]/div[1]")).getText().contains("National Parks"));
 }
 	   //-- sets any text box on application with given location and  value  
-	public void set_textBox(String locator,String value){
+	public void set_textBox(String locator,String value) throws InterruptedException{
+		Thread.sleep(1000);
 		this.driver.findElement(By.xpath((locator))).clear();
 		this.driver.findElement(By.xpath((locator))).sendKeys(value);
 	}
 	
 	public void hitEnterKey(String locator) throws InterruptedException{
 		this.driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
 	}
 	//--click link by xpath
@@ -738,15 +746,18 @@ Thread.sleep(3000);
 	  */
 	 
 	 public void viewPOI() throws InterruptedException{
+		this.waitForElementPresent(obj.POI, 5);
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(obj.POI)).click();
 		Thread.sleep(1000);
+		this.waitForElementPresent(obj.POIMoreInfo, 5);
 		driver.findElement(By.xpath(obj.POIMoreInfo)).click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 	 }
 	 
 	 public void assertPOI() throws InterruptedException{
 			Thread.sleep(1000);
+			this.waitForElementPresent(obj.POIVerification, 5);
 			this.IsElementPresent(obj.POIVerification);
 			Thread.sleep(1000);
 	 }
@@ -754,26 +765,28 @@ Thread.sleep(3000);
 	 public void pinPOI() throws InterruptedException{
 		 if(this.IsElementPresent(obj.POIunpin)){
 			 unpinPOI();
-			 Thread.sleep(2000);
+			 //Thread.sleep(2000);
+			 this.waitForElementPresent(obj.POIMoreInfo, 5);
 			 driver.findElement(By.xpath(obj.POIMoreInfo)).click();
-			 Thread.sleep(1000);
+			 //Thread.sleep(1000);
 		 }
 		 this.waitForElementPresent(obj.POIpin,10);	
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath(obj.POIpin)).click();
-		 Thread.sleep(500);
-		 this.waitForElementPresent(obj.POIunpin,10);
+		// Thread.sleep(500);
+		 //this.waitForElementPresent(obj.POIunpin,10);
 	 }
 	 
 	 public void unpinPOI() throws InterruptedException{
 		 	this.waitForElementPresent(obj.POIunpin,3);
+		 	Thread.sleep(500);
 		 	driver.findElement(By.xpath(obj.POIunpin)).click();
 		 	this.waitForElementPresent(obj.POIpin,3);
 	 }
 	 
 	 public void verifyPinOnMap() throws InterruptedException{
 		 this.waitForElementPresent(obj.POI, 3);
-		 Thread.sleep(1000);
+		// Thread.sleep(1000);
 		 this.IsElementPresent(obj.POI);
 		 
 	 }
@@ -838,13 +851,13 @@ Thread.sleep(3000);
 		 
 		 
 		 Actions action = new Actions(driver);
-		 Thread.sleep(3000);		 
+	//	 Thread.sleep(3000);		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement POI= (WebElement) js.executeScript("return document.getElementsByTagName('circle').item"+"("+arg2+")"); // defines the webelement on the map to click 
 	 	int total=Integer.parseInt(js.executeScript("return document.getElementsByTagName('circle').length").toString());
 		 System.out.println(total);
 		 action.moveToElement(POI).click(POI).build().perform();
-		 Thread.sleep(4000);
+	//	 Thread.sleep(4000);
 
 	 }
 	 
@@ -870,9 +883,11 @@ Thread.sleep(3000);
 	// to open mapstack and verify the map stack objects
 	
 	public void openMapstack() throws InterruptedException{
-		Thread.sleep(6000);
+	//	Thread.sleep(6000);
+		this.waitForElementClickable(obj.mapStackButton,5);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(obj.mapStackButton)).click();
-		Thread.sleep(2000);
+	//	Thread.sleep(2000);
 		
 	}
 	
@@ -883,7 +898,7 @@ Thread.sleep(3000);
 		assertTrue("Failed,Dropped pin no options given",driver.findElement(By.xpath("//div[contains(@class,'PopUp_Link')]")).getText().contains("Directions to here"));
 		assertTrue("Failed: weather info not displayed on dropped pin",IsElementPresent("//div[contains(@style,'cursor: pointer;')]"));
 		driver.findElement(By.xpath(obj.searchBoxPopUpClose)).click();;
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		//verify options in dropped pin
 		
 	}
@@ -893,7 +908,7 @@ Thread.sleep(3000);
 	 */
 	
 public void verifyMapstackButtons_Subscriber() throws InterruptedException{
-	Thread.sleep(2000);
+	//Thread.sleep(2000);
 	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
 	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
 	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
@@ -942,16 +957,13 @@ public void verify_carouselPanelandClose() throws InterruptedException{
 
 public void close_carousel() throws InterruptedException{
 	
-if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
-{
-	driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); //close carousel
-}
-	
-else{
-	//do nothing--continue 
-}
+	if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
+		{
+			this.waitForElementPresent("//div[@id='carouselCheckbox']", 5);
+			driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
+			this.waitForElementPresent("//div[@id='closeCarousel']", 5);
+			driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); 
+		}
 }
 
 public void Verify_StarRate_SidePanel(){

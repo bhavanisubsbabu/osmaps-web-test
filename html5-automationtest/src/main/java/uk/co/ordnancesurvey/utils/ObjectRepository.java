@@ -100,8 +100,9 @@ public class ObjectRepository {
 	public final String CustomRoute_Save = ".//*[@id='createRouteSave']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
-	public final String CustomrRoute_Edit="html/body/div[2]/div[2]/div[16]/div[1]/div[2]";
-
+	public final String CustomrRoute_Edit="//*[contains(text(),'Edit')]";
+											
+	
 	public final String CustomRoute_RouteName = ".//*[@id='saveRouteNameInput']";
 	public final String CustomRoute_RouteNotes = ".//*[@id='saveRouteNoteInput']";
 	public final String CustomRoute_RouteSave = ".//*[@id='saveRouteBtn']";

@@ -40,7 +40,7 @@ And I should be able to edit route
 
 # @TODO:JT disabled failing test - needs fixing!
 
-@regression
+@wip
 Scenario: Create Route and Save and Edit as subscriber user
 Given I am on getamap app
 When I login as subscriber user

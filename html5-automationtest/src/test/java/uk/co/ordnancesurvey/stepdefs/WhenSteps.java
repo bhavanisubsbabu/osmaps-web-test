@@ -46,12 +46,10 @@ public class WhenSteps {
 			driver.findElement(By.cssSelector("#BurgerProfileLoginLogout")).click();
 		}
 		else{
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		mainPage.waitForElementPresent(".//*[@id='main-top-bar-sign-in']",3);	
 		driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
-		driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		//driver.findElement(By.xpath(".//*[@id='Window_1_SettingsText']")).click();
-Thread.sleep(4000);
-
+		driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();		
 		}
 	}
 	
@@ -69,18 +67,12 @@ Thread.sleep(4000);
 			Thread.sleep(3000);
 			
 		}
-		else{
-		/*mainPage.clickLinkByXpath(obj.Settings);
-		mainPage.clickLinkByXpath(obj.settings_Login);*/
-		
+		else{		
 		mainPage.set_textBox(obj.login_email_address, userName);
-
 		mainPage.set_textBox(obj.login_pwd,Password);
 		mainPage.clickLinkByXpath(obj.login_button);
-		
-		Thread.sleep(3000);
-			
-		mainPage.waitForElementPresent(obj.mapfeatures,20000);
+		Thread.sleep(300);			
+		mainPage.waitForElementPresent(obj.mapfeatures,3);
 		}
 	}
 	public void loginToApplicationAfterLogout(String userName, String Password) throws InterruptedException 
@@ -90,24 +82,18 @@ Thread.sleep(4000);
 		mainPage.clickLinkByXpath(obj.settings_Login);*/
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
-
 			mainPage.set_textBox(obj.login_pwd,Password);
-			mainPage.click(obj.login_button);
-				
-			Thread.sleep(10000);
-			
+			mainPage.click(obj.login_button);				
+			Thread.sleep(10000);			
 		}
 		mainPage.open_login_window();
 		mainPage.set_textBox(obj.login_email_address, userName);
-
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.clickLinkByXpath(obj.login_button);
-			
-		Thread.sleep(10000);
-		mainPage.waitForElementPresent(obj.mapfeatures, 20000);
+		mainPage.clickLinkByXpath(obj.login_button);			
+		Thread.sleep(500);
+		mainPage.waitForElementPresent(obj.mapfeatures, 3);
 	}
-	
-	
+		
 	@When("^I login as registered user$")
 	public void i_login_as_registered_user() throws Throwable {
 		//login.open_login_window();
@@ -115,28 +101,17 @@ Thread.sleep(4000);
 		mainPage.open_login_window();
 			Thread.sleep(2000);
 			if (mainPage.IsElementDisplayed(obj.login_email)){
-				
 				loginToApplication(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-				Thread.sleep(5000);
 			}
-			else{
-				
-				logOutApplication();
-				 
+			else{				
+				logOutApplication();				 
 				 loginToApplicationAfterLogout(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-				 Thread.sleep(5000);
 			}
 		
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new PendingException();
 	}
-	
-	
-
 
 	@When("^I login as subscriber user$")
 	public void i_login_as_subscriber_user() throws Throwable {
-		Thread.sleep(3000);	
 		mainPage.close_carousel();
 		mainPage.open_login_window();
 		Thread.sleep(2000);
@@ -497,22 +472,16 @@ Thread.sleep(4000);
 
 		@When("^from Places I selected POI Castles and Attractions$")
 		public void from_Places_I_selected_POI_Castles_and_Attractions() throws Throwable {
-			Thread.sleep(1000);
 			mainPage.clickLinkByXpath(obj.mapfeatures);
-			Thread.sleep(2000);		
 			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
-			Thread.sleep(2000);
 		}
 		
 		@When("^from Places I select POI Castles and Attractions$")
 		public void from_Places_I_select_POI_Castles_and_Attractions() throws Throwable {
 			mainPage.set_textBox(obj.searchBox, "Windsor Castle");
 			mainPage.hitEnterKey(obj.searchBox);
-			Thread.sleep(1000);
 			mainPage.clickLinkByXpath(obj.mapfeatures);
-			Thread.sleep(1000);		
 			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
-			Thread.sleep(2000);
 		}
 
 		@When("^click on a POI and select more info$")

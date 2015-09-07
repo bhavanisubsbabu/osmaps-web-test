@@ -1,3 +1,4 @@
+@regression
 Feature: Map stack access
 As a subscriber 
 In order to create routes on 25k map
