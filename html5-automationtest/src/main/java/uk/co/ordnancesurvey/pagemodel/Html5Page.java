@@ -109,16 +109,16 @@ public class Html5Page {
 	 
 	 public void click_discoverRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(500);
+		 Thread.sleep(3000);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
 		 this.waitForElementPresent(obj.RoutesTab_DiscoverRoutes, 3);
-		 Thread.sleep(200);
+		 Thread.sleep(2000);
 		 clickLinkByXpath(obj.RoutesTab_DiscoverRoutes);
 		}
 	 
 	 public void open_myRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(500);
+		 Thread.sleep(3000);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
 		 Thread.sleep(200);
 		 this.waitForElementPresent(obj.RoutesTab, 3);
@@ -173,11 +173,11 @@ public class Html5Page {
 	 }
 	 
 	 public void plot_newRoute() throws InterruptedException{
-		 //Thread.sleep(3000);
+		 Thread.sleep(3000);
 		 Actions action = new Actions(driver);
 		 this.waitForElementPresent(obj.RoutesTab, 5);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
-		    Thread.sleep(3000);
+		    Thread.sleep(1000);
 				 this.zoomIn();
 				 this.zoomIn();
 				 this.zoomIn();
@@ -237,16 +237,17 @@ public class Html5Page {
 		 set_textBox(obj.login_email_address, userName);
 		 set_textBox(obj.login_pwd,Password);
 		 clickLinkByXpath(obj.login_button);
-		 //Thread.sleep(1000);
+		 Thread.sleep(1000);
 	 }
 	 
 	//log out from application
 	 
 	 public void signOUt() throws InterruptedException{
+		 Thread.sleep(3000);
 		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
 		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
-			driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		// Thread.sleep(2000);
+		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
+		 Thread.sleep(2000);
 		 
 		 
 	 }
@@ -288,7 +289,7 @@ public class Html5Page {
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			//clickLinkByXpath(obj.CustomRoute_RouteSave);
 			// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-			// Thread.sleep(5000);
+			 Thread.sleep(3000);
 			 //handling confirmation dialogue box
 			 this.close_routecreateDialog();	
 			 //System.out.print(driver.findElement(By.xpath(".//*[@id='routeDetailName']")).getText());
@@ -309,7 +310,7 @@ public class Html5Page {
 		this.waitForElementClickable((obj.CustomrRoute_Edit), 5);
 		 Thread.sleep(1000);
 		driver.findElement(By.cssSelector(obj.CustomrRoute_Edit)).click();
-		//Thread.sleep(4000);
+		Thread.sleep(4000);
 		this.waitForElementPresent(obj.CustomRoute_Save, 5);		
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 			 
@@ -343,7 +344,7 @@ public class Html5Page {
 			action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			//clickLinkByXpath(obj.CustomRoute_RouteSave);
 			// driver.findElement(By.xpath(".//*[@id='saveRouteBtn']")).click();
-			// Thread.sleep(5000);
+			 Thread.sleep(3000);
 			 //handling confirmation dialogue box
 			 this.close_routecreateDialog();
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
@@ -619,15 +620,15 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	 //* Login Functions //
 	 
 	 public void open_login_window() throws InterruptedException{
-		 //Thread.sleep(3000);
+		 Thread.sleep(3000);
 		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']"))			  
 			 driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
 		  else {
 			  this.signOUt();
-		//	  Thread.sleep(2000);
+			  Thread.sleep(2000);
 			  driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
 		  }
-		//	 Thread.sleep(2000);
+			 Thread.sleep(2000);
 			 
 			 
  
@@ -635,14 +636,14 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	 
 	 //Closing the Login Window Popup
 	 public void close_login_window() throws InterruptedException{
-		//  Thread.sleep(3000);	 
+		  Thread.sleep(3000);	 
 			 if(this.IsElementPresent(obj.login_email_address))
 			 {
 			
 				 this.driver.findElement(By.xpath(".//*[@id='Window_1_Login_Close']")).click();
 			 }
 
-		//	 Thread.sleep(3000);
+			 Thread.sleep(3000);
 			  
 	  }
 	 
@@ -668,19 +669,19 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 }
 	   //-- sets any text box on application with given location and  value  
 	public void set_textBox(String locator,String value) throws InterruptedException{
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		this.driver.findElement(By.xpath((locator))).clear();
 		this.driver.findElement(By.xpath((locator))).sendKeys(value);
 	}
 	
 	public void hitEnterKey(String locator) throws InterruptedException{
 		this.driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		
 	}
 	//--click link by xpath
 	public void clickLinkByXpath(String locator) throws InterruptedException{
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		System.out.print(locator);
 		this.driver.findElement(By.xpath(locator)).click();
 		
@@ -747,28 +748,28 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	 
 	 public void viewPOI() throws InterruptedException{
 		this.waitForElementPresent(obj.POI, 5);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(obj.POI)).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		this.waitForElementPresent(obj.POIMoreInfo, 5);
 		driver.findElement(By.xpath(obj.POIMoreInfo)).click();
 		//Thread.sleep(1000);
 	 }
 	 
 	 public void assertPOI() throws InterruptedException{
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			this.waitForElementPresent(obj.POIVerification, 5);
 			this.IsElementPresent(obj.POIVerification);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 	 }
 	 
 	 public void pinPOI() throws InterruptedException{
 		 if(this.IsElementPresent(obj.POIunpin)){
 			 unpinPOI();
-			 //Thread.sleep(2000);
+			 Thread.sleep(2000);
 			 this.waitForElementPresent(obj.POIMoreInfo, 5);
 			 driver.findElement(By.xpath(obj.POIMoreInfo)).click();
-			 //Thread.sleep(1000);
+			 Thread.sleep(1000);
 		 }
 		 this.waitForElementPresent(obj.POIpin,10);	
 		 Thread.sleep(1000);
@@ -883,11 +884,11 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	// to open mapstack and verify the map stack objects
 	
 	public void openMapstack() throws InterruptedException{
-	//	Thread.sleep(6000);
+		Thread.sleep(6000);
 		this.waitForElementClickable(obj.mapStackButton,5);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(obj.mapStackButton)).click();
-	//	Thread.sleep(2000);
+		Thread.sleep(2000);
 		
 	}
 	
@@ -898,7 +899,7 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 		assertTrue("Failed,Dropped pin no options given",driver.findElement(By.xpath("//div[contains(@class,'PopUp_Link')]")).getText().contains("Directions to here"));
 		assertTrue("Failed: weather info not displayed on dropped pin",IsElementPresent("//div[contains(@style,'cursor: pointer;')]"));
 		driver.findElement(By.xpath(obj.searchBoxPopUpClose)).click();;
-		//Thread.sleep(4000);
+		Thread.sleep(4000);
 		//verify options in dropped pin
 		
 	}
@@ -960,8 +961,10 @@ public void close_carousel() throws InterruptedException{
 	if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
 		{
 			this.waitForElementPresent("//div[@id='carouselCheckbox']", 5);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
 			this.waitForElementPresent("//div[@id='closeCarousel']", 5);
+			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); 
 		}
 }
@@ -1280,7 +1283,7 @@ public void Verify_Get_Directions() throws InterruptedException{
 // lib funtions related AB routing
 
 public void openABwindow() throws InterruptedException{
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	driver.findElement(By.xpath(obj.Routes_Tab)).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath(obj.Get_Directions)).click();

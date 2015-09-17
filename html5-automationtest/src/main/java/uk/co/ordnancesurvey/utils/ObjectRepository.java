@@ -96,8 +96,8 @@ public class ObjectRepository {
 	// Elements for the Routes Tab -Create CustomRoute Trail
 	
 	public final String RoutesTab_CreateCustomRouteTrial = ".//*[@id='MyRouteCreate']";
-	
-	public final String CustomRoute_Save = ".//*[@id='createRouteSave']";
+// Updated save to click on toolbar save 	
+	public final String CustomRoute_Save = ".//*[@id='create-route-save']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
 	public final String CustomrRoute_Edit="//*[contains(text(),'Edit')]";
@@ -292,7 +292,7 @@ public class ObjectRepository {
 	 */
 	public final String POIMoreInfo = "//*[@id='more-info-dropped-pin']";
 	public final String POIGetMeHere = "//*[@id='directions-dropped-pin']";
-	public final String POIVerification = "/html/body/div[2]/div[2]/div[16]/div/div[4]/div/div[1]/div[8]/div[3]";
+	public final String POIVerification = "//*[@id='popup-pin-panel-name']";
 	/*
 	 * POI Panel
 	 */
