@@ -70,16 +70,16 @@ public class WhenSteps {
 		else{		
 		mainPage.set_textBox(obj.login_email_address, userName);
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.clickLinkByXpath(obj.login_button);
-		Thread.sleep(300);			
-		mainPage.waitForElementPresent(obj.mapfeatures,3);
+		mainPage.click(obj.login_button);
+		mainPage.waitForElementPresent(obj.loadPreferences, 20);
+		mainPage.waitForElementClickable(obj.Routes_Tab, 20);
 		}
 	}
 	public void loginToApplicationAfterLogout(String userName, String Password) throws InterruptedException 
 	{
 		
-		/*mainPage.clickLinkByXpath(obj.Settings);
-		mainPage.clickLinkByXpath(obj.settings_Login);*/
+		/*mainPage.click(obj.Settings);
+		mainPage.click(obj.settings_Login);*/
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
 			mainPage.set_textBox(obj.login_pwd,Password);
@@ -89,9 +89,9 @@ public class WhenSteps {
 		mainPage.open_login_window();
 		mainPage.set_textBox(obj.login_email_address, userName);
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.clickLinkByXpath(obj.login_button);			
-		Thread.sleep(500);
-		mainPage.waitForElementPresent(obj.mapfeatures, 3);
+		mainPage.click(obj.login_button);					
+		mainPage.waitForElementPresent(obj.loadPreferences, 20);
+		mainPage.waitForElementClickable(obj.Routes_Tab, 20);
 	}
 		
 	@When("^I login as registered user$")
@@ -134,7 +134,7 @@ public class WhenSteps {
 		mainPage.close_carousel();
 		Thread.sleep(2000);
 //		if (mainPage.IsElementDisplayed(obj.login_email_address)){
-//		mainPage.clickLinkByXpath(obj.close_login);
+//		mainPage.click(obj.close_login);
 //		}
 //else{
 //			
@@ -169,26 +169,22 @@ public class WhenSteps {
 	@When("^I open routes menu$")
 	public void i_open_routes_menu() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	  mainPage.clickLinkByXpath(obj.RoutesTab);
-	  Thread.sleep(2000);
+	  mainPage.click(obj.RoutesTab);
 	}
 
 	
 	@When("^I open my routes$")
 	public void i_open_my_routes() throws Throwable {
 	    mainPage.open_myRoutes();
-	    
 	}
 	@When("^I open places menu$")
 	public void i_open_places_menu() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 		mainPage.open_Mapfeatures();
 	}
 	
 	
 	@When("^I open Map features menu$")
 	public void i_open_Map_features_menu() throws Throwable {
-	    //mainPage.close_login_window();
 		mainPage.open_Mapfeatures();
 	}
 	
@@ -196,21 +192,9 @@ public class WhenSteps {
 	
 	@When("^I Select POI \"(.*?)\"$")
 	public void i_select_poi(String Arg1) throws Throwable {
-		
-	Thread.sleep(3000);
-	mainPage.clickLinkByXpath(obj.mapfeatures);
-		Thread.sleep(3000);		
-//mainPage.clickLinkByXpath(obj.poi_Attractions);
-	
-
-	Thread.sleep(3000);
-		mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
-	Thread.sleep(3000);
-	
-	mainPage.clickLinkByXpath(obj.mapfeatures);
-	Thread.sleep(3000);
-	//mainPage.clickLinkByXpath(".//*[@id='Window_1_Content']/div[10]/div[@class='sidePaneClose']");
-	
+	mainPage.click(obj.mapfeatures);		
+	mainPage.click(obj.poi_CastlesAndAttractions);
+	mainPage.click(obj.mapfeatures);
 	}
 
 	// to click on the view link from the poi summary
@@ -220,7 +204,7 @@ public class WhenSteps {
 		try {
 			mainPage.locatePOI(poiIndex);
 			//Thread.sleep(2000);
-			mainPage.clickLinkByXpath(".//*[@class='Link_Proxy'][1]");
+			mainPage.click(".//*[@class='Link_Proxy'][1]");
 			//mainPage.click(".//*[@id='Window_1_Content']/div[11]/div[1]/div/div[4]");
 		} catch (InterruptedException e) {
 
@@ -300,11 +284,11 @@ public class WhenSteps {
 		
 		switch(arg1)
 		{
-		case "Cycle":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Cycle);break;
-		case "Walk":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Walk);break;
-		case "Run":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Run);break;
-		case "Other":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Other);break;
-		case "All":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_All);break;
+		case "Cycle":mainPage.click(obj.DiscoverRoutes_routeType_Cycle);break;
+		case "Walk":mainPage.click(obj.DiscoverRoutes_routeType_Walk);break;
+		case "Run":mainPage.click(obj.DiscoverRoutes_routeType_Run);break;
+		case "Other":mainPage.click(obj.DiscoverRoutes_routeType_Other);break;
+		case "All":mainPage.click(obj.DiscoverRoutes_routeType_All);break;
 		}
 			
 		}
@@ -340,6 +324,8 @@ public class WhenSteps {
 		@When("^I enter start location$")
 		public void i_enter_start_location() throws Throwable {
 			mainPage.set_textBox(obj.ab_startLocation, "London");
+			mainPage.waitForElementPresent(obj.dirLocSearch, 5);
+			mainPage.click(obj.dirLocSearch);
 			mainPage.hitEnterKey(obj.ab_startLocation);
 		    // Write code here that turns the phrase above into concrete actions
 		   // throw new PendingException();
@@ -349,27 +335,29 @@ public class WhenSteps {
 		public void i_enter_finish_location() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 		  mainPage.set_textBox(obj.ab_finishLocation,"Southampton");
+		  mainPage.waitForElementPresent(obj.dirLocSearch, 5);
+		  mainPage.click(obj.dirLocSearch);
 		  mainPage.hitEnterKey(obj.ab_finishLocation);
 		}
 
 		@When("^I select car icon$")
 		public void i_select_car_icon() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_carIcon);
+			mainPage.click(obj.ab_carIcon);
 		    // Write code here that turns the phrase above into concrete actions
 		  //  throw new PendingException();
 		}
 
 		@When("^I click on GetDirections button$")
 		public void i_click_on_GetDirections_button() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_getDirectionBttn);
-			Thread.sleep(2000);
+			mainPage.waitForElementPresent(obj.ab_getDirectionBttn, 10);
+			mainPage.click(obj.ab_getDirectionBttn);
 		    // Write code here that turns the phrase above into concrete actions
 		  //  throw new PendingException();
 		}
 		// A-B walking route
 		@When("^I select Walk icon$")
 		public void i_select_Walk_icon() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_walkIcon);
+			mainPage.click(obj.ab_walkIcon);
 		    // Write code here that turns the phrase above into concrete actions
 		    //throw new PendingException();
 		}
@@ -383,11 +371,11 @@ public class WhenSteps {
 		    mainPage.locatePOI(14);
 		    Thread.sleep(2000);
 		    if(mainPage.IsElementPresent("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']"))
-		    	mainPage.clickLinkByXpath("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']");
+		    	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']");
 		    
-		      	mainPage.clickLinkByXpath("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Pin to Map']");
+		      	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Pin to Map']");
 		      	Thread.sleep(3000);
-		      	//mainPage.clickLinkByXpath("//div[@id='Window_1_ExternalContentFrame_Close']");
+		      	//mainPage.click("//div[@id='Window_1_ExternalContentFrame_Close']");
 		   mainPage.PageRefresh();   
 		   
 		}
@@ -420,7 +408,7 @@ public class WhenSteps {
 			assertTrue("Failed: More details link not found on route pop-up",driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).getText().contains("More Details"));
 			driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).click();
 			Thread.sleep(2000);
-			//mainPage.clickLinkByXpath("obj.Sign_up_for_paid_subscription");
+			//mainPage.click("obj.Sign_up_for_paid_subscription");
 			driver.findElement(By.xpath(".//*[@id='users-only-common-box']/div/div[3]/div[6]")).click();
 			Thread.sleep(2000);
 			assertTrue("Failed: OS getamap subscription link not found on pop-up",driver.findElement(By.xpath(".//*[@id='subscription-common-box-products']/div[1]")).getText().contains("£ 19.99"));
@@ -472,16 +460,16 @@ public class WhenSteps {
 
 		@When("^from Places I selected POI Castles and Attractions$")
 		public void from_Places_I_selected_POI_Castles_and_Attractions() throws Throwable {
-			mainPage.clickLinkByXpath(obj.mapfeatures);
-			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
+			mainPage.click(obj.mapfeatures);
+			mainPage.click(obj.poi_CastlesAndAttractions);
 		}
 		
 		@When("^from Places I select POI Castles and Attractions$")
 		public void from_Places_I_select_POI_Castles_and_Attractions() throws Throwable {
 			mainPage.set_textBox(obj.searchBox, "Windsor Castle");
 			mainPage.hitEnterKey(obj.searchBox);
-			mainPage.clickLinkByXpath(obj.mapfeatures);
-			mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
+			mainPage.click(obj.mapfeatures);
+			mainPage.click(obj.poi_CastlesAndAttractions);
 		}
 
 		@When("^click on a POI and select more info$")

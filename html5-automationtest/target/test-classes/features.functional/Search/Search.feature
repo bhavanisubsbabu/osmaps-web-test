@@ -1,3 +1,4 @@
+@regression
 Feature: Search popup
 As a user
 In order to view certain region on the map
@@ -25,7 +26,7 @@ Examples:
 |Newbury|
 
 
-@regression
+
 Scenario Outline: Search a place as subscriber
 Given I am on getamap app
 When I login as subscriber user

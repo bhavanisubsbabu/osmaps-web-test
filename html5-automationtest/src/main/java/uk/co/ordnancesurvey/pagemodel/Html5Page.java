@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
 
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -51,11 +52,34 @@ public class Html5Page {
 	 
 	 public void waitForElementPresent(String xpath,long sec){
 		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		  Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
+		  if(IsElementDisplayed(obj.busyElement)){				 	
+				 try {
+					 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.busyElement)));
+				 	}
+				 catch(StaleElementReferenceException e) {
+					 e.getMessage();
+					}
+				}
 		}
 	 
-	 public void waitForElementClickable(String xpath,long sec){
-		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+	 
+	 public void waitForElementClickable(String xpath,long sec) throws InterruptedException{
+			//if(IsElementDisplayed(obj.busyElement)){
+			//	Thread.sleep(5000);
+			//}
+		 (new WebDriverWait(driver, sec)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
+		 if(IsElementDisplayed(obj.busyElement)){				 	
+			 try {
+				 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.busyElement)));
+			 	}
+			 catch(StaleElementReferenceException e) {
+				 e.getMessage();
+				}
+			}
 		}
+	 
 	 public void waitForElementPresentifStale(String xpath){
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
 		 		 
@@ -129,9 +153,10 @@ public class Html5Page {
 		 driver.findElement(By.xpath(obj.ZoomOut)).click();
 	 }
 	 
-	 public void zoomIn(){
+	 public void zoomIn() throws InterruptedException{
 		 this.waitForElementPresent(obj.ZoomIn, 5);
-		 driver.findElement(By.xpath(obj.ZoomIn)).click();
+		 this.click(obj.ZoomIn);
+		 //driver.findElement(By.xpath(obj.ZoomIn)).click();
 	 }
 	 
 	 public void open_25kmap(){
@@ -515,7 +540,15 @@ public class Html5Page {
 	 
 	 
 	 public void close_routecreateDialog() throws InterruptedException{
-		 Thread.sleep(2000);
+		 if(driver.findElement(By.xpath(obj.loadPreferences)).isDisplayed()){
+			 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);			 	
+				 try {
+					 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.loadPreferences)));
+				 }
+				 catch(StaleElementReferenceException e) {
+					 e.getMessage();
+					}
+		 }
 		 for (String winHandle : driver.getWindowHandles()) {
 		     driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		 }
@@ -608,7 +641,7 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	 public void launch_app(){		
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
-		 this.waitForElementPresent("//div[@id='carouselCheckbox']", 10000);
+		 this.waitForElementPresent("//div[@id='carouselCheckbox']", 30000);
 	 }
 	 
 	 
@@ -621,14 +654,17 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	 
 	 public void open_login_window() throws InterruptedException{
 		 Thread.sleep(3000);
-		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']"))			  
-			 driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
+		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']")){	
+			  this.click(".//*[@id='main-top-bar-sign-in']");
+			// driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
+		  }
 		  else {
 			  this.signOUt();
-			  Thread.sleep(2000);
-			  driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
+			  this.click(".//*[@id='main-top-bar-sign-in']");
+//			  Thread.sleep(2000);
+			  //driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
 		  }
-			 Thread.sleep(2000);
+//			 Thread.sleep(2000);
 			 
 			 
  
@@ -669,28 +705,32 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 }
 	   //-- sets any text box on application with given location and  value  
 	public void set_textBox(String locator,String value) throws InterruptedException{
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		this.waitForElementPresent(locator, 10);
 		this.driver.findElement(By.xpath((locator))).clear();
 		this.driver.findElement(By.xpath((locator))).sendKeys(value);
 	}
 	
 	public void hitEnterKey(String locator) throws InterruptedException{
 		this.driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 		
 	}
 	//--click link by xpath
 	public void clickLinkByXpath(String locator) throws InterruptedException{
-		Thread.sleep(4000);
-		System.out.print(locator);
+		this.waitForElementPresent(locator, 10);
 		this.driver.findElement(By.xpath(locator)).click();
-		
-		
 	}
 	
-	//--click link by id
-		public void click(String locator){
-			this.driver.findElement(By.id(locator)).click();
+		public void click(String locator) throws InterruptedException{
+			this.waitForElementClickable(locator, 10);			
+				try{
+					this.driver.findElement(By.xpath(locator)).click();
+				}
+				catch(Exception e){
+					Thread.sleep(5000);
+					this.driver.findElement(By.xpath(locator)).click();
+				}
 			
 		}
 	
@@ -699,7 +739,8 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 
 	}
 	
-	public void submitLogin(){
+	public void submitLogin() throws InterruptedException{
+		this.waitForElementClickable(obj.login_button, 10);
 		this.driver.findElement(By.id(obj.login_button)).click();
 	}
 	 public boolean IsElementPresent(String xpath)
@@ -747,47 +788,31 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	  */
 	 
 	 public void viewPOI() throws InterruptedException{
-		this.waitForElementPresent(obj.POI, 5);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(obj.POI)).click();
-		Thread.sleep(2000);
-		this.waitForElementPresent(obj.POIMoreInfo, 5);
-		driver.findElement(By.xpath(obj.POIMoreInfo)).click();
-		//Thread.sleep(1000);
+		 this.click(obj.POI);
+		 this.click(obj.POIMoreInfo);
 	 }
 	 
 	 public void assertPOI() throws InterruptedException{
-			Thread.sleep(2000);
-			this.waitForElementPresent(obj.POIVerification, 5);
-			this.IsElementPresent(obj.POIVerification);
-			Thread.sleep(2000);
+			this.waitForElementPresent(obj.POIVerification, 10);
 	 }
 	 
 	 public void pinPOI() throws InterruptedException{
 		 if(this.IsElementPresent(obj.POIunpin)){
 			 unpinPOI();
-			 Thread.sleep(2000);
-			 this.waitForElementPresent(obj.POIMoreInfo, 5);
-			 driver.findElement(By.xpath(obj.POIMoreInfo)).click();
-			 Thread.sleep(1000);
+			 this.click(obj.POIMoreInfo);
 		 }
 		 this.waitForElementPresent(obj.POIpin,10);	
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath(obj.POIpin)).click();
+		 this.click(obj.POIpin);
 		// Thread.sleep(500);
 		 //this.waitForElementPresent(obj.POIunpin,10);
 	 }
 	 
 	 public void unpinPOI() throws InterruptedException{
-		 	this.waitForElementPresent(obj.POIunpin,3);
-		 	Thread.sleep(500);
-		 	driver.findElement(By.xpath(obj.POIunpin)).click();
-		 	this.waitForElementPresent(obj.POIpin,3);
+		 	this.click(obj.POIunpin);
 	 }
 	 
 	 public void verifyPinOnMap() throws InterruptedException{
 		 this.waitForElementPresent(obj.POI, 3);
-		// Thread.sleep(1000);
 		 this.IsElementPresent(obj.POI);
 		 
 	 }
@@ -884,11 +909,7 @@ if(IsElementPresent("//div[contains(@class,'dialogTitle')]"))
 	// to open mapstack and verify the map stack objects
 	
 	public void openMapstack() throws InterruptedException{
-		Thread.sleep(6000);
-		this.waitForElementClickable(obj.mapStackButton,5);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(obj.mapStackButton)).click();
-		Thread.sleep(2000);
+		this.click(obj.mapStackButton);
 		
 	}
 	
@@ -961,11 +982,9 @@ public void close_carousel() throws InterruptedException{
 	if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
 		{
 			this.waitForElementPresent("//div[@id='carouselCheckbox']", 5);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
+			this.click("//div[@id='carouselCheckbox']");
 			this.waitForElementPresent("//div[@id='closeCarousel']", 5);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); 
+			this.click("//div[@id='closeCarousel']");
 		}
 }
 
@@ -1429,11 +1448,12 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
  */
 
 	public void selectMapType(String maptype) throws InterruptedException{
-		driver.findElement(By.xpath(maptype)).click();
-		Thread.sleep(3000);
+		this.click(maptype);
+//Mandatory sleep for map to load
+		Thread.sleep(5000);
 	}
 	
-	public void snapZoom(){
+	public void snapZoom() throws InterruptedException{
 		if(IsElementDisplayed(obj.Snapdisabled)){
 			for(int i=0;i<3;i++){zoomIn();}
 		}
@@ -1458,9 +1478,16 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 	}
 
 /*
- *@Ravi Kunaparaju
- *Added methods for star ratings and user rate count assertions 
+ * @Ravi Kunaparaju
+ * Added methods for extending tests 
  */
+	
+		public void searchMap(String place) throws InterruptedException{
+			this.set_textBox(obj.searchBox, place);
+			this.hitEnterKey(obj.searchBox);
+		}
+		
+		
 		public void verifyRouteRatings() throws InterruptedException{
 			this.waitForElementPresent(obj.star_ratings_discover_routes, 5);
 			Thread.sleep(500);
@@ -1474,8 +1501,79 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			Thread.sleep(500);
 		}
 
+/*
+ * Print related methods	
+ */
 	
-	
-	
+		public void selectPrint() throws InterruptedException{
+			this.click(obj.print_toolbar);					
+			this.waitForElementPresent(obj.preview_window, 5);
+		}
+		
+		public void hidePrintPreview(){
+			driver.findElement(By.xpath(obj.preview_window_hide)).click();
+		}
+		
+		public void assert_preview_hide(){
+			assertTrue(driver.findElement(By.xpath(obj.preview_window_show)).isDisplayed());
+		}
+		
+		public void showPrintPreview() throws InterruptedException{
+			this.click(obj.preview_window_show);			
+		}
+		
+		public void assert_preview_visible() throws InterruptedException{
+			assertTrue(driver.findElement(By.xpath(obj.preview_window_hide)).isDisplayed());
+		}
+		
+		public void selectA3Portrait() throws InterruptedException{
+			this.waitForElementPresent(obj.A3Portrait, 5);
+			this.click(obj.A3Portrait);
+		}
+		
+		public void previewPrint() throws InterruptedException{
+			this.click(obj.preview_button);			
+			this.waitForElementPresent(obj.back_to_map, 50);
+		}
+		
+		public void assert_A4print(){
+			assertTrue(driver.findElement(By.xpath(obj.preview_page_A4_assert)).isDisplayed());
+		}
+		public void assert_A3print(){
+			assertTrue(driver.findElement(By.xpath(obj.preview_page_A3_assert)).isDisplayed());
+		}
+		
+/*
+ *  My Routes navigation
+ *  
+ */
+		public void navigateRoutesList() throws InterruptedException{			
+			this.click(obj.Routes_Tab);			
+			this.click(obj.RoutesTab_MyRoutes);			
+			this.click(obj.MyRoutes_routes);			
+			this.waitForElementPresent(obj.routeNameDiv1, 10);
+		}
+		
+/*
+ *  Select Top route
+ */
+		public void selectRouteDetails() throws InterruptedException{			
+			this.click(obj.routeNameDiv1);			
+			this.click(obj.routeMoreInfo);
+			this.waitForElementPresent(obj.routeDetailsSidePanel, 5);
+		}
+/*
+ * 	route popup more info 	
+ */
+		public void selectRouteDirections() throws InterruptedException{
+			this.waitForElementPresent(obj.routeNameDiv1, 10);
+			//Thread.sleep(2000);
+			driver.findElement(By.xpath(obj.routeNameDiv1)).click();
+			this.waitForElementPresent(obj.routePopup, 5);
+			//Thread.sleep(2000);
+			driver.findElement(By.xpath(obj.routeGetDirection)).click();
+			this.waitForElementPresent(obj.routeDirectionsSidePanel, 5);
+		}
+
 }
 

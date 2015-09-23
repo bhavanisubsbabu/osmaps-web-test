@@ -8,13 +8,13 @@ import uk.co.ordnancesurvey.utils.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class CreateDPN {
+public class CreateDPN_steps {
 
 	Html5Page mainPage;
 	private  WebDriver driver;
 	ObjectRepository obj;
 	
-	public CreateDPN(SharedWebDriver driver){
+	public CreateDPN_steps(SharedWebDriver driver){
 		this.driver=driver;
 		mainPage = PageFactory.initElements(driver, Html5Page.class);	
 		obj = PageFactory.initElements(driver, ObjectRepository.class);
@@ -23,7 +23,6 @@ public class CreateDPN {
 	@When("^I select National Park Pathways from mapstack$")
 	public void i_select_National_Park_Pathways_from_mapstack() throws Throwable {
 		mainPage.openMapstack();
-		System.out.print("I clicked mapstack button");
 		mainPage.selectMapType(obj.nationalParkPathwaysMap);
 	}
 
@@ -31,6 +30,7 @@ public class CreateDPN {
 	public void i_select_create_custom_route_from_routes() throws Throwable {
 		mainPage.set_textBox(obj.searchBox, "New Forest");
 		mainPage.hitEnterKey(obj.searchBox);
+		mainPage.waitForElementClickable(obj.POIMoreInfo, 30);
 	}
 
 	@When("^I zoom-in map till snap is enabled and plot a route$")

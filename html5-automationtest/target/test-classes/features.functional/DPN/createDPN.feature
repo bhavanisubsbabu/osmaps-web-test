@@ -1,3 +1,4 @@
+@regression
 Feature: Application should auto route between way points when subscribed user create routes in National Park pathways
 
 	Scenario: Plot a route in national park pathways with snap enabled
@@ -9,7 +10,7 @@ Feature: Application should auto route between way points when subscribed user c
 		And I zoom-in map till snap is enabled and plot a route
 		Then app should auto route nearest pathways from the 2 locations   
 
-	Scenario: plot a route in national park pathways with snap disabled
+
 	
 	
 	

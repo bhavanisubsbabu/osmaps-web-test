@@ -70,7 +70,7 @@ public class ObjectRepository {
 	public final String login_button = "//div[contains(@class,'button center login-form-login-button margin-top-big')]";
 	public final String close_login = "//div[contains(@class,'button-x')]";
 	
-	
+	public final String loadPreferences = "//div[@class='Window_1_GlobalWait_Outer']";
 	
 
 	public final String ZoomIn = ".//*[@id='zoom-slider-plus']";
@@ -88,15 +88,33 @@ public class ObjectRepository {
 	public final String ab_carIcon="//img[@id='routeABTypeDrive']";
 	public final String ab_walkIcon="//img[@id='routeABTypeWalk']";
 	public final String ab_resultPopup="//div[@class='AB_PopUp_Details']";
-	//public final String ab_walk_resultPopup="";
-	
-	
-	public final String RoutesTab_MyRoutes = ".//*[@id='MyRouteMy']|";
 
-	// Elements for the Routes Tab -Create CustomRoute Trail
+/*
+ *  Elements for routes list navigation and manipulation
+ *  @author Ravi kunaparaju	
+ */
+	
+	public final String RoutesTab_MyRoutes = "//div[text()='My Routes']";
+	public final String MyRoutes_routes = "//*[@id='myRouteListShow']";
+	public final String routeNameDiv1 = "//div[@class='discoveredListName']";
+	public final String routeEdit = "//div[@class='discoveredListEdit link']";
+	public final String routeDelete = "//div[@class='discoveredListDelete link']";
+	
+	public final String busyElement="//div[@class='common-box-busy']";
+// route popup elements
+
+	public final String routePopup = "//div[@class='Basic_Style DiscoverRoute_PopUp']";
+	public final String routeMoreInfo = "//span[@class='link'][text()='More info']";
+	public final String routeGetDirection = "//*[@id='directions-route-pin']";
+	public final String routeDetailsSidePanel = "//div[@class='sidePaneTitle'][text()='Route Details']";
+	public final String routeDirectionsSidePanel = "//div[@class='sidePaneTitle'][text()='Directions']";
+	
+// Elements for the Routes Tab -Create CustomRoute Trail
 	
 	public final String RoutesTab_CreateCustomRouteTrial = ".//*[@id='MyRouteCreate']";
-// Updated save to click on toolbar save 	
+
+// Updated save to click on tool bar save 	
+
 	public final String CustomRoute_Save = ".//*[@id='create-route-save']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
@@ -144,8 +162,8 @@ public class ObjectRepository {
 	public final String nationalParkPathwaysMap="//*[@id='Window_1_Btn_NationalParks']";
 	public final String AerialMap="//*[@id='Window_1_Btn_BingAerial']";
 	
-	
-	//Elements for POI
+	 
+ 	//Elements for POI
 
 	public final String poi_CategoryList = ".//div[contains(@class,'POI_Category_Parent')]/div[1]";
 	public final String poi_Attractions = "//div[contains(@class,'POI_Category_Child_Name')][text()='Castles and historic houses']";
@@ -247,6 +265,8 @@ public class ObjectRepository {
 	
 	//Get Directions
 	public final String Get_Directions = ".//*[@id='MyRouteAB']";//*[@id="main-top-bar-directions"];
+	//directions results for to field
+	public final String dirLocSearch="//div[@class='GazTown']";
 	//Import GPX 	
 	public final String ImportGPX=".//*[@id='MyRouteImport']";
 	
@@ -271,8 +291,8 @@ public class ObjectRepository {
 	public final String Sign_up_for_paid_subscription = ".//*[@id='Window_1_Login_Header']/div[4]";
 	
 	
-	/*
-	 * @Author Ravi Kunaparaju
+	/* Adding new objects for extending tests
+	 * @Author Ravi Kunaparaju 
 	 * Added snap for DPN 
 	 */
 	public final String SnapActive = ".//div[contains(@class,'tooltipstered active')][text()='Snap']";
@@ -299,6 +319,20 @@ public class ObjectRepository {
 	public final String POIpin = "//*[contains(@class,'pin-to-map-icon')]";
 	public final String POIunpin = "//*[contains(@class,'unpin-from-map-icon')]";
 	
-	//*[@id="OpenLayers_Geometry_Point_514"]
+	/*
+	 * Print
+	 */
+	public final String print_toolbar = "//*[@id='create-route-print']";
+	public final String preview_window = "//*[@id='print-preview-map-disable-interaction']";
+	public final String preview_window_hide = "//*[@id='print-preview-toggle']";
+	public final String preview_window_show = "//div[contains(@class,'link active')]";
+	public final String preview_button = "//div[contains(@class,'printSelectorButton Basic_Btn')][text()='Preview']";
+	public final String preview_page_A4_assert = "//div[contains(@class,'PrintPageA4')]";
+	public final String preview_page_A3_assert = "//div[contains(@class,'PrintPageA3')]";
+	public final String back_to_map = "//*[@id='previewCancelButton']";
+	public final String A4Portrait = "//div[@class='printSelectorOptionRadio'][text()='A4 portrait']";
+	public final String A3Portrait = "//div[@class='printSelectorOptionRadio'][text()='A3 portrait']";
+	public final String A4Landscape = "//div[@class='printSelectorOptionRadio'][text()='A4 landscape']";
+	public final String A3Landscape = "//div[@class='printSelectorOptionRadio'][text()='A3 landscape']";
 	
 }
