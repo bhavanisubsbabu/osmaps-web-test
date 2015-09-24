@@ -584,9 +584,20 @@ public class ThenSteps {
 		@Then("^POI should be removed from map and when user refreshes POI shouldn't br visible$")
 		public void poi_should_be_removed_from_map_and_when_user_refreshes_POI_shouldn_t_br_visible() throws Throwable {
 		    mainPage.PageRefresh();
-		    Thread.sleep(2000);
+		    mainPage.waitForElementPresent(obj.RoutesTab, 8);
 		    mainPage.elementDoesntExists(obj.POI);
 		}
 
+		@Then("^Save the route as other$")
+		public void save_the_route_as_other() throws Throwable {
+			mainPage.save_route_other();		    
+		}
+
+		@Then("^I should be able to see dropped pin in that searched area$")
+		public void i_should_be_able_to_see_dropped_pin_in_that_searched_area() throws Throwable {
+			mainPage.IsElementDisplayed(obj.POIMoreInfo);
+		}
+
+		
 }
 	

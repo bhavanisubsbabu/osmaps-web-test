@@ -36,7 +36,7 @@ Scenario: Create route type as cycle
 	Then I should be able to create route
 	And  Save the route as cycle
 
-
+@wip
 Scenario: Create route type as other
 	Given I am on getamap app
 	When I login as subscriber user
