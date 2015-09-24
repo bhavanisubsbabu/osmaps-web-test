@@ -28,7 +28,6 @@ public class ThenSteps {
 	private  WebDriver driver;
 	String platform= AppProperties.get("platform");
 	ObjectRepository obj = new ObjectRepository();
-	
 
 		public ThenSteps(SharedWebDriver driver){
 		
@@ -55,7 +54,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to create route on mapstack\"(.*?)\"$")
 		public void i_should_be_able_to_create_route_on_mapstack(String arg1) throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 		
 			try {
 			
@@ -131,14 +130,14 @@ public class ThenSteps {
 			try {
 				if (arg1==25){
 					Thread.sleep(2000);
-					mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");
-					mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
+					mainPage.click("html/body/div[2]/div[2]/div[12]/div[3]");
+					mainPage.click(obj.standardAndLeisureMap);
 				}
 				else	
 					if (arg1==50){
 						Thread.sleep(2000);
-						mainPage.clickLinkByXpath("html/body/div[2]/div[2]/div[12]/div[3]");	
-						mainPage.clickLinkByXpath(obj.standardAndLeisureMap);
+						mainPage.click("html/body/div[2]/div[2]/div[12]/div[3]");	
+						mainPage.click(obj.standardAndLeisureMap);
 					}
 				
 				mainPage.OpenRoutesmenu();
@@ -220,7 +219,7 @@ public class ThenSteps {
 
 		@Then("^I should see \"(.*?)\" POIs and clustered POIs$")
 		public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
-    		// Write code here that turns the phrase above into concrete actions
+    		
 	
 			int total_pois=mainPage.filter_POIbyType();
 			assertTrue("Failed: Total POIs returned" + total_pois + " doesn't match to expected"+arg1+" value",(Integer.parseInt(arg1)==total_pois ));
@@ -230,7 +229,7 @@ public class ThenSteps {
 
 		@Then("^by sub category \"(.*?)\"$")
 		public void by_sub_category(String arg1) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		   
 		}
 		
@@ -249,12 +248,11 @@ public class ThenSteps {
 		public void i_should_be_able_to_close_summary_box_by_clicking_on_x_button() {
 		  
 			try {
-				mainPage.clickLinkByXpath(obj.poi_Closebutton);
+				mainPage.click(obj.poi_Closebutton);
 				Thread.sleep(2000);
 				assertTrue(!mainPage.IsElementPresent(obj.poi_window));
 				
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
@@ -263,13 +261,13 @@ public class ThenSteps {
 		
 		@Then("^Save the route as run$")
 		public void save_the_route_as_run() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		    mainPage.save_route_run("yes");
 		}
 
 		@Then("^Save the route as cycle$")
 		public void save_the_route_as_cycle() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		    mainPage.save_route_cycle();
 		}
 
@@ -279,8 +277,6 @@ public class ThenSteps {
 			
 			System.out.println(arg1);
 			mainPage.save_routetype(arg1);
-		    
-		   
 		}
 		
 		
@@ -299,23 +295,10 @@ public class ThenSteps {
 			assertTrue(!poiInfo.contains(arg1));
 		}
 		
-
-//		@Then("^I Should see the Route \"(.*?)\" on the sidebar$")
-//		public void i_should_see_the_route_on_the_sidebar(String arg1) throws Throwable {
-//
-//			mainPage.clickLinkByXpath(obj.DiscoverRoutes_route_List_FirstRoute);
-//			String RouteName=mainPage.getText(obj.DiscoverRoutes_route_List_FirstRoute);
-//			assertTrue("The Exepcted Route Name"+arg1+"is not found in side bar Routes First List Item"+RouteName, RouteName.contains(arg1));
-//			System.out.println(RouteName+ "   And" + arg1);
-//			mainPage.signOUt();
-//		
-//		}
-		
-		
 		@Then("^I Should see the Route \"(.*?)\" on the Map$")
 		public void i_should_see_the_route_on_the_map(String arg1) throws Throwable {
 
-		mainPage.clickLinkByXpath(obj.DiscoverRoutes_route_List_FirstRoute_ViewLink);
+		mainPage.click(obj.DiscoverRoutes_route_List_FirstRoute_ViewLink);
 		
 		String poiInfo= mainPage.getText(obj.DiscoverRoutes_route_POI_RouteName);
 		
@@ -351,7 +334,7 @@ public class ThenSteps {
 		@Then("^I Should see the Route \"(.*?)\" on the sidebar$")
 		public void i_should_see_the_route_on_the_sidebars(String arg1) throws Throwable {
 
-			mainPage.clickLinkByXpath(obj.DiscoverRoutes_route_List_FirstRoute);
+			mainPage.click(obj.DiscoverRoutes_route_List_FirstRoute);
 			String RouteName=mainPage.getText(obj.DiscoverRoutes_route_List_FirstRoute);
 			assertTrue("The Exepcted Route Name"+arg1+"is not found in side bar Routes First List Item"+RouteName, RouteName.contains(arg1));
 			System.out.println(RouteName+ "   And" + arg1);
@@ -362,9 +345,7 @@ public class ThenSteps {
 
 		@Then("^I should see ratings for Discover routes$")
 		public void i_should_see_ratings_for_Discover_routes() throws Throwable {
-		
-			
-		
+				
 		}
 
 
@@ -375,47 +356,28 @@ public class ThenSteps {
 
 		@Then("^I should be able to rate authored routes$")
 		public void i_should_be_able_to_rate_authored_routes() throws Throwable {
-		    mainPage.clickLinkByXpath(".//*[@id='discPopupContent']/div[5]");
+		    mainPage.click(".//*[@id='discPopupContent']/div[5]");
 		    Thread.sleep(3000);
 		    mainPage.Verify_StarRatings_SidePanel();
-		    mainPage.clickLinkByXpath(".//*[@id='routeDetailRating']/div/div[1]/div[1]");
+		    mainPage.click(".//*[@id='routeDetailRating']/div/div[1]/div[1]");
 		    mainPage.Verify_StarRate_SidePanel();
 		    String ratings=mainPage.getText(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[2]");
-		    
-		    
-		    //System.out.print("Ratings:"+ ratings);
-		    //if(ratings.equals("(1)"))
-		    //{
-		    	//System.out.print("Rating is already done for this route");
-		    //}
-		    	
-		    //else{
-		    
-		    //assertTrue("The Exepcted ratings"+ ratings +"is not found in side bar ", ratings.contains("(1)"));
-//		    mainPage.IsElementPresent(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[2]");
-		    mainPage.clickLinkByXpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[9]");
-		    mainPage.clickLinkByXpath(".//*[@id='routeDetailRating']/div/div[2]/div[3]/div[1]");
-		    Thread.sleep(3000);
-		   
+		    mainPage.click(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[9]");
+		    mainPage.click(".//*[@id='routeDetailRating']/div/div[2]/div[3]/div[1]");
+		    Thread.sleep(3000);		   
 		    }
-		    
-		
-		  		    
-		    	
 
 		@Then("^I should be able to see A-B car directions$")
 		public void i_should_be_able_to_see_A_B_car_directions() throws Throwable {
 			mainPage.waitForElementPresent(obj.ab_resultPopup, 10);
 			mainPage.IsElementDisplayed(obj.ab_resultPopup);
-		    // Write code here that turns the phrase above into concrete actions
-		    //throw new PendingException();
 		}
 		
 		
 		@Then("^I should be able to see A-B walk directions$")
 		public void i_should_be_able_to_see_A_B_walk_directions() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		   // throw new PendingException();
+		    
+		   
 			assertTrue("Failed: A-B route not found, please check manually",mainPage.IsElementDisplayed(obj.ab_resultPopup));
 		}		
 		
@@ -425,26 +387,26 @@ public class ThenSteps {
 		public void i_should_be_able_to_access_all_pages() throws Throwable {
 					Thread.sleep(4000);
 					//Map Features
-					mainPage.clickLinkByXpath(obj.mapfeatures);
+					mainPage.click(obj.mapfeatures);
 					Thread.sleep(2000);
 					mainPage.Verify_Live_Map_including_weather_panel();
 					//Routes Tab
-					mainPage.clickLinkByXpath(obj.Routes_Tab);
+					mainPage.click(obj.Routes_Tab);
 					Thread.sleep(2000);
 					mainPage.Verify_all_elements_present_ROUTES();
 					//Discover Routes
-					mainPage.clickLinkByXpath(obj.Discover_Routes);
+					mainPage.click(obj.Discover_Routes);
 					Thread.sleep(2000);
 					mainPage.Verify_Discover_Routes();
 					Thread.sleep(2000);
 					//Create Custom Trail
-					mainPage.clickLinkByXpath(obj.Create_Custom_Trail);
+					mainPage.click(obj.Create_Custom_Trail);
 					Thread.sleep(2000);
 					mainPage.Verify_Create_Custom_Trail();
-					mainPage.clickLinkByXpath(obj.My_Routes);
+					mainPage.click(obj.My_Routes);
 					Thread.sleep(2000);
 					mainPage.Verify_My_Routes();
-					mainPage.clickLinkByXpath(obj.Get_Directions);
+					mainPage.click(obj.Get_Directions);
 					Thread.sleep(2000);
 					mainPage.Verify_Get_Directions();
 
@@ -454,53 +416,38 @@ public class ThenSteps {
 					
 					@Then("^I should see POI remains persisted after I turn off POI Category$")
 					public void i_should_see_POI_remains_persisted_after_I_turn_off_POI_Category() throws Throwable {
-						//mainPage.clickLinkByXpath(obj.mapfeatures);
-					Thread.sleep(2000);
-					//mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
-					Thread.sleep(3000);
-					//mainPage.clickLinkByXpath(obj.mapfeatures);
 					mainPage.verify_pinnedPOIexist();
-						
-						// Write code here that turns the phrase above into concrete actions
-					    
 					}
 								
 					@Then("^I should see pinned POI on the map\\.$")
 					public void i_should_see_pinned_POI_on_the_map() throws Throwable {
-					    // Write code here that turns the phrase above into concrete actions
 					    mainPage.verify_pinnedPOIexist();
 					}
 					
 					
 					@Then("^I should not see POI  persisted after I turn off POI Category$")
 					public void i_should_not_see_POI_persisted_after_I_turn_off_POI_Category() throws Throwable {
-					    // Write code here that turns the phrase above into concrete actions
 						Thread.sleep(3000);
 						mainPage.close_login_window();
-						mainPage.verify_pinnedPOIDoesntExist();
-					    
+						mainPage.verify_pinnedPOIDoesntExist();    
 					}
 					
 						
 		@Then("^I should be given an option to upgrade to a Registered user by completing the registration process within the application$")
 		public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
 			mainPage.registernewUser();
 			Thread.sleep(2000);
-
-						
 		}
 						
 		@Then("^I should be able to register by completing the registration process within the application$")
-		public void i_should_be_able_to_register_by_completing_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+		public void i_should_be_able_to_register_by_completing_the_registration_process_within_the_application() throws Throwable {			
 			mainPage.registernewUser();
 			Thread.sleep(2000);
 		}
 							
 		@Then("^I should be getting errors when entering incorrect details in the registration process within the application$")
 		public void I_should_be_getiing_errors_when_entering_incorrect_details_in_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.registernewUser2();
 			Thread.sleep(2000);
 								
@@ -508,7 +455,7 @@ public class ThenSteps {
 							
 		@Then("^I should be given an option to upgrade to subscribed user by completing the subscription process within the application$")
 		public void i_should_be_given_an_option_to_upgrade_to_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.subscribenewUser();
 			Thread.sleep(2000);
 	
@@ -516,8 +463,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to upgrade to a subscribed user by completing the subscription process within the application$")
 		public void i_should_be_able_to_upgrade_to_a_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
-			//driver.findElement(By.cssSelector(".productItem")).click();
+			
 			Thread.sleep(2000);
 			mainPage.registernewUser();
 			Thread.sleep(2000);
@@ -525,9 +471,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to delete any route from my routes$")
 		public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
-			mainPage.clickLinkByXpath(obj.RoutesTab);
-			Thread.sleep(2000);
+			mainPage.click(obj.RoutesTab);
 			mainPage.Delete_route_from_my_routes();
 		}
 	
@@ -537,24 +481,16 @@ public class ThenSteps {
 
 		@Then("^I should be able to see all options on top menu bar$")
 		public void i_should_be_able_to_see_all_options_on_top_menu_bar() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
 			mainPage.verify_topMenuBar();
 		}
 
-	
-	
-	
 		@Then("^I should be able to find all route options$")
-		public void i_should_be_able_to_find_all_route_options() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+		public void i_should_be_able_to_find_all_route_options() throws Throwable {			
 			mainPage.verify_routesMenu();
 		}
 
-	
-	
 		@Then("^I should see \"(.*?)\" top right corner$")
 		public void i_should_see_top_right_corner(String arg1) throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
 			mainPage.verify_UserLogin(arg1);   
 		}
 
@@ -584,9 +520,7 @@ public class ThenSteps {
 		@Then("^POI should be removed from map and when user refreshes POI shouldn't br visible$")
 		public void poi_should_be_removed_from_map_and_when_user_refreshes_POI_shouldn_t_br_visible() throws Throwable {
 		    mainPage.PageRefresh();
-		    Thread.sleep(2000);
 		    mainPage.elementDoesntExists(obj.POI);
 		}
-
 }
 	

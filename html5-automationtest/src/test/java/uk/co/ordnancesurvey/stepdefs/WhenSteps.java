@@ -45,11 +45,11 @@ public class WhenSteps {
 			Thread.sleep(2000);
 			driver.findElement(By.cssSelector("#BurgerProfileLoginLogout")).click();
 		}
-		else{
-		//Thread.sleep(2000);
+		else{		
 		mainPage.waitForElementPresent(".//*[@id='main-top-bar-sign-in']",3);	
-		driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
-		driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();		
+		mainPage.click(".//*[@id='main-top-bar-sign-in']");
+		mainPage.waitForElementPresent(".//*[@id='main-top-bar-user-menu']/div[5]", 5);
+		mainPage.click(".//*[@id='main-top-bar-user-menu']/div[5]");		
 		}
 	}
 	
@@ -77,9 +77,6 @@ public class WhenSteps {
 	}
 	public void loginToApplicationAfterLogout(String userName, String Password) throws InterruptedException 
 	{
-		
-		/*mainPage.click(obj.Settings);
-		mainPage.click(obj.settings_Login);*/
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
 			mainPage.set_textBox(obj.login_pwd,Password);
@@ -96,10 +93,8 @@ public class WhenSteps {
 		
 	@When("^I login as registered user$")
 	public void i_login_as_registered_user() throws Throwable {
-		//login.open_login_window();
 		mainPage.close_carousel();	
 		mainPage.open_login_window();
-			Thread.sleep(2000);
 			if (mainPage.IsElementDisplayed(obj.login_email)){
 				loginToApplication(AppProperties.get("regUname"),AppProperties.get("regPwd"));
 			}
@@ -114,7 +109,6 @@ public class WhenSteps {
 	public void i_login_as_subscriber_user() throws Throwable {
 		mainPage.close_carousel();
 		mainPage.open_login_window();
-		Thread.sleep(2000);
 		if (mainPage.IsElementDisplayed(obj.login_email)){
 			
 			loginToApplication(AppProperties.get("subUname"),AppProperties.get("subPwd"));
@@ -133,17 +127,8 @@ public class WhenSteps {
 		Thread.sleep(3000);
 		mainPage.close_carousel();
 		Thread.sleep(2000);
-//		if (mainPage.IsElementDisplayed(obj.login_email_address)){
-//		mainPage.click(obj.close_login);
-//		}
-//else{
-//			
-//			logOutApplication();
-//			loginToApplicationAfterLogout(AppProperties.get("subUname"),AppProperties.get("subPwd"));
-//		}
 	}
-	
-	
+
 	@When("^I login as subscriber user smoke$")
 	public void i_login_as_subscriber_user_smoke() throws Throwable {
 		Thread.sleep(3000);	
@@ -168,7 +153,7 @@ public class WhenSteps {
 	
 	@When("^I open routes menu$")
 	public void i_open_routes_menu() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
+	    
 	  mainPage.click(obj.RoutesTab);
 	}
 
@@ -187,9 +172,7 @@ public class WhenSteps {
 	public void i_open_Map_features_menu() throws Throwable {
 		mainPage.open_Mapfeatures();
 	}
-	
-	
-	
+
 	@When("^I Select POI \"(.*?)\"$")
 	public void i_select_poi(String Arg1) throws Throwable {
 	mainPage.click(obj.mapfeatures);		
@@ -203,15 +186,10 @@ public class WhenSteps {
 	    
 		try {
 			mainPage.locatePOI(poiIndex);
-			//Thread.sleep(2000);
 			mainPage.click(".//*[@class='Link_Proxy'][1]");
-			//mainPage.click(".//*[@id='Window_1_Content']/div[11]/div[1]/div/div[4]");
 		} catch (InterruptedException e) {
-
 			e.printStackTrace();
 		}
-	
-		
 	}	
 		
 		
@@ -224,9 +202,6 @@ public class WhenSteps {
 			
 				e.printStackTrace();
 			}
-			
-			
-		
 		}
 
 		
@@ -240,7 +215,7 @@ public class WhenSteps {
 		
 		@When("^I search \"(.*?)\"$")
 		public void i_search(String arg1) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 			mainPage.set_textBox(obj.searchBox, arg1);
 			Thread.sleep(6000);
 			mainPage.hitEnterKey(obj.searchBox);
@@ -317,9 +292,7 @@ public class WhenSteps {
 		public void i_open_A_B_Routing_window() throws Throwable {
 			mainPage.openABwindow();
 			Thread.sleep(3000);
-		    // Write code here that turns the phrase above into concrete actions
-		    //throw new PendingException();
-		}
+		    }
 
 		@When("^I enter start location$")
 		public void i_enter_start_location() throws Throwable {
@@ -327,13 +300,10 @@ public class WhenSteps {
 			mainPage.waitForElementPresent(obj.dirLocSearch, 5);
 			mainPage.click(obj.dirLocSearch);
 			mainPage.hitEnterKey(obj.ab_startLocation);
-		    // Write code here that turns the phrase above into concrete actions
-		   // throw new PendingException();
-		}
+		   }
 
 		@When("^I enter finish location$")
 		public void i_enter_finish_location() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
 		  mainPage.set_textBox(obj.ab_finishLocation,"Southampton");
 		  mainPage.waitForElementPresent(obj.dirLocSearch, 5);
 		  mainPage.click(obj.dirLocSearch);
@@ -343,46 +313,37 @@ public class WhenSteps {
 		@When("^I select car icon$")
 		public void i_select_car_icon() throws Throwable {
 			mainPage.click(obj.ab_carIcon);
-		    // Write code here that turns the phrase above into concrete actions
-		  //  throw new PendingException();
-		}
+		    }
 
 		@When("^I click on GetDirections button$")
 		public void i_click_on_GetDirections_button() throws Throwable {
 			mainPage.waitForElementPresent(obj.ab_getDirectionBttn, 10);
 			mainPage.click(obj.ab_getDirectionBttn);
-		    // Write code here that turns the phrase above into concrete actions
-		  //  throw new PendingException();
-		}
+		   }
 		// A-B walking route
 		@When("^I select Walk icon$")
 		public void i_select_Walk_icon() throws Throwable {
 			mainPage.click(obj.ab_walkIcon);
-		    // Write code here that turns the phrase above into concrete actions
-		    //throw new PendingException();
-		}
+		  }
 		
 		
 		//Pin a POI
 		
 		@When("^I pin a POI$")
 		public void i_pin_a_POI() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		    mainPage.locatePOI(14);
+		     mainPage.locatePOI(14);
 		    Thread.sleep(2000);
 		    if(mainPage.IsElementPresent("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']"))
 		    	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']");
 		    
 		      	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Pin to Map']");
 		      	Thread.sleep(3000);
-		      	//mainPage.click("//div[@id='Window_1_ExternalContentFrame_Close']");
-		   mainPage.PageRefresh();   
+		      	mainPage.PageRefresh();   
 		   
 		}
 		@When("^I logout from aplication$")
 		public void i_logout_from_aplication() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		   Thread.sleep(3000);
+		    Thread.sleep(3000);
 			mainPage.signOUt();
 		}
 	
@@ -424,8 +385,6 @@ public class WhenSteps {
 					driver.findElement(By.xpath(".//*[@id='login-form']/div/div[2]/div[9]")).click();
 				}
 				else {
-					
-				//mainPage.signOUt();				
 				mainPage.open_login_window();
 				driver.findElement(By.xpath(".//*[@id='login-form']/div/div[2]/div[9]")).click();
 				}
@@ -437,9 +396,8 @@ public class WhenSteps {
 		
 		@When("^I close carousel$")
 		public void i_close_carousel() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 			mainPage.close_carousel();
-		   // throw new PendingException();
 		}
 
 		@When("^I choose to register$")

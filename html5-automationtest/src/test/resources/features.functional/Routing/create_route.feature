@@ -4,7 +4,7 @@ As a getamap registered user
 In order to navigate
 I want to create route on map
 
-
+@wiproute
 Scenario: Create Route and Save as registered user
 Given I am on getamap app
 When I login as registered user
