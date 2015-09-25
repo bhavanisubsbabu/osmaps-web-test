@@ -289,20 +289,16 @@ public class ObjectRepository {
 	
 	//Close Get Directions Panel
 	public final String Sign_up_for_paid_subscription = ".//*[@id='Window_1_Login_Header']/div[4]";
-	
-	
 	/* Adding new objects for extending tests
 	 * @Author Ravi Kunaparaju 
 	 * Added snap for DPN 
 	 */
 	public final String SnapActive = ".//div[contains(@class,'tooltipstered active')][text()='Snap']";
-	public final String Snapdisabled = ".//div[contains(@class,'tooltipstered')][text()='Snap']" ;
-	
+	public final String Snapdisabled = ".//div[contains(@class,'tooltipstered')][text()='Snap']" ;	
 	/*
 	 * POI castles london location assert element cluster image for castles
 	 */
-	public final String POICastelsLondon = "/html/body/div[2]/div[2]/div[1]/div/div[1]/div[8]/svg/g[3]/g[1]/image[17]";
-	
+	public final String POICastelsLondon = "/html/body/div[2]/div[2]/div[1]/div/div[1]/div[8]/svg/g[3]/g[1]/image[17]";	
 	/*
 	 *  POI
 	 */
@@ -317,8 +313,7 @@ public class ObjectRepository {
 	 * POI Panel
 	 */
 	public final String POIpin = "//*[contains(@class,'pin-to-map-icon')]";
-	public final String POIunpin = "//*[contains(@class,'unpin-from-map-icon')]";
-	
+	public final String POIunpin = "//*[contains(@class,'unpin-from-map-icon')]";	
 	/*
 	 * Print
 	 */

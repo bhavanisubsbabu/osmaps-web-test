@@ -27,8 +27,7 @@ public class AppProperties {
         	
         return properties;
     }
- 
- 
+
     public static String get(String propertyKey){
         if (propertyKey.equalsIgnoreCase("browser") ||
                propertyKey.equalsIgnoreCase("env")){

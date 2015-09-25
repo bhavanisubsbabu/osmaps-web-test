@@ -34,7 +34,7 @@ Scenario: A subscriber should be able to print map in
 	And I click on Preview
 	Then I should see preview of the map
 
-@regression,@wip
+@regression,@demo
 Scenario: A subscribed user should print map in A3
 
 	Given I am on getamap app
@@ -43,7 +43,7 @@ Scenario: A subscribed user should print map in A3
 	And I select options A3, portrait and I click on Preview
 	Then I should see preview of the map in A3 portrait
 
-@regression	
+@regression,@demo	
 Scenario: A registered user should be able to print route
 
 	Given I am on getamap app

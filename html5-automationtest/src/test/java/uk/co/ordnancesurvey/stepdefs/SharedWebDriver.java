@@ -116,6 +116,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 
 			else {
 				if (browser.equalsIgnoreCase("firefox")) {
+					System.out.println("In the ie block");
 					FirefoxProfile prof = new FirefoxProfile();
 					prof.setEnableNativeEvents(true);
 					driver = new FirefoxDriver(prof);
@@ -129,6 +130,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					driver.manage().window().maximize();
 
 				} else if (browser.equalsIgnoreCase("ie")) {
+
 					System.setProperty("webdriver.ie.driver",
 							
 							System.getProperty("user.dir")

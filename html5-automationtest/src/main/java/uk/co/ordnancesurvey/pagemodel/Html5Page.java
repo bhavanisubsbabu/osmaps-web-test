@@ -46,8 +46,6 @@ public class Html5Page {
 		
 		 this.driver=(WebDriver) driver;
 		 obj= new ObjectRepository();
-		
-		 
 	 }
 	 
 	 public void waitForElementPresent(String xpath,long sec){

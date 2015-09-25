@@ -5,7 +5,7 @@ In order to find a route
 I should be able to get directions from start and end point
 
 
-@guestUserFlow, @wip
+@guestUserFlow, @demo
 Scenario: Guest user should be able to do A-B Car routing
 	Given I am on getamap app
 	When I login as guest user
