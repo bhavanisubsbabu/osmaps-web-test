@@ -37,6 +37,7 @@ public class Html5Page {
 	 public String route_name="AutoTestRoute" + System.currentTimeMillis() ;
 	 public String email_address="AutoTest"+System.currentTimeMillis() + "@test.com";
 	 public String email_address_2="AutoTesttest.com";
+	 public String browser = AppProperties.get("browser");
 	 
 	
 	 ObjectRepository obj;
@@ -193,13 +194,25 @@ public class Html5Page {
 		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 	
-		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
+		 action.moveToElement(waypoint,410,96).doubleClick(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
 		 Thread.sleep(500);
-		 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
+		 System.out.print("clicked");
+		 action.moveToElement(waypoint,300,205).doubleClick(waypoint).build().perform();
 		 Thread.sleep(500);
-		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
+		 System.out.print("clicked");
+		 action.moveToElement(waypoint,300,150).doubleClick(waypoint).build().perform();
 		 Thread.sleep(500);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+		 
+		 if(browser.equalsIgnoreCase("firefox")){
+			  System.out.print("identified firefox browser");
+			  WebElement waypoint1= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click
+			  waypoint1.click();			
+			  System.out.print("clicked");
+			  Thread.sleep(3000);
+			  driver.findElement(By.id("Window_1_Map_ViewPort_NationalParks"));
+			  System.out.print("clicked");
+		 }
 	 }
 	 
 	 public void plot_newRoute_MapStack() throws InterruptedException{
@@ -208,10 +221,8 @@ public class Html5Page {
 		 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
 		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();	 			 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');"); // defines the webelement on the map to click 
-	 	 System.out.print(waypoint);
-		
-		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); //performs the click on the map to a specific x,y coordinates
+		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  		
+		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
 		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
 		 Thread.sleep(1000);
@@ -225,7 +236,6 @@ public class Html5Page {
 		 driver.findElement(By.xpath("//div[@id='myRouteListShow']")).click();
 		 if(IsElementDisplayed("//div[contains(@class,'discoveredListDelete Basic_Btn')]")){
 			 driver.findElement(By.xpath("//div[contains(@class,'discoveredListDelete Basic_Btn')]")).click();
-			 
 		 }
 	 }
 	 
@@ -250,9 +260,7 @@ public class Html5Page {
 		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
 		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
 		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		 Thread.sleep(2000);
-		 
-		 
+		 Thread.sleep(4000);				
 	 }
 	
 	 
@@ -636,6 +644,7 @@ public class Html5Page {
 	 {
 	 		 	
 	  try
+	  
 	  {
 	   driver.findElement(By.xpath(xpath));
 
