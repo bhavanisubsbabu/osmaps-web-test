@@ -97,7 +97,7 @@ public class WhenSteps {
 	@When("^I login as registered user$")
 	public void i_login_as_registered_user() throws Throwable {
 		//login.open_login_window();
-		mainPage.close_carousel();	
+		//mainPage.close_carousel();
 		mainPage.open_login_window();
 			Thread.sleep(2000);
 			if (mainPage.IsElementDisplayed(obj.login_email)){
@@ -112,7 +112,7 @@ public class WhenSteps {
 
 	@When("^I login as subscriber user$")
 	public void i_login_as_subscriber_user() throws Throwable {
-		mainPage.close_carousel();
+		//mainPage.close_carousel();
 		mainPage.open_login_window();
 		Thread.sleep(2000);
 		if (mainPage.IsElementDisplayed(obj.login_email)){
@@ -130,9 +130,9 @@ public class WhenSteps {
 	
 	@When("^I login as guest user$")
 	public void i_login_as_guest_user() throws Throwable {
-		Thread.sleep(3000);
-		mainPage.close_carousel();
-		Thread.sleep(2000);
+		//Thread.sleep(3000);
+		//mainPage.close_carousel();
+		//Thread.sleep(2000);
 //		if (mainPage.IsElementDisplayed(obj.login_email_address)){
 //		mainPage.click(obj.close_login);
 //		}

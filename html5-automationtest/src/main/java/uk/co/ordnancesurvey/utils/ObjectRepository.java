@@ -108,6 +108,9 @@ public class ObjectRepository {
 	public final String routeGetDirection = "//*[@id='directions-route-pin']";
 	public final String routeDetailsSidePanel = "//div[@class='sidePaneTitle'][text()='Route Details']";
 	public final String routeDirectionsSidePanel = "//div[@class='sidePaneTitle'][text()='Directions']";
+	public final String savedRouteConfirm = "//div[@class='dialogText'][text()='Saved in My Routes']";
+	public final String saveDialogDone = "//div[@class='Basic_Btn dialogButton dialogButtonAlt '][text()='Done']";
+	public final String routeDetailName = "//*[@id='routeDetailName']";
 	
 // Elements for the Routes Tab -Create CustomRoute Trail
 	
@@ -329,5 +332,46 @@ public class ObjectRepository {
 	public final String A3Portrait = "//div[@class='printSelectorOptionRadio'][text()='A3 portrait']";
 	public final String A4Landscape = "//div[@class='printSelectorOptionRadio'][text()='A4 landscape']";
 	public final String A3Landscape = "//div[@class='printSelectorOptionRadio'][text()='A3 landscape']";
+	
+	/*
+	 * waypoint images & Toolbar
+	 */	
+	public final String waypointImage = "//image[starts-with(@id,'OpenLayers_Geometry_Point_')]";
+	public final String delete = "//*[@id='create-route-delete']";
+	public final String undo = "//*[@id='create-route-style']";
+	public final String gridRef = "//*[@id='create-route-gridRef']";
+	public final String expand = "//*[@id='create-route-expand']";
+	public final String cancel = "//*[@id='create-route-cancel']";
+	public final String style = "//*[@id='create-route-style']";		
+	
+	/*
+	 * Route edit side panel link
+	 */
+	public final String editSideLink="//div[@class='sidePaneAction link'][text()='Edit']";
+	/*
+	 * stylying elements. 
+	 */	
+	public final String routeStyleBlack = "//div[@class='ng-scope'][0]";
+	public final String routeStylePurple = "//div[@class='ng-scope'][1]";
+	public final String routeStyleRed = "//div[@class='ng-scope'][2]";
+	public final String routeStyleGreen = "//div[@class='ng-scope'][3]";
+	public final String routeStyleYellow = "$('div[class=ng-scope]')[4]";
+	public final String routeStyleBlue = "//div[@class='ng-scope'][5]";
+	public final String routeStyleThickness1 = "//div[@class='ng-scope'][6]";
+	public final String routeStyleThickness2 = "$('div[class=ng-scope]')[7]";
+	public final String routeStyleThickness3 = "//div[@class='ng-scope'][8]";
+	public final String routeStyleThickness4 = "//div[@class='ng-scope'][9]";
+	public final String routeStyleTransper20 = "//span[@class='ui-slider-pip ui-slider-pip-1']";
+	public final String routeStyleTransper20Selected = "//span[@class='ui-slider-pip ui-slider-pip-1 ui-slider-pip-selected']";
+	public final String routeStyleTransper40 = "//span[@class='ui-slider-pip ui-slider-pip-2']";
+	public final String routeStyleTransper60 = "//span[@class='ui-slider-pip ui-slider-pip-3']";
+	public final String routeStyleTransper80 = "//span[@class='ui-slider-pip ui-slider-pip-4']";
+	
+	/*
+	 * Interface tour
+	 */
+	public final String InterfaceTourClose = "//div[@class='bbutton-close']";
+	
+	
 	
 }
