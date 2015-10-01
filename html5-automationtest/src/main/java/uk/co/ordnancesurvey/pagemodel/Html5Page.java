@@ -12,6 +12,7 @@ import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,7 +49,7 @@ public class Html5Page {
 		 obj= new ObjectRepository();
 	 }
 	 
-	 public void waitForElementPresent(String xpath,long sec){
+	 public void waitForElementPresent(String xpath,long sec) throws InterruptedException{
 		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
 		  if(IsElementDisplayed(obj.busyElement)){				 	
@@ -219,7 +220,7 @@ public class Html5Page {
 	 }
 	 
 	 
-	 public void delete_route(){
+	 public void delete_route() throws InterruptedException{
 		 driver.findElement(By.xpath("//div[@id='myRouteListShow']")).click();
 		 if(IsElementDisplayed("//div[contains(@class,'discoveredListDelete Basic_Btn')]")){
 			 driver.findElement(By.xpath("//div[contains(@class,'discoveredListDelete Basic_Btn')]")).click();
@@ -654,9 +655,16 @@ public class Html5Page {
 		return true;
 	 }
 	 
-	 public boolean IsElementDisplayed(String xpath){
+	 public boolean IsElementDisplayed(String xpath) throws InterruptedException{
 		  boolean flag;
-		  if (driver.findElement(By.xpath(xpath)).isDisplayed())
+		  try{
+			  driver.findElement(By.xpath(xpath)).isDisplayed();			  
+		  }
+		  catch(NoSuchElementException e){
+			  e.getAdditionalInformation();
+			  Thread.sleep(2000);
+		  }
+		  if(driver.findElement(By.xpath(xpath)).isDisplayed())
 			  flag= true; 
 		 else{
 			 flag= false;
@@ -705,14 +713,9 @@ public class Html5Page {
 		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 			 number_POIs= Integer.parseInt(js.executeScript("return document.getElementsByTagName('image').length").toString());
-			  number_clusteredPOIs= Integer.parseInt(js.executeScript("return document.getElementsByTagName('circle').length").toString());
-										 
- 
-		
+			  number_clusteredPOIs= Integer.parseInt(js.executeScript("return document.getElementsByTagName('circle').length").toString());		
 		 return number_POIs + number_clusteredPOIs;
-			 
-			 
-		 }
+	 }
 		 
 	 //Verify Pinned POI present on the map
 	 
@@ -1397,6 +1400,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.waitForElementClickable(obj.routeEdit, 5);
 			this.click(obj.routeEdit);
 			if(this.IsElementPresent(obj.editSideLink)){
+				System.out.print("found edit link");
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				WebElement editLink = (WebElement) js.executeScript("return $('div[class^=sidePaneAction]')[4];");
 				Actions action = new Actions(driver);
@@ -1418,7 +1422,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			Thread.sleep(500);
 		}
 		
-		public void confirmRouteSaved(){
+		public void confirmRouteSaved() throws InterruptedException{
 			this.waitForElementPresent(obj.savedRouteConfirm, 5);
 			assertTrue(driver.findElement(By.xpath(obj.savedRouteConfirm)).isDisplayed());
 			driver.findElement(By.xpath(obj.saveDialogDone)).click();
@@ -1483,6 +1487,18 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			action.click(other).build().perform();
 		}
 		
+		public void waypointeditNav() throws InterruptedException{
+			this.editrouteNav();
+			this.click(obj.selectWaypoint);
+			this.click(obj.editWaypoint);
+		}
+		
+		public void waypointName(String Name, String Description) throws InterruptedException{
+			this.waypointeditNav();
+			this.set_textBox(obj.waypointName, Name);
+			this.set_textBox(obj.waypointDescription, Description);
+			this.click(obj.saveWaypoint);
+		}
 
 }
 

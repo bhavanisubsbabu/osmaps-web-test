@@ -371,7 +371,13 @@ public class ObjectRepository {
 	 * Interface tour
 	 */
 	public final String InterfaceTourClose = "//div[@class='bbutton-close']";
-	
-	
+	/*
+	 * Waypoint name and description
+	 */
+	public final String selectWaypoint = "//div[@id='createRoutePointTitle0']";
+	public final String editWaypoint = "//*[@id='createRoutePointEdit0']";
+	public final String waypointName = "//*[@id='createRoutePointInputName0']";
+	public final String waypointDescription = "//*[@id='createRoutePointInputNote0']";
+	public final String saveWaypoint = "//div[@class='link'][text()='Save']";
 	
 }

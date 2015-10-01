@@ -1,3 +1,4 @@
+@regression
 Feature: User should able to edit routes
 
 	Scenario: User should be able to edit route by adding way points
@@ -31,7 +32,7 @@ Feature: User should able to edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, change route type running and save
 		Then route is saved with updates
-@wip		
+		
 	Scenario: User should be able to edit route by updating route type as cycling
 		
 		Given I am on getamap app
@@ -39,7 +40,7 @@ Feature: User should able to edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, change route type cycling and save
 		Then route is saved with updates
-@wip		
+		
 	Scenario: User should be able to edit route by updating route type as other
 	
 		Given I am on getamap app

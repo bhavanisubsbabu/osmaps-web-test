@@ -1,47 +1,47 @@
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features.functional/Routing/edit_Route.feature");
 formatter.feature({
-  "line": 1,
+  "line": 2,
   "name": "User should able to edit routes",
   "description": "",
   "id": "user-should-able-to-edit-routes",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 35,
-  "name": "User should be able to edit route by updating route type as cycling",
-  "description": "",
-  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-updating-route-type-as-cycling",
-  "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Feature",
   "tags": [
     {
-      "line": 34,
-      "name": "@wip"
+      "line": 1,
+      "name": "@regression"
     }
   ]
 });
+formatter.scenario({
+  "line": 4,
+  "name": "User should be able to edit route by adding way points",
+  "description": "",
+  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-adding-way-points",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
 formatter.step({
-  "line": 37,
+  "line": 6,
   "name": "I am on getamap app",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 38,
+  "line": 7,
   "name": "I login as registered user",
   "keyword": "When "
 });
 formatter.step({
-  "line": 39,
+  "line": 8,
   "name": "I navigate to my routes to select a route for editing",
   "keyword": "And "
 });
 formatter.step({
-  "line": 40,
-  "name": "I click on edit link, change route type cycling and save",
+  "line": 9,
+  "name": "I click on edit link, add way points and save",
   "keyword": "When "
 });
 formatter.step({
-  "line": 41,
+  "line": 10,
   "name": "route is saved with updates",
   "keyword": "Then "
 });
@@ -49,77 +49,71 @@ formatter.match({
   "location": "GivenSteps.i_am_on_getamap_app()"
 });
 formatter.result({
-  "duration": 9786849529,
+  "duration": 11149683474,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_login_as_registered_user()"
 });
 formatter.result({
-  "duration": 11136284271,
+  "duration": 12121061080,
   "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.i_navigate_to_my_routes_to_select_a_route_for_editing()"
 });
 formatter.result({
-  "duration": 1108164042,
+  "duration": 1586309333,
   "status": "passed"
 });
 formatter.match({
-  "location": "EditRoute_steps.i_click_on_edit_link_change_route_type_cycling_and_save()"
+  "location": "EditRoute_steps.i_click_on_edit_link_add_way_points_and_save()"
 });
 formatter.result({
-  "duration": 2929911474,
+  "duration": 4505116141,
   "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.route_is_saved_with_added_way_points()"
 });
 formatter.result({
-  "duration": 1166710526,
+  "duration": 1252792489,
   "status": "passed"
 });
 formatter.after({
-  "duration": 165449,
+  "duration": 138762,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 43,
-  "name": "User should be able to edit route by updating route type as other",
+  "line": 12,
+  "name": "User should be able to edit route by deleting way points",
   "description": "",
-  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-updating-route-type-as-other",
+  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-deleting-way-points",
   "type": "scenario",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "line": 42,
-      "name": "@wip"
-    }
-  ]
+  "keyword": "Scenario"
 });
 formatter.step({
-  "line": 45,
+  "line": 14,
   "name": "I am on getamap app",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 46,
+  "line": 15,
   "name": "I login as registered user",
   "keyword": "When "
 });
 formatter.step({
-  "line": 47,
+  "line": 16,
   "name": "I navigate to my routes to select a route for editing",
   "keyword": "And "
 });
 formatter.step({
-  "line": 48,
-  "name": "I click on edit link, change route type other and save",
+  "line": 17,
+  "name": "I click on edit link, delete way points and save",
   "keyword": "When "
 });
 formatter.step({
-  "line": 49,
+  "line": 18,
   "name": "route is saved with updates",
   "keyword": "Then "
 });
@@ -127,77 +121,71 @@ formatter.match({
   "location": "GivenSteps.i_am_on_getamap_app()"
 });
 formatter.result({
-  "duration": 693383792,
+  "duration": 641853667,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_login_as_registered_user()"
 });
 formatter.result({
-  "duration": 16200557848,
+  "duration": 16254352538,
   "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.i_navigate_to_my_routes_to_select_a_route_for_editing()"
 });
 formatter.result({
-  "duration": 1156289681,
+  "duration": 1241672619,
   "status": "passed"
 });
 formatter.match({
-  "location": "EditRoute_steps.i_click_on_edit_link_change_route_type_other_and_save()"
+  "location": "EditRoute_steps.i_click_on_edit_link_delete_way_points_and_save()"
 });
 formatter.result({
-  "duration": 2747974272,
+  "duration": 5261587884,
   "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.route_is_saved_with_added_way_points()"
 });
 formatter.result({
-  "duration": 1077640898,
+  "duration": 1980584361,
   "status": "passed"
 });
 formatter.after({
-  "duration": 42286,
+  "duration": 84571,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 51,
-  "name": "User should be able to edit route by updating waypoint name and description",
+  "line": 20,
+  "name": "User should be able to edit route by updating styling",
   "description": "",
-  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-updating-waypoint-name-and-description",
+  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-updating-styling",
   "type": "scenario",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "line": 50,
-      "name": "@wip"
-    }
-  ]
+  "keyword": "Scenario"
 });
 formatter.step({
-  "line": 53,
+  "line": 22,
   "name": "I am on getamap app",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 54,
+  "line": 23,
   "name": "I login as registered user",
   "keyword": "When "
 });
 formatter.step({
-  "line": 55,
+  "line": 24,
   "name": "I navigate to my routes to select a route for editing",
   "keyword": "And "
 });
 formatter.step({
-  "line": 56,
-  "name": "I click on edit link, edit waypoint name and description and save",
+  "line": 25,
+  "name": "I click on edit link, add styling and save",
   "keyword": "When "
 });
 formatter.step({
-  "line": 57,
+  "line": 26,
   "name": "route is saved with updates",
   "keyword": "Then "
 });
@@ -205,39 +193,95 @@ formatter.match({
   "location": "GivenSteps.i_am_on_getamap_app()"
 });
 formatter.result({
-  "duration": 454105052,
+  "duration": 477650647,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_login_as_registered_user()"
 });
 formatter.result({
-  "duration": 16025085486,
+  "duration": 16301863027,
   "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.i_navigate_to_my_routes_to_select_a_route_for_editing()"
 });
 formatter.result({
-  "duration": 6138440038,
+  "duration": 1301894228,
   "status": "passed"
 });
 formatter.match({
-  "location": "EditRoute_steps.i_click_on_edit_link_edit_waypoint_name_and_description_and_save()"
+  "location": "EditRoute_steps.i_click_on_edit_link_add_styling_and_save()"
 });
 formatter.result({
-  "duration": 1406114,
-  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat uk.co.ordnancesurvey.stepdefs.EditRoute_steps.i_click_on_edit_link_edit_waypoint_name_and_description_and_save(EditRoute_steps.java:74)\r\n\tat ✽.When I click on edit link, edit waypoint name and description and save(src/test/resources/features.functional/Routing/edit_Route.feature:56)\r\n",
-  "status": "pending"
+  "duration": 7669105271,
+  "status": "passed"
 });
 formatter.match({
   "location": "EditRoute_steps.route_is_saved_with_added_way_points()"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.after({
-  "duration": 35307,
+  "duration": 1240558827,
   "status": "passed"
 });
+formatter.after({
+  "duration": 351011,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 28,
+  "name": "User should be able to edit route by updating route type as running",
+  "description": "",
+  "id": "user-should-able-to-edit-routes;user-should-be-able-to-edit-route-by-updating-route-type-as-running",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 30,
+  "name": "I am on getamap app",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 31,
+  "name": "I login as registered user",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 32,
+  "name": "I navigate to my routes to select a route for editing",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 33,
+  "name": "I click on edit link, change route type running and save",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 34,
+  "name": "route is saved with updates",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GivenSteps.i_am_on_getamap_app()"
+});
+formatter.result({
+  "duration": 492921891,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WhenSteps.i_login_as_registered_user()"
+});
+formatter.result({
+  "duration": 16271985615,
+  "status": "passed"
+});
+formatter.match({
+  "location": "EditRoute_steps.i_navigate_to_my_routes_to_select_a_route_for_editing()"
+});
+formatter.result({
+  "duration": 6115300802,
+  "status": "passed"
+});
+formatter.match({
+  "location": "EditRoute_steps.i_click_on_edit_link_change_route_type_running_and_save()"
 });
