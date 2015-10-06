@@ -26,8 +26,6 @@ public class GivenSteps {
 	@Given("^I am on getamap app$")
 	public void i_am_on_getamap_app()  throws Throwable {
 		mainPage.launch_app();
-		
-		
 		 // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
 	}

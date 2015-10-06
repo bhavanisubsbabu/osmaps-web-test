@@ -546,10 +546,13 @@ public class Html5Page {
 	 
 	 
 	 //----- Launches application with the given url --//
-	 public void launch_app(){		
+	 public void launch_app() throws InterruptedException{		
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
-		 //this.waitForElementPresent("//div[@id='carouselCheckbox']", 300);
+		 Thread.sleep(2000);
+		 if(this.IsElementPresent(obj.InterfaceTourClose)){
+			 this.closeInterfaceTour();
+		 }
 	 }
 	 
 	 
@@ -1388,9 +1391,8 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
  *  Close Interface Tour for new user		
  */
 		public void closeInterfaceTour() throws InterruptedException{
-			if(driver.findElement(By.xpath(obj.InterfaceTourClose)).isDisplayed()){
-				this.click(obj.InterfaceTourClose);
-			}
+				this.waitForElementClickable(obj.InterfaceTourClose, 5);
+				this.click(obj.InterfaceTourClose);			
 		}
 /*
  * Edit route 
@@ -1446,7 +1448,6 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		
 		public void routeStyle() throws InterruptedException{
 			this.editrouteNav();
-			this.closeInterfaceTour();
 			this.click(obj.style);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement routeStyleYellow = (WebElement) js.executeScript("return "+obj.routeStyleYellow+";");
