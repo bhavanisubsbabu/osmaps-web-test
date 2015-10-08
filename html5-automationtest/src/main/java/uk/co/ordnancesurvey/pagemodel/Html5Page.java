@@ -3,6 +3,7 @@ package uk.co.ordnancesurvey.pagemodel;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
@@ -32,12 +33,11 @@ import uk.co.ordnancesurvey.utils.ObjectRepository;
 public class Html5Page {
 	private static final boolean Exception = false;
 	private final WebDriver driver;
+	public String browser = AppProperties.get("browser");
 	public String route_type_radioBttn;
-	
-	
-	 public String route_name="AutoTestRoute" + System.currentTimeMillis() ;
-	 public String email_address="AutoTest"+System.currentTimeMillis() + "@test.com";
-	 public String email_address_2="AutoTesttest.com";
+	public String route_name="AutoTestRoute" + System.currentTimeMillis() ;
+	public String email_address="AutoTest"+System.currentTimeMillis() + "@test.com";
+	public String email_address_2="AutoTesttest.com";
 	 
 	
 	 ObjectRepository obj;
@@ -1501,5 +1501,97 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.click(obj.saveWaypoint);
 		}
 
-}
+		/*
+		 * Share route		
+		 */
+				
+		public void shareRouteNav() throws InterruptedException{
+			this.click(obj.shareRoute);
+		}
 
+		public void shareRouteByEmail(String emailaddr) throws InterruptedException{
+			this.click(obj.shareEmailButton);
+			this.click(obj.shareEmailSend);
+			this.set_textBox(obj.shareEmailAddr, emailaddr);
+			this.click(obj.shareEmailSend);
+		}
+		public void shareRouteEmailText(String text) throws InterruptedException{
+			this.set_textBox(obj.shareEmailMessage, text);
+		}
+				
+		public void shareRouteConfirm() throws InterruptedException{
+			this.IsElementDisplayed(obj.shareEmailConfirm);
+			this.click(obj.ShareEmailConfirmOkButton);
+		}
+				
+		public void shareRouteByFacebook() throws InterruptedException{
+			String currentWindow = driver.getWindowHandle();
+			this.shareRouteNav();
+			this.click(obj.facebookShare);
+			Thread.sleep(2000);
+			for (String winHandle : driver.getWindowHandles()) {					  
+				String title = driver.switchTo().window(winHandle).getTitle();
+				System.out.print(title);
+				driver.switchTo().window(winHandle);
+			}
+			this.facebookLogin();
+			driver.switchTo().window(currentWindow);
+			for (String winHandle : driver.getWindowHandles()) {					  
+				String title = driver.switchTo().window(winHandle).getTitle();
+				System.out.print(title);
+				driver.switchTo().window(winHandle);
+			}
+			this.facebookShare();
+			}
+				
+		public void facebookLogin() throws InterruptedException{
+			this.waitForElementPresent(obj.facebookEmail, 5);
+			this.set_textBox(obj.facebookEmail, "testerosmaps@gmail.com");
+			this.set_textBox(obj.facebookPassword, "testerosmaps");
+			this.click(obj.facebookLoginButton);
+		}
+		public void facebookShare() throws InterruptedException{
+			this.waitForElementPresent(obj.facebookShareNotes, 5);
+			System.out.print("element present");
+			this.set_textBox(obj.facebookShareNotes, "Fantastic route to explore, have fun");
+			this.click(obj.facebookShareSubmit);
+		}
+		
+		/*
+		 * Import gpx
+		 */
+		public void navImportRoute() throws InterruptedException{
+			this.click(obj.RoutesTab);
+			this.click(obj.importGPX);			
+		}
+		
+		public void importRoute() throws InterruptedException, IOException{
+			this.click(obj.browseFile);
+			System.out.println("selecting gpx file");
+			String filepath = System.getProperty("user.dir")+"/src/test/resources/testdata";
+			if(browser.equalsIgnoreCase("chrome")){
+				Runtime.getRuntime().exec(filepath+"/ChromeUploadgpx.exe");
+			}
+			else if(browser.equalsIgnoreCase("firefox")){
+				Runtime.getRuntime().exec(filepath+"/firefoxUploadgpx.exe");
+			}
+			else if(browser.equalsIgnoreCase("ie")){
+				Runtime.getRuntime().exec(filepath+"/IEUploadgpx.exe");
+			}			
+			this.click(obj.importSave);
+			if(IsElementDisplayed(obj.loadPreferences)){
+				this.waitForElementClickable(obj.editImportRouteButton, 60);				
+			}
+		}
+		
+		public void importSuccess() throws InterruptedException{
+			assertTrue(this.IsElementDisplayed(obj.confirmImportSuccess));
+			assertTrue(this.IsElementDisplayed(obj.editImportRouteButton));
+		}
+		
+		public void exportRoute()throws InterruptedException{
+			this.click(obj.exportGPX);
+			Thread.sleep(1000);
+		}
+				
+}

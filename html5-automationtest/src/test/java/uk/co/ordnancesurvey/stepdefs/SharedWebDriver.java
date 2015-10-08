@@ -25,12 +25,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import uk.co.ordnancesurvey.utils.AppProperties;
 
 public class SharedWebDriver extends EventFiringWebDriver {
-	//private static AndroidDriver driver1;
 	private static WebDriver driver;
-	//private static AppiumDriver mobdriver;
+	
 	static {
-			
-		
 		try {
 			// DefaultEnvironment env=new DefaultEnvironment();
 			String browser = AppProperties.get("browser");
