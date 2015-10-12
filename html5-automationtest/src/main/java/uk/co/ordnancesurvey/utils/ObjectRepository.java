@@ -380,4 +380,45 @@ public class ObjectRepository {
 	public final String waypointDescription = "//*[@id='createRoutePointInputNote0']";
 	public final String saveWaypoint = "//div[@class='link'][text()='Save']";
 	
+	/*
+	 * Share route
+	 */
+	public final String shareRoute = "//div[@id='routeDetailShare']";
+	public final String shareEmailButton = "//div[@id='email-share-button']";
+	public final String shareEmailAddr = "//*[@id='shared-email-to']";
+	public final String shareEmailMessage = "//*[@id='shared-email-message']";
+	public final String shareEmailSend = "//*[@id='share-email-form-submit']";
+	public final String shareEmailConfirm = "//div[@class='dialogText'][text()='Share complete!']";
+	public final String ShareEmailConfirmOkButton = "//div[@class='Basic_Btn dialogButton '][text()='Ok']";
+	
+	/*
+	 * 
+	 */
+	public final String facebookShare = "//*[@id='facebook-share-button']";
+	public final String facebookWindow = "//*[@id='homelink']";
+	public final String facebookEmail = "//*[@id='email']";
+	public final String facebookPassword = "//*[@id='pass']";
+	public final String facebookLoginButton = "//*[@id='u_0_2']"; 
+	public final String facebookShareNotes = "//*[@id='feedform_user_message']";
+	public final String facebookShareSubmit = "//*[@id='u_0_2']";
+	
+	
+	/*
+	 * forgot password
+	 */
+	public final String forgotPassword = "//div[@class='margin-top-medium center']";
+	
+	/*
+	 * import route
+	 */
+	public final String importGPX = "//div[@id='MyRouteImport']"; 
+	public final String browseFile = "//*[@id='import-gpx-file']";
+	public final String importSave = "//div[@id='import-route-form-save']";
+	public final String confirmImportSuccess = "//span[@class='header'][text()='Success.']";
+	public final String editImportRouteButton = "//*[@id='route-import-edit-route-details-button']";
+	/*
+	 * Export route
+	 */
+	public final String exportGPX = "//*[@id='routeDetailExportRoute']";
+	
 }
