@@ -59,7 +59,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					// driver = new RemoteWebDriver(new
 					// URL("http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
 					driver = new RemoteWebDriver(new URL(
-							"http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
+							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 
 					// FirefoxProfile prof = new FirefoxProfile();
 					// prof.setEnableNativeEvents(true);
@@ -72,11 +72,10 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					System.out.println(System.getProperty("user.dir"));
 					// System.setProperty("webdriver.chrome.driver","c://jar//chromedriver.exe");
 					driver = new RemoteWebDriver(new URL(
-							"http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
+							"http://10.160.176.100:5555/wd/hub"), cap);
 
 					// driver = new ChromeDriver();
 					driver.manage().window().maximize();
-					Thread.sleep(10000);
 
 				} else if (browser.equalsIgnoreCase("ie")) {
 					DesiredCapabilities cap = DesiredCapabilities
@@ -88,7 +87,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					// driver = new RemoteWebDriver(new
 					// URL("http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
 					driver = new RemoteWebDriver(new URL(
-							"http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
+							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 					driver.manage().window().maximize();
 
 				}
@@ -100,7 +99,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					System.out.println(System.getProperty("user.dir"));
 					// System.setProperty("webdriver.chrome.driver","c://jar//chromedriver.exe");
 					driver = new RemoteWebDriver(new URL(
-							"http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
+							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 
 					// driver = new ChromeDriver();
 					driver.manage().window().maximize();

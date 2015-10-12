@@ -53,7 +53,7 @@ public class ShareRoute_steps {
 	
 	@When("^I clicked on Share icon, select facebook, looged into facebook and share$")
 	public void i_clicked_on_Share_icon_select_facebook_looged_into_facebook_and_share() throws Throwable {
-	    //mainPage.shareRouteByFacebook();
+	    mainPage.shareRouteByFacebook();
 		//TODO
 	}
 

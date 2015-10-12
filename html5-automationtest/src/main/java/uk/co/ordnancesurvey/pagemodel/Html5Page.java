@@ -1525,24 +1525,17 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		}
 				
 		public void shareRouteByFacebook() throws InterruptedException{
-			String currentWindow = driver.getWindowHandle();
 			this.shareRouteNav();
 			this.click(obj.facebookShare);
-			Thread.sleep(2000);
-			for (String winHandle : driver.getWindowHandles()) {					  
+			Thread.sleep(10000);
+			for (String winHandle : driver.getWindowHandles()) {
+				driver.switchTo().window(winHandle);
 				String title = driver.switchTo().window(winHandle).getTitle();
 				System.out.print(title);
-				driver.switchTo().window(winHandle);
-			}
-			this.facebookLogin();
-			driver.switchTo().window(currentWindow);
-			for (String winHandle : driver.getWindowHandles()) {					  
-				String title = driver.switchTo().window(winHandle).getTitle();
-				System.out.print(title);
-				driver.switchTo().window(winHandle);
-			}
-			this.facebookShare();
-			}
+				this.facebookLogin();
+				this.facebookShare();
+			}								
+		}
 				
 		public void facebookLogin() throws InterruptedException{
 			this.waitForElementPresent(obj.facebookEmail, 5);
@@ -1577,7 +1570,8 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			}
 			else if(browser.equalsIgnoreCase("ie")){
 				Runtime.getRuntime().exec(filepath+"/IEUploadgpx.exe");
-			}			
+			}	
+			Thread.sleep(4000);
 			this.click(obj.importSave);
 			if(IsElementDisplayed(obj.loadPreferences)){
 				this.waitForElementClickable(obj.editImportRouteButton, 60);				
