@@ -1,4 +1,4 @@
-@regression
+
 Feature: A logged in user should be able to import route
 
 	Scenario: user should be able to import a route

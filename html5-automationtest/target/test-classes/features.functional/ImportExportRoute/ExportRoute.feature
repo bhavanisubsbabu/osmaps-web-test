@@ -1,3 +1,4 @@
+@regression
 Feature: Logged in user should be able to export a route
 
 	Scenario: A logged in user should be able to export route
