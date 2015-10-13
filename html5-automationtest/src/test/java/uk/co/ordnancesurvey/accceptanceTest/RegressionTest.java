@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		format = {"pretty","html:target/reports/reg-test-report"}, 
-		features = {"src/test/resources/features.functional/"},glue="uk.co.ordnancesurvey.stepdefs",tags={"@regression","~@wip"})
+		features = {"src/test/resources/features.functional/"},glue="uk.co.ordnancesurvey.stepdefs",tags={"@wip"})
 public class RegressionTest {
 
 }
