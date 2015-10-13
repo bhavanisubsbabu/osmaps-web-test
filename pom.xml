@@ -13,8 +13,8 @@
 	<!-- Build properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<cucumber-jvm.version>1.1.8</cucumber-jvm.version>
-		<selenium.version>2.45.0</selenium.version>
+		<cucumber-jvm.version>1.2.4</cucumber-jvm.version>
+		<selenium.version>2.47.1</selenium.version>
 		<junit.version>4.11</junit.version>
 	</properties>
 
@@ -77,6 +77,31 @@
 			<version>2.2.4</version>
 		</dependency>
 
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-html</artifactId>
+			<version>0.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit-core-js</artifactId>
+			<version>2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>bcel</groupId>
+			<artifactId>bcel</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.cssparser</groupId>
+			<artifactId>cssparser</artifactId>
+			<version>0.9.17</version>
+		</dependency>
 	</dependencies>
 
 	<build>

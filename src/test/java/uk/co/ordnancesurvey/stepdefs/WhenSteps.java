@@ -46,12 +46,10 @@ public class WhenSteps {
 			driver.findElement(By.cssSelector("#BurgerProfileLoginLogout")).click();
 		}
 		else{
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		mainPage.waitForElementPresent(".//*[@id='main-top-bar-sign-in']",3);	
 		driver.findElement(By.xpath(".//*[@id='main-top-bar-sign-in']")).click();
-		driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		//driver.findElement(By.xpath(".//*[@id='Window_1_SettingsText']")).click();
-Thread.sleep(4000);
-
+		driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();		
 		}
 	}
 	
@@ -69,75 +67,52 @@ Thread.sleep(4000);
 			Thread.sleep(3000);
 			
 		}
-		else{
-		/*mainPage.clickLinkByXpath(obj.Settings);
-		mainPage.clickLinkByXpath(obj.settings_Login);*/
-		
+		else{		
 		mainPage.set_textBox(obj.login_email_address, userName);
-
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.clickLinkByXpath(obj.login_button);
-		
-		Thread.sleep(3000);
-			
-		mainPage.waitForElementPresent(obj.mapfeatures,20000);
+		mainPage.click(obj.login_button);
+		mainPage.waitForElementPresent(obj.loadPreferences, 20);
+		mainPage.waitForElementClickable(obj.Routes_Tab, 20);
 		}
 	}
 	public void loginToApplicationAfterLogout(String userName, String Password) throws InterruptedException 
 	{
 		
-		/*mainPage.clickLinkByXpath(obj.Settings);
-		mainPage.clickLinkByXpath(obj.settings_Login);*/
+		/*mainPage.click(obj.Settings);
+		mainPage.click(obj.settings_Login);*/
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
-
 			mainPage.set_textBox(obj.login_pwd,Password);
-			mainPage.click(obj.login_button);
-				
-			Thread.sleep(10000);
-			
+			mainPage.click(obj.login_button);				
+			Thread.sleep(10000);			
 		}
 		mainPage.open_login_window();
 		mainPage.set_textBox(obj.login_email_address, userName);
-
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.clickLinkByXpath(obj.login_button);
-			
-		Thread.sleep(10000);
-		mainPage.waitForElementPresent(obj.mapfeatures, 20000);
+		mainPage.click(obj.login_button);					
+		mainPage.waitForElementPresent(obj.loadPreferences, 20);
+		mainPage.waitForElementClickable(obj.Routes_Tab, 20);
 	}
-	
-	
+		
 	@When("^I login as registered user$")
 	public void i_login_as_registered_user() throws Throwable {
 		//login.open_login_window();
-		mainPage.close_carousel();	
+		//mainPage.close_carousel();
 		mainPage.open_login_window();
 			Thread.sleep(2000);
 			if (mainPage.IsElementDisplayed(obj.login_email)){
-				
 				loginToApplication(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-				Thread.sleep(5000);
 			}
-			else{
-				
-				logOutApplication();
-				 
+			else{				
+				logOutApplication();				 
 				 loginToApplicationAfterLogout(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-				 Thread.sleep(5000);
 			}
 		
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new PendingException();
 	}
-	
-	
-
 
 	@When("^I login as subscriber user$")
 	public void i_login_as_subscriber_user() throws Throwable {
-		Thread.sleep(3000);	
-		mainPage.close_carousel();
+		//mainPage.close_carousel();
 		mainPage.open_login_window();
 		Thread.sleep(2000);
 		if (mainPage.IsElementDisplayed(obj.login_email)){
@@ -155,11 +130,11 @@ Thread.sleep(4000);
 	
 	@When("^I login as guest user$")
 	public void i_login_as_guest_user() throws Throwable {
-		Thread.sleep(3000);
-		mainPage.close_carousel();
-		Thread.sleep(2000);
+		//Thread.sleep(3000);
+		//mainPage.close_carousel();
+		//Thread.sleep(2000);
 //		if (mainPage.IsElementDisplayed(obj.login_email_address)){
-//		mainPage.clickLinkByXpath(obj.close_login);
+//		mainPage.click(obj.close_login);
 //		}
 //else{
 //			
@@ -183,33 +158,33 @@ Thread.sleep(4000);
 	
 	@When("^I click Discover under routes$")
 	public void i_click_Discover_under_routes() throws Throwable {
+		
+		mainPage.set_textBox(obj.searchBox, "London");
+		mainPage.hitEnterKey(obj.searchBox);
+		Thread.sleep(2000);
 		mainPage.click_discoverRoutes();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 	}
 	
 	@When("^I open routes menu$")
 	public void i_open_routes_menu() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	  mainPage.clickLinkByXpath(obj.RoutesTab);
-	  Thread.sleep(2000);
+	  mainPage.click(obj.RoutesTab);
 	}
 
 	
 	@When("^I open my routes$")
 	public void i_open_my_routes() throws Throwable {
 	    mainPage.open_myRoutes();
-	    
 	}
 	@When("^I open places menu$")
 	public void i_open_places_menu() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 		mainPage.open_Mapfeatures();
 	}
 	
 	
 	@When("^I open Map features menu$")
 	public void i_open_Map_features_menu() throws Throwable {
-	    //mainPage.close_login_window();
 		mainPage.open_Mapfeatures();
 	}
 	
@@ -217,22 +192,9 @@ Thread.sleep(4000);
 	
 	@When("^I Select POI \"(.*?)\"$")
 	public void i_select_poi(String Arg1) throws Throwable {
-		
-	Thread.sleep(5000);
-	//mainPage.waitForElementPresent(obj.mapfeatures,10000);
-	mainPage.clickLinkByXpath(obj.mapfeatures);
-		Thread.sleep(3000);		
-//mainPage.clickLinkByXpath(obj.poi_Attractions);
-	
-
-	Thread.sleep(3000);
-		mainPage.clickLinkByXpath(obj.poi_CastlesAndAttractions);
-	Thread.sleep(3000);
-	
-	mainPage.clickLinkByXpath(obj.mapfeatures);
-	Thread.sleep(3000);
-	//mainPage.clickLinkByXpath(".//*[@id='Window_1_Content']/div[10]/div[@class='sidePaneClose']");
-	
+	mainPage.click(obj.mapfeatures);		
+	mainPage.click(obj.poi_CastlesAndAttractions);
+	mainPage.click(obj.mapfeatures);
 	}
 
 	// to click on the view link from the poi summary
@@ -242,7 +204,7 @@ Thread.sleep(4000);
 		try {
 			mainPage.locatePOI(poiIndex);
 			//Thread.sleep(2000);
-			mainPage.clickLinkByXpath(".//*[@class='Link_Proxy'][1]");
+			mainPage.click(".//*[@class='Link_Proxy'][1]");
 			//mainPage.click(".//*[@id='Window_1_Content']/div[11]/div[1]/div/div[4]");
 		} catch (InterruptedException e) {
 
@@ -322,11 +284,11 @@ Thread.sleep(4000);
 		
 		switch(arg1)
 		{
-		case "Cycle":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Cycle);break;
-		case "Walk":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Walk);break;
-		case "Run":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Run);break;
-		case "Other":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_Other);break;
-		case "All":mainPage.clickLinkByXpath(obj.DiscoverRoutes_routeType_All);break;
+		case "Cycle":mainPage.click(obj.DiscoverRoutes_routeType_Cycle);break;
+		case "Walk":mainPage.click(obj.DiscoverRoutes_routeType_Walk);break;
+		case "Run":mainPage.click(obj.DiscoverRoutes_routeType_Run);break;
+		case "Other":mainPage.click(obj.DiscoverRoutes_routeType_Other);break;
+		case "All":mainPage.click(obj.DiscoverRoutes_routeType_All);break;
 		}
 			
 		}
@@ -362,8 +324,9 @@ Thread.sleep(4000);
 		@When("^I enter start location$")
 		public void i_enter_start_location() throws Throwable {
 			mainPage.set_textBox(obj.ab_startLocation, "London");
-			Thread.sleep(3000);
-		    mainPage.hitEnterKey(obj.ab_startLocation);
+			mainPage.waitForElementPresent(obj.dirLocSearch, 5);
+			mainPage.click(obj.dirLocSearch);
+			mainPage.hitEnterKey(obj.ab_startLocation);
 		    // Write code here that turns the phrase above into concrete actions
 		   // throw new PendingException();
 		}
@@ -372,28 +335,29 @@ Thread.sleep(4000);
 		public void i_enter_finish_location() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
 		  mainPage.set_textBox(obj.ab_finishLocation,"Southampton");
-		  Thread.sleep(3000);
+		  mainPage.waitForElementPresent(obj.dirLocSearch, 5);
+		  mainPage.click(obj.dirLocSearch);
 		  mainPage.hitEnterKey(obj.ab_finishLocation);
 		}
 
 		@When("^I select car icon$")
 		public void i_select_car_icon() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_carIcon);
+			mainPage.click(obj.ab_carIcon);
 		    // Write code here that turns the phrase above into concrete actions
 		  //  throw new PendingException();
 		}
 
 		@When("^I click on GetDirections button$")
 		public void i_click_on_GetDirections_button() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_getDirectionBttn);
-			Thread.sleep(2000);
+			mainPage.waitForElementPresent(obj.ab_getDirectionBttn, 10);
+			mainPage.click(obj.ab_getDirectionBttn);
 		    // Write code here that turns the phrase above into concrete actions
 		  //  throw new PendingException();
 		}
 		// A-B walking route
 		@When("^I select Walk icon$")
 		public void i_select_Walk_icon() throws Throwable {
-			mainPage.clickLinkByXpath(obj.ab_walkIcon);
+			mainPage.click(obj.ab_walkIcon);
 		    // Write code here that turns the phrase above into concrete actions
 		    //throw new PendingException();
 		}
@@ -406,25 +370,15 @@ Thread.sleep(4000);
 		    // Write code here that turns the phrase above into concrete actions
 		    mainPage.locatePOI(14);
 		    Thread.sleep(2000);
-		    if (mainPage.IsElementDisplayed(".//*[@id='more-info-dropped-pin']"))
-		    {
-		    	mainPage.clickLinkByXpath(".//*[@id='more-info-dropped-pin']");
-		    	Thread.sleep(4000);
-		    	mainPage.clickLinkByXpath("//div[contains(@class,'pin-to-map-icon')]')]");
-			    Thread.sleep(2000);
-		    }
-		   
-		        
-		      
+		    if(mainPage.IsElementPresent("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']"))
+		    	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Unpin']");
+		    
+		      	mainPage.click("//div[contains(@class,'PopUp_Link PopUp_Share_Link')][text()='Pin to Map']");
+		      	Thread.sleep(3000);
+		      	//mainPage.click("//div[@id='Window_1_ExternalContentFrame_Close']");
 		   mainPage.PageRefresh();   
 		   
 		}
-		@When("^I open leisure mapstack$")
-		public void i_open_leisure_mapstack() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
-		   mainPage.openMapstack();
-		}
-		
 		@When("^I logout from aplication$")
 		public void i_logout_from_aplication() throws Throwable {
 		    // Write code here that turns the phrase above into concrete actions
@@ -454,7 +408,7 @@ Thread.sleep(4000);
 			assertTrue("Failed: More details link not found on route pop-up",driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).getText().contains("More Details"));
 			driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).click();
 			Thread.sleep(2000);
-			//mainPage.clickLinkByXpath("obj.Sign_up_for_paid_subscription");
+			//mainPage.click("obj.Sign_up_for_paid_subscription");
 			driver.findElement(By.xpath(".//*[@id='users-only-common-box']/div/div[3]/div[6]")).click();
 			Thread.sleep(2000);
 			assertTrue("Failed: OS getamap subscription link not found on pop-up",driver.findElement(By.xpath(".//*[@id='subscription-common-box-products']/div[1]")).getText().contains("£ 19.99"));
@@ -493,6 +447,43 @@ Thread.sleep(4000);
 		    mainPage.choose_toRegisternewUser();
 		    
 		}		
+/* 
+ * @Author Ravi Kunaparaju
+ * Added when steps for POI
+ * 		
+ */
+		@When("^I search for location$")
+		public void i_search_for_location() throws Throwable {
+			mainPage.set_textBox(obj.searchBox, "London");
+			mainPage.hitEnterKey(obj.searchBox);
+		}
+
+		@When("^from Places I selected POI Castles and Attractions$")
+		public void from_Places_I_selected_POI_Castles_and_Attractions() throws Throwable {
+			mainPage.click(obj.mapfeatures);
+			mainPage.click(obj.poi_CastlesAndAttractions);
+		}
 		
+		@When("^from Places I select POI Castles and Attractions$")
+		public void from_Places_I_select_POI_Castles_and_Attractions() throws Throwable {
+			mainPage.set_textBox(obj.searchBox, "Windsor Castle");
+			mainPage.hitEnterKey(obj.searchBox);
+			mainPage.click(obj.mapfeatures);
+			mainPage.click(obj.poi_CastlesAndAttractions);
+		}
+
+		@When("^click on a POI and select more info$")
+		public void click_on_a_POI_and_select_more_info() throws Throwable {
+		    mainPage.viewPOI();
+		}
 		
+		@When("^select pin POI to map$")
+		public void select_pin_POI_to_map() throws Throwable {
+		    mainPage.pinPOI();
+		}
+		@When("^unpin POI from map$")
+		public void unpin_POI_from_map() throws Throwable {
+		    mainPage.unpinPOI();
+		}
+
 }

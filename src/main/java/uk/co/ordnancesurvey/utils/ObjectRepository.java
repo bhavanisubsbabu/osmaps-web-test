@@ -16,12 +16,13 @@ public class ObjectRepository {
 	
 	@FindBy(how = How.XPATH, using = ".//*[@id='Window_1_Btn_Mode_Route']")
 	public WebElement routes;
+	
 
 	// public final String routes= ".//*[@id='Window_1_Btn_Mode_Route']";
 	public final String groups = ".//*[@id='Window_1_Btn_Mode_Group']";
 	public final String mapfeatures = ".//*[@id='main-top-bar-places']";
 	// public final String MapFeatures=".//*[@id='Window_1_Btn_Mode_POI']";
-	public final String mapStackButton=".//*[@id='layer_menu']";
+	public final String mapStackButton="//*[@id='layer_menu']";
 	
 	
 //Search box object
@@ -69,7 +70,7 @@ public class ObjectRepository {
 	public final String login_button = "//div[contains(@class,'button center login-form-login-button margin-top-big')]";
 	public final String close_login = "//div[contains(@class,'button-x')]";
 	
-	
+	public final String loadPreferences = "//div[@class='Window_1_GlobalWait_Outer']";
 	
 
 	public final String ZoomIn = ".//*[@id='zoom-slider-plus']";
@@ -81,26 +82,48 @@ public class ObjectRepository {
 	
 	
 	public final String ab_Directionstab = ".//*[@id='MyRouteAB']";
-	public final String ab_startLocation=".//*[@id='routeABSearchInput0']";
-	public final String ab_finishLocation=".//*[@id='routeABSearchInput1']";
-	public final String ab_getDirectionBttn=".//*[@id='routeABGetBtn']";
-	public final String ab_carIcon=".//*[@id='routeABTypeDrive']";
+	public final String ab_startLocation="//*[@id='routeABSearchInput0']";
+	public final String ab_finishLocation="//*[@id='routeABSearchInput1']";
+	public final String ab_getDirectionBttn="//div[@id='routeABGetBtn']";
+	public final String ab_carIcon="//img[@id='routeABTypeDrive']";
 	public final String ab_walkIcon="//img[@id='routeABTypeWalk']";
 	public final String ab_resultPopup="//div[@class='AB_PopUp_Details']";
-	//public final String ab_walk_resultPopup="";
-	
-	
-	public final String RoutesTab_MyRoutes = ".//*[@id='MyRouteMy']|";
 
-	// Elements for the Routes Tab -Create CustomRoute Trail
+/*
+ *  Elements for routes list navigation and manipulation
+ *  @author Ravi kunaparaju	
+ */
+	
+	public final String RoutesTab_MyRoutes = "//div[text()='My Routes']";
+	public final String MyRoutes_routes = "//*[@id='myRouteListShow']";
+	public final String routeNameDiv1 = "//div[@class='discoveredListName']";
+	public final String routeEdit = "//div[@class='discoveredListEdit link']";
+	public final String routeDelete = "//div[@class='discoveredListDelete link']";
+	
+	public final String busyElement="//div[@class='common-box-busy']";
+// route popup elements
+
+	public final String routePopup = "//div[@class='Basic_Style DiscoverRoute_PopUp']";
+	public final String routeMoreInfo = "//span[@class='link'][text()='More info']";
+	public final String routeGetDirection = "//*[@id='directions-route-pin']";
+	public final String routeDetailsSidePanel = "//div[@class='sidePaneTitle'][text()='Route Details']";
+	public final String routeDirectionsSidePanel = "//div[@class='sidePaneTitle'][text()='Directions']";
+	public final String savedRouteConfirm = "//div[@class='dialogText'][text()='Saved in My Routes']";
+	public final String saveDialogDone = "//div[@class='Basic_Btn dialogButton dialogButtonAlt '][text()='Done']";
+	public final String routeDetailName = "//*[@id='routeDetailName']";
+	
+// Elements for the Routes Tab -Create CustomRoute Trail
 	
 	public final String RoutesTab_CreateCustomRouteTrial = ".//*[@id='MyRouteCreate']";
-	
-	public final String CustomRoute_Save = ".//*[@id='createRouteSave']";
+
+// Updated save to click on tool bar save 	
+
+	public final String CustomRoute_Save = ".//*[@id='create-route-save']";
 	public final String CustomRoute_Cancel = ".//*[@id='createRouteDelete']";
 	public final String CustomRoute_Undo = ".//*[@id='createRouteUndo']";
-	public final String CustomrRoute_Edit=".//*[@id='Window_1_Content']/div[16]/div[1]/div[2]";
-
+	public final String CustomrRoute_Edit="//*[contains(text(),'Edit')]";
+											
+	
 	public final String CustomRoute_RouteName = ".//*[@id='saveRouteNameInput']";
 	public final String CustomRoute_RouteNotes = ".//*[@id='saveRouteNoteInput']";
 	public final String CustomRoute_RouteSave = ".//*[@id='saveRouteBtn']";
@@ -123,21 +146,27 @@ public class ObjectRepository {
 	public final String DiscoverRoutes_routeType_Run = ".//*[@id='discSelectRouteTypeRun']";
 	public final String DiscoverRoutes_routeType_Walk = ".//*[@id='discSelectRouteTypeWalk']";
 	public final String DiscoverRoutes_routeType_Cycle = ".//*[@id='discSelectRouteTypeCycle']";
-	public final String DiscoverRoutes_routeType_Other = ".//*[@id='discSelectRouteTypeOther']";
+	public final String DiscoverRoutes_routeType_Other = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div[1]/div[5]";
 	public final String DiscoverRoutes_routeType_All = ".//*[@id='discSelectRouteTypeAll']";
 	public final String DiscoverRoutes_routeFiler_Distance_List = ".//*[@id='discSelectDistance']/option";
 	public final String DiscoverRoutes_route_List_FirstRoute = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]";
-	public final String DiscoverRoutes_route_List_FirstRoute_ViewLink = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]";
+//@Author Ravi Kunaparaju, updated xpath
+	public final String DiscoverRoutes_route_List_FirstRoute_ViewLink = "./html/body/div[2]/div[2]/div[17]/div[1]/div[4]/div/div[1]/div[4]/div[1]/div[2]";
 	public final String DiscoverRoutes_route_POI_RouteName = ".//*[@id='discPopupContent']/div[2]/div/b";
 
-	// 1:25 and 1:50 maps
-	public final String map125 = "html/body/div[2]/div[2]/div[11]/div/ul/li[4]/div";
-	public final String map150 = "html/body/div[2]/div[2]/div[11]/div/ul/li[3]/div";
-	public final String zoomMap="html/body/div[2]/div[2]/div[11]/div/ul/li[1]/div";
-	public final String AerialMap="html/body/div[2]/div[2]/div[11]/div/ul/li[2]/div";
 	
+	/*
+	 * 	@Author Ravi Kunaparaju
+	 *  Updated map stack elements to select map type
+	 */
 	
-	//Elements for POI
+	public final String standardMap = "//*[@id='Window_1_Btn_ZoomMap']";
+	public final String standardAndLeisureMap = "//*[@id='Window_1_Btn_Leisure50k']";
+	public final String nationalParkPathwaysMap="//*[@id='Window_1_Btn_NationalParks']";
+	public final String AerialMap="//*[@id='Window_1_Btn_BingAerial']";
+	
+	 
+ 	//Elements for POI
 
 	public final String poi_CategoryList = ".//div[contains(@class,'POI_Category_Parent')]/div[1]";
 	public final String poi_Attractions = "//div[contains(@class,'POI_Category_Child_Name')][text()='Castles and historic houses']";
@@ -153,6 +182,14 @@ public class ObjectRepository {
 	
 	public final String star_rating_pop_up = ".//*[@id='discPopupContent']/div[1]";
 	public final String star_rating_discover_routes = ".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[1]";
+	
+	/*
+	 * @Ravi Kunaparaju
+	 * Star Ratings  
+	 */
+	public final String star_ratings_discover_routes = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div/div[4]/div/div[1]/div[1]/div[1]/div[1]";
+	public final String user_count_discover_routes = "/html/body/div[2]/div[2]/div[15]/div[1]/div[4]/div/div[1]/div/div[4]/div/div[1]/div[1]/div[1]/div[2]";
+	public final String route_popup_moreInfo = "/html/body/div[2]/div[2]/div[16]/div/div[4]/span[1]";
 	
 	
 	// Turn on Live Map
@@ -211,8 +248,7 @@ public class ObjectRepository {
 	public final String Close_Map_Features_Panel = ".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[1]";
 	
 	//ROUTES TAB
-	public final String Routes_Tab = ".//*[@id='Window_1_Btn_Mode_Route']";
-	
+	public final String Routes_Tab = ".//*[@id='main-top-bar-routes']";	
 	//Close
 	public final String Routes_Tab_Close_Button = ".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[1]";
 	//Discover Routes
@@ -221,8 +257,19 @@ public class ObjectRepository {
 	public final String Create_Custom_Trail = ".//*[@id='MyRouteCreate']";
 	//My Routes
 	public final String My_Routes = ".//*[@id='MyRouteMy']";
+	/*
+	 * @Author Ravi Kunaparaju
+	 * Adding element Directions to fix ABDirections test failures
+	 * 
+	 * Directions
+	 */
+	
+	public final String Directions = ".//*[@id='main-top-bar-directions']";
+	
 	//Get Directions
-	public final String Get_Directions = ".//*[@id='main-top-bar-directions']";
+	public final String Get_Directions = ".//*[@id='MyRouteAB']";//*[@id="main-top-bar-directions"];
+	//directions results for to field
+	public final String dirLocSearch="//div[@class='GazTown']";
 	//Import GPX 	
 	public final String ImportGPX=".//*[@id='MyRouteImport']";
 	
@@ -245,6 +292,133 @@ public class ObjectRepository {
 	
 	//Close Get Directions Panel
 	public final String Sign_up_for_paid_subscription = ".//*[@id='Window_1_Login_Header']/div[4]";
+	/* Adding new objects for extending tests
+	 * @Author Ravi Kunaparaju 
+	 * Added snap for DPN 
+	 */
+	public final String SnapActive = ".//div[contains(@class,'tooltipstered active')][text()='Snap']";
+	public final String Snapdisabled = ".//div[contains(@class,'tooltipstered')][text()='Snap']" ;	
+	/*
+	 * POI castles london location assert element cluster image for castles
+	 */
+	public final String POICastelsLondon = "/html/body/div[2]/div[2]/div[1]/div/div[1]/div[8]/svg/g[3]/g[1]/image[17]";	
+	/*
+	 *  POI
+	 */
+	public final String POI = "//*[starts-with(@id,'OpenLayers_Geometry_Point_')]";
+	/*
+	 * POI window
+	 */
+	public final String POIMoreInfo = "//*[@id='more-info-dropped-pin']";
+	public final String POIGetMeHere = "//*[@id='directions-dropped-pin']";
+	public final String POIVerification = "//*[@id='popup-pin-panel-name']";
+	/*
+	 * POI Panel
+	 */
+	public final String POIpin = "//*[contains(@class,'pin-to-map-icon')]";
+	public final String POIunpin = "//*[contains(@class,'unpin-from-map-icon')]";	
+	/*
+	 * Print
+	 */
+	public final String print_toolbar = "//*[@id='create-route-print']";
+	public final String preview_window = "//*[@id='print-preview-map-disable-interaction']";
+	public final String preview_window_hide = "//*[@id='print-preview-toggle']";
+	public final String preview_window_show = "//div[contains(@class,'link active')]";
+	public final String preview_button = "//div[contains(@class,'printSelectorButton Basic_Btn')][text()='Preview']";
+	public final String preview_page_A4_assert = "//div[contains(@class,'PrintPageA4')]";
+	public final String preview_page_A3_assert = "//div[contains(@class,'PrintPageA3')]";
+	public final String back_to_map = "//*[@id='previewCancelButton']";
+	public final String A4Portrait = "//div[@class='printSelectorOptionRadio'][text()='A4 portrait']";
+	public final String A3Portrait = "//div[@class='printSelectorOptionRadio'][text()='A3 portrait']";
+	public final String A4Landscape = "//div[@class='printSelectorOptionRadio'][text()='A4 landscape']";
+	public final String A3Landscape = "//div[@class='printSelectorOptionRadio'][text()='A3 landscape']";
 	
-
+	/*
+	 * waypoint images & Toolbar
+	 */	
+	public final String waypointImage = "//image[starts-with(@id,'OpenLayers_Geometry_Point_')]";
+	public final String delete = "//*[@id='create-route-delete']";
+	public final String undo = "//*[@id='create-route-style']";
+	public final String gridRef = "//*[@id='create-route-gridRef']";
+	public final String expand = "//*[@id='create-route-expand']";
+	public final String cancel = "//*[@id='create-route-cancel']";
+	public final String style = "//*[@id='create-route-style']";		
+	
+	/*
+	 * Route edit side panel link
+	 */
+	public final String editSideLink="//div[@class='sidePaneAction link'][text()='Edit']";
+	/*
+	 * stylying elements. 
+	 */	
+	public final String routeStyleBlack = "//div[@class='ng-scope'][0]";
+	public final String routeStylePurple = "//div[@class='ng-scope'][1]";
+	public final String routeStyleRed = "//div[@class='ng-scope'][2]";
+	public final String routeStyleGreen = "//div[@class='ng-scope'][3]";
+	public final String routeStyleYellow = "$('div[class=ng-scope]')[4]";
+	public final String routeStyleBlue = "//div[@class='ng-scope'][5]";
+	public final String routeStyleThickness1 = "//div[@class='ng-scope'][6]";
+	public final String routeStyleThickness2 = "$('div[class=ng-scope]')[7]";
+	public final String routeStyleThickness3 = "//div[@class='ng-scope'][8]";
+	public final String routeStyleThickness4 = "//div[@class='ng-scope'][9]";
+	public final String routeStyleTransper20 = "//span[@class='ui-slider-pip ui-slider-pip-1']";
+	public final String routeStyleTransper20Selected = "//span[@class='ui-slider-pip ui-slider-pip-1 ui-slider-pip-selected']";
+	public final String routeStyleTransper40 = "//span[@class='ui-slider-pip ui-slider-pip-2']";
+	public final String routeStyleTransper60 = "//span[@class='ui-slider-pip ui-slider-pip-3']";
+	public final String routeStyleTransper80 = "//span[@class='ui-slider-pip ui-slider-pip-4']";
+	
+	/*
+	 * Interface tour
+	 */
+	public final String InterfaceTourClose = "//div[@class='bbutton-close']";
+	/*
+	 * Waypoint name and description
+	 */
+	public final String selectWaypoint = "//div[@id='createRoutePointTitle0']";
+	public final String editWaypoint = "//*[@id='createRoutePointEdit0']";
+	public final String waypointName = "//*[@id='createRoutePointInputName0']";
+	public final String waypointDescription = "//*[@id='createRoutePointInputNote0']";
+	public final String saveWaypoint = "//div[@class='link'][text()='Save']";
+	
+	/*
+	 * Share route
+	 */
+	public final String shareRoute = "//div[@id='routeDetailShare']";
+	public final String shareEmailButton = "//div[@id='email-share-button']";
+	public final String shareEmailAddr = "//*[@id='shared-email-to']";
+	public final String shareEmailMessage = "//*[@id='shared-email-message']";
+	public final String shareEmailSend = "//*[@id='share-email-form-submit']";
+	public final String shareEmailConfirm = "//div[@class='dialogText'][text()='Share complete!']";
+	public final String ShareEmailConfirmOkButton = "//div[@class='Basic_Btn dialogButton '][text()='Ok']";
+	
+	/*
+	 * 
+	 */
+	public final String facebookShare = "//*[@id='facebook-share-button']";
+	public final String facebookWindow = "//*[@id='homelink']";
+	public final String facebookEmail = "//*[@id='email']";
+	public final String facebookPassword = "//*[@id='pass']";
+	public final String facebookLoginButton = "//*[@id='u_0_2']"; 
+	public final String facebookShareNotes = "//*[@id='feedform_user_message']";
+	public final String facebookShareSubmit = "//*[@id='u_0_2']";
+	
+	
+	/*
+	 * forgot password
+	 */
+	public final String forgotPassword = "//div[@class='margin-top-medium center']";
+	
+	/*
+	 * import route
+	 */
+	public final String importGPX = "//div[@id='MyRouteImport']"; 
+	public final String browseFile = "//*[@id='import-gpx-file']";
+	public final String importSave = "//div[@id='import-route-form-save']";
+	public final String confirmImportSuccess = "//span[@class='header'][text()='Success.']";
+	public final String editImportRouteButton = "//*[@id='route-import-edit-route-details-button']";
+	/*
+	 * Export route
+	 */
+	public final String exportGPX = "//*[@id='routeDetailExportRoute']";
+	
 }

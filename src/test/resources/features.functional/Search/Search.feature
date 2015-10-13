@@ -1,10 +1,11 @@
+@regression
 Feature: Search popup
 As a user
 In order to view certain region on the map
 I should be able to search a location/place on the map
 
 
-
+@demo
 Scenario Outline: Search a place as guest user
 Given I am on getamap app
 When I login as guest user
@@ -25,9 +26,7 @@ Examples:
 |Newbury|
 
 
-# @TODO:JT disabled failing test - needs fixing!
 
-@regression
 Scenario Outline: Search a place as subscriber
 Given I am on getamap app
 When I login as subscriber user

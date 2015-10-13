@@ -14,7 +14,7 @@ public class AppProperties {
     	if(properties == null){     	
 	        // Check whether the property file location is specified in environment variable "properties"
 	        // otherwise default 
-	        String propertyFile = System.getProperty("properties", System.getProperty("user.dir")+"/src/test/resources/TestConfig-ite.properties");
+	        String propertyFile = System.getProperty("properties", System.getProperty("user.dir")+"/src/test/resources/TestConfig-prod.properties");
 	
 	        try {
 	        	System.out.println("Loading properties from file " + propertyFile);
@@ -27,8 +27,7 @@ public class AppProperties {
         	
         return properties;
     }
- 
- 
+
     public static String get(String propertyKey){
         if (propertyKey.equalsIgnoreCase("browser") ||
                propertyKey.equalsIgnoreCase("env")){
