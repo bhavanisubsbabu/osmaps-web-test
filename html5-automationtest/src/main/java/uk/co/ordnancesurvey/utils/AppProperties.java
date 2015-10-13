@@ -12,8 +12,6 @@ public class AppProperties {
     public static Properties getProperties(){
 
     	if(properties == null){     	
-	        // Check whether the property file location is specified in environment variable "properties"
-	        // otherwise default 
 	        String propertyFile = System.getProperty("properties", System.getProperty("user.dir")+"/src/test/resources/TestConfig-prod.properties");
 	
 	        try {
@@ -22,8 +20,8 @@ public class AppProperties {
 	            properties.load(new FileInputStream(propertyFile)); 
 	        } catch (Throwable e) {
 	            e.printStackTrace();
-	        } // try
-    	} // if
+	        }
+    	} 
         	
         return properties;
     }
