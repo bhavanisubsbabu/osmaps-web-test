@@ -104,7 +104,8 @@ public class ObjectRepository {
 // route popup elements
 
 	public final String routePopup = "//div[@class='Basic_Style DiscoverRoute_PopUp']";
-	public final String routeMoreInfo = "//span[@class='link'][text()='More info']";
+	public final String routeMoreInfo = "//span[@class='link'][text()='View route']";
+	public final String routeViewroute = "//span[@class='link'][text()='More info']";
 	public final String routeGetDirection = "//*[@id='directions-route-pin']";
 	public final String routeDetailsSidePanel = "//div[@class='sidePaneTitle'][text()='Route Details']";
 	public final String routeDirectionsSidePanel = "//div[@class='sidePaneTitle'][text()='Directions']";
@@ -212,7 +213,7 @@ public class ObjectRepository {
 	public final String Close_Weather_Panel = "//div[contains(@class,'Basic_Btn Allow_Select sidePaneClose')][text()='Close']";
 	
 	//Attraction
-	public final String Attractions = ".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[2]/img[1]";
+	public final String Attractions = "//div[@class='POI_Parent_Name'][text()='Attractions']";
 	//Adventure & Theme Parks
 	public final String Adventure_Theme_Parks = ".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[3]/div[1]";
 	//Brewery

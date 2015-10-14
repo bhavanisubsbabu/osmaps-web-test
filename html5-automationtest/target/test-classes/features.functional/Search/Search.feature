@@ -5,7 +5,7 @@ In order to view certain region on the map
 I should be able to search a location/place on the map
 
 
-@demo
+@smoke
 Scenario Outline: Search a place as guest user
 Given I am on getamap app
 When I login as guest user

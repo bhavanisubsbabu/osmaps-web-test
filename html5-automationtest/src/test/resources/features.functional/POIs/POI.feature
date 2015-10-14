@@ -1,3 +1,4 @@
+@regression
 Feature: Map features
  In order to choose and display POIs by one or more categories
 	As a getamap user 

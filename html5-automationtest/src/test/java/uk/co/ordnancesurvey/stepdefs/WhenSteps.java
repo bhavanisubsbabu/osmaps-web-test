@@ -56,16 +56,11 @@ public class WhenSteps {
 	
 	//Login to the Application
 	public void loginToApplication(String userName, String Password) throws InterruptedException 
-	{
-		
-		
+	{		
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
-
 			mainPage.set_textBox(obj.login_pwd,Password);
 			mainPage.click(obj.login_button);			
-			Thread.sleep(3000);
-			
 		}
 		else{		
 		mainPage.set_textBox(obj.login_email_address, userName);
@@ -83,8 +78,7 @@ public class WhenSteps {
 		if(platform.equalsIgnoreCase("Mobile")){
 			mainPage.set_textBox(obj.login_email_address, userName);
 			mainPage.set_textBox(obj.login_pwd,Password);
-			mainPage.click(obj.login_button);				
-			Thread.sleep(10000);			
+			mainPage.click(obj.login_button);						
 		}
 		mainPage.open_login_window();
 		mainPage.set_textBox(obj.login_email_address, userName);
@@ -96,36 +90,12 @@ public class WhenSteps {
 		
 	@When("^I login as registered user$")
 	public void i_login_as_registered_user() throws Throwable {
-		//login.open_login_window();
-		//mainPage.close_carousel();
-		mainPage.open_login_window();
-			Thread.sleep(2000);
-			if (mainPage.IsElementDisplayed(obj.login_email)){
-				loginToApplication(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-			}
-			else{				
-				logOutApplication();				 
-				 loginToApplicationAfterLogout(AppProperties.get("regUname"),AppProperties.get("regPwd"));
-			}
-		
+		loginToApplicationAfterLogout(AppProperties.get("regUname"),AppProperties.get("regPwd"));			
 	}
 
 	@When("^I login as subscriber user$")
 	public void i_login_as_subscriber_user() throws Throwable {
-		//mainPage.close_carousel();
-		mainPage.open_login_window();
-		Thread.sleep(2000);
-		if (mainPage.IsElementDisplayed(obj.login_email)){
-			
-			loginToApplication(AppProperties.get("subUname"),AppProperties.get("subPwd"));
-			Thread.sleep(5000);
-		}
-		else{
-			
-			logOutApplication();
-			loginToApplicationAfterLogout(AppProperties.get("subUname"),AppProperties.get("subPwd"));
-			Thread.sleep(5000);
-		}
+		loginToApplicationAfterLogout(AppProperties.get("subUname"),AppProperties.get("subPwd"));			
 	}
 	
 	@When("^I login as guest user$")

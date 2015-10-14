@@ -8,7 +8,7 @@ Feature: Logged in User should be able to share a route by email, Facebook and T
 		And I navigate to my routes to select a route
 		And I clicked on Share icon, select email, enter email address and share 
 		Then application should send email with route details and default message
-		
+	@smoke	
 	Scenario: User be able to share a route by email to multiple recipients 
 	
 		Given I am on getamap app

@@ -182,14 +182,14 @@ public class Html5Page {
 	 public void plot_newRoute() throws InterruptedException{
 		 Actions action = new Actions(driver);
 		 this.waitForElementPresent(obj.RoutesTab, 5);
-		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 this.click(obj.RoutesTab);
 		    Thread.sleep(1000);
 				 this.zoomIn();
 				 this.zoomIn();
 				 this.zoomIn();
 				 this.zoomIn();	 		 
 		 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
-		 driver.findElement(By.xpath(obj.RoutesTab_CreateCustomRouteTrial)).click();
+		 this.click(obj.RoutesTab_CreateCustomRouteTrial);
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
 		 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
@@ -262,7 +262,9 @@ public class Html5Page {
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())		 
 		 {
-			 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
+			 this.click(obj.CustomRoute_Save);
+			 this.waitForElementPresent(obj.CustomRoute_RouteName, 5);
+			 Thread.sleep(1500);
 		     driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); 
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteNotes)).sendKeys("Test");
@@ -348,7 +350,8 @@ public class Html5Page {
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 			 
 		 {
-			 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
+			 this.click(obj.CustomRoute_Save); 
+			 Thread.sleep(1500);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); 
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -379,7 +382,8 @@ public class Html5Page {
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 			 
 		 {
-			 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
+			 this.click(obj.CustomRoute_Save); 
+			 Thread.sleep(1500);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name);
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -410,7 +414,8 @@ public class Html5Page {
 			 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())
 				 
 			 {
-				 driver.findElement(By.xpath(obj.CustomRoute_Save)).click(); 
+				 this.click(obj.CustomRoute_Save); 
+				 Thread.sleep(1500);
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); 
 				 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -596,7 +601,8 @@ public class Html5Page {
 	 
 	 
 	 public void verify_poi_categories_exist() throws InterruptedException{
-		 assertTrue("Failed:, Category Live update not found",driver.findElement(By.xpath("//div[contains(@class,'POI_Parent_Name')]")).getText().contains("Weather"));
+		 this.waitForElementPresent(obj.poi_CastlesAndAttractions, 5);
+		 assertTrue(this.IsElementDisplayed(obj.poi_CastlesAndAttractions));
 }
 	public void set_textBox(String locator,String value) throws InterruptedException{
 		this.waitForElementPresent(locator, 10);
@@ -1373,8 +1379,13 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
  *  Select Top route
  */
 		public void selectRouteDetails() throws InterruptedException{			
-			this.click(obj.routeNameDiv1);			
-			this.click(obj.routeMoreInfo);
+			this.click(obj.routeNameDiv1);
+			try{
+				this.click(obj.routeMoreInfo);
+			}
+			catch(Exception e){
+				this.click(obj.routeViewroute);
+			}
 			this.waitForElementPresent(obj.routeDetailsSidePanel, 5);
 		}
 /*

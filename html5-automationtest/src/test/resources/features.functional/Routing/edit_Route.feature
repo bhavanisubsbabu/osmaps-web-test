@@ -1,6 +1,6 @@
 @regression
 Feature: User should able to edit routes
-
+@smoke
 	Scenario: User should be able to edit route by adding way points
 	
 		Given I am on getamap app

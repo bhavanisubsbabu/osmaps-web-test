@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		format = {"pretty","html:target/reports/smoke-test-report", "json:target/reports/smoke-test-report/report.json"}, 
-		features = {"src/test/resources/features.functional/"},glue="uk.co.ordnancesurvey.stepdefs",tags={"@Smoke","~@ignore"})
+		features = {"src/test/resources/features.functional/"},glue="uk.co.ordnancesurvey.stepdefs",tags={"@smoke"})
 
 
 public class SmokeTest {
