@@ -36,6 +36,10 @@ Scenario: Create route type as other
 	When I login as subscriber user
 	Then I should be able to create route
 	And  Save the route as other
+@wip
+Scenario: Create route with 500 waypoints
 
-
-
+	Given I am on getamap app
+	When I login as registered user
+	Then I should be able to create route with 500 waypoints
+	And  Save the route.

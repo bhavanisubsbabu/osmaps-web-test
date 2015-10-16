@@ -300,6 +300,7 @@ public class ThenSteps {
 		}
 		
 
+
 //		@Then("^I Should see the Route \"(.*?)\" on the sidebar$")
 //		public void i_should_see_the_route_on_the_sidebar(String arg1) throws Throwable {
 //
@@ -598,6 +599,11 @@ public class ThenSteps {
 			mainPage.IsElementDisplayed(obj.POIMoreInfo);
 		}
 
+// route with 500 waypoints
+		@Then("^I should be able to create route with (\\d+) waypoints$")
+		public void i_should_be_able_to_create_route_with_waypoints(int arg1) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		}
 		
 }
 	

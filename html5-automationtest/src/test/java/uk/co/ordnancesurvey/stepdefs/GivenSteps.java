@@ -43,7 +43,7 @@ public class GivenSteps {
 	public void i_can_access_OS_maps_as_a_guest_user()  throws Throwable {
 		mainPage.launch_app();
 		
-		mainPage.close_carousel();
+		//mainPage.close_carousel();
 		mainPage.signOUt();
 		
 		
@@ -53,7 +53,7 @@ public class GivenSteps {
 		public void i_can_access_OS_maps_as_a_guest_user_to_register()  throws Throwable {
 			mainPage.launch_app();
 			
-			mainPage.close_carousel();
+			//mainPage.close_carousel();
 			
 		
 	
