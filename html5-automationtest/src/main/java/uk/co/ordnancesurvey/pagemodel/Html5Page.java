@@ -1607,21 +1607,18 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			Actions action = new Actions(driver);
 			 this.waitForElementPresent(obj.RoutesTab, 5);
 			 this.click(obj.RoutesTab);
-			    Thread.sleep(1000);
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();	 		 
+			 for(i=1;i<=10;i++){
+				 this.zoomIn();
+				 Thread.sleep(500);
+			 }		 
 			 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
 			 this.click(obj.RoutesTab_CreateCustomRouteTrial);
 			 JavascriptExecutor js = (JavascriptExecutor) driver;
-			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
-			 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();		 
+			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  					 
+			 for(j=0;j<500;j++){
+				 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
+				 Thread.sleep(2000);
+				 System.out.print("plotting"+j+"\n");
+			 }		 
 		}
 }

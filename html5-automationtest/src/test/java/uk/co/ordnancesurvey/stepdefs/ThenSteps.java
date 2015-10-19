@@ -602,7 +602,8 @@ public class ThenSteps {
 // route with 500 waypoints
 		@Then("^I should be able to create route with (\\d+) waypoints$")
 		public void i_should_be_able_to_create_route_with_waypoints(int arg1) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    mainPage.longRoute();
+		    mainPage.save_route();
 		}
 		
 }
