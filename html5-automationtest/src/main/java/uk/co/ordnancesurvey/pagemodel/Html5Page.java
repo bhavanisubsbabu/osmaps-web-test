@@ -556,6 +556,7 @@ public class Html5Page {
 		 driver.get(envurl);
 		 Thread.sleep(2000);
 		 if(this.IsElementPresent(obj.InterfaceTourClose)){
+			 Thread.sleep(1500);
 			 this.closeInterfaceTour();
 		 }
 	 }
