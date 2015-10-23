@@ -55,7 +55,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to create route on mapstack\"(.*?)\"$")
 		public void i_should_be_able_to_create_route_on_mapstack(String arg1) throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 		
 			try {
 			
@@ -220,7 +220,7 @@ public class ThenSteps {
 
 		@Then("^I should see \"(.*?)\" POIs and clustered POIs$")
 		public void i_should_see_POIs_and_clustered_POIs(String arg1) throws Throwable {
-    		// Write code here that turns the phrase above into concrete actions
+    		
 	
 			int total_pois=mainPage.filter_POIbyType();
 			assertTrue("Failed: Total POIs returned" + total_pois + " doesn't match to expected"+arg1+" value",(Integer.parseInt(arg1)==total_pois ));
@@ -230,7 +230,7 @@ public class ThenSteps {
 
 		@Then("^by sub category \"(.*?)\"$")
 		public void by_sub_category(String arg1) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		   
 		}
 		
@@ -263,13 +263,13 @@ public class ThenSteps {
 		
 		@Then("^Save the route as run$")
 		public void save_the_route_as_run() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		    mainPage.save_route_run("yes");
 		}
 
 		@Then("^Save the route as cycle$")
 		public void save_the_route_as_cycle() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		    mainPage.save_route_cycle();
 		}
 
@@ -408,14 +408,14 @@ public class ThenSteps {
 		public void i_should_be_able_to_see_A_B_car_directions() throws Throwable {
 			mainPage.waitForElementPresent(obj.ab_resultPopup, 10);
 			mainPage.IsElementDisplayed(obj.ab_resultPopup);
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		    //throw new PendingException();
 		}
 		
 		
 		@Then("^I should be able to see A-B walk directions$")
 		public void i_should_be_able_to_see_A_B_walk_directions() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+		    
 		   // throw new PendingException();
 			assertTrue("Failed: A-B route not found, please check manually",mainPage.IsElementDisplayed(obj.ab_resultPopup));
 		}		
@@ -462,20 +462,20 @@ public class ThenSteps {
 					//mainPage.clickLinkByXpath(obj.mapfeatures);
 					mainPage.verify_pinnedPOIexist();
 						
-						// Write code here that turns the phrase above into concrete actions
+						
 					    
 					}
 								
 					@Then("^I should see pinned POI on the map\\.$")
 					public void i_should_see_pinned_POI_on_the_map() throws Throwable {
-					    // Write code here that turns the phrase above into concrete actions
+					    
 					    mainPage.verify_pinnedPOIexist();
 					}
 					
 					
 					@Then("^I should not see POI  persisted after I turn off POI Category$")
 					public void i_should_not_see_POI_persisted_after_I_turn_off_POI_Category() throws Throwable {
-					    // Write code here that turns the phrase above into concrete actions
+					    
 						Thread.sleep(3000);
 						mainPage.close_login_window();
 						mainPage.verify_pinnedPOIDoesntExist();
@@ -485,7 +485,7 @@ public class ThenSteps {
 						
 		@Then("^I should be given an option to upgrade to a Registered user by completing the registration process within the application$")
 		public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.registernewUser();
 			Thread.sleep(2000);
 
@@ -494,14 +494,14 @@ public class ThenSteps {
 						
 		@Then("^I should be able to register by completing the registration process within the application$")
 		public void i_should_be_able_to_register_by_completing_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.registernewUser();
 			Thread.sleep(2000);
 		}
 							
 		@Then("^I should be getting errors when entering incorrect details in the registration process within the application$")
 		public void I_should_be_getiing_errors_when_entering_incorrect_details_in_the_registration_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.registernewUser2();
 			Thread.sleep(2000);
 								
@@ -509,7 +509,7 @@ public class ThenSteps {
 							
 		@Then("^I should be given an option to upgrade to subscribed user by completing the subscription process within the application$")
 		public void i_should_be_given_an_option_to_upgrade_to_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.subscribenewUser();
 			Thread.sleep(2000);
 	
@@ -517,7 +517,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to upgrade to a subscribed user by completing the subscription process within the application$")
 		public void i_should_be_able_to_upgrade_to_a_subscribed_user_by_completing_the_subscription_process_within_the_application() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			//driver.findElement(By.cssSelector(".productItem")).click();
 			Thread.sleep(2000);
 			mainPage.registernewUser();
@@ -526,7 +526,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to delete any route from my routes$")
 		public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.clickLinkByXpath(obj.RoutesTab);
 			Thread.sleep(2000);
 			mainPage.Delete_route_from_my_routes();
@@ -538,7 +538,7 @@ public class ThenSteps {
 
 		@Then("^I should be able to see all options on top menu bar$")
 		public void i_should_be_able_to_see_all_options_on_top_menu_bar() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.verify_topMenuBar();
 		}
 
@@ -547,7 +547,7 @@ public class ThenSteps {
 	
 		@Then("^I should be able to find all route options$")
 		public void i_should_be_able_to_find_all_route_options() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.verify_routesMenu();
 		}
 
@@ -555,7 +555,7 @@ public class ThenSteps {
 	
 		@Then("^I should see \"(.*?)\" top right corner$")
 		public void i_should_see_top_right_corner(String arg1) throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
+			
 			mainPage.verify_UserLogin(arg1);   
 		}
 
@@ -602,7 +602,14 @@ public class ThenSteps {
 // route with 500 waypoints
 		@Then("^I should be able to create route with (\\d+) waypoints$")
 		public void i_should_be_able_to_create_route_with_waypoints(int arg1) throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
+			// Write code here that turns the phrase above into concrete actions
+		}
+		
+		@Then("^I should be able to create route and edit waypoint name and description$")
+		public void i_should_be_able_to_create_route_and_edit_waypoint_name_and_description() throws Throwable {
+		    mainPage.plot_newRoute();
+		    mainPage.clickWayPoints();
+		   // mainPage.waypointNameDesc("test name", "test description");
 		}
 		
 }

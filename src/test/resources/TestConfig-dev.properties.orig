@@ -1,0 +1,45 @@
+# Main Settings
+#
+#env
+#
+platform=Desktop
+<<<<<<< HEAD:src/test/resources/TestConfig-dev.properties
+environment=local
+=======
+environment=Local
+>>>>>>> origin/master:html5-automationtest/src/test/resources/TestConfig-dev.properties
+
+#
+
+#
+#ITE ENV
+#envurl=https://www.ordnancesurveyite.co.uk/osmaps/
+#CI Envn
+#envurl=http://dev2-beta.ordsvy.gov.uk/osmaps/
+#Dev Env
+envurl=http://dev1-beta.ordsvy.gov.uk/osmaps/
+#
+#browser: can be internetexplorer, firefox or chrome
+#
+browser=chrome
+
+#
+#frameworksettings
+#All framework related settings needs to be created under this section
+#
+#
+#environment properties
+# ci env
+regUname=ravi@os.uk
+regPwd=123456
+
+subUname=nasirkhandev12@test.com
+subPwd=123456
+
+
+
+
+
+
+
+

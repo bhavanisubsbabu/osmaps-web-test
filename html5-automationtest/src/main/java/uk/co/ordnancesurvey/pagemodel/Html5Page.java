@@ -82,7 +82,7 @@ public class Html5Page {
 	 }
 
 	 public void clickElement(WebElement locator) throws InterruptedException{
-			this.waitForElementPresentifStale(locator);			
+			this.waitForElementPresentifStale(locator);
 			try{
 				Thread.sleep(2000);
 				locator.click();
@@ -97,18 +97,15 @@ public class Html5Page {
 	
 	 public void ClickAt( WebDriver driver, String selector, int x, int y)
 	 {
-	 	
-		 
+	 	 
 		Object rootElement = driver.findElement(By.xpath(selector));
-
 	 	new Actions(driver)
 	 		.moveToElement((WebElement) rootElement, 0, 0)
 	 		.moveByOffset(x, y)
 	 		.click()
 	 		.build()
-	 		.perform();
-	 	
-	 	 }
+	 		.perform();	
+	 }
 	 
 	 
 	 // Open Routes top nav
@@ -199,6 +196,7 @@ public class Html5Page {
 		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
 		 Thread.sleep(500);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+		 Thread.sleep(1000);
 	 }
 	 
 	 public void plot_newRoute_MapStack() throws InterruptedException{
@@ -1451,10 +1449,37 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		public void deleteWaypoint() throws InterruptedException{
 			this.editrouteNav();
 			this.click(obj.delete);		
+			this.clickWayPoint();			
+		}
+		
+		public void clickWayPoints() throws InterruptedException{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			WebElement removeWaypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
-			this.clickElement(removeWaypoint);			
+			Actions action = new Actions(driver);			
+			for(int i=0;i<waypoints;i++){
+				WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')["+i+"];");
+				action.moveToElement(Waypoint).click().perform();
+				this.clickElement(Waypoint);
+				this.waypointNameDesc("test "+i, "test description "+i);
+			}
+			
+		}
+		
+		public void clickWayPoint() throws InterruptedException{			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
+			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[0];");
+			Actions action = new Actions(driver);
+			action.moveToElement(Waypoint).click().perform();
+			this.clickElement(Waypoint);
+		}
+		
+		public void waypointNameDesc(String name, String description) throws InterruptedException{
+			this.waitForElementClickable(obj.editPopup, 10);
+			this.click(obj.editPopup);
+			this.set_textBox(obj.waypointName, name);
+			this.set_textBox(obj.waypointDescription, description);
+			this.click(obj.saveWaypoint);
 		}
 		
 		public void routeStyle() throws InterruptedException{
