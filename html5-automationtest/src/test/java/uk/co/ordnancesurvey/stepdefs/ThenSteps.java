@@ -608,8 +608,8 @@ public class ThenSteps {
 		@Then("^I should be able to create route and edit waypoint name and description$")
 		public void i_should_be_able_to_create_route_and_edit_waypoint_name_and_description() throws Throwable {
 		    mainPage.plot_newRoute();
-		    mainPage.clickWayPoints();
-		   // mainPage.waypointNameDesc("test name", "test description");
+		    mainPage.clickWayPoint();
+		    mainPage.waypointNameDesc("Ravi", "Kumar");
 		}
 		
 }

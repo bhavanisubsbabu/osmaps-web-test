@@ -16,6 +16,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -77,6 +78,7 @@ public class Html5Page {
 			}
 		}
 	 
+	 
 	 public void waitForElementPresentifStale(WebElement xpath){
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);			 		 		 				  		
 	 }
@@ -90,21 +92,14 @@ public class Html5Page {
 			catch(Exception e){
 				Thread.sleep(5000);
 				locator.click();
-			}
-		
+			}			
 	 }
 
 	
 	 public void ClickAt( WebDriver driver, String selector, int x, int y)
-	 {
-	 	 
+	 {	 	 
 		Object rootElement = driver.findElement(By.xpath(selector));
-	 	new Actions(driver)
-	 		.moveToElement((WebElement) rootElement, 0, 0)
-	 		.moveByOffset(x, y)
-	 		.click()
-	 		.build()
-	 		.perform();	
+	 	new Actions(driver).moveToElement((WebElement) rootElement, 0, 0).moveByOffset(x, y).click().build().perform();	
 	 }
 	 
 	 
@@ -216,8 +211,7 @@ public class Html5Page {
 		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
 	 }
-	 
-	 
+	 	 	
 	 public void delete_route() throws InterruptedException{
 		 driver.findElement(By.xpath("//div[@id='myRouteListShow']")).click();
 		 if(IsElementDisplayed("//div[contains(@class,'discoveredListDelete Basic_Btn')]")){
@@ -649,7 +643,7 @@ public class Html5Page {
 	  }
 	  catch(Exception e)
 	  {
-	 	 System.out.println("Element not found on the page");
+	 	 //System.out.println("Element not found on the page");
 	 	 return false;
 	  }
 	 }
@@ -1452,27 +1446,25 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.clickWayPoint();			
 		}
 		
-		public void clickWayPoints() throws InterruptedException{
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			Actions action = new Actions(driver);			
-			for(int i=0;i<waypoints;i++){
-				WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')["+i+"];");
-				action.moveToElement(Waypoint).click().perform();
-				this.clickElement(Waypoint);
-				this.waypointNameDesc("test "+i, "test description "+i);
-			}
-			
-		}
-		
 		public void clickWayPoint() throws InterruptedException{			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[0];");
+			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
 			Actions action = new Actions(driver);
 			action.moveToElement(Waypoint).click().perform();
-			this.clickElement(Waypoint);
+			action.click(Waypoint).build().perform();			
 		}
+		
+		public void addWayPoint(String name, String description) throws InterruptedException{			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
+			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			Actions action = new Actions(driver);
+			action.moveToElement(Waypoint).build().perform();
+			try{action.click(Waypoint).build().perform();}//catch(Exception e){}		
+			finally{this.waypointNameDesc(name, description);}
+		}
+		
 		
 		public void waypointNameDesc(String name, String description) throws InterruptedException{
 			this.waitForElementClickable(obj.editPopup, 10);
@@ -1482,6 +1474,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.click(obj.saveWaypoint);
 		}
 		
+				
 		public void routeStyle() throws InterruptedException{
 			this.editrouteNav();
 			this.click(obj.style);
