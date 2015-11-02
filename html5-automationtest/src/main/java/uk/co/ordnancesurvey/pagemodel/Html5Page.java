@@ -239,11 +239,9 @@ public class Html5Page {
 	 public void signOUt() throws InterruptedException{
 		 Thread.sleep(3000);
 		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
-		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
-		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
-		 Thread.sleep(2000);
-		 
-		 
+		 this.click(".//*[@id='main-top-bar-user']");
+		 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+		 Thread.sleep(2000); 
 	 }
 	
 	 
