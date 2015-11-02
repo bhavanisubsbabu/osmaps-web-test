@@ -294,7 +294,7 @@ public class WhenSteps {
 		@When("^I enter start location$")
 		public void i_enter_start_location() throws Throwable {
 			mainPage.set_textBox(obj.ab_startLocation, "London");
-			mainPage.waitForElementPresent(obj.dirLocSearch, 5);
+			mainPage.waitForElementPresent(obj.dirLocSearch, 10);
 			mainPage.click(obj.dirLocSearch);
 			mainPage.hitEnterKey(obj.ab_startLocation);
 		    // Write code here that turns the phrase above into concrete actions

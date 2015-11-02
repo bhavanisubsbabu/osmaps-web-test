@@ -690,7 +690,8 @@ public class Html5Page {
 	 
 	 public void pinPOI() throws InterruptedException{
 		 if(this.IsElementPresent(obj.POIunpin)){
-			 unpinPOI();
+			 System.out.print("Inside if loop");
+			 this.click(obj.POIunpin);
 			 this.click(obj.POIMoreInfo);
 		 }
 		 this.waitForElementPresent(obj.POIpin,10);	
@@ -698,6 +699,11 @@ public class Html5Page {
 	 }
 	 
 	 public void unpinPOI() throws InterruptedException{
+		 	if(this.IsElementPresent(obj.POI)){
+		 		System.out.print("Inside if loop");
+		 		 this.click(obj.POIpin);
+		 	}
+		 	this.waitForElementPresent(obj.POIunpin, 3);
 		 	this.click(obj.POIunpin);
 	 }
 	 
@@ -1442,7 +1448,8 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		
 		public void deleteWaypoint() throws InterruptedException{
 			this.editrouteNav();
-			this.click(obj.delete);		
+			this.click(obj.delete);
+			Thread.sleep(3000);
 			this.clickWayPoint();			
 		}
 		
@@ -1549,6 +1556,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		}
 				
 		public void shareRouteConfirm() throws InterruptedException{
+			this.waitForElementPresent(obj.shareEmailConfirm, 20);
 			this.IsElementDisplayed(obj.shareEmailConfirm);
 			this.click(obj.ShareEmailConfirmOkButton);
 		}
@@ -1556,7 +1564,6 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		public void shareRouteByFacebook() throws InterruptedException{
 			this.shareRouteNav();
 			this.click(obj.facebookShare);
-			Thread.sleep(10000);
 			for (String winHandle : driver.getWindowHandles()) {
 				driver.switchTo().window(winHandle);
 				String title = driver.switchTo().window(winHandle).getTitle();
