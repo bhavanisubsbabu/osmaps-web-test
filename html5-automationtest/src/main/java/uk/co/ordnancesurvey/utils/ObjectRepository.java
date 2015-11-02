@@ -422,4 +422,23 @@ public class ObjectRepository {
 	 */
 	public final String exportGPX = "//*[@id='routeDetailExportRoute']";
 	
+	// #################################### WhiteLabel + DofE objects ####################################
+	
+		public final String user_logged = ".//*[@id='main-top-bar-user']";
+		public final String routeType = ".//*[@id='routeABType']";
+		public final String burgerMenu = ".//*[@id='main-top-bar-burger-menu']";
+		public final String burgerDirections = ".//*[@id='BurgerRouteAB']";
+		public final String burgerRoutes = ".//*[@id='BurgerRouteMy']";
+		public final String discoveredRoutes = ".//*[@id='discover-route-panel-routes']/div[1]/div[2]";
+		public final String showMyRoutes = ".//*[@id='myRouteListShow']";
+		public final String myRoute = ".//*[@id='myRouteList']/div/div/div[1]/div[2]";
+		public final String openHelp = ".//*[@id='create-route-help']";
+		public final String helpRoutesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[1]";
+		public final String helpCreateRouteTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[2]";
+		public final String helpDiscoverRouteTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[3]";
+		public final String helpPlacesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[4]";
+		public final String helpDirectionsMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]";
+		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
+		public final String viewRoute = ".//*[@id='Window_1_Content']/div[17]/div/div[4]/span[1]";
+	
 }

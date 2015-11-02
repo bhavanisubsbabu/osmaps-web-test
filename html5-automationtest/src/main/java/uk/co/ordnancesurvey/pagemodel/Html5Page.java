@@ -26,6 +26,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.gargoylesoftware.htmlunit.javascript.host.Document;
 import com.steadystate.css.parser.Locatable;
 
+import uk.co.ordnancesurvey.stepdefs.SharedWebDriver;
+import uk.co.ordnancesurvey.stepdefs.WhenSteps;
 import uk.co.ordnancesurvey.utils.AppProperties;
 import uk.co.ordnancesurvey.utils.ObjectRepository;
 
@@ -1624,4 +1626,23 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();		 
 		}
+		
+		// #################################### WhiteLabel + DofE functions ####################################
+
+		/*
+		 * Login as DoE
+		 */
+		public void loginDoE() throws InterruptedException {
+			WhenSteps whenSteps = new WhenSteps((SharedWebDriver) driver);
+			whenSteps.loginToApplication(AppProperties.get("Login"), AppProperties.get("Password"));
+		}
+
+		/*
+		 * Assert Login Successful
+		 */
+		public void verify_Login() throws InterruptedException {
+			Thread.sleep(5000);
+			assertTrue(this.IsElementDisplayed(obj.user_logged));
+		}
+		
 }

@@ -9,6 +9,7 @@ import cucumber.api.junit.Cucumber;
 		format = {"pretty", "html:target/reports/workingset"}, 
 			features = {"src/test/resources/features.functional/Sharing/"},glue="uk.co.ordnancesurvey.stepdefs")
 
+//			features = {"src/test/resources/features.functional/WhiteLabel"},glue="uk.co.ordnancesurvey.stepdefs", tags="@testDisabled")
 public class WorkingFeature {
 	
 }
