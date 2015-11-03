@@ -10,8 +10,6 @@ import org.openqa.selenium.support.How;
 
 public class ObjectRepository {
 	
-		 
-	
 
 	
 	@FindBy(how = How.XPATH, using = ".//*[@id='Window_1_Btn_Mode_Route']")
@@ -58,7 +56,8 @@ public class ObjectRepository {
 	
 	// Subscriber Page Objects
 
-	
+	public final String loginUser="//*[@id='main-top-bar-user']";
+	public final String login="//*[@id='main-top-bar-sign-in']";
 	
 	// Login page objects
 

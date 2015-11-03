@@ -1,8 +1,5 @@
 @regression
-Feature: Map features
- In order to choose and display POIs by one or more categories
-	As a getamap user 
-	I should be able to filter POI by Type
+Feature: User should be able to view POIs by category, pin and unpin POI to map
 
 Scenario: Verify POI Categories displayed on POI Panel for guest user
 	Given I am on getamap app

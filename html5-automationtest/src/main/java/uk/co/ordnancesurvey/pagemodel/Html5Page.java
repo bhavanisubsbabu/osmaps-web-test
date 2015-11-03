@@ -548,6 +548,7 @@ public class Html5Page {
 		 if(this.IsElementPresent(obj.InterfaceTourClose)){
 			 this.closeInterfaceTour();
 		 }
+		 
 	 }
 	 
 	 
@@ -559,14 +560,15 @@ public class Html5Page {
 	 //* Login Functions //
 	 
 	 public void open_login_window() throws InterruptedException{
-		 Thread.sleep(3000);
-		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']")){	
-			  this.click(".//*[@id='main-top-bar-sign-in']");
-		}
-		  else {
-			  this.signOUt();
-			  this.click(".//*[@id='main-top-bar-sign-in']");
-		  }
+		 this.waitForElementPresent(".//*[@id='main-top-bar-sign-in']", 10);
+			 try{
+				 this.click(".//*[@id='main-top-bar-sign-in']");
+			 }catch(Exception e){
+				 this.signOUt();
+				 this.click(".//*[@id='main-top-bar-sign-in']");
+			 }
+			 
+		
 	 }
 	 
 	 //Closing the Login Window Popup
@@ -647,28 +649,25 @@ public class Html5Page {
 	 }
 	 
 	 public boolean elementDoesntExists(String element){
-		 
-		if(driver.findElement(By.xpath(element)).isDisplayed()){ 
-		 return false;
+		 try{
+			 driver.findElement(By.xpath(element)).isDisplayed();
+			 return true;
+		 }
+		catch(Exception e){
+			return false;
 		}
-		return true;
 	 }
 	 
 	 public boolean IsElementDisplayed(String xpath) throws InterruptedException{
-		  boolean flag;
-		  try{
-			  driver.findElement(By.xpath(xpath)).isDisplayed();			  
+		  try{			  
+			  driver.findElement(By.xpath(xpath)).isDisplayed();	
+			  return false;
 		  }
 		  catch(NoSuchElementException e){
 			  e.getAdditionalInformation();
-			  Thread.sleep(2000);
+			  return true;
 		  }
-		  if(driver.findElement(By.xpath(xpath)).isDisplayed())
-			  flag= true; 
-		 else{
-			 flag= false;
-		 }
-		  return flag;
+		  
 	 }
 	 
 	 
@@ -687,28 +686,28 @@ public class Html5Page {
 	 }
 	 
 	 public void pinPOI() throws InterruptedException{
-		 if(this.IsElementPresent(obj.POIunpin)){
-			 System.out.print("Inside if loop");
+		 try{
+		 this.waitForElementPresent(obj.POIpin,10);	
+		 this.click(obj.POIpin);
+		 }catch(Exception e){
 			 this.click(obj.POIunpin);
 			 this.click(obj.POIMoreInfo);
 		 }
-		 this.waitForElementPresent(obj.POIpin,10);	
-		 this.click(obj.POIpin);
+		 
 	 }
 	 
 	 public void unpinPOI() throws InterruptedException{
-		 	if(this.IsElementPresent(obj.POI)){
-		 		System.out.print("Inside if loop");
-		 		 this.click(obj.POIpin);
-		 	}
+		 	try{
 		 	this.waitForElementPresent(obj.POIunpin, 3);
 		 	this.click(obj.POIunpin);
+		 	}catch(Exception e){
+		 		this.click(obj.POIpin);
+		 		this.click(obj.POIunpin);
+		 	}
 	 }
 	 
 	 public void verifyPinOnMap() throws InterruptedException{
-		 this.waitForElementPresent(obj.POI, 3);
-		 this.IsElementPresent(obj.POI);
-		 
+		 this.IsElementPresent(obj.POI);		 
 	 }
 	 
 	 //filter POI by Type
@@ -726,7 +725,7 @@ public class Html5Page {
 	 
 	 public void verify_pinnedPOIexist(){
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 WebElement POI= (WebElement) js.executeScript("return document.getElementsByTagName('image').item(0)");
+		 WebElement POI= (WebElement) js.executeScript("return document.getElementsByTagName('image').item(0)");		 
 		 assertTrue("Failed POI Not found,",POI.isDisplayed());
 		 
 	 }
@@ -1455,9 +1454,14 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
 			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			System.out.print(Waypoint);
 			Actions action = new Actions(driver);
 			action.moveToElement(Waypoint).click().perform();
-			action.click(Waypoint).build().perform();			
+			try{
+				action.click(Waypoint).build().perform();			
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		
 		public void addWayPoint(String name, String description) throws InterruptedException{			
