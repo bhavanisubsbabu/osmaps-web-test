@@ -17,6 +17,7 @@ public class FindMyLocationEnabled_steps {
 	ObjectRepository obj;
 
 	public FindMyLocationEnabled_steps(SharedWebDriver driver) {
+		
 		this.driver = driver;
 		mainPage = PageFactory.initElements(driver, Html5Page.class);
 		obj = PageFactory.initElements(driver, ObjectRepository.class);
@@ -31,7 +32,6 @@ public class FindMyLocationEnabled_steps {
 	@Then("^'Find My Location' works as expected$")
 	public void find_My_Location_works_as_expected() throws Throwable {
 		mainPage.click(obj.findMyLocationButton);
-		Thread.sleep(5000);
 	}
 
 }

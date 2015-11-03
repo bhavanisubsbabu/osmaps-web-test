@@ -1641,7 +1641,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		 * Assert Login Successful
 		 */
 		public void verify_Login() throws InterruptedException {
-			Thread.sleep(5000);
+			this.waitForElementPresent(obj.user_logged, 5);
 			assertTrue(this.IsElementDisplayed(obj.user_logged));
 		}
 		
