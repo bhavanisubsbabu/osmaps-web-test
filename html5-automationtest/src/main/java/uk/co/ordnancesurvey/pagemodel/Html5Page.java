@@ -587,14 +587,15 @@ public class Html5Page {
 	//Open Map Features
 	 
 		 public void open_Mapfeatures() throws InterruptedException{
-			 this.clickLinkByXpath(obj.mapfeatures); 
+			 this.waitForElementClickable(obj.mapfeatures, 20);
+			 this.click(obj.mapfeatures); 
 		 }
 	 
 	 
 	 
 	 public void verify_poi_categories_exist() throws InterruptedException{
 		 this.waitForElementPresent(obj.poi_CastlesAndAttractions, 5);
-		 assertTrue(this.IsElementDisplayed(obj.poi_CastlesAndAttractions));
+		 assertTrue(this.IsElementPresent(obj.poi_CastlesAndAttractions));
 }
 	public void set_textBox(String locator,String value) throws InterruptedException{
 		this.waitForElementPresent(locator, 10);
