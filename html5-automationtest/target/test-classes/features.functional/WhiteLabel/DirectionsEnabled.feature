@@ -1,4 +1,4 @@
-@testEnabled
+
 Feature: Verify a user is able to see "Directions" functionality and this functionality should work as expected
 
 	Scenario: Check whether "Directions" is available on top bar menu

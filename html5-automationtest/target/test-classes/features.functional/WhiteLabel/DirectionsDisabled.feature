@@ -1,15 +1,15 @@
-@testDisabled
+
 Feature: Verify if user is NOT able to see "Directions" functionality
 	Scenario: Check whether "Directions" is NOT available on top bar menu
 		Given I log into OS maps as a guest/registered/subscribed user
 #		And Directions function is disabled
 		Then 'Directions' should NOT be visible
-	
+
 	Scenario: Check whether "Directions" is available NOT in left slider menu
 		Given I log into OS maps as a guest/registered/subscribed user
 #		And Directions function is disabled
 		When I select left slider menu
-		Then 'Directions' should NOT be visible
+		Then 'Directions' in left burger menu should NOT be visible
 
 	Scenario: Check whether "Get Directions" is NOT available in 'Routes' top menu
 		Given I log into OS maps as a guest/registered/subscribed user

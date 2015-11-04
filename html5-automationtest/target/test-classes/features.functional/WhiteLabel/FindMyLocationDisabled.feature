@@ -1,4 +1,4 @@
-@testDisabled
+
 Feature: Verify if "Find My Location" functionality is Disabled
 
 	Scenario: Check whether "Find My Location" functionality is NOT available

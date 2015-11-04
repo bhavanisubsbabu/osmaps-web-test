@@ -587,4 +587,9 @@ public class ThenSteps {
 		assertTrue(isRouteAndDirectionBtnVisible());
 	}
 
+	@Then("^'Places' menu should appear$")
+	public void places_menu_should_appear() throws Throwable {
+		assertTrue(mainPage.IsElementDisplayed(obj.placesWindow));
+	}
+	
 }

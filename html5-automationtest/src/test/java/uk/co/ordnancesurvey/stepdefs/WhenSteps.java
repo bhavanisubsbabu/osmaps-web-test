@@ -473,5 +473,20 @@ public class WhenSteps {
 	public void i_open_Help() throws Throwable {
 		mainPage.click(obj.openHelp);
 	}
+	
+	@When("^I open User's panel$")
+	public void i_open_User_s_panel() throws Throwable {
+		mainPage.click(obj.user_logged);
+	}
+	
+	@When("^I open 'Preferences' menu$")
+	public void i_open_Preferences_menu() throws Throwable {
+		mainPage.click(obj.preferencesMenu);
+	}
+	
+	@When("^I select left slider menu$")
+	public void i_select_left_slider_menu() throws Throwable {
+		mainPage.click(obj.burgerMenu);
+	}
 
 }

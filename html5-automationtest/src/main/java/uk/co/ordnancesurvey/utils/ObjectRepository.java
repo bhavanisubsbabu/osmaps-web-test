@@ -440,5 +440,12 @@ public class ObjectRepository {
 		public final String helpDirectionsMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]";
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
 		public final String viewRoute = ".//*[@id='Window_1_Content']/div[17]/div/div[4]/span[1]";
-	
+		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[3]";
+		public final String preferencesStandardMapType = ".//*[@id='PreferencesZoomType']";
+		public final String preferencesOSLeisureMapType = ".//*[@id='PreferencesLandrangerType']";
+		public final String preferencesAerialMapType = ".//*[@id='PreferencesExplorerType']";
+		public final String menuPlaces = ".//*[@id='BurgerMapFeatures']";
+		public final String placesWindow = ".//*[@id='Window_1_Content']/div[14]/div/div[1]";
+		
+		
 }

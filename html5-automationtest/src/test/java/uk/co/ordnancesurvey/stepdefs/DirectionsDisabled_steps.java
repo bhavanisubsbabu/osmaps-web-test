@@ -30,6 +30,11 @@ public class DirectionsDisabled_steps {
 		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.DirectionsTab));
 	}
 
+	@Then("^'Directions' in left burger menu should NOT be visible$")
+	public void directions_in_left_burger_menu_should_NOT_be_visible() throws Throwable {
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.burgerDirections));
+	}
+	
 	// Check whether "Get Directions" is NOT available in 'Routes' top menu and left burger menu
 	@Then("^'Get Directions' should NOT be visible$")
 	public void get_Directions_should_NOT_be_visible() throws Throwable {

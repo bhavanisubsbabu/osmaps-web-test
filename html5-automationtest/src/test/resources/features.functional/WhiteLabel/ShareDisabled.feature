@@ -1,4 +1,4 @@
-@testDisabled
+
 Feature: Verify if "Share" functionality is disabled
 
 	Scenario: Check whether "Share" functionality is NOT available in 'Discovered Routes'

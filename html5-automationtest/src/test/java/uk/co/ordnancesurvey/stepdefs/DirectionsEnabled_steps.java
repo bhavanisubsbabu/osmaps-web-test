@@ -30,11 +30,6 @@ public class DirectionsEnabled_steps {
 	}
 
 	// Check whether "Directions" is available in left slider menu
-	@When("^I select left slider menu$")
-	public void i_select_left_slider_menu() throws Throwable {
-		mainPage.click(obj.burgerMenu);
-	}
-
 	@When("^I click 'Directions' button in burger menu$")
 	public void i_click_Directions_button_in_burger_menu() throws Throwable {
 		mainPage.click(obj.burgerDirections);
