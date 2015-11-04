@@ -68,7 +68,7 @@ public class Html5Page {
 			
 		 (new WebDriverWait(driver, sec)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
-		 if(IsElementDisplayed(obj.busyElement)){				 	
+		 if(IsElementPresent(obj.busyElement)){				 	
 			 try {
 				 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.busyElement)));
 			 	}
