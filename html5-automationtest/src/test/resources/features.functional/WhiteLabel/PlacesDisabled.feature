@@ -1,4 +1,4 @@
-@testDisabled
+
 Feature: Verify if user is NOT able to see "Places" functionality
 
 	Scenario: Check whether "Places" is NOT available on top bar menu

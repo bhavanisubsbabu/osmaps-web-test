@@ -446,6 +446,7 @@ public class ObjectRepository {
 		public final String preferencesAerialMapType = ".//*[@id='PreferencesExplorerType']";
 		public final String menuPlaces = ".//*[@id='BurgerMapFeatures']";
 		public final String placesWindow = ".//*[@id='Window_1_Content']/div[14]/div/div[1]";
-		
+		public final String snapButton = ".//*[@id='create-route-snap']";
+		public final String snapHelpDescription = "html/body/div[5]/div[1]/div/div[1]/div[2]/div[1]";
 		
 }

@@ -488,5 +488,21 @@ public class WhenSteps {
 	public void i_select_left_slider_menu() throws Throwable {
 		mainPage.click(obj.burgerMenu);
 	}
+	
+	@When("^I switch to 'National Park pathways' map type$")
+	public void i_switch_to_National_Park_pathways_map_type() throws Throwable {
+
+	// TO DO -> scenario when 'National Park pathways' map is disabled
+
+		mainPage.click(obj.mapStackButton);
+		mainPage.click(obj.nationalParkPathwaysMap);
+	}
+
+	@When("^I open 'Create custom route'$")
+	public void i_open_Create_custom_route() throws Throwable {
+		mainPage.click(obj.RoutesTab);
+		mainPage.click(obj.Create_Custom_Trail);
+	}
+	
 
 }

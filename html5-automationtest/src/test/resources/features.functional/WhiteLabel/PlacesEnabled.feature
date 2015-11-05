@@ -1,4 +1,4 @@
-@testEnabled
+
 Feature: Verify if system administrator is able to define whether 'Places' are enabled in the system
 
 	Scenario: Check whether "Places" are available on top bar menu
