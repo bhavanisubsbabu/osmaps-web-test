@@ -525,10 +525,8 @@ public class ThenSteps {
 		}
 	
 		@Then("^I should be able to delete any route from my routes$")
-		public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {
-			
-			mainPage.clickLinkByXpath(obj.RoutesTab);
-			Thread.sleep(2000);
+		public void i_should_be_able_to_delete_any_route_from_my_routes() throws Throwable {			
+			mainPage.click(obj.RoutesTab);
 			mainPage.Delete_route_from_my_routes();
 		}
 	

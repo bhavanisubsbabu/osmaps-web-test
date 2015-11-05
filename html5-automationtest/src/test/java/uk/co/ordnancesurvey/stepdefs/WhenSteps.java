@@ -80,7 +80,9 @@ public class WhenSteps {
 		mainPage.open_login_window();
 		mainPage.set_textBox(obj.login_email_address, userName);
 		mainPage.set_textBox(obj.login_pwd,Password);
-		mainPage.click(obj.login_button);					
+		mainPage.click(obj.login_button);
+		mainPage.waitForElementPresent(obj.loadPreferences, 20);
+		mainPage.waitForElementClickable(obj.Routes_Tab, 20);
 	}
 		
 	@When("^I login as registered user$")

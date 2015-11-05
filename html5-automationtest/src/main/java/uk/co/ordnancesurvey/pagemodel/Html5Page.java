@@ -119,20 +119,16 @@ public class Html5Page {
 	 
 	 public void click_discoverRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 this.click(obj.RoutesTab);
 		 this.waitForElementPresent(obj.RoutesTab_DiscoverRoutes, 3);
-		 Thread.sleep(2000);
-		 clickLinkByXpath(obj.RoutesTab_DiscoverRoutes);
+		 this.click(obj.RoutesTab_DiscoverRoutes);
 		}
 	 
 	 public void open_myRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(obj.RoutesTab)).click();
-		 Thread.sleep(200);
+		 this.click(obj.RoutesTab);
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 clickLinkByXpath(obj.My_Routes);					  
+		 this.click(obj.My_Routes);					  
 	 }
 	 
 	 public void zoomout(){
@@ -639,7 +635,6 @@ public class Html5Page {
 	  try
 	  {
 	   driver.findElement(By.xpath(xpath));
-
 	    return true;
 	  }
 	  catch(Exception e)
@@ -662,11 +657,11 @@ public class Html5Page {
 	 public boolean IsElementDisplayed(String xpath) throws InterruptedException{
 		  try{			  
 			  driver.findElement(By.xpath(xpath)).isDisplayed();	
-			  return false;
+			  return true;
 		  }
 		  catch(NoSuchElementException e){
 			  e.getAdditionalInformation();
-			  return true;
+			  return false;
 		  }
 		  
 	 }
@@ -1136,17 +1131,13 @@ public void Verify_Get_Directions() throws InterruptedException{
 // lib funtions related AB routing
 
 public void openABwindow() throws InterruptedException{
-	Thread.sleep(5000);
-	driver.findElement(By.xpath(obj.Routes_Tab)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Get_Directions)).click();
+	this.click(obj.Routes_Tab);
+	this.click(obj.Get_Directions);
+	this.waitForElementPresent(obj.ab_startLocation, 5);
 }
 
 public void choose_toRegisternewUser() throws InterruptedException{
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.register)).click();
-	Thread.sleep(2000);
-	
+	this.click(obj.register);	
 }
 
 public void registernewUser() throws InterruptedException{
@@ -1219,21 +1210,16 @@ public void subscribenewUser() throws InterruptedException{
 
 //Delete a route
 public void Delete_route_from_my_routes() throws InterruptedException{
-driver.findElement(By.xpath(".//*[@id='MyRouteMy']")).click();
-Thread.sleep(2000);	
-driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
-Thread.sleep(4000);	
-driver.findElement(By.xpath(".//*[@id='myRouteList']/div/div[1]/div[4]")).click();
-Thread.sleep(2000);	
-for (String winHandle : driver.getWindowHandles()) {
-    driver.switchTo().window(winHandle); 
-}
-driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
-Thread.sleep(3000);	
-driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
-Thread.sleep(2000);	
-
-
+	this.click(".//*[@id='MyRouteMy']");
+	this.click(".//*[@id='myRouteListShow']");
+	this.click(".//*[@id='myRouteList']/div/div[1]/div[4]");
+	for (String winHandle : driver.getWindowHandles()) {
+		driver.switchTo().window(winHandle); 
+	}
+	driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
+	Thread.sleep(3000);	
+	driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
+	Thread.sleep(2000);	
 }
 // Basic smoke test functions
 
