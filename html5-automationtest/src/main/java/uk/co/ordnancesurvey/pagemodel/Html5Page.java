@@ -538,6 +538,9 @@ public class Html5Page {
 	 
 	 //----- Launches application with the given url --//
 	 public void launch_app() throws InterruptedException{		
+		 if(browser.equalsIgnoreCase("ie")){
+			 driver.manage().deleteAllCookies(); 
+		 }		 
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
 		 Thread.sleep(2000);
