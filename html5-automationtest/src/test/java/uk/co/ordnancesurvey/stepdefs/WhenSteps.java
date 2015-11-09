@@ -460,7 +460,7 @@ public class WhenSteps {
 
 	@When("^I click 'View route' link on route pin$")
 	public void i_click_View_route_link_on_route_pin() throws Throwable {
-		mainPage.click(obj.viewRoute);
+		mainPage.click(obj.routeMoreInfo);
 	}
 
 	@When("^I select one of my created routes$")

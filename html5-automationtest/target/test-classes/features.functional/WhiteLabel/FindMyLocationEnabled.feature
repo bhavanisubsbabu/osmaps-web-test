@@ -1,4 +1,4 @@
-
+@testEnabled
 Feature: Verify if "Find My Location" functionality is Enabled and it works as expected
 
 	Scenario: Check whether "Find My Location" functionality is available

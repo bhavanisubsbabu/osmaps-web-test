@@ -435,18 +435,24 @@ public class ObjectRepository {
 		public final String openHelp = ".//*[@id='create-route-help']";
 		public final String helpRoutesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[1]";
 		public final String helpCreateRouteTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[2]";
-		public final String helpDiscoverRouteTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[3]";
+		public final String helpDiscoverRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[3]";
 		public final String helpPlacesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[4]";
 		public final String helpDirectionsMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]";
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
-		public final String viewRoute = ".//*[@id='Window_1_Content']/div[17]/div/div[4]/span[1]";
-		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[3]";
+		public final String viewRoute = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text pin-box-type']/span[1]";
+		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[@data-action='preferences']";
 		public final String preferencesStandardMapType = ".//*[@id='PreferencesZoomType']";
 		public final String preferencesOSLeisureMapType = ".//*[@id='PreferencesLandrangerType']";
 		public final String preferencesAerialMapType = ".//*[@id='PreferencesExplorerType']";
 		public final String menuPlaces = ".//*[@id='BurgerMapFeatures']";
-		public final String placesWindow = ".//*[@id='Window_1_Content']/div[14]/div/div[1]";
+		public final String placesWindow = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[@class='sidePaneTitle']";
 		public final String snapButton = ".//*[@id='create-route-snap']";
 		public final String snapHelpDescription = "html/body/div[5]/div[1]/div/div[1]/div[2]/div[1]";
-		
+		public final String sortByRatingHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[1]";
+		public final String popupRating = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text']/div[@class='starCount']";
+		public final String ratingInDiscoverRoutes = ".//*[@id='discover-route-panel-routes']/div/div[1]/div[@class='discover-route-panel-item-rate']";
+		public final String ratingInMyRoutes = ".//*[@id='myRouteList']/div/div/div[1]/div[1]/div[2]";
+		public final String ratingInRoutesDetails = ".//*[@id='routeDetailRating']";
+		public final String sortDiscoverRoutesByRating = ".//*[@id='discover-route-panel-sort']/option[@value='rating']";
+
 }

@@ -1,9 +1,91 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("SnapEnabled.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("RatingDisabled.feature");
 formatter.feature({
   "line": 2,
-  "name": "Verify if \"Snap\" functionality is Enabled and it works as expected",
+  "name": "Verify if \"Rating\" functionality is Disabled",
   "description": "",
-  "id": "verify-if-\"snap\"-functionality-is-enabled-and-it-works-as-expected",
+  "id": "verify-if-\"rating\"-functionality-is-disabled",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@testDisabled"
+    }
+  ]
+});
+formatter.scenario({
+  "line": 53,
+  "name": "Check whether \"Rating\" description is NOT available in \u0027Discovering routes\u0027 help topic",
+  "description": "",
+  "id": "verify-if-\"rating\"-functionality-is-disabled;check-whether-\"rating\"-description-is-not-available-in-\u0027discovering-routes\u0027-help-topic",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 52,
+      "name": "@rating"
+    }
+  ]
+});
+formatter.step({
+  "line": 54,
+  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 55,
+  "name": "I open \u0027Help\u0027",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 56,
+  "name": "I click \u0027Discovering routes\u0027 help topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 57,
+  "name": "I should NOT see \u0027Rating\u0027 description in content",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+});
+formatter.result({
+  "duration": 28266424045,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WhenSteps.i_open_Help()"
+});
+formatter.result({
+  "duration": 459863440,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RatingEnabled_steps.i_click_Discovering_routes_help_topic()"
+});
+formatter.result({
+  "duration": 885624928,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RatingDisabled_steps.i_should_NOT_see_Rating_description_in_content()"
+});
+formatter.result({
+  "duration": 139038693,
+  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.RatingDisabled_steps.i_should_NOT_see_Rating_description_in_content(RatingDisabled_steps.java:63)\r\n\tat ✽.Then I should NOT see \u0027Rating\u0027 description in content(RatingDisabled.feature:57)\r\n",
+  "status": "failed"
+});
+formatter.embedding("image/png", "embedded0.png");
+formatter.after({
+  "duration": 543185544,
+  "status": "passed"
+});
+formatter.uri("RatingEnabled.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Verify if \"Rating\" functionality is Enabled and it works as expected",
+  "description": "",
+  "id": "verify-if-\"rating\"-functionality-is-enabled-and-it-works-as-expected",
   "keyword": "Feature",
   "tags": [
     {
@@ -13,147 +95,69 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "line": 4,
-  "name": "Check whether \"Snap\" functionality is available",
+  "line": 53,
+  "name": "Check whether \"Rating\" description is available in \u0027Discovering routes\u0027 help topic",
   "description": "",
-  "id": "verify-if-\"snap\"-functionality-is-enabled-and-it-works-as-expected;check-whether-\"snap\"-functionality-is-available",
+  "id": "verify-if-\"rating\"-functionality-is-enabled-and-it-works-as-expected;check-whether-\"rating\"-description-is-available-in-\u0027discovering-routes\u0027-help-topic",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 52,
+      "name": "@rating"
+    }
+  ]
 });
 formatter.step({
-  "line": 5,
+  "line": 54,
   "name": "I log into OS maps as a guest/registered/subscribed user",
   "keyword": "Given "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 6,
-      "value": "#\t\tWhen \u0027Snap\u0027 functionality is enabled"
-    }
-  ],
-  "line": 7,
-  "name": "I switch to \u0027National Park pathways\u0027 map type",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 8,
-  "name": "I zoom in map on National Park location",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 9,
-  "name": "I open \u0027Create custom route\u0027",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "\u0027Snap\u0027 button should be visible and enabled",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
-});
-formatter.result({
-  "duration": 25203768818,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WhenSteps.i_switch_to_National_Park_pathways_map_type()"
-});
-formatter.result({
-  "duration": 552131702,
-  "status": "passed"
-});
-formatter.match({
-  "location": "SnapEnabled_steps.i_zoom_in_map()"
-});
-formatter.result({
-  "duration": 360126886,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WhenSteps.i_open_Create_custom_route()"
-});
-formatter.result({
-  "duration": 2622487700,
-  "status": "passed"
-});
-formatter.match({
-  "location": "SnapEnabled_steps.snap_button_should_be_visible_and_enabled()"
-});
-formatter.result({
-  "duration": 182723551,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 127617,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 12,
-  "name": "Check whether \"Snap\" description is available in \u0027Create custom route\u0027 help topic",
-  "description": "",
-  "id": "verify-if-\"snap\"-functionality-is-enabled-and-it-works-as-expected;check-whether-\"snap\"-description-is-available-in-\u0027create-custom-route\u0027-help-topic",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 13,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
-  "keyword": "Given "
-});
-formatter.step({
-  "comments": [
-    {
-      "line": 14,
-      "value": "#\t\tAnd \u0027Snap\u0027 function is enabled"
-    }
-  ],
-  "line": 15,
+  "line": 55,
   "name": "I open \u0027Help\u0027",
   "keyword": "When "
 });
 formatter.step({
-  "line": 16,
-  "name": "I click \u0027Create custom route\u0027 help topic",
+  "line": 56,
+  "name": "I click \u0027Discovering routes\u0027 help topic",
   "keyword": "And "
 });
 formatter.step({
-  "line": 17,
-  "name": "I should see \u0027Snap\u0027 description in content",
+  "line": 57,
+  "name": "I should see \u0027Rating\u0027 description in content",
   "keyword": "Then "
 });
 formatter.match({
   "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
 });
 formatter.result({
-  "duration": 22877314627,
+  "duration": 30795997812,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_open_Help()"
 });
 formatter.result({
-  "duration": 289163589,
+  "duration": 271067800,
   "status": "passed"
 });
 formatter.match({
-  "location": "SnapDisabled_steps.i_click_Create_custom_route_help_topic()"
+  "location": "RatingEnabled_steps.i_click_Discovering_routes_help_topic()"
 });
 formatter.result({
-  "duration": 845293372,
+  "duration": 858127398,
   "status": "passed"
 });
 formatter.match({
-  "location": "SnapEnabled_steps.i_should_see_Snap_description_in_content()"
+  "location": "RatingEnabled_steps.i_should_see_Rating_description_in_content()"
 });
 formatter.result({
-  "duration": 130933651,
+  "duration": 126684348,
   "status": "passed"
 });
 formatter.after({
-  "duration": 34805,
+  "duration": 30789,
   "status": "passed"
 });
 });

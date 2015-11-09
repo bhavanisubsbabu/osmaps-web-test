@@ -56,12 +56,14 @@ public class DirectionsEnabled_steps {
 	@When("^I click 'Get me here' link on dropped pin$")
 	public void i_click_Get_me_here_link_on_dropped_pin() throws Throwable {
 		mainPage.click(obj.POIGetMeHere);
+//		mainPage.click(obj.routeGetDirection);
 	}
 
 	// Check whether "Get me here" link is available within "Discover Routes"
 	@When("^I click 'Discover Routes' in left menu$")
 	public void i_click_Discover_Routes_in_left_menu() throws Throwable {
 		mainPage.click(obj.RoutesTab_DiscoverRoutes);
+		Thread.sleep(3000);
 	}
 
 	@When("^I select one of available routes$")

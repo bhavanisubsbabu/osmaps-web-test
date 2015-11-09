@@ -44,12 +44,12 @@ public class DirectionsDisabled_steps {
 	// Check whether "Get me here" link is NOT available on "Dropped Pin" tool
 	@Then("^'Get me here' link should NOT be visible$")
 	public void get_me_here_link_should_NOT_be_visible() throws Throwable {
+	//	assertFalse("Element is present on page", mainPage.IsElementPresent(obj.POIGetMeHere));
 		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.routeGetDirection));
 	}
 
 	// Check whether "Get Directions" description is NOT available in Help Menu
 	// in "The Routes menu" topic
-	
 	@When("^I select 'The Routes menu' topic$")
 	public void i_select_The_Routes_menu_topic() throws Throwable {
 		mainPage.click(obj.helpRoutesMenuTopic);
