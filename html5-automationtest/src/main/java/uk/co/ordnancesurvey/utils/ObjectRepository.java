@@ -348,6 +348,8 @@ public class ObjectRepository {
 	 * Route edit side panel link
 	 */
 	public final String editSideLink="//div[@class='sidePaneAction link'][text()='Edit']";
+	public final String rtNamePopup = "//div[@class='pin-box-title']";
+	public final String rtSearchbox = "//*[@id='MyRoutesSearchBox']";
 	/*
 	 * stylying elements. 
 	 */	

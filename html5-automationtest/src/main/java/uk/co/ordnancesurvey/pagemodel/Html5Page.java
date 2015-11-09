@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
@@ -49,7 +50,9 @@ public class Html5Page {
 		 this.driver=(WebDriver) driver;
 		 obj= new ObjectRepository();
 	 }
-	 
+	 public void waitforGlobalWaitElementDisapear(){
+		 (new WebDriverWait(driver, 20)).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.loadPreferences)));		  
+	 }
 	 public void waitForElementPresent(String xpath,long sec) throws InterruptedException{
 		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
@@ -1616,29 +1619,29 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			Thread.sleep(1000);
 		}
 		/*
-		 *  to create a Route with 500 way points 
+		 * Scroll route list 
 		 */
-
-		public void longRoute() throws InterruptedException{
-			int i,j;
-			Actions action = new Actions(driver);
-			 this.waitForElementPresent(obj.RoutesTab, 5);
-			 this.click(obj.RoutesTab);
-			    Thread.sleep(1000);
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();	 		 
-			 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
-			 this.click(obj.RoutesTab_CreateCustomRouteTrial);
-			 JavascriptExecutor js = (JavascriptExecutor) driver;
-			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
-			 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();		 
+		@SuppressWarnings("unchecked")
+		public void findRouteByScroll(String rtName) throws InterruptedException{
+			JavascriptExecutor js = (JavascriptExecutor) driver;	
+			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discoveredListName]');");
+			String title = (String) js.executeScript("return document.title;");
+			System.out.print(title + "\n");
+			for(int i=1;i<rtList.size();i++){
+				WebElement route = (WebElement) js.executeScript("return $('div[class=discoveredListName]')["+i+"];");
+				String RouteName = route.getText().toString();				
+				if(RouteName.contains(rtName)){
+					route.click();
+					this.IsElementDisplayed(obj.rtNamePopup);
+					break;
+				}
+			}
+		}
+		
+		public void searchRoute(String rtName) throws InterruptedException{
+			this.set_textBox(obj.rtSearchbox, rtName);
+			this.hitEnterKey(obj.rtSearchbox);
+			this.waitforGlobalWaitElementDisapear();
+			this.findRouteByScroll(rtName);
 		}
 }
