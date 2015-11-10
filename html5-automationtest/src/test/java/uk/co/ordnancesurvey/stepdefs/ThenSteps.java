@@ -592,4 +592,9 @@ public class ThenSteps {
 		assertTrue(mainPage.IsElementDisplayed(obj.placesWindow));
 	}
 	
+	@Then("^'Discover Routes' should work as expected$")
+	public void discover_Routes_should_work_as_expected() throws Throwable {
+	    assertTrue(mainPage.IsElementDisplayed(obj.RoutesTab_DiscoverRoutes));
+	}
+	
 }

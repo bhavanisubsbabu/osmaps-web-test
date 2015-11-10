@@ -435,9 +435,10 @@ public class ObjectRepository {
 		public final String openHelp = ".//*[@id='create-route-help']";
 		public final String helpRoutesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[1]";
 		public final String helpCreateRouteTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[2]";
-		public final String helpDiscoverRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[3]";
+		public final String helpDiscoverRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='context-help-link link discover-routes-help-hide' and contains(.,'Discovering routes')]";
 		public final String helpPlacesMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[4]";
 		public final String helpDirectionsMenuTopic = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]";
+		public final String helpDiscoverRouteDescription = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[@class='discover-routes-help-hide']";
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
 		public final String viewRoute = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text pin-box-type']/span[1]";
 		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[@data-action='preferences']";

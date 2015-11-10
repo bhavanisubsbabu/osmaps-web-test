@@ -1,22 +1,22 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("PreferencesDisabled.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("DiscoverRoutesDisable.feature");
 formatter.feature({
   "line": 2,
-  "name": "Verify if user is NOT able to see \u0027Preferences\u0027 functionality",
+  "name": "Verify if \"Discover Routes\" functionality is Disable",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027preferences\u0027-functionality",
+  "id": "verify-if-\"discover-routes\"-functionality-is-disable",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@test"
+      "name": "@testDisabledDiscoverRoutes"
     }
   ]
 });
 formatter.scenario({
   "line": 4,
-  "name": "Check whether \u0027Preferences\u0027 are disabled in the system",
+  "name": "Check whether \"Discover Routes\" is unavailable",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027preferences\u0027-functionality;check-whether-\u0027preferences\u0027-are-disabled-in-the-system",
+  "id": "verify-if-\"discover-routes\"-functionality-is-disable;check-whether-\"discover-routes\"-is-unavailable",
   "type": "scenario",
   "keyword": "Scenario"
 });
@@ -27,108 +27,44 @@ formatter.step({
 });
 formatter.step({
   "line": 6,
-  "name": "I open User\u0027s panel",
+  "name": "I open routes menu",
   "keyword": "When "
 });
 formatter.step({
   "line": 7,
-  "name": "I should NOT see \u0027Preferences\u0027 link",
+  "name": "\u0027Discover Routes\u0027 should not be visible",
   "keyword": "Then "
 });
 formatter.match({
   "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
 });
 formatter.result({
-  "duration": 21868338150,
+  "duration": 27489749141,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_open_User_s_panel()"
+  "location": "WhenSteps.i_open_routes_menu()"
 });
 formatter.result({
-  "duration": 263863182,
+  "duration": 291588581,
   "status": "passed"
 });
 formatter.match({
-  "location": "PreferencesDisabled_steps.i_should_NOT_see_Preferences_link()"
+  "location": "DiscoverRoutesDisable_steps.discover_Routes_should_not_be_visible()"
 });
 formatter.result({
-  "duration": 47764346,
-  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.PreferencesDisabled_steps.i_should_NOT_see_Preferences_link(PreferencesDisabled_steps.java:30)\r\n\tat ✽.Then I should NOT see \u0027Preferences\u0027 link(PreferencesDisabled.feature:7)\r\n",
-  "status": "failed"
-});
-formatter.embedding("image/png", "embedded0.png");
-formatter.after({
-  "duration": 401134025,
-  "status": "passed"
-});
-formatter.uri("PreferencesEnabled.feature");
-formatter.feature({
-  "line": 2,
-  "name": "Verify if system administrator is able to define whether \u0027Preferences\u0027 are enabled in the system",
-  "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027preferences\u0027-are-enabled-in-the-system",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@test"
-    }
-  ]
-});
-formatter.scenario({
-  "line": 4,
-  "name": "Check whether \u0027Preferences\u0027 are enabled in the system",
-  "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027preferences\u0027-are-enabled-in-the-system;check-whether-\u0027preferences\u0027-are-enabled-in-the-system",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 5,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "I open User\u0027s panel",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "I see \u0027Preferences\u0027 link",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
-});
-formatter.result({
-  "duration": 24342471634,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WhenSteps.i_open_User_s_panel()"
-});
-formatter.result({
-  "duration": 256205590,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PreferencesEnabled_steps.i_should_see_Preferences_link()"
-});
-formatter.result({
-  "duration": 23402486,
+  "duration": 48671343,
   "status": "passed"
 });
 formatter.after({
-  "duration": 43283,
+  "duration": 149290,
   "status": "passed"
 });
 formatter.scenario({
   "line": 9,
-  "name": "Check whether user is able to access and modify \u0027Preferences\u0027",
+  "name": "Check whether \"Discovering routes\" topic is unavailable in Help Menu",
   "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027preferences\u0027-are-enabled-in-the-system;check-whether-user-is-able-to-access-and-modify-\u0027preferences\u0027",
+  "id": "verify-if-\"discover-routes\"-functionality-is-disable;check-whether-\"discovering-routes\"-topic-is-unavailable-in-help-menu",
   "type": "scenario",
   "keyword": "Scenario"
 });
@@ -139,61 +75,97 @@ formatter.step({
 });
 formatter.step({
   "line": 11,
-  "name": "I open User\u0027s panel",
+  "name": "I open \u0027Help\u0027",
   "keyword": "When "
 });
 formatter.step({
   "line": 12,
-  "name": "I see \u0027Preferences\u0027 link",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
-  "name": "I open \u0027Preferences\u0027 menu",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 14,
-  "name": "I should see \u0027Preferences\u0027 panel with all settings",
+  "name": "I should not be able to see \u0027Discovering routes\u0027 topic",
   "keyword": "Then "
 });
 formatter.match({
   "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
 });
 formatter.result({
-  "duration": 21933927223,
+  "duration": 20762724058,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_open_User_s_panel()"
+  "location": "WhenSteps.i_open_Help()"
 });
 formatter.result({
-  "duration": 331588313,
+  "duration": 239399127,
   "status": "passed"
 });
 formatter.match({
-  "location": "PreferencesEnabled_steps.i_should_see_Preferences_link()"
+  "location": "DiscoverRoutesDisable_steps.i_should_not_be_able_to_see_Discovering_routes_topic()"
 });
 formatter.result({
-  "duration": 29182381,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WhenSteps.i_open_Preferences_menu()"
-});
-formatter.result({
-  "duration": 337149561,
-  "status": "passed"
-});
-formatter.match({
-  "location": "PreferencesEnabled_steps.i_should_see_Preferences_panel_with_all_settings()"
-});
-formatter.result({
-  "duration": 779372025,
+  "duration": 50722214,
   "status": "passed"
 });
 formatter.after({
-  "duration": 34806,
+  "duration": 30791,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 14,
+  "name": "Check whether \"Discover Routes\" description is unavailable in \"The Routes menu\" topic in Help Menu",
+  "description": "",
+  "id": "verify-if-\"discover-routes\"-functionality-is-disable;check-whether-\"discover-routes\"-description-is-unavailable-in-\"the-routes-menu\"-topic-in-help-menu",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 15,
+  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 16,
+  "name": "I open \u0027Help\u0027",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "I select \u0027The Routes menu\u0027 topic",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "I should not be able to see \u0027Discover Routes\u0027 description",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+});
+formatter.result({
+  "duration": 23058288884,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WhenSteps.i_open_Help()"
+});
+formatter.result({
+  "duration": 272245262,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DirectionsDisabled_steps.i_select_The_Routes_menu_topic()"
+});
+formatter.result({
+  "duration": 868762885,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DiscoverRoutesDisable_steps.i_should_not_be_able_to_see_Discover_Routes_description()"
+});
+formatter.result({
+  "duration": 25709139,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 27525,
   "status": "passed"
 });
 });
