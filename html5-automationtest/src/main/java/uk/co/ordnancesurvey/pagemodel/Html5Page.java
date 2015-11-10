@@ -250,10 +250,9 @@ public class Html5Page {
 		 Thread.sleep(3000);
 		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
 		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
-		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[5]")).click();
+		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[@data-action='logout']")).click();
 		 Thread.sleep(2000);
-		 
-		 
+
 	 }
 	
 	 
@@ -1644,5 +1643,19 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.waitForElementPresent(obj.user_logged, 5);
 			assertTrue(this.IsElementDisplayed(obj.user_logged));
 		}
+		
+//		/*
+//		 * Open User Login Window
+//		 */
+//		public void open_user_login_window() throws InterruptedException{
+//			 Thread.sleep(3000);
+//			  if (IsElementDisplayed(".//*[@id='main-top-bar-user']")){	
+//				  this.click(".//*[@id='main-top-bar-user']");
+//			}
+//			  else {
+//				  this.signOUt();
+//				  this.click(".//*[@id='main-top-bar-user']");
+//			  }
+//		 }
 		
 }

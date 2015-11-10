@@ -441,6 +441,12 @@ public class ObjectRepository {
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
 		public final String viewRoute = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text pin-box-type']/span[1]";
 		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[@data-action='preferences']";
+		public final String preferencesPanelShowDistance = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Show distances and measurements in:')]";
+		public final String preferencesPanelCalculateRoute = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Calculate route times:')]";
+		public final String preferencesPanelInitialMapView = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Initial Map View:')]";
+		public final String preferencesPanelInitialMapType = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Initial Map Type:')]";
+		public final String preferencesPanelCreateRoutes = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Creating routes')]";
+		public final String preferencesPanelHelpSettings = ".//*[@id='PreferencesPanel']/div/div[@class='SidePane_SubTitle' and contains(., 'Help settings')]";
 		public final String preferencesStandardMapType = ".//*[@id='PreferencesZoomType']";
 		public final String preferencesOSLeisureMapType = ".//*[@id='PreferencesLandrangerType']";
 		public final String preferencesAerialMapType = ".//*[@id='PreferencesExplorerType']";
