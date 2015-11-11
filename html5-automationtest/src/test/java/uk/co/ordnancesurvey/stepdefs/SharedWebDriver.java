@@ -63,7 +63,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					cap.setPlatform(org.openqa.selenium.Platform.WINDOWS);
 					System.out.println(System.getProperty("user.dir"));
 					driver = new RemoteWebDriver(new URL(
-							"http://10.160.176.100:5555/wd/hub"), cap);
+							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 
 					driver.manage().window().maximize();
 
@@ -118,7 +118,6 @@ public class SharedWebDriver extends EventFiringWebDriver {
 							System.getProperty("user.dir")
 									+ "/src/test/resources/IEDriverServer.exe");
 					driver = new InternetExplorerDriver();
-					Thread.sleep(3000);
 					driver.manage().window().maximize();
 				}
 
