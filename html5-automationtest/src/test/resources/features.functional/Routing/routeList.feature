@@ -1,4 +1,5 @@
-Feature: Logged in user should be able to navigate to my routes and find a route from the list
+@regression
+Feature: Find a route from List
 
 	Scenario: User should be able to navigate to my routes list and find a route by scrolling
 	

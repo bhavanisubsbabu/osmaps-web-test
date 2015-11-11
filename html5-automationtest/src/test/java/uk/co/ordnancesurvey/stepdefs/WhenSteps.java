@@ -353,19 +353,9 @@ public class WhenSteps {
 		}
 			
 			@When("^I get to the login box$")
-			public void I_get_to_the_login_box() throws Throwable {
-				Thread.sleep(4000);
-				if(mainPage.IsElementDisplayed(".//*[@id='login-form']/div/div[2]/div[9]"))
-				{
-					driver.findElement(By.xpath(".//*[@id='login-form']/div/div[2]/div[9]")).click();
-				}
-				else {
-					
-				//mainPage.signOUt();				
+			public void I_get_to_the_login_box() throws Throwable {				
 				mainPage.open_login_window();
-				driver.findElement(By.xpath(".//*[@id='login-form']/div/div[2]/div[9]")).click();
-				}
-				
+				mainPage.click(".//*[@id='login-form']/div/div[2]/div[9]");
 			}
 		
 				

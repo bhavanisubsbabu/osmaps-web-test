@@ -1,5 +1,5 @@
 @regression
-Feature: User should able to edit routes
+Feature: Edit routes
 @smoke
 	Scenario: User should be able to edit route by adding way points
 	

@@ -1,5 +1,5 @@
 @regression
-Feature: Logged in User should be able to share a route by email, Facebook and Twitter
+Feature: Share Route
 
 	Scenario: User be able to share a route by email
 	
@@ -16,7 +16,7 @@ Feature: Logged in User should be able to share a route by email, Facebook and T
 		And I navigate to my routes to select a route
 		And I clicked on Share icon, select email, enter multiple email addresses and share 
 		Then application should send email with route details and default message
-			
+	@wip		
 	Scenario: User be able to edit default text message and share a route by email 
 	
 		Given I am on getamap app

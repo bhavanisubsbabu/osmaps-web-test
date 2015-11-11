@@ -1,5 +1,5 @@
 @regression
-Feature: User should be able to view POIs by category, pin and unpin POI to map
+Feature: Places and Point of Interests
 
 Scenario: Verify POI Categories displayed on POI Panel for guest user
 	Given I am on getamap app

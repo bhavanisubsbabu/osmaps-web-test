@@ -1,5 +1,5 @@
 @regression
-Feature: A-B routing
+Feature: Get Directions
 As a user 
 In order to find a route 
 I should be able to get directions from start and end point
