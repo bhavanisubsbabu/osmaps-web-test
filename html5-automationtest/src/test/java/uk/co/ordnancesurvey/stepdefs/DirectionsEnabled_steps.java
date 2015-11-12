@@ -78,7 +78,6 @@ public class DirectionsEnabled_steps {
 	}
 
 	// Check whether "Get Directions" description is available in Help Menu in "The Routes menu" topic
-
 	@Then("^I should be able to see 'Get Directions' description$")
 	public void i_should_be_able_to_see_Get_Directions_description() throws Throwable {
 		assertTrue(mainPage.IsElementDisplayed(obj.GetDirectionDescription));
