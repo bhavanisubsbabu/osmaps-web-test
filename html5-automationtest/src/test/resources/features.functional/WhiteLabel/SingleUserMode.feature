@@ -1,4 +1,4 @@
-@test
+
 Feature: Verify if 'Single User Mode' is enabled
 
 	Scenario: Check whether 'Single User Mode' is enabled in the system

@@ -26,12 +26,14 @@ public class DirectionsEnabled_steps {
 	// Check whether "Directions" is available on top bar menu
 	@When("^I select 'Directions' tab in top menu$")
 	public void i_select_Directions_tab_in_top_menu() throws Throwable {
+		assertTrue(mainPage.IsElementDisplayed(obj.DirectionsTab));
 		mainPage.click(obj.DirectionsTab);
 	}
 
 	// Check whether "Directions" is available in left slider menu
 	@When("^I click 'Directions' button in burger menu$")
 	public void i_click_Directions_button_in_burger_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.burgerDirections));
 		mainPage.click(obj.burgerDirections);
 	}
 
@@ -43,6 +45,7 @@ public class DirectionsEnabled_steps {
 
 	@When("^I click 'Get Directions' button in left menu$")
 	public void i_click_Get_Directions_button_in_left_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.ab_Directionstab));
 		mainPage.click(obj.ab_Directionstab);
 	}
 	
@@ -55,6 +58,7 @@ public class DirectionsEnabled_steps {
 	// Check whether "Get me here" link is available on "Dropped Pin" tool
 	@When("^I click 'Get me here' link on dropped pin$")
 	public void i_click_Get_me_here_link_on_dropped_pin() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.POIGetMeHere));
 		mainPage.click(obj.POIGetMeHere);
 //		mainPage.click(obj.routeGetDirection);
 	}

@@ -455,6 +455,7 @@ public class WhenSteps {
 
 	@When("^I click 'Get me here' link on route pin$")
 	public void i_click_Get_me_here_link_on_route_pin() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.routeGetDirection));
 		mainPage.click(obj.routeGetDirection);
 	}
 
