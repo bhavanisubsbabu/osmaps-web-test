@@ -81,7 +81,7 @@ public class DirectionsEnabled_steps {
 
 	@Then("^I should be able to see 'Get Directions' description$")
 	public void i_should_be_able_to_see_Get_Directions_description() throws Throwable {
-		assertTrue(driver.findElement(By.xpath("html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]")).isDisplayed());
+		assertTrue(mainPage.IsElementDisplayed(obj.GetDirectionDescription));
 	}
 
 	// Check whether "The directions menu" topic is available in Help Menu
