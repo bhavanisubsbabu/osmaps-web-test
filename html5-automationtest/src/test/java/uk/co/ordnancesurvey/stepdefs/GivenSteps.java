@@ -94,4 +94,10 @@ public class GivenSteps {
 		mainPage.verify_Login();
 	}
 
+	@Given("^I open OS maps in SingleUserMode$")
+	public void i_open_OS_maps_in_SingleUserMode() throws Throwable {
+		mainPage.LaunchAppSingleUserMode();
+	}
+	
+	
 }

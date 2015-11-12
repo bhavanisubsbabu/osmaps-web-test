@@ -51,7 +51,6 @@ public class RatingDisabled_steps {
 
 	// Check whether "Sort by Rating" is NOT available in 'Discover Routes'
 	 @Then("^'Sort by Rating' should NOT be possible in 'Discover Routes' panel$")
-
 	 public void sort_by_Rating_should_NOT_be_possible_in_Discover_Routes_panel() throws Throwable {
 		 assertFalse(mainPage.IsElementPresent(obj.sortDiscoverRoutesByRating));
 	 }

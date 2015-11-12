@@ -425,6 +425,7 @@ public class ObjectRepository {
 	// #################################### WhiteLabel + DofE objects ####################################
 	
 		public final String user_logged = ".//*[@id='main-top-bar-user']";
+		public final String exitButton = ".//*[@id='main-top-bar-exit-btn']";
 		public final String routeType = ".//*[@id='routeABType']";
 		public final String burgerMenu = ".//*[@id='main-top-bar-burger-menu']";
 		public final String burgerDirections = ".//*[@id='BurgerRouteAB']";
@@ -460,5 +461,8 @@ public class ObjectRepository {
 		public final String ratingInMyRoutes = ".//*[@id='myRouteList']/div/div/div[1]/div[1]/div[2]";
 		public final String ratingInRoutesDetails = ".//*[@id='routeDetailRating']";
 		public final String sortDiscoverRoutesByRating = ".//*[@id='discover-route-panel-sort']/option[@value='rating']";
-
+		public final String routeABResultsSaveBtn = ".//*[@id='routeABResultsSaveBtn']";
+		public final String printAdditionalText = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div[@class='sidePaneBodyContainer']/div[4]/div[1]/div[1]/div[starts-with(@class, 'printSelectorAdditionalText')]";
+		public final String myRoutesHelpDescription = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[3]";
+		
 }

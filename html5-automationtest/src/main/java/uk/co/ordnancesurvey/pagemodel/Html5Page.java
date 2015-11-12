@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
@@ -1642,6 +1643,29 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		public void verify_Login() throws InterruptedException {
 			this.waitForElementPresent(obj.user_logged, 5);
 			assertTrue(this.IsElementDisplayed(obj.user_logged));
+		}
+		
+		
+		 //----- Launches application with the given url (for SingleUserMode) --//
+		 public void LaunchAppSingleUserMode() throws InterruptedException{		
+			 
+			 Set<String> windows = driver.getWindowHandles();
+//			 String firstWindow = driver.getWindowHandle();
+			 ((JavascriptExecutor)driver).executeScript("window.open('http://osmaps.dev1-beta.ordsvy.gov.uk:9090/');");
+			 Thread.sleep(5000);
+			 Set<String> newWindow = driver.getWindowHandles();
+			 newWindow.removeAll(windows);
+			 String sumWindow = ((String)newWindow.toArray()[0]);
+			 driver.switchTo().window(sumWindow);
+
+			 if(this.IsElementPresent(obj.InterfaceTourClose)){
+		    	this.closeInterfaceTour();
+			    }
+		 }
+			 
+		public boolean IsElementEnabled(String xpath) throws InterruptedException{
+			WebElement webElement = driver.findElement(By.xpath(xpath));
+			return !webElement.getAttribute("class").contains("disabled");
 		}
 		
 //		/*
