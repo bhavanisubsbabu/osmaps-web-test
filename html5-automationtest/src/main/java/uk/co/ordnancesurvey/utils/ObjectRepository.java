@@ -429,7 +429,7 @@ public class ObjectRepository {
 		public final String burgerMenu = ".//*[@id='main-top-bar-burger-menu']";
 		public final String burgerDirections = ".//*[@id='BurgerRouteAB']";
 		public final String burgerRoutes = ".//*[@id='BurgerRouteMy']";
-		public final String createButton = ".//*[@id='Window_1_Content']/div[15]/div[1]/div[2]";
+		public final String createButton = ".//*[@id='Window_1_Content']/div[15]/div[1]/div[@class='sidePaneAction link' and contains(.,'Create')]";
 		public final String createRouteDroppedPin = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[4]/div/div[1]/div[4]/div[2]";
 		public final String discoveredRoutes = ".//*[@id='discover-route-panel-routes']/div[1]/div[2]";
 		public final String droppedPin = ".//*[@id='more-info-dropped-pin']";
