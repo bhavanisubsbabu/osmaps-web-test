@@ -1,5 +1,6 @@
 @testDisabled
 Feature: Verify if user is NOT able to see "Directions" functionality
+
 	Scenario: Check whether "Directions" is NOT available on top bar menu
 		Given I log into OS maps as a guest/registered/subscribed user
 		Then 'Directions' should NOT be visible

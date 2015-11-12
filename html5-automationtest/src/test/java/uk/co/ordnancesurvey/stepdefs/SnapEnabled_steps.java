@@ -34,7 +34,8 @@ public class SnapEnabled_steps {
 
 	@Then("^'Snap' button should be visible and enabled$")
 	public void snap_button_should_be_visible_and_enabled() throws Throwable {
-		assertTrue(mainPage.IsElementDisplayed(obj.snapButton));
+		assertTrue(mainPage.IsElementDisplayed(obj.snapButton) &&
+					mainPage.IsElementEnabled(obj.snapButton));
 	}
 
 	// Check whether "Snap" description is available in 'Create custom route' help topic

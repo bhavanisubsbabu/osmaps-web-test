@@ -1,32 +1,56 @@
+<<<<<<< HEAD
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("CreateCustomRouteEnabled.feature");
 formatter.feature({
   "line": 2,
   "name": "Verify if \"Create Custom Route\" functionality is Enabled and it works as expected",
   "description": "",
   "id": "verify-if-\"create-custom-route\"-functionality-is-enabled-and-it-works-as-expected",
+=======
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("SingleUserMode.feature");
+formatter.feature({
+  "line": 2,
+  "name": "Verify if \u0027Single User Mode\u0027 is enabled",
+  "description": "",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled",
+>>>>>>> 5ffd30398471744896e17c8420152eb1dc9245a2
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
+<<<<<<< HEAD
       "name": "@testEnabledCreateCustomRoute"
+=======
+      "name": "@test"
+>>>>>>> 5ffd30398471744896e17c8420152eb1dc9245a2
     }
   ]
 });
 formatter.scenario({
   "line": 4,
+<<<<<<< HEAD
   "name": "Check whether \"Create Custom Routes\" is available",
   "description": "",
   "id": "verify-if-\"create-custom-route\"-functionality-is-enabled-and-it-works-as-expected;check-whether-\"create-custom-routes\"-is-available",
+=======
+  "name": "Check whether \u0027Single User Mode\u0027 is enabled in the system",
+  "description": "",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027single-user-mode\u0027-is-enabled-in-the-system",
+>>>>>>> 5ffd30398471744896e17c8420152eb1dc9245a2
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
   "line": 5,
+<<<<<<< HEAD
   "name": "I log into OS maps as a guest/registered/subscribed user",
+=======
+  "name": "I open OS maps in SingleUserMode",
+>>>>>>> 5ffd30398471744896e17c8420152eb1dc9245a2
   "keyword": "Given "
 });
 formatter.step({
   "line": 6,
+<<<<<<< HEAD
   "name": "I open routes menu",
   "keyword": "When "
 });
@@ -413,5 +437,11 @@ formatter.result({
 formatter.after({
   "duration": 32190,
   "status": "passed"
+=======
+  "name": "\u0027Sign in\u0027 button should be replaced by \u0027Exit\u0027 button",
+  "keyword": "Then "
 });
+formatter.match({
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
+>>>>>>> 5ffd30398471744896e17c8420152eb1dc9245a2
 });
