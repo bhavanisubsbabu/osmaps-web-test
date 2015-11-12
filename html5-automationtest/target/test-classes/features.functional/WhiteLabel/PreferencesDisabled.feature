@@ -1,4 +1,4 @@
-
+@test
 Feature: Verify if user is NOT able to see 'Preferences' functionality
 
 	Scenario: Check whether 'Preferences' are disabled in the system
