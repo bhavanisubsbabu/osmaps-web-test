@@ -433,9 +433,9 @@ public class ObjectRepository {
 		public final String showMyRoutes = ".//*[@id='myRouteListShow']";
 		public final String myRoute = ".//*[@id='myRouteList']/div/div/div[1]/div[2]";
 		public final String openHelp = ".//*[@id='create-route-help']";
-		public final String helpCreateRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='context-help-link link create-custom-route-help-hide' and contains(.,'Create a custom route')]";
+		public final String helpCreateRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[starts-with(@class, 'context-help-link') and contains(.,'Create a custom route')]";
 		public final String helpRoutesMenuTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[1]";
-		public final String helpDiscoverRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='context-help-link link discover-routes-help-hide' and contains(.,'Discovering routes')]";
+		public final String helpDiscoverRouteTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[starts-with(@class, 'context-help-link') and contains(.,'Discovering routes')]";
 		public final String helpPlacesMenuTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[4]";
 		public final String helpDirectionsMenuTopic = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[5]";
 		public final String helpCreateRouteDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='create-custom-route-help-hide']";
@@ -456,7 +456,7 @@ public class ObjectRepository {
 		public final String menuPlaces = ".//*[@id='BurgerMapFeatures']";
 		public final String placesWindow = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[@class='sidePaneTitle']";
 		public final String snapButton = ".//*[@id='create-route-snap']";
-		public final String snapHelpDescription = "html/body/div[5]/div[1]/div/div[1]/div[2]/div[1]";
+		public final String snapHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[2]/div[@class='snap-help-hide']";
 		public final String sortByRatingHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[1]";
 		public final String popupRating = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text']/div[@class='starCount']";
 		public final String ratingInDiscoverRoutes = ".//*[@id='discover-route-panel-routes']/div/div[1]/div[@class='discover-route-panel-item-rate']";

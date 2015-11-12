@@ -57,7 +57,7 @@ public class DirectionsDisabled_steps {
 	
 	@Then("^I should NOT be able to see 'Get Directions' description$")
 	public void i_should_NOT_be_able_to_see_Get_Directions_description() throws Throwable {
-		assertFalse("Element is present on page", driver.findElement(By.xpath("html/body/div[5]/div[1]/div/div[1]/div[3]/span[5]")).isDisplayed());
+		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.GetDirectionDescription));
 	}
 
 	// Check whether "The directions menu" topic is NOT available in Help Menu
