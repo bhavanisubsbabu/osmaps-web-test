@@ -1,4 +1,4 @@
-@test
+@testEnabled
 Feature: Verify if system administrator is able to define whether 'My Routes' are enabled in the system
 
 	Scenario: Check whether 'My Routes' are enabled in the system

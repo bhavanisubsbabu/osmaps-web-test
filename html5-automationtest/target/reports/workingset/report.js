@@ -1,9 +1,9 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("MyRoutesDisabled.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("SingleUserMode.feature");
 formatter.feature({
   "line": 2,
-  "name": "Verify if user is NOT able to see \u0027My Routes\u0027 functionality",
+  "name": "Verify if \u0027Single User Mode\u0027 is enabled",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027my-routes\u0027-functionality",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled",
   "keyword": "Feature",
   "tags": [
     {
@@ -14,524 +14,398 @@ formatter.feature({
 });
 formatter.scenario({
   "line": 4,
-  "name": "Check whether \u0027My Routes\u0027 are disabled in the system",
+  "name": "Check whether \u0027Single User Mode\u0027 is enabled in the system",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027my-routes\u0027-functionality;check-whether-\u0027my-routes\u0027-are-disabled-in-the-system",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027single-user-mode\u0027-is-enabled-in-the-system",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
   "line": 5,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "name": "I open OS maps in SingleUserMode",
   "keyword": "Given "
 });
 formatter.step({
   "line": 6,
+  "name": "\u0027Sign in\u0027 button should be replaced by \u0027Exit\u0027 button",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
+});
+formatter.result({
+  "duration": 14357012659,
+  "status": "passed"
+});
+formatter.match({
+  "location": "SingleUserMode_steps.sign_in_button_should_be_replaced_by_Exit_button()"
+});
+formatter.result({
+  "duration": 36241407,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 126278,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 8,
+  "name": "Check whether \u0027My Routes\u0027 are disabled in \u0027Routes\u0027 menu in Single User Mode",
+  "description": "",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027my-routes\u0027-are-disabled-in-\u0027routes\u0027-menu-in-single-user-mode",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 9,
+  "name": "I open OS maps in SingleUserMode",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 10,
   "name": "I open routes menu",
   "keyword": "When "
 });
 formatter.step({
-  "line": 7,
+  "line": 11,
   "name": "\u0027My Routes\u0027 should NOT be present",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 20961340120,
+  "duration": 5118207135,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_open_routes_menu()"
 });
 formatter.result({
-  "duration": 243398393,
+  "duration": 176687343,
   "status": "passed"
 });
 formatter.match({
   "location": "SingleUserMode_steps.my_Routes_should_NOT_be_present()"
 });
 formatter.result({
-  "duration": 155801905,
-  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.SingleUserMode_steps.my_Routes_should_NOT_be_present(SingleUserMode_steps.java:36)\r\n\tat ✽.Then \u0027My Routes\u0027 should NOT be present(MyRoutesDisabled.feature:7)\r\n",
-  "status": "failed"
+  "duration": 33316481,
+  "status": "passed"
 });
-formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 495219053,
+  "duration": 120031,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 9,
-  "name": "Check whether \u0027Save\u0027 button is NOT present in \u0027Get Direction\u0027 functionality",
+  "line": 13,
+  "name": "Check whether \u0027Save\u0027 button is NOT present in \u0027Get Direction\u0027 functionality in \u0027Single User Mode\u0027",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027my-routes\u0027-functionality;check-whether-\u0027save\u0027-button-is-not-present-in-\u0027get-direction\u0027-functionality",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027save\u0027-button-is-not-present-in-\u0027get-direction\u0027-functionality-in-\u0027single-user-mode\u0027",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 10,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "line": 14,
+  "name": "I open OS maps in SingleUserMode",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 11,
+  "line": 15,
   "name": "I select \u0027Directions\u0027 tab in top menu",
   "keyword": "When "
 });
 formatter.step({
-  "line": 12,
+  "line": 16,
   "name": "I enter start location",
   "keyword": "And "
 });
 formatter.step({
-  "line": 13,
+  "line": 17,
   "name": "I enter finish location",
   "keyword": "And "
 });
 formatter.step({
-  "line": 14,
+  "line": 18,
   "name": "I click on GetDirections button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 15,
+  "line": 19,
   "name": "\u0027Save\u0027 button should NOT be present",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 18692379087,
+  "duration": 5098678183,
   "status": "passed"
 });
 formatter.match({
   "location": "DirectionsEnabled_steps.i_select_Directions_tab_in_top_menu()"
 });
 formatter.result({
-  "duration": 204222245,
+  "duration": 253211506,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_enter_start_location()"
 });
 formatter.result({
-  "duration": 2172621005,
+  "duration": 2161800343,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_enter_finish_location()"
 });
 formatter.result({
-  "duration": 1506431935,
+  "duration": 1540059873,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_click_on_GetDirections_button()"
 });
 formatter.result({
-  "duration": 385014745,
+  "duration": 292689739,
   "status": "passed"
 });
 formatter.match({
   "location": "SingleUserMode_steps.save_button_should_NOT_be_present()"
 });
 formatter.result({
-  "duration": 175944844,
-  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.SingleUserMode_steps.save_button_should_NOT_be_present(SingleUserMode_steps.java:43)\r\n\tat ✽.Then \u0027Save\u0027 button should NOT be present(MyRoutesDisabled.feature:15)\r\n",
-  "status": "failed"
+  "duration": 48395352,
+  "status": "passed"
 });
-formatter.embedding("image/png", "embedded1.png");
 formatter.after({
-  "duration": 792986695,
+  "duration": 49976,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 17,
-  "name": "Check whether \u0027Who can see my route\u0027 is NOT present in \u0027Create Custom Route\u0027",
+  "line": 21,
+  "name": "Check whether \u0027Print\u0027 message is changed in \u0027Single User Mode\u0027",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027my-routes\u0027-functionality;check-whether-\u0027who-can-see-my-route\u0027-is-not-present-in-\u0027create-custom-route\u0027",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027print\u0027-message-is-changed-in-\u0027single-user-mode\u0027",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 18,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 19,
-  "name": "I plot new route",
-  "keyword": "When "
-});
-formatter.step({
-  "comments": [
-    {
-      "line": 20,
-      "value": "#\t\tWhen I open \u0027Create custom route\u0027"
-    },
-    {
-      "line": 21,
-      "value": "#\t\tAnd I plot new route"
-    }
-  ],
   "line": 22,
-  "name": "I click \u0027Save\u0027 route",
-  "keyword": "And "
+  "name": "I open OS maps in SingleUserMode",
+  "keyword": "Given "
 });
 formatter.step({
   "line": 23,
-  "name": "I should NOT see \u0027Who can see your route\u0027 option",
+  "name": "I click on \u0027Print\u0027 button",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 24,
+  "name": "additional \u0027Print\u0027 text is not displayed",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 19362023182,
+  "duration": 5155394512,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_plot_new_route()"
+  "location": "SingleUserMode_steps.i_click_on_Print_button()"
 });
 formatter.result({
-  "duration": 9145337768,
+  "duration": 309894368,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_click_Save_route()"
+  "location": "SingleUserMode_steps.additional_Print_text_is_not_displayed()"
 });
 formatter.result({
-  "duration": 228278470,
+  "duration": 124550051,
   "status": "passed"
 });
-formatter.match({
-  "location": "MyRoutesDisabled_steps.i_should_NOT_see_Who_can_see_your_route_option()"
-});
-formatter.result({
-  "duration": 250961701,
-  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.MyRoutesDisabled_steps.i_should_NOT_see_Who_can_see_your_route_option(MyRoutesDisabled_steps.java:29)\r\n\tat ✽.Then I should NOT see \u0027Who can see your route\u0027 option(MyRoutesDisabled.feature:23)\r\n",
-  "status": "failed"
-});
-formatter.embedding("image/png", "embedded2.png");
 formatter.after({
-  "duration": 657305418,
+  "duration": 35697,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 25,
-  "name": "Check whether \u0027My Routes\u0027 description is NOT present in \u0027Help\u0027 topic",
+  "line": 26,
+  "name": "Check whether \u0027My Routes\u0027 description is NOT present in \u0027Help\u0027 topic in \u0027Single User Mode\u0027",
   "description": "",
-  "id": "verify-if-user-is-not-able-to-see-\u0027my-routes\u0027-functionality;check-whether-\u0027my-routes\u0027-description-is-not-present-in-\u0027help\u0027-topic",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027my-routes\u0027-description-is-not-present-in-\u0027help\u0027-topic-in-\u0027single-user-mode\u0027",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 26,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "line": 27,
+  "name": "I open OS maps in SingleUserMode",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 27,
+  "line": 28,
   "name": "I open \u0027Help\u0027",
   "keyword": "When "
 });
 formatter.step({
-  "line": 28,
+  "line": 29,
   "name": "I select \u0027The Routes menu\u0027 topic",
   "keyword": "And "
 });
 formatter.step({
-  "line": 29,
+  "line": 30,
   "name": "I should NOT be able to see \u0027My Routes\u0027 description",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 19387270351,
+  "duration": 5071677845,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_open_Help()"
 });
 formatter.result({
-  "duration": 152105924,
+  "duration": 190150476,
   "status": "passed"
 });
 formatter.match({
   "location": "DirectionsDisabled_steps.i_select_The_Routes_menu_topic()"
 });
 formatter.result({
-  "duration": 677191786,
+  "duration": 717507562,
   "status": "passed"
 });
 formatter.match({
   "location": "SingleUserMode_steps.i_should_NOT_be_able_to_see_My_Routes_description()"
 });
 formatter.result({
-  "duration": 86699600,
-  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.SingleUserMode_steps.i_should_NOT_be_able_to_see_My_Routes_description(SingleUserMode_steps.java:62)\r\n\tat ✽.Then I should NOT be able to see \u0027My Routes\u0027 description(MyRoutesDisabled.feature:29)\r\n",
-  "status": "failed"
-});
-formatter.embedding("image/png", "embedded3.png");
-formatter.after({
-  "duration": 366109153,
+  "duration": 58763107,
   "status": "passed"
 });
-formatter.uri("MyRoutesEnabled.feature");
-formatter.feature({
-  "line": 2,
-  "name": "Verify if system administrator is able to define whether \u0027My Routes\u0027 are enabled in the system",
-  "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027my-routes\u0027-are-enabled-in-the-system",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@test"
-    }
-  ]
+formatter.after({
+  "duration": 37929,
+  "status": "passed"
 });
 formatter.scenario({
-  "line": 4,
-  "name": "Check whether \u0027My Routes\u0027 are enabled in the system",
+  "line": 32,
+  "name": "Check whether \u0027Who can see my route\u0027 is NOT present in \u0027Single User Mode\u0027",
   "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027my-routes\u0027-are-enabled-in-the-system;check-whether-\u0027my-routes\u0027-are-enabled-in-the-system",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027who-can-see-my-route\u0027-is-not-present-in-\u0027single-user-mode\u0027",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 5,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "line": 33,
+  "name": "I open OS maps in SingleUserMode",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 6,
-  "name": "I select \u0027Routes\u0027 tab in top menu",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "I should see \u0027My Routes\u0027 in left menu",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
-});
-formatter.result({
-  "duration": 18053507166,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DirectionsEnabled_steps.i_select_Routes_tab_in_top_menu()"
-});
-formatter.result({
-  "duration": 111172590,
-  "status": "passed"
-});
-formatter.match({
-  "location": "MyRoutesEnabled_steps.i_should_see_My_Routes_in_left_menu()"
-});
-formatter.result({
-  "duration": 29454510,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 32574,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 9,
-  "name": "Check whether \u0027My Routes\u0027 is available in \u0027My Routes\u0027 panel",
-  "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027my-routes\u0027-are-enabled-in-the-system;check-whether-\u0027my-routes\u0027-is-available-in-\u0027my-routes\u0027-panel",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 10,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 11,
-  "name": "I select \u0027Routes\u0027 tab in top menu",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 12,
-  "name": "I click \u0027My Routes\u0027 in left menu",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 13,
-  "name": "\u0027My Routes\u0027 should be present in \u0027My Routes\u0027 panel",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
-});
-formatter.result({
-  "duration": 20682539201,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DirectionsEnabled_steps.i_select_Routes_tab_in_top_menu()"
-});
-formatter.result({
-  "duration": 138477245,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DirectionsEnabled_steps.i_click_My_Routes_in_left_menu()"
-});
-formatter.result({
-  "duration": 187003783,
-  "status": "passed"
-});
-formatter.match({
-  "location": "MyRoutesEnabled_steps.my_Routes_should_be_present_in_My_Routes_panel()"
-});
-formatter.result({
-  "duration": 92528478,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 41498,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 15,
-  "name": "Check whether \u0027Who can see my route\u0027 is present in \u0027Create Custom Route\u0027",
-  "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027my-routes\u0027-are-enabled-in-the-system;check-whether-\u0027who-can-see-my-route\u0027-is-present-in-\u0027create-custom-route\u0027",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 16,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
+  "line": 34,
   "name": "I plot new route",
   "keyword": "When "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 18,
-      "value": "#\t\tWhen I open \u0027Create custom route\u0027"
-    },
-    {
-      "line": 19,
-      "value": "#\t\tAnd I plot new route"
-    }
-  ],
-  "line": 20,
+  "line": 35,
   "name": "I click \u0027Save\u0027 route",
   "keyword": "And "
 });
 formatter.step({
-  "line": 21,
-  "name": "I should see \u0027Who can see your route\u0027 option",
+  "line": 36,
+  "name": "I should NOT see \u0027Who can see your route\u0027 option",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 19159030254,
+  "duration": 5098530041,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_plot_new_route()"
 });
 formatter.result({
-  "duration": 3893822317,
+  "duration": 4061582279,
   "status": "passed"
 });
 formatter.match({
   "location": "WhenSteps.i_click_Save_route()"
 });
 formatter.result({
-  "duration": 199160406,
+  "duration": 211976085,
   "status": "passed"
 });
 formatter.match({
-  "location": "MyRoutesEnabled_steps.i_should_see_Who_can_see_your_route_option()"
+  "location": "MyRoutesDisabled_steps.i_should_NOT_see_Who_can_see_your_route_option()"
 });
 formatter.result({
-  "duration": 41893584,
+  "duration": 51671892,
   "status": "passed"
 });
 formatter.after({
-  "duration": 56223,
+  "duration": 49976,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 23,
-  "name": "Check whether \u0027My Routes\u0027 description is present in \u0027Help\u0027 topic",
+  "line": 38,
+  "name": "Check whether there is a monit for unsaved changes when clicking \u0027Exit\u0027 button in \u0027Single User Mode\u0027",
   "description": "",
-  "id": "verify-if-system-administrator-is-able-to-define-whether-\u0027my-routes\u0027-are-enabled-in-the-system;check-whether-\u0027my-routes\u0027-description-is-present-in-\u0027help\u0027-topic",
+  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-there-is-a-monit-for-unsaved-changes-when-clicking-\u0027exit\u0027-button-in-\u0027single-user-mode\u0027",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 24,
-  "name": "I log into OS maps as a guest/registered/subscribed user",
+  "line": 39,
+  "name": "I open OS maps in SingleUserMode",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 25,
-  "name": "I open \u0027Help\u0027",
+  "line": 40,
+  "name": "I plot new route",
   "keyword": "When "
 });
 formatter.step({
-  "line": 26,
-  "name": "I select \u0027The Routes menu\u0027 topic",
+  "line": 41,
+  "name": "I click \u0027Exit\u0027 button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 27,
-  "name": "I should see \u0027My Routes\u0027 description in content",
+  "line": 42,
+  "name": "there should be a monit for unsaved changes",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_log_into_OS_maps_as_a_guest_registered_subscribed_user()"
+  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
 });
 formatter.result({
-  "duration": 18285838142,
+  "duration": 5257443388,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_open_Help()"
+  "location": "WhenSteps.i_plot_new_route()"
 });
 formatter.result({
-  "duration": 133507326,
+  "duration": 3892149465,
   "status": "passed"
 });
 formatter.match({
-  "location": "DirectionsDisabled_steps.i_select_The_Routes_menu_topic()"
+  "location": "SingleUserMode_steps.i_click_Exit_button()"
 });
 formatter.result({
-  "duration": 694003301,
+  "duration": 185527266,
   "status": "passed"
 });
 formatter.match({
-  "location": "MyRoutesEnabled_steps.i_should_see_My_Routes_description_in_content()"
+  "location": "SingleUserMode_steps.there_should_be_a_monit_for_unsaved_changes()"
 });
 formatter.result({
-  "duration": 84390002,
+  "duration": 35626971,
   "status": "passed"
 });
 formatter.after({
-  "duration": 34805,
+  "duration": 49084,
   "status": "passed"
 });
 });

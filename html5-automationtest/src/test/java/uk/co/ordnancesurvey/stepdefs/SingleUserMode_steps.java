@@ -63,4 +63,17 @@ public class SingleUserMode_steps {
 					mainPage.IsElementDisplayed(obj.myRoutesHelpDescription));
 	}
 
+//	Check whether 'Who can see my route' is NOT present in 'Single User Mode'
+	
+//	Check whether there is a monit for unsaved changes when clicking 'Exit' button in 'Single User Mode'
+	@When("^I click 'Exit' button$")
+	public void i_click_Exit_button() throws Throwable {
+		mainPage.click(obj.exitButton);
+	}
+
+	@Then("^there should be a monit for unsaved changes$")
+	public void there_should_be_a_monit_for_unsaved_changes() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.unsavedChangesMonit));
+	}
+	
 }

@@ -1,4 +1,4 @@
-
+@test
 Feature: Verify if 'Single User Mode' is enabled
 
 	Scenario: Check whether 'Single User Mode' is enabled in the system
@@ -29,19 +29,21 @@ Feature: Verify if 'Single User Mode' is enabled
 		And I select 'The Routes menu' topic
 		Then I should NOT be able to see 'My Routes' description
 
-### TO DO ### 
-#	Scenario: Check whether 'Who can see my route' is NOT present in 'Single User Mode'
-#		Given 
-#		When 
-#		Then 
+	Scenario: Check whether 'Who can see my route' is NOT present in 'Single User Mode'
+		Given I open OS maps in SingleUserMode
+		When I plot new route
+		And I click 'Save' route
+		Then I should NOT see 'Who can see your route' option
 
+	Scenario: Check whether there is a monit for unsaved changes when clicking 'Exit' button in 'Single User Mode'
+		Given I open OS maps in SingleUserMode
+		When I plot new route
+		And I click 'Exit' button
+		Then there should be a monit for unsaved changes
+
+### TO DO ### 
 #	Scenario: Check whether 'Save route' message is changed in 'Single User Mode'
 #		Given 
 #		When 
 #		Then 
-
-#	Scenario: Check whether there is a monit for unsaved changes when clicking 'Exit' button in 'Single User Mode'
-#		Given 
-#		When 
-#		Then  
 		 

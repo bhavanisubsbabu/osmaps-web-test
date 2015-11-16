@@ -467,5 +467,6 @@ public class ObjectRepository {
 		public final String routeABResultsSaveBtn = ".//*[@id='routeABResultsSaveBtn']";
 		public final String printAdditionalText = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div[@class='sidePaneBodyContainer']/div[4]/div[1]/div[1]/div[starts-with(@class, 'printSelectorAdditionalText')]";
 		public final String whoCanSeeYourRoutePanel = ".//*[@id='saveRouteViewSettingsContainer']";
+		public final String unsavedChangesMonit = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(.,'Would you like to save your route?')]";
 
 }

@@ -1,4 +1,4 @@
-@test
+@testDisabled
 Feature: Verify if user is NOT able to see 'My Routes' functionality
 
 	Scenario: Check whether 'My Routes' are disabled in the system
