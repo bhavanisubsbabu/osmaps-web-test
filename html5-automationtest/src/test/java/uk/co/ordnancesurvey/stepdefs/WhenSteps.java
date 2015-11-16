@@ -506,4 +506,16 @@ public class WhenSteps {
 	}
 	
 
+	@When("^I plot new route$")
+	public void i_plot_new_route() throws Throwable {
+//		mainPage.plot_Route();
+		mainPage.plot_newRoute();
+	}
+	
+	@When("^I click 'Save' route$")
+	public void i_click_Save_route() throws Throwable {
+		mainPage.click(obj.CustomRoute_Save);
+	}
+
+
 }

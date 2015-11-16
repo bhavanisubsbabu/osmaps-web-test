@@ -27,7 +27,8 @@ public class SnapDisabled_steps {
 	
 	@Then("^'Snap' button is NOT visible$")
 	public void snap_button_is_NOT_visible() throws Throwable {
-		assertFalse(mainPage.IsElementDisplayed(obj.snapButton));
+		assertFalse(mainPage.IsElementPresent(obj.snapButton) &&
+				mainPage.IsElementDisplayed(obj.snapButton));
 	}
 
 	// Check whether "Snap" description is NOT available in 'Create custom route' help topic
@@ -39,7 +40,8 @@ public class SnapDisabled_steps {
 
 	@Then("^I should NOT be able to see 'Snap' description in content$")
 	public void i_should_NOT_be_able_to_see_Snap_description_in_content() throws Throwable {
-		assertFalse(mainPage.IsElementDisplayed(obj.snapHelpDescription));
+		assertFalse(mainPage.IsElementPresent(obj.snapHelpDescription) &&
+				mainPage.IsElementDisplayed(obj.snapHelpDescription));
 	}
 
 }

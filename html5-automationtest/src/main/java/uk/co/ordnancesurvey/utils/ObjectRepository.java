@@ -441,6 +441,7 @@ public class ObjectRepository {
 		public final String helpCreateRouteDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='create-custom-route-help-hide']";
 		public final String helpDiscoverRouteDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='discover-routes-help-hide']";
 		public final String GetDirectionDescription="html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='directions-help-hide']";
+		public final String myRoutesHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[@class='my-routes-help-hide']";
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
 		public final String viewRoute = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text pin-box-type']/span[1]";
 		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[@data-action='preferences']";
@@ -465,6 +466,6 @@ public class ObjectRepository {
 		public final String sortDiscoverRoutesByRating = ".//*[@id='discover-route-panel-sort']/option[@value='rating']";
 		public final String routeABResultsSaveBtn = ".//*[@id='routeABResultsSaveBtn']";
 		public final String printAdditionalText = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div[@class='sidePaneBodyContainer']/div[4]/div[1]/div[1]/div[starts-with(@class, 'printSelectorAdditionalText')]";
-		public final String myRoutesHelpDescription = "html/body/div[5]/div[1]/div/div[1]/div[3]/span[3]";
-		
+		public final String whoCanSeeYourRoutePanel = ".//*[@id='saveRouteViewSettingsContainer']";
+
 }

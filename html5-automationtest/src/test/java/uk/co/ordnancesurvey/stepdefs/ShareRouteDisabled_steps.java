@@ -25,7 +25,8 @@ public class ShareRouteDisabled_steps {
 	//	Check whether "Share" functionality is NOT available in 'My Routes'
 	@Then("^'Share' button should NOT be visible$")
 	public void share_button_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.shareRoute));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.shareRoute) &&
+				mainPage.IsElementDisplayed(obj.shareRoute));
 	}
 	
 }

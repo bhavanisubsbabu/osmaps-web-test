@@ -26,6 +26,7 @@ public class PlacesEnabled_steps {
 	// Check whether "Places" is available on top bar menu
 	@When("^I select 'Places' tab in top menu$")
 	public void i_select_Places_tab_in_top_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.mapfeatures));
 		mainPage.click(obj.mapfeatures);
 	}
 
@@ -33,6 +34,7 @@ public class PlacesEnabled_steps {
 
 	@When("^I click 'Places' button in burger menu$")
 	public void i_click_Directions_button_in_burger_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.menuPlaces));
 		mainPage.click(obj.menuPlaces);
 	}
 

@@ -1,4 +1,4 @@
-@testDisable
+@testDisabled
 Feature: Verify if "Create Custom Route" functionality is Disable
 
 	Scenario: Check whether "Create Custom Routes" is unavailable 

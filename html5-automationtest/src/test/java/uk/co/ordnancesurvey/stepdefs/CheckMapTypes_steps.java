@@ -26,15 +26,19 @@ public class CheckMapTypes_steps {
 	// @SingleMap Check whether only one map type is available-'Change Map Type' functionality is disabled
 	@Then("^'Change map' button should NOT be available$")
 	public void change_map_button_should_not_be_available() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.mapStackButton));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.mapStackButton) &&
+				mainPage.IsElementDisplayed(obj.mapStackButton));
 	}
 
 	// @SingleMap Check whether 'Initial Map Type' in 'Preferences' is NOT available
 	@Then("^'Initial Map Type' selection should NOT be available$")
 	public void initial_Map_Type_selection_should_NOT_be_available() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesStandardMapType));
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesOSLeisureMapType));
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesAerialMapType));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesStandardMapType) &&
+				mainPage.IsElementDisplayed(obj.preferencesStandardMapType));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesOSLeisureMapType) &&
+				mainPage.IsElementDisplayed(obj.preferencesOSLeisureMapType));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.preferencesAerialMapType) &&
+				mainPage.IsElementDisplayed(obj.preferencesAerialMapType));
 	}
 
 	// @TwoMaps Check whether two types of map are available

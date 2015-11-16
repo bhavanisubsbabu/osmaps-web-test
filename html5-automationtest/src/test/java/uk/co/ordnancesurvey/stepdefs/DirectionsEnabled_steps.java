@@ -78,6 +78,7 @@ public class DirectionsEnabled_steps {
 	// Check whether "Get me here" link is available within "My routes"
 	@When("^I click 'My Routes' in left menu$")
 	public void i_click_My_Routes_in_left_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.My_Routes));
 		mainPage.click(obj.My_Routes);
 	}
 

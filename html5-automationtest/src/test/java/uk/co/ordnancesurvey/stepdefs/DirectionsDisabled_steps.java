@@ -27,25 +27,30 @@ public class DirectionsDisabled_steps {
 	// Check whether "Directions" is NOT available on top bar menu and in left burger menu
 	@Then("^'Directions' should NOT be visible$")
 	public void directions_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.DirectionsTab));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.DirectionsTab) &&
+				mainPage.IsElementDisplayed(obj.DirectionsTab));
 	}
 
 	@Then("^'Directions' in left burger menu should NOT be visible$")
 	public void directions_in_left_burger_menu_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.burgerDirections));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.burgerDirections) &&
+				mainPage.IsElementDisplayed(obj.burgerDirections));
 	}
 	
 	// Check whether "Get Directions" is NOT available in 'Routes' top menu and left burger menu
 	@Then("^'Get Directions' should NOT be visible$")
 	public void get_Directions_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.ab_Directionstab));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.ab_Directionstab) &&
+				mainPage.IsElementDisplayed(obj.ab_Directionstab));
 	}
 
 	// Check whether "Get me here" link is NOT available on "Dropped Pin" tool
 	@Then("^'Get me here' link should NOT be visible$")
 	public void get_me_here_link_should_NOT_be_visible() throws Throwable {
-	//	assertFalse("Element is present on page", mainPage.IsElementPresent(obj.POIGetMeHere));
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.routeGetDirection));
+	//	assertFalse("Element is present on page", mainPage.IsElementPresent(obj.POIGetMeHere) &&
+	//			mainPage.IsElementDisplayed(obj.POIGetMeHere));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.routeGetDirection) &&
+				mainPage.IsElementDisplayed(obj.routeGetDirection));
 	}
 
 	// Check whether "Get Directions" description is NOT available in Help Menu
@@ -57,13 +62,15 @@ public class DirectionsDisabled_steps {
 	
 	@Then("^I should NOT be able to see 'Get Directions' description$")
 	public void i_should_NOT_be_able_to_see_Get_Directions_description() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.GetDirectionDescription));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.GetDirectionDescription) && 
+				mainPage.IsElementDisplayed(obj.GetDirectionDescription));
 	}
 
 	// Check whether "The directions menu" topic is NOT available in Help Menu
 	@Then("^I should NOT be able to see 'The Directions menu' topic$")
 	public void i_should_NOT_be_able_to_see_The_Directions_menu_topic() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.helpDirectionsMenuTopic));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpDirectionsMenuTopic) && 
+				mainPage.IsElementDisplayed(obj.helpDirectionsMenuTopic));
 	}
 
 }

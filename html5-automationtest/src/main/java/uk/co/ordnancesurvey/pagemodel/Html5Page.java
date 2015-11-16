@@ -1668,6 +1668,24 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			return !webElement.getAttribute("class").contains("disabled");
 		}
 		
+		public void plot_Route() throws InterruptedException{
+			 Actions action = new Actions(driver);
+			    Thread.sleep(1000);
+					 this.zoomIn();
+					 this.zoomIn();
+					 this.zoomIn();
+					 this.zoomIn();	 		 
+			 JavascriptExecutor js = (JavascriptExecutor) driver;
+			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
+			 action.moveToElement(waypoint,100,96).click(waypoint).build().perform(); 
+			 Thread.sleep(500);
+			 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
+			 Thread.sleep(500);
+			 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
+			 Thread.sleep(500);
+			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+		 }
+		
 //		/*
 //		 * Open User Login Window
 //		 */

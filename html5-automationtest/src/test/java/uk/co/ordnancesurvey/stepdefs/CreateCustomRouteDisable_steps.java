@@ -27,32 +27,37 @@ public class CreateCustomRouteDisable_steps {
 //	Check whether "Create Custom Routes" is unavailable 
 	@Then("^'Create Custom Route' should not be visible$")
 	public void create_Custom_Route_should_not_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.Create_Custom_Trail));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.Create_Custom_Trail) &&
+				mainPage.IsElementDisplayed(obj.Create_Custom_Trail));
 	}
 	
 //	Check whether "Create" is unavailable in My Routes
 //	Check whether "Create" is unavailable in Discover Routes
 	@Then("^'Create' should not be visible$")
 	public void create_should_not_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.createButton));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.createButton) &&
+				mainPage.IsElementDisplayed(obj.Create_Custom_Trail));
 	}
 	
 //	Check whether "Create route" is unavailable on "Dropped Pin" tool
 	@Then("^'Create route' should not be visible$")
 	public void create_route_should_not_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.createRouteDroppedPin));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.createRouteDroppedPin) &&
+				mainPage.IsElementDisplayed(obj.createRouteDroppedPin));
 	}
 	
 //	Check whether "Create a custom route" topic is unavailable in Help Menu 
 	@Then("^I should not be able to see 'Create a custom route' topic$")
 	public void i_should_not_be_able_to_see_Create_a_custom_route_topic() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpCreateRouteTopic));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpCreateRouteTopic) &&
+				mainPage.IsElementDisplayed(obj.helpCreateRouteTopic));
 	}
 	
 //	Check whether "Create Custom Route" description is unavailable in "The Routes menu" topic in Help Menu
 	@Then("^I should not be able to see 'Create Custom Route' description$")
 	public void i_should_not_be_able_to_see_Create_Custom_Route_description() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpCreateRouteDescription));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpCreateRouteDescription) &&
+				mainPage.IsElementDisplayed(obj.helpCreateRouteDescription));
 	}
 	
 }

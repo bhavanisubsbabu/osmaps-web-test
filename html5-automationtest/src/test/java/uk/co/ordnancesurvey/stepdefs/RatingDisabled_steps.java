@@ -26,40 +26,46 @@ public class RatingDisabled_steps {
 	// Check whether "Rating" functionality is NOT available in 'Discover Routes'
 	@Then("^'Rating' should NOT be visible on 'Discover Routes' panel$")
 	public void rating_should_NOT_be_visible_on_Discover_Routes_panel() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.ratingInDiscoverRoutes));
+		assertFalse(mainPage.IsElementPresent(obj.ratingInDiscoverRoutes) &&
+				mainPage.IsElementDisplayed(obj.ratingInDiscoverRoutes));
 	}
 
 	// Check whether "Rating" functionality is NOT available in 'My Routes'
 	@Then("^'Rating' should NOT be visible in 'My Routes' panel$")
 	public void rating_should_NOT_be_visible_in_My_Routes_panel() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.ratingInMyRoutes));
+		assertFalse(mainPage.IsElementPresent(obj.ratingInMyRoutes) &&
+				mainPage.IsElementDisplayed(obj.ratingInMyRoutes));
 	}
 
 	// Check whether "Rating" functionality is NOT available in 'Discover Routes'
 	// and 'My Routes' popup
 	@Then("^'Rating' should NOT be visible in popup$")
 	public void rating_should_NOT_be_visible_in_popup() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.popupRating));
+		assertFalse(mainPage.IsElementPresent(obj.popupRating) &&
+				mainPage.IsElementDisplayed(obj.popupRating));
 	}
 
 	// Check whether "Rating" functionality is NOT available in 'Discover Routes'
 	// and 'My Routes' details panel
 	@Then("^'Rating' should NOT be visible in 'Route Details' panel$")
 	public void rating_should_NOT_be_visible_in_Route_Details_panel() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.ratingInRoutesDetails));
+		assertFalse(mainPage.IsElementPresent(obj.ratingInRoutesDetails) &&
+				mainPage.IsElementDisplayed(obj.ratingInRoutesDetails));
 	}
 
 	// Check whether "Sort by Rating" is NOT available in 'Discover Routes'
 	 @Then("^'Sort by Rating' should NOT be possible in 'Discover Routes' panel$")
 	 public void sort_by_Rating_should_NOT_be_possible_in_Discover_Routes_panel() throws Throwable {
-		 assertFalse(mainPage.IsElementPresent(obj.sortDiscoverRoutesByRating));
+		 assertFalse(mainPage.IsElementPresent(obj.sortDiscoverRoutesByRating) &&
+				 mainPage.IsElementDisplayed(obj.sortDiscoverRoutesByRating));
 	 }
 	 
 	
 	// Check whether "Rating" description is NOT available in 'Discovering routes' help topic
 	 @Then("^I should NOT see 'Rating' description in content$")
 	 public void i_should_NOT_see_Rating_description_in_content() throws Throwable {
-		 assertFalse(mainPage.IsElementDisplayed(obj.sortByRatingHelpDescription));
+		 assertFalse(mainPage.IsElementPresent(obj.sortByRatingHelpDescription) &&
+				 mainPage.IsElementDisplayed(obj.sortByRatingHelpDescription));
 		 
 	 }
 

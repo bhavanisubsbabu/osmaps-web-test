@@ -26,18 +26,21 @@ public class DiscoverRoutesDisable_steps {
 	//Check whether "Discover Routes" is unavailable
 	@Then("^'Discover Routes' should not be visible$")
 	public void discover_Routes_should_not_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.Discover_Routes));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.Discover_Routes) &&
+				mainPage.IsElementDisplayed(obj.Discover_Routes));
 	}
 
 	//Check whether "Discovering routes" topic is unavailable in Help Menu
 	@Then("^I should not be able to see 'Discovering routes' topic$")
 	public void i_should_not_be_able_to_see_Discovering_routes_topic() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpDiscoverRouteTopic));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpDiscoverRouteTopic) &&
+				mainPage.IsElementDisplayed(obj.helpDiscoverRouteTopic));
 	}
 
 	//Check whether "Discover Routes" description is unavailable in "The Routes menu" topic in Help Menu
 	@Then("^I should not be able to see 'Discover Routes' description$")
 	public void i_should_not_be_able_to_see_Discover_Routes_description() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpDiscoverRouteDescription));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpDiscoverRouteDescription) &&
+				mainPage.IsElementDisplayed(obj.helpDiscoverRouteDescription));
 	}
 }

@@ -27,18 +27,21 @@ public class PlacesDisabled_steps {
 	// Check whether "Places" is NOT available on top bar menu and in left burger menu
 	@Then("^'Places' should NOT be visible$")
 	public void directions_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.mapfeatures));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.mapfeatures) &&
+				mainPage.IsElementDisplayed(obj.mapfeatures));
 	}
 
 	@Then("^'Places' in left burger menu should NOT be visible$")
 	public void directions_in_left_burger_menu_should_NOT_be_visible() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.menuPlaces));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.menuPlaces) &&
+				mainPage.IsElementDisplayed(obj.menuPlaces));
 	}
 	
 	// Check whether "The Places menu" topic is NOT available in Help Menu
 	@Then("^I should NOT be able to see 'The Places menu' topic$")
 	public void i_should_NOT_be_able_to_see_The_Directions_menu_topic() throws Throwable {
-		assertFalse("Element is present on page", mainPage.IsElementDisplayed(obj.helpPlacesMenuTopic));
+		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.helpPlacesMenuTopic) &&
+				mainPage.IsElementDisplayed(obj.helpPlacesMenuTopic));
 	}
 
 }

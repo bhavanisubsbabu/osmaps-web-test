@@ -27,7 +27,8 @@ public class PreferencesDisabled_steps {
 	// Check whether 'Preferences' are disabled in the system
 	@Then("^I should NOT see 'Preferences' link$")
 	public void i_should_NOT_see_Preferences_link() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.preferencesMenu));
+		assertFalse(mainPage.IsElementPresent(obj.preferencesMenu) &&
+				mainPage.IsElementDisplayed(obj.preferencesMenu));
 	}
 
 }

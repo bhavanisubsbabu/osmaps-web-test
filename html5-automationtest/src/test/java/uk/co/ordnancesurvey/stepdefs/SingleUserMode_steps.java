@@ -33,13 +33,15 @@ public class SingleUserMode_steps {
 //	Check whether 'My Routes' are disabled in 'Routes' menu in Single User Mode
 	@Then("^'My Routes' should NOT be present$")
 	public void my_Routes_should_NOT_be_present() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.My_Routes));
+		assertFalse(mainPage.IsElementPresent(obj.My_Routes) &&
+				mainPage.IsElementDisplayed(obj.My_Routes));
 	}
 	
 //	Check whether 'Save' button is NOT present in 'Get Direction' functionality in 'Single User Mode'
 	@Then("^'Save' button should NOT be present$")
 	public void save_button_should_NOT_be_present() throws Throwable {
-		assertFalse(mainPage.IsElementPresent(obj.routeABResultsSaveBtn));
+		assertFalse(mainPage.IsElementPresent(obj.routeABResultsSaveBtn) &&
+				mainPage.IsElementDisplayed(obj.routeABResultsSaveBtn));
 	}
 
 //	Check whether 'Print' message is changed in 'Single User Mode'
