@@ -1637,6 +1637,11 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			whenSteps.loginToApplication(AppProperties.get("Login"), AppProperties.get("Password"));
 		}
 
+		public void loginDoERoutesDisabled() throws InterruptedException {
+			WhenSteps whenSteps = new WhenSteps((SharedWebDriver) driver);
+			whenSteps.loginToApplicationRoutesDisabled(AppProperties.get("Login"), AppProperties.get("Password"));
+		}
+
 		/*
 		 * Assert Login Successful
 		 */

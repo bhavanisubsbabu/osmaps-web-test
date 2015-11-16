@@ -94,6 +94,14 @@ public class GivenSteps {
 		mainPage.verify_Login();
 	}
 
+	@Given("^I log into OS maps with Routes disabled as a guest/registered/subscribed user$")
+	public void i_log_into_OS_maps_with_Routes_disabled_as_a_guest_registered_subscribed_user() throws Throwable {
+		mainPage.launch_app();
+		mainPage.open_login_window();
+		mainPage.loginDoERoutesDisabled();
+		mainPage.verify_Login();
+	}
+	
 	@Given("^I open OS maps in SingleUserMode$")
 	public void i_open_OS_maps_in_SingleUserMode() throws Throwable {
 		mainPage.LaunchAppSingleUserMode();

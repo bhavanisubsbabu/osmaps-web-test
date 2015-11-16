@@ -1,4 +1,4 @@
-@test
+@testEnabled
 Feature: Verify if system administrator is able to define whether 'Import GPX' is enabled in the system
 
 	Scenario: Check whether 'Import GPX' is enabled in the system

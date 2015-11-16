@@ -453,6 +453,21 @@ public class WhenSteps {
 
 	// ###################################### WhiteLabel + DofE steps ######################################
 
+	// Login to the Application with Routes disabled
+		public void loginToApplicationRoutesDisabled(String userName, String Password) throws InterruptedException {
+			if (platform.equalsIgnoreCase("Mobile")) {
+				mainPage.set_textBox(obj.login_email_address, userName);
+				mainPage.set_textBox(obj.login_pwd, Password);
+				mainPage.click(obj.login_button);
+			} else {
+				mainPage.set_textBox(obj.login_email_address, userName);
+				mainPage.set_textBox(obj.login_pwd, Password);
+				mainPage.click(obj.login_button);
+				mainPage.waitForElementPresent(obj.loadPreferences, 20);
+				Thread.sleep(5000);
+			}
+		}
+	
 	@When("^I click 'Get me here' link on route pin$")
 	public void i_click_Get_me_here_link_on_route_pin() throws Throwable {
 		assertTrue(mainPage.IsElementPresent(obj.routeGetDirection));
