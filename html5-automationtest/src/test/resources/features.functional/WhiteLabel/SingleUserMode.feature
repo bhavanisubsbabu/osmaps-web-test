@@ -31,13 +31,15 @@ Feature: Verify if 'Single User Mode' is enabled
 
 	Scenario: Check whether 'Who can see my route' is NOT present in 'Single User Mode'
 		Given I open OS maps in SingleUserMode
-		When I plot new route
+		When I open 'Create custom route'
+		And I plot new route
 		And I click 'Save' route
 		Then I should NOT see 'Who can see your route' option
 
 	Scenario: Check whether there is a monit for unsaved changes when clicking 'Exit' button in 'Single User Mode'
 		Given I open OS maps in SingleUserMode
-		When I plot new route
+		When I open 'Create custom route'
+		And I plot new route
 		And I click 'Exit' button
 		Then there should be a monit for unsaved changes
 

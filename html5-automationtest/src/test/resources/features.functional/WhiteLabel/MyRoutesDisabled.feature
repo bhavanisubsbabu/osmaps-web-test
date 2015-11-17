@@ -16,9 +16,8 @@ Feature: Verify if user is NOT able to see 'My Routes' functionality
 		
 	Scenario: Check whether 'Who can see my route' is NOT present in 'Create Custom Route'
 		Given I log into OS maps as a guest/registered/subscribed user
-		When I plot new route
-#		When I open 'Create custom route'
-#		And I plot new route
+		When I open 'Create custom route'
+		And I plot new route
 		And I click 'Save' route
 		Then I should NOT see 'Who can see your route' option
 		

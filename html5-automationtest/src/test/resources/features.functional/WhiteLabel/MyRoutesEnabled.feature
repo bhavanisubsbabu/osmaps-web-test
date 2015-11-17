@@ -6,17 +6,16 @@ Feature: Verify if system administrator is able to define whether 'My Routes' ar
 		When I select 'Routes' tab in top menu
 		Then I should see 'My Routes' in left menu
 		
-	Scenario: Check whether 'My Routes' is available in 'My Routes' panel 
+	Scenario: Check whether 'My Routes' is available in 'My Routes' panel
 		Given I log into OS maps as a guest/registered/subscribed user
 		When I select 'Routes' tab in top menu
 		And I click 'My Routes' in left menu
 		Then 'My Routes' should be present in 'My Routes' panel
-		
+
 	Scenario: Check whether 'Who can see my route' is present in 'Create Custom Route'
 		Given I log into OS maps as a guest/registered/subscribed user
-		When I plot new route
-#		When I open 'Create custom route'
-#		And I plot new route
+		When I open 'Create custom route'
+		And I plot new route
 		And I click 'Save' route
 		Then I should see 'Who can see your route' option
 		

@@ -523,8 +523,7 @@ public class WhenSteps {
 
 	@When("^I plot new route$")
 	public void i_plot_new_route() throws Throwable {
-//		mainPage.plot_Route();
-		mainPage.plot_newRoute();
+		mainPage.plot_Route();
 	}
 	
 	@When("^I click 'Save' route$")

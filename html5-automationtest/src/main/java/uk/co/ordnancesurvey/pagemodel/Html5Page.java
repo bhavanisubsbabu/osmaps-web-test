@@ -1680,15 +1680,16 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					 this.zoomIn();
 					 this.zoomIn();
 					 this.zoomIn();	 		 
-			 JavascriptExecutor js = (JavascriptExecutor) driver;
-			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
-			 action.moveToElement(waypoint,100,96).click(waypoint).build().perform(); 
+			 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
 			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
+			 action.moveToElement(waypoint,-50,120).click().build().perform(); 
 			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
+			 action.moveToElement(waypoint,-150,200).click().build().perform();
 			 Thread.sleep(500);
-			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+			 action.moveToElement(waypoint,-50,300).click().build().perform();
+			 Thread.sleep(500);
+			 action.moveToElement(waypoint,100,200).click().build().perform();
+			 Thread.sleep(500);
 		 }
 		
 //		/*
