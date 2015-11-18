@@ -1,87 +1,115 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("SingleUserMode.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("RoutesDisabled.feature");
 formatter.feature({
   "line": 2,
-  "name": "Verify if \u0027Single User Mode\u0027 is enabled",
+  "name": "Verify if System will hide the \u0027Routes\u0027 button if all routes functionalities have been disabled",
   "description": "",
-  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 32,
-  "name": "Check whether \u0027Who can see my route\u0027 is NOT present in \u0027Single User Mode\u0027",
-  "description": "",
-  "id": "verify-if-\u0027single-user-mode\u0027-is-enabled;check-whether-\u0027who-can-see-my-route\u0027-is-not-present-in-\u0027single-user-mode\u0027",
-  "type": "scenario",
-  "keyword": "Scenario",
+  "id": "verify-if-system-will-hide-the-\u0027routes\u0027-button-if-all-routes-functionalities-have-been-disabled",
+  "keyword": "Feature",
   "tags": [
     {
-      "line": 31,
+      "line": 1,
       "name": "@test"
     }
   ]
 });
+formatter.scenario({
+  "line": 4,
+  "name": "Check whether \u0027Routes\u0027 button is disabled in the system",
+  "description": "",
+  "id": "verify-if-system-will-hide-the-\u0027routes\u0027-button-if-all-routes-functionalities-have-been-disabled;check-whether-\u0027routes\u0027-button-is-disabled-in-the-system",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
 formatter.step({
-  "line": 33,
-  "name": "I open OS maps in SingleUserMode",
+  "line": 5,
+  "name": "I log into OS maps with Routes disabled as a guest/registered/subscribed user",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 34,
-  "name": "I open \u0027Create custom route\u0027",
+  "line": 6,
+  "name": "I select left slider menu",
   "keyword": "When "
 });
 formatter.step({
-  "line": 35,
-  "name": "I plot new route",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 36,
-  "name": "I click \u0027Save\u0027 route",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 37,
-  "name": "I should NOT see \u0027Who can see your route\u0027 option",
+  "line": 7,
+  "name": "I should NOT see \u0027Routes\u0027 button in burger menu and in top bar",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "GivenSteps.i_open_OS_maps_in_SingleUserMode()"
+  "location": "GivenSteps.i_log_into_OS_maps_with_Routes_disabled_as_a_guest_registered_subscribed_user()"
 });
 formatter.result({
-  "duration": 19358372359,
+  "duration": 32781603128,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_open_Create_custom_route()"
+  "location": "WhenSteps.i_select_left_slider_menu()"
 });
 formatter.result({
-  "duration": 381098019,
+  "duration": 277949473,
   "status": "passed"
 });
 formatter.match({
-  "location": "WhenSteps.i_plot_new_route()"
+  "location": "RoutesDisabled_steps.i_should_NOT_see_Routes_button_in_burger_menu_and_in_top_bar()"
 });
 formatter.result({
-  "duration": 4572773294,
-  "status": "passed"
+  "duration": 189067238,
+  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.RoutesDisabled_steps.i_should_NOT_see_Routes_button_in_burger_menu_and_in_top_bar(RoutesDisabled_steps.java:30)\r\n\tat ✽.Then I should NOT see \u0027Routes\u0027 button in burger menu and in top bar(RoutesDisabled.feature:7)\r\n",
+  "status": "failed"
 });
-formatter.match({
-  "location": "WhenSteps.i_click_Save_route()"
-});
-formatter.result({
-  "duration": 215713722,
-  "status": "passed"
-});
-formatter.match({
-  "location": "MyRoutesDisabled_steps.i_should_NOT_see_Who_can_see_your_route_option()"
-});
-formatter.result({
-  "duration": 52091110,
-  "status": "passed"
-});
+formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 211063,
+  "duration": 420490182,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 9,
+  "name": "Check whether \u0027The Routes menu\u0027 is NOT available in \u0027Help\u0027",
+  "description": "",
+  "id": "verify-if-system-will-hide-the-\u0027routes\u0027-button-if-all-routes-functionalities-have-been-disabled;check-whether-\u0027the-routes-menu\u0027-is-not-available-in-\u0027help\u0027",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 10,
+  "name": "I log into OS maps with Routes disabled as a guest/registered/subscribed user",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 11,
+  "name": "I open \u0027Help\u0027",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "I should NOT be able to see \u0027The Routes menu\u0027 topic",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "GivenSteps.i_log_into_OS_maps_with_Routes_disabled_as_a_guest_registered_subscribed_user()"
+});
+formatter.result({
+  "duration": 30014488337,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WhenSteps.i_open_Help()"
+});
+formatter.result({
+  "duration": 270289205,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RoutesDisabled_steps.i_should_NOT_be_able_to_see_The_Routes_menu_topic()"
+});
+formatter.result({
+  "duration": 1137856731,
+  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertFalse(Assert.java:64)\r\n\tat org.junit.Assert.assertFalse(Assert.java:74)\r\n\tat uk.co.ordnancesurvey.stepdefs.RoutesDisabled_steps.i_should_NOT_be_able_to_see_The_Routes_menu_topic(RoutesDisabled_steps.java:40)\r\n\tat ✽.Then I should NOT be able to see \u0027The Routes menu\u0027 topic(RoutesDisabled.feature:12)\r\n",
+  "status": "failed"
+});
+formatter.embedding("image/png", "embedded1.png");
+formatter.after({
+  "duration": 482118602,
   "status": "passed"
 });
 });

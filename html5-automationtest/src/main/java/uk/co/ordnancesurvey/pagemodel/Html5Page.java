@@ -1682,7 +1682,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					 this.zoomIn();	 		 
 			 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
 			 Thread.sleep(500);
-			 action.moveToElement(waypoint,-50,120).click().build().perform(); 
+			 action.moveToElement(waypoint,-50,120).click().build().perform();
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,-150,200).click().build().perform();
 			 Thread.sleep(500);

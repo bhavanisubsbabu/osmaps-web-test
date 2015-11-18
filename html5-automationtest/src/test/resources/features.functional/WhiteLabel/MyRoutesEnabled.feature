@@ -11,7 +11,7 @@ Feature: Verify if system administrator is able to define whether 'My Routes' ar
 		When I select 'Routes' tab in top menu
 		And I click 'My Routes' in left menu
 		Then 'My Routes' should be present in 'My Routes' panel
-
+@test
 	Scenario: Check whether 'Who can see my route' is present in 'Create Custom Route'
 		Given I log into OS maps as a guest/registered/subscribed user
 		When I open 'Create custom route'

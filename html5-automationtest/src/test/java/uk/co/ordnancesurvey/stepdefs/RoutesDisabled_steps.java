@@ -25,14 +25,10 @@ public class RoutesDisabled_steps {
 	}
 
 //	Check whether 'Routes' button is disabled in the system
-	@Then("^I should NOT see 'Routes' button in burger menu$")
-	public void i_should_NOT_see_Routes_button_in_burger_menu() throws Throwable {
+	@Then("^I should NOT see 'Routes' button in burger menu and in top bar$")
+	public void i_should_NOT_see_Routes_button_in_burger_menu_and_in_top_bar() throws Throwable {
 		assertFalse(mainPage.IsElementPresent(obj.burgerRoutes) &&
 				mainPage.IsElementDisplayed(obj.burgerRoutes));
-	}
-
-	@Then("^I should NOT see 'Routes' button in top bar$")
-	public void i_should_NOT_see_Routes_button_in_top_bar() throws Throwable {
 		assertFalse(mainPage.IsElementPresent(obj.RoutesTab) &&
 				mainPage.IsElementDisplayed(obj.RoutesTab));
 	}
