@@ -1637,10 +1637,10 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			whenSteps.loginToApplication(AppProperties.get("Login"), AppProperties.get("Password"));
 		}
 
-		public void loginDoERoutesDisabled() throws InterruptedException {
-			WhenSteps whenSteps = new WhenSteps((SharedWebDriver) driver);
-			whenSteps.loginToApplicationRoutesDisabled(AppProperties.get("Login"), AppProperties.get("Password"));
-		}
+//		public void loginDoERoutesDisabled() throws InterruptedException {
+//			WhenSteps whenSteps = new WhenSteps((SharedWebDriver) driver);
+//			whenSteps.loginToApplicationRoutesDisabled(AppProperties.get("Login"), AppProperties.get("Password"));
+//		}
 
 		/*
 		 * Assert Login Successful
@@ -1680,6 +1680,10 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					 this.zoomIn();
 					 this.zoomIn();
 					 this.zoomIn();	 		 
+					 
+//					 JavascriptExecutor js = (JavascriptExecutor) driver;
+//					 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");
+					 
 			 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,-50,120).click().build().perform();

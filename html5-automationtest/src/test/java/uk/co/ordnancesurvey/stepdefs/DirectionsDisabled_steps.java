@@ -47,8 +47,8 @@ public class DirectionsDisabled_steps {
 	// Check whether "Get me here" link is NOT available on "Dropped Pin" tool
 	@Then("^'Get me here' link should NOT be visible$")
 	public void get_me_here_link_should_NOT_be_visible() throws Throwable {
-	//	assertFalse("Element is present on page", mainPage.IsElementPresent(obj.POIGetMeHere) &&
-	//			mainPage.IsElementDisplayed(obj.POIGetMeHere));
+//		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.POIGetMeHere) &&
+//				mainPage.IsElementDisplayed(obj.POIGetMeHere));
 		assertFalse("Element is present on page", mainPage.IsElementPresent(obj.routeGetDirection) &&
 				mainPage.IsElementDisplayed(obj.routeGetDirection));
 	}
@@ -57,7 +57,9 @@ public class DirectionsDisabled_steps {
 	// in "The Routes menu" topic
 	@When("^I select 'The Routes menu' topic$")
 	public void i_select_The_Routes_menu_topic() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.helpRoutesMenuTopic));
 		mainPage.click(obj.helpRoutesMenuTopic);
+		Thread.sleep(500);
 	}
 	
 	@Then("^I should NOT be able to see 'Get Directions' description$")

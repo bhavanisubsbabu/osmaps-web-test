@@ -60,7 +60,8 @@ public class RatingEnabled_steps {
 	 // Check whether "Rating" description is available in 'Discovering routes' help topic
 	 @When("^I click 'Discovering routes' help topic$")
 	 public void i_click_Discovering_routes_help_topic() throws Throwable {
-	 mainPage.click(obj.helpDiscoverRouteTopic);
+		 assertTrue(mainPage.IsElementPresent(obj.helpDiscoverRouteTopic));
+		 mainPage.click(obj.helpDiscoverRouteTopic);
 	 }
 	
 	 @Then("^I should see 'Rating' description in content$")

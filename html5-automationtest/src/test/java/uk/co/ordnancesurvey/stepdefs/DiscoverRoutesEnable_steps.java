@@ -26,7 +26,7 @@ public class DiscoverRoutesEnable_steps {
 	//Check whether "Discovering routes" topic is available in Help Menu
 	@Then("^I should be able to see 'Discovering routes' topic$")
 	public void i_should_be_able_to_see_Discovering_routes_topic() throws Throwable {
-	    assertTrue(mainPage.IsElementDisplayed(obj.helpDiscoverRouteTopic));
+	    assertTrue(mainPage.IsElementPresent(obj.helpDiscoverRouteTopic));
 	}
 	
 	//Check whether "Discover Routes" description is available in "The Routes menu" topic in Help Menu

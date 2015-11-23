@@ -40,6 +40,7 @@ public class DirectionsEnabled_steps {
 	// Check whether "Get Directions" is available in 'Routes' top menu
 	@When("^I select 'Routes' tab in top menu$")
 	public void i_select_Routes_tab_in_top_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.Routes_Tab));
 		mainPage.click(obj.Routes_Tab);
 	}
 
@@ -52,6 +53,7 @@ public class DirectionsEnabled_steps {
 	// Check whether "Get Directions" is available in 'Routes' side menu
 	@When("^I click 'Routes' button in burger menu$")
 	public void i_click_Routes_button_in_burger_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.burgerRoutes));
 		mainPage.click(obj.burgerRoutes);
 	}
 
@@ -66,6 +68,7 @@ public class DirectionsEnabled_steps {
 	// Check whether "Get me here" link is available within "Discover Routes"
 	@When("^I click 'Discover Routes' in left menu$")
 	public void i_click_Discover_Routes_in_left_menu() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.RoutesTab_DiscoverRoutes));
 		mainPage.click(obj.RoutesTab_DiscoverRoutes);
 		Thread.sleep(3000);
 	}
@@ -73,6 +76,7 @@ public class DirectionsEnabled_steps {
 	@When("^I select one of available routes$")
 	public void i_select_one_of_available_routes() throws Throwable {
 		mainPage.click(obj.discoveredRoutes);
+		Thread.sleep(1000);
 	}
 
 	// Check whether "Get me here" link is available within "My routes"

@@ -59,7 +59,7 @@ public class WhenSteps {
 			mainPage.set_textBox(obj.login_pwd, Password);
 			mainPage.click(obj.login_button);
 			mainPage.waitForElementPresent(obj.loadPreferences, 20);
-			mainPage.waitForElementClickable(obj.Routes_Tab, 20);
+			mainPage.waitForElementClickable(obj.user_logged, 20);
 		}
 	}
 
@@ -131,7 +131,7 @@ public class WhenSteps {
 
 	@When("^I open routes menu$")
 	public void i_open_routes_menu() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+		assertTrue(mainPage.IsElementPresent(obj.RoutesTab));
 		mainPage.click(obj.RoutesTab);
 	}
 
@@ -477,17 +477,20 @@ public class WhenSteps {
 	@When("^I click 'View route' link on route pin$")
 	public void i_click_View_route_link_on_route_pin() throws Throwable {
 		mainPage.click(obj.routeMoreInfo);
+		Thread.sleep(500);
 	}
 
 	@When("^I select one of my created routes$")
 	public void i_select_one_of_my_created_routes() throws Throwable {
 		mainPage.click(obj.showMyRoutes);
 		mainPage.click(obj.myRoute);
+		Thread.sleep(500);
 	}
 
 	@When("^I open 'Help'$")
 	public void i_open_Help() throws Throwable {
 		mainPage.click(obj.openHelp);
+		Thread.sleep(1000);
 	}
 	
 	@When("^I open User's panel$")
@@ -516,10 +519,11 @@ public class WhenSteps {
 
 	@When("^I open 'Create custom route'$")
 	public void i_open_Create_custom_route() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.RoutesTab));
 		mainPage.click(obj.RoutesTab);
+		assertTrue(mainPage.IsElementPresent(obj.Create_Custom_Trail));
 		mainPage.click(obj.Create_Custom_Trail);
 	}
-	
 
 	@When("^I plot new route$")
 	public void i_plot_new_route() throws Throwable {

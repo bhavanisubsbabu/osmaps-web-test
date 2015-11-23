@@ -35,6 +35,7 @@ public class SnapDisabled_steps {
 
 	@When("^I click 'Create custom route' help topic$")
 	public void i_click_Create_custom_route_help_topic() throws Throwable {
+		assertTrue(mainPage.IsElementPresent(obj.helpCreateRouteTopic));
 		mainPage.click(obj.helpCreateRouteTopic);
 	}
 
