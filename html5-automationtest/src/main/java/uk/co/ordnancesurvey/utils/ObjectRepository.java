@@ -470,4 +470,7 @@ public class ObjectRepository {
 		public final String whoCanSeeYourRoutePanel = ".//*[@id='saveRouteViewSettingsContainer']";
 		public final String unsavedChangesMonit = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(.,'Would you like to save your route?')]";
 		public final String importGPXPanel = ".//*[@id='import-route-form-container']";
+		public final String dofeRouteCardButton = ".//*[@id='main-top-bar-route-card']";
+		public final String topBarSearchIcon = ".//*[@id='main-top-bar-search-icon']";
+		
 }

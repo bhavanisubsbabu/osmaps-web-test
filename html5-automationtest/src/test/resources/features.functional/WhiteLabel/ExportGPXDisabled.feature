@@ -1,4 +1,4 @@
-@test
+@testDisabled
 Feature: Verify if 'Export GPX' functionality is disabled
 
 	Scenario: Check whether 'Export GPX' functionality is NOT available in 'Discovered Routes'

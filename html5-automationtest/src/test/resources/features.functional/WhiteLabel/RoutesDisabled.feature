@@ -1,4 +1,4 @@
-
+@testDisabled
 Feature: Verify if System will hide the 'Routes' button if all routes functionalities have been disabled
 
 	Scenario: Check whether 'Routes' button is disabled in the system
