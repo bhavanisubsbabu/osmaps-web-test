@@ -18,6 +18,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -1682,9 +1683,19 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					 this.zoomIn();	 		 
 					 
 //					 JavascriptExecutor js = (JavascriptExecutor) driver;
-//					 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");
+//					 WebElement waypoint= (WebElement) js.executeScript("$('#diagramCanvas').click();");
 					 
-			 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
+					 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
+					 
+//			 Action drawAction = action.moveToElement(waypoint,-50,120) //start points x axis and y axis. 
+//					 .click()
+//					 .moveByOffset(-100, 80) // 2nd points (x1,y1)
+//					 .click()
+//					 .moveByOffset(100, 100)// 3rd points (x2,y2)
+//					 .doubleClick()
+//					 .build();
+//			 drawAction.perform();
+			 
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,-50,120).click().build().perform();
 			 Thread.sleep(500);

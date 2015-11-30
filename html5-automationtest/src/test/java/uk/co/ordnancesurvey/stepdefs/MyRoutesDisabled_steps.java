@@ -24,6 +24,7 @@ public class MyRoutesDisabled_steps {
 		obj = PageFactory.initElements(driver, ObjectRepository.class);
 	}
 
+	//	Check whether 'Who can see my route' is NOT present in 'Create Custom Route'
 	@Then("^I should NOT see 'Who can see your route' option$")
 	public void i_should_NOT_see_Who_can_see_your_route_option() throws Throwable {
 		assertFalse(mainPage.IsElementPresent(obj.whoCanSeeYourRoutePanel) &&

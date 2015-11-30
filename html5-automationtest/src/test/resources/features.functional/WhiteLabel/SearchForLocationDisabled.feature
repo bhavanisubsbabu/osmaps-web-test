@@ -1,4 +1,4 @@
-@test
+
 Feature: System administrator is able to define whether 'Search for Location' is disabled in the system
 
 	Scenario: Check if 'Search for Location' is NOT visible in the top bar

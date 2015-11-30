@@ -472,5 +472,7 @@ public class ObjectRepository {
 		public final String importGPXPanel = ".//*[@id='import-route-form-container']";
 		public final String dofeRouteCardButton = ".//*[@id='main-top-bar-route-card']";
 		public final String topBarSearchIcon = ".//*[@id='main-top-bar-search-icon']";
+		public final String routeCardDetails = ".//*[@id='route-card-details']";
+		public final String routeCardBreakdown = ".//*[@id='route-card-new']/div/div[@class='route-card-table-wrapper']/table";
 		
 }
