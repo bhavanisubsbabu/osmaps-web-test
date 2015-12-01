@@ -1456,7 +1456,7 @@ public class Html5Page {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement Waypoint;
 			Actions action = new Actions(driver);	
-			Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			Waypoint = (WebElement) js.executeScript("return $('circle[id^=OpenLayers]')[1];");
 			System.out.print("\n Waypoint to clicked is :"+ Waypoint);
 			try{
 				action.moveToElement(Waypoint).click().perform();
@@ -1470,7 +1470,7 @@ public class Html5Page {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebElement Waypoint;
 			Actions action = new Actions(driver);	
-			Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");							
+			Waypoint = (WebElement) js.executeScript("return $('circle[id^=OpenLayers]')[1];");							
 			try{
 				action.moveToElement(Waypoint).build().perform();
 				action.click(Waypoint).build().perform();
