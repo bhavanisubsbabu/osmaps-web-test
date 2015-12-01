@@ -1,24 +1,11 @@
 package uk.co.ordnancesurvey.stepdefs;
 
-import java.util.Hashtable;
-import java.util.List;
-
 import static org.junit.Assert.assertTrue;
-import junit.framework.Assert;
-//import junit.framework.Assert;
-import net.sourceforge.htmlunit.corejs.javascript.ast.SwitchCase;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.junit.Assertions;
 import uk.co.ordnancesurvey.pagemodel.Html5Page;
 import uk.co.ordnancesurvey.utils.AppProperties;
 import uk.co.ordnancesurvey.utils.ObjectRepository;
