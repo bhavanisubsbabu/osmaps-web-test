@@ -1,4 +1,4 @@
-@test
+@testEnabled
 Feature: Verify if DofE 'Route Card' for selected route is created
 
 	Scenario: Check if DofE 'Route Card' is created

@@ -29,6 +29,7 @@ public class SnapEnabled_steps {
 	
 	@When("^I zoom in map on National Park location$")
 	public void i_zoom_in_map() throws Throwable {
+		assertTrue(mainPage.IsElementDisplayed(obj.searchBox));
 		mainPage.searchMap("Hill Top");
 	}
 
