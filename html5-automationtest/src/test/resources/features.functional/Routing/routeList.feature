@@ -1,4 +1,4 @@
-@regression
+@regression @ravi
 Feature: Find a route from List
 
 	Scenario: User should be able to navigate to my routes list and find a route by scrolling

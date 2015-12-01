@@ -12,7 +12,7 @@ public class AppProperties {
     public static Properties getProperties(){
 
     	if(properties == null){     	
-	        String propertyFile = System.getProperty("properties", System.getProperty("user.dir")+"/src/test/resources/TestConfig-prod.properties");
+	        String propertyFile = System.getProperty("properties", System.getProperty("user.dir")+"/src/test/resources/TestConfig-ite.properties");
 	
 	        try {
 	        	System.out.println("Loading properties from file " + propertyFile);

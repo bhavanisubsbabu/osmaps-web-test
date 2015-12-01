@@ -193,6 +193,15 @@ public class Html5Page {
 		 Thread.sleep(1000);
 	 }
 	 
+	 public void createRoutes(int n) throws InterruptedException{
+		 
+		 for(int i=0;i<=n;i++){
+			 this.plot_newRoute();
+			 this.save_route();
+			 System.out.print("\n Created route no"+i);
+		 }		   
+	 }
+	 
 	 public void plot_newRoute_MapStack() throws InterruptedException{
 		 Actions action = new Actions(driver);
 		 driver.findElement(By.xpath(obj.RoutesTab)).click();
@@ -615,7 +624,7 @@ public class Html5Page {
 	}
 	
 		public void click(String locator) throws InterruptedException{
-			this.waitForElementClickable(locator, 10);			
+			this.waitForElementClickable(locator, 30);			
 				try{
 					this.driver.findElement(By.xpath(locator)).click();
 				}
@@ -810,448 +819,448 @@ public class Html5Page {
 	 * 	updated assert as mapstack buttons for guest, registered and subscribed users are same now, when clicked on these buttons based on user type allowed maps are displayed or prompted to subscribe
 	 */
 	
-public void verifyMapstackButtons_Subscriber() throws InterruptedException{
-	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
-	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
-	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
-	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
-
-}
-
-public void Verify_StarRatings_Popup(){
+	public void verifyMapstackButtons_Subscriber() throws InterruptedException{
+		assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
+		assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
+		assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
+		assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
 	
-	assertTrue("Failed:, Star Rating on route pop-up not found",driver.findElement(By.xpath(obj.star_rating_pop_up)).isDisplayed());
-	assertTrue("Failed:, Star Rating on route discover routes not found",driver.findElement(By.xpath(obj.star_rating_discover_routes)).isDisplayed());
+	}
+
+	public void Verify_StarRatings_Popup(){
+		
+		assertTrue("Failed:, Star Rating on route pop-up not found",driver.findElement(By.xpath(obj.star_rating_pop_up)).isDisplayed());
+		assertTrue("Failed:, Star Rating on route discover routes not found",driver.findElement(By.xpath(obj.star_rating_discover_routes)).isDisplayed());
+		
+	}
 	
-}
-
-public void Verify_StarRatings_SidePanel(){
+	public void Verify_StarRatings_SidePanel(){
+		
+		
+		assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[1]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[3]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[5]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[7]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[9]")).isDisplayed());
+	
+	}
+	
+	/*	@Author Ravi Kunaparaju
+	 * 	updated assert as mapstack buttons for guest, registered and subscribed users are same now, when clicked on these buttons based on user type allowed maps are displayed or prompted to subscribe
+	 */
+	
+	public void verifyMapstackButtons_registered(){
+		assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
+		assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
+		assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
+		assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
+	}
 	
 	
-	assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[1]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[3]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[5]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[7]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[1]/div[2]/div[1]/img[9]")).isDisplayed());
-
-}
-
-/*	@Author Ravi Kunaparaju
- * 	updated assert as mapstack buttons for guest, registered and subscribed users are same now, when clicked on these buttons based on user type allowed maps are displayed or prompted to subscribe
- */
-
-public void verifyMapstackButtons_registered(){
-	assertTrue("Failed:, MapStack 25k not found",driver.findElement(By.xpath(obj.standardMap)).isDisplayed());
-	assertTrue("Failed:, MapStack 50k not found",driver.findElement(By.xpath(obj.standardAndLeisureMap)).isDisplayed());
-	assertTrue("Failed:, MapStack zoom Map not found",driver.findElement(By.xpath(obj.nationalParkPathwaysMap)).isDisplayed());
-	assertTrue("Failed:, MapStack Aerial not found",driver.findElement(By.xpath(obj.AerialMap)).isDisplayed());
-}
-
-
-public void verify_carouselPanelandClose() throws InterruptedException{
-	Thread.sleep(3000);
-	assertTrue("Failed: On board Carousel not displayed,pls check manually",IsElementPresent("//div[contains(@class,'carouselSlide')]/div[1]"));
-	driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); 
+	public void verify_carouselPanelandClose() throws InterruptedException{
+		Thread.sleep(3000);
+		assertTrue("Failed: On board Carousel not displayed,pls check manually",IsElementPresent("//div[contains(@class,'carouselSlide')]/div[1]"));
+		driver.findElement(By.xpath("//div[@id='carouselCheckbox']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@id='closeCarousel']")).click(); 
+		
+	}
 	
-}
-
-public void close_carousel() throws InterruptedException{
+	public void close_carousel() throws InterruptedException{
+		
+		if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
+			{
+				this.waitForElementPresent("//div[@id='carouselCheckbox']", 5);
+				this.click("//div[@id='carouselCheckbox']");
+				this.waitForElementPresent("//div[@id='closeCarousel']", 5);
+				this.click("//div[@id='closeCarousel']");
+			}
+	}
 	
-	if(driver.findElement(By.xpath("//div[contains(@class,'carouselSlide')]/div[1]")).isDisplayed())
+	public void Verify_StarRate_SidePanel(){
+		
+		
+		assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[2]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[4]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[6]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[8]")).isDisplayed());
+		assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[9]")).isDisplayed());
+	
+		
+	}
+	
+	//MAP FEATURES
+	public void Verify_Live_Map_including_weather_panel() throws InterruptedException{
+		
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[3]/div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[3]/div[3]/div/div")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='liveMapSlider']")).isDisplayed());
+		driver.findElement(By.xpath(obj.Live_Map)).click();
+		driver.findElement(By.xpath(obj.Turn_On_Weather)).click();
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement weather = (WebElement)js.executeScript("return document.getElementsByTagName('image').item(2)");
+		Actions action = new Actions(driver);
+		action.moveToElement(weather).click(weather).build().perform();				 
+		Thread.sleep(3000);
+		assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadInfoName']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadMaxTemp']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadUV']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadWind']/div/div")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='weatherDataTable']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='day0Btn']")).isDisplayed());
+		driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_1)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_2)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_3)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_4)).click();
+		Thread.sleep(1000);
+		clickLinkByXpath(".//*[@id='Window_1_Content']/div[17]/div/div[1]/div[1]");
+		Thread.sleep(1000);
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[2]/img[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[2]/img[2]")).isDisplayed());
+		driver.findElement(By.xpath(obj.Attractions)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Adventure_Theme_Parks)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Brewery_Distillery_Vineyard)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Castles_And_Historic_Houses)).click();
+		Thread.sleep(4000);
+		
+				//	//scroll function <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< below
+		WebElement conf_poicat= (WebElement)js.executeScript("return document.getElementsByClassName('POI_Category_Child_Name').item(7);");
+		action.moveToElement(conf_poicat).perform();
+		Thread.sleep(2000);
+				
+		driver.findElement(By.xpath(obj.Countryside)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.History)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Museums)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Parks_And_Gardens)).click();
+		Thread.sleep(2000);
+		
+		WebElement conf_poicat2= (WebElement)js.executeScript("return document.getElementsByClassName('POI_Category_Child_Name').item(13);");
+		action.moveToElement(conf_poicat2).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Shopping)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Tours)).click();
+		Thread.sleep(2000);
+		//Eating&Drinking
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[5]/div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[5]/div[2]/img[2]")).isDisplayed());
+		driver.findElement(By.xpath(obj.Eating_And_Drinking)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Picnic_Site)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Pub)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Restuarant)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Coffee_Shop)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Eating_And_Drinking)).click();
+		WebElement conf_poicat3= (WebElement)js.executeScript("return document.getElementsByClassName('Basic_Btn Allow_Select sidePaneClose').item(0);");
+		action.moveToElement(conf_poicat3).perform();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath(obj.Attractions)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Live_Map)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Close_Map_Features_Panel)).click();
+		Thread.sleep (1000);
+	
+	}
+	
+
+
+	//ROUTES
+	public void Verify_all_elements_present_ROUTES() throws InterruptedException{
+		
+		assertTrue(driver.findElement(By.xpath(obj.Routes_Tab_Close_Button)).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(obj.Discover_Routes)).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(obj.Create_Custom_Trail)).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(obj.My_Routes)).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(obj.Get_Directions)).isDisplayed());
+	
+	
+	}
+	
+	//DISCOVER ROUTES
+	
+	public void Verify_Discover_Routes() throws InterruptedException{
+		
+		Actions action = new Actions(driver);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 
+		 
+		//Close
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[16]/div[1]/div[1]/div[1]")).isDisplayed());
+		//Create
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discCreateRouteBtn']")).isDisplayed());
+		//Filter Routes - ALL
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeAll']")).isDisplayed());
+		//Walk
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeWalk']")).isDisplayed());
+		//Run
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeRun']")).isDisplayed());
+		//Cycle
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeCycle']")).isDisplayed());
+		//Other
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeOther']")).isDisplayed());
+		//Select Distance
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectDistance']")).isDisplayed());
+		//Select Duration
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectDuration']")).isDisplayed());
+		//Sort By
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectSort']")).isDisplayed());
+		//Star Rating
+		//Route Name
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]")).isDisplayed());
+		//Authored By
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]/div[2]/div[1]/img")).isDisplayed());
+		//Route Type Image
+		assertTrue(driver.findElement(By.cssSelector(".discoveredListPartnerImage>img")).isDisplayed());
+		//Select a Route
+		driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]")).click();
+		Thread.sleep(2000);
+		//verify Pop up box
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[16]/div[1]/div/div")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[2]/div[1]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).isDisplayed());
+		
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[2]/div[2]")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopUpDetail']/div[1]/img")).isDisplayed());
+		//assertTrue(driver.findElement(By.xpath(".//*[@id='discPopUpDetail']/div[2]/div/div")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).isDisplayed());
+		//More details
+		assertTrue("Failed: More details link not found on route pop-up",driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).getText().contains("More Details"));
+		driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(obj.Routes_Tab)).click();
+	}
+	//CREATE CUSTOM TRAIL
+	
+	public void Verify_Create_Custom_Trail() throws InterruptedException{
+		
+		//POI
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRoutePOIToggleImage']")).isDisplayed());
+		//Elevation Graph
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteElevDiagCanvas']")).isDisplayed());
+		//Cancel
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteDelete']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteDelete']/p")).isDisplayed());
+		//Undo
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteUndo']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteUndo']/p")).isDisplayed());
+		//Save
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteSave']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteSave']/p")).isDisplayed());
+		//Route Image
+		assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteTypeImage']/img")).isDisplayed());
+		//Close Create Custom Trail Panel
+		driver.findElement(By.xpath(obj.Close_Create_Custom_Trail_Panel)).click(); 
+		Thread.sleep (2000);
+		
+		
+	}
+	
+	
+	//MY ROUTES
+	
+	public void Verify_My_Routes() throws InterruptedException{
+	
+		//Filter - All
+		
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[1]")).isDisplayed());
+		//Walk
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[2]")).isDisplayed());
+		//Run
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[3]")).isDisplayed());
+		//Cycle
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[4]")).isDisplayed());
+		//Other
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[5]")).isDisplayed());
+		//A-Z
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[3]/div[2]")).isDisplayed());
+		//Newest first
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[3]/div[3]")).isDisplayed());
+		//My Trails
+		assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).isDisplayed());
+		driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
+		Thread.sleep(4000);
+		//My Trails - Expanded <<<<<<<<<<<<<<<<<<<<<<<<<<
+		driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
+		Thread.sleep(2000);
+		set_textBox(".//*[@id='MyRoutesSearchBox']", "Test Message");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@id='MyRoutesSearchBox']")).clear();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.Routes_Tab)).click();
+		
+		
+	
+	}
+	
+	
+	
+	//GET DIRECTIONS
+	
+	public void Verify_Get_Directions() throws InterruptedException{
+		
+		//Start:Current Location
+		assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Search_Input']")).isDisplayed());
+		System.out.println(getText(".//*[@id='Window_1_Search_Input']"));
+		//Finish: Destination
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABSearchInput1']")).isDisplayed());
+		set_textBox(".//*[@id='routeABSearchInput1']", "London");
+		Thread.sleep (2000);
+		driver.findElement(By.xpath(".//*[@id='routeABSearchResults1']/div[1]/div[1]/span")).click();
+		//Add Destination
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABAddDest']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABAddDest']")).isDisplayed());
+		//Reverse Destination
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABReverse']/img")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABReverse']")).isDisplayed());
+		//Icons
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABTypeDrive']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeABTypeWalk']")).isDisplayed());
+		//Avoid
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeOptionsMotorway']")).isDisplayed());
+		assertTrue(driver.findElement(By.xpath(".//*[@id='routeOptionsToll']")).isDisplayed());
+		//Get Route Directions
+		driver.findElement(By.xpath(".//*[@id='routeABGetBtn']")).click();
+		Thread.sleep (2000);
+		driver.findElement(By.xpath(obj.Routes_Tab)).click();
+		Thread.sleep (1000);
+	}
+	
+	// lib funtions related AB routing
+	
+	public void openABwindow() throws InterruptedException{
+		this.click(obj.Routes_Tab);
+		this.click(obj.Get_Directions);
+		this.waitForElementPresent(obj.ab_startLocation, 5);
+	}
+	
+	public void choose_toRegisternewUser() throws InterruptedException{
+		this.click(obj.register);	
+	}
+	
+	public void registernewUser() throws InterruptedException{
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions action = new Actions(driver);
+		Thread.sleep(4000);
+		driver.findElement(By.cssSelector("#register-form-name")).sendKeys("AutotestFirstName");	
+		driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
+		driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
+		WebElement conf_pwd= (WebElement)js.executeScript("return document.getElementById('register-form-password-repeat');");
+		action.moveToElement(conf_pwd).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.reg_password)).sendKeys("Test@123");
+		driver.findElement(By.xpath(obj.reg_confirmpassword)).sendKeys("Test@123");
+		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
+		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(Keys.PAGE_DOWN);
+		driver.findElement(By.xpath(obj.reg_subButton)).click();
+		Thread.sleep(5000);	
+		this.waitForElementPresent("//div[contains(@class,'dialogTitle')]", 35);
+		for (String winHandle : driver.getWindowHandles()) {
+		     driver.switchTo().window(winHandle); 
+		 }
+		if(IsElementDisplayed("//div[contains(@class,'dialogTitle')]"))
 		{
-			this.waitForElementPresent("//div[@id='carouselCheckbox']", 5);
-			this.click("//div[@id='carouselCheckbox']");
-			this.waitForElementPresent("//div[@id='closeCarousel']", 5);
-			this.click("//div[@id='closeCarousel']");
+		assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Registration complete"));
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();
+		Thread.sleep(5000);
 		}
-}
-
-public void Verify_StarRate_SidePanel(){
+		else{
+		System.out.print("Registration not completed");
+		}
 	
-	
-	assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[2]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[4]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[6]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[8]")).isDisplayed());
-	assertTrue("Failed:, Star Rating on route info rate side panel not found",driver.findElement(By.xpath(".//*[@id='routeDetailRating']/div/div[2]/div[2]/div[1]/img[9]")).isDisplayed());
-
-	
-}
-
-//MAP FEATURES
-public void Verify_Live_Map_including_weather_panel() throws InterruptedException{
-	
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[3]/div[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[15]/div/div[1]/div[3]/div[3]/div/div")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='liveMapSlider']")).isDisplayed());
-	driver.findElement(By.xpath(obj.Live_Map)).click();
-	driver.findElement(By.xpath(obj.Turn_On_Weather)).click();
-	Thread.sleep(3000);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	WebElement weather = (WebElement)js.executeScript("return document.getElementsByTagName('image').item(2)");
-	Actions action = new Actions(driver);
-	action.moveToElement(weather).click(weather).build().perform();				 
-	Thread.sleep(3000);
-	assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadInfoName']")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadMaxTemp']")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadUV']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='weatherHeadWind']/div/div")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='weatherDataTable']")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='day0Btn']")).isDisplayed());
-	driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_1)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_2)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_3)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Select_Weather_Forecast_day_4)).click();
-	Thread.sleep(1000);
-	clickLinkByXpath(".//*[@id='Window_1_Content']/div[17]/div/div[1]/div[1]");
-	Thread.sleep(1000);
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[2]/img[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[4]/div[2]/img[2]")).isDisplayed());
-	driver.findElement(By.xpath(obj.Attractions)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Adventure_Theme_Parks)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Brewery_Distillery_Vineyard)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Castles_And_Historic_Houses)).click();
-	Thread.sleep(4000);
-	
-			//	//scroll function <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< below
-	WebElement conf_poicat= (WebElement)js.executeScript("return document.getElementsByClassName('POI_Category_Child_Name').item(7);");
-	action.moveToElement(conf_poicat).perform();
-	Thread.sleep(2000);
-			
-	driver.findElement(By.xpath(obj.Countryside)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.History)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Museums)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Parks_And_Gardens)).click();
-	Thread.sleep(2000);
-	
-	WebElement conf_poicat2= (WebElement)js.executeScript("return document.getElementsByClassName('POI_Category_Child_Name').item(13);");
-	action.moveToElement(conf_poicat2).perform();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Shopping)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Tours)).click();
-	Thread.sleep(2000);
-	//Eating&Drinking
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[5]/div[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[13]/div/div[1]/div[5]/div[2]/img[2]")).isDisplayed());
-	driver.findElement(By.xpath(obj.Eating_And_Drinking)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Picnic_Site)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Pub)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Restuarant)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Coffee_Shop)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Eating_And_Drinking)).click();
-	WebElement conf_poicat3= (WebElement)js.executeScript("return document.getElementsByClassName('Basic_Btn Allow_Select sidePaneClose').item(0);");
-	action.moveToElement(conf_poicat3).perform();
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath(obj.Attractions)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Live_Map)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Close_Map_Features_Panel)).click();
-	Thread.sleep (1000);
-
-}
-
-
-
-//ROUTES
-public void Verify_all_elements_present_ROUTES() throws InterruptedException{
-	
-	assertTrue(driver.findElement(By.xpath(obj.Routes_Tab_Close_Button)).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(obj.Discover_Routes)).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(obj.Create_Custom_Trail)).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(obj.My_Routes)).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(obj.Get_Directions)).isDisplayed());
-
-
-}
-
-//DISCOVER ROUTES
-
-public void Verify_Discover_Routes() throws InterruptedException{
-	
-	Actions action = new Actions(driver);
-	 JavascriptExecutor js = (JavascriptExecutor) driver;
-	 
-	 
-	//Close
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[16]/div[1]/div[1]/div[1]")).isDisplayed());
-	//Create
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discCreateRouteBtn']")).isDisplayed());
-	//Filter Routes - ALL
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeAll']")).isDisplayed());
-	//Walk
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeWalk']")).isDisplayed());
-	//Run
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeRun']")).isDisplayed());
-	//Cycle
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeCycle']")).isDisplayed());
-	//Other
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectRouteTypeOther']")).isDisplayed());
-	//Select Distance
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectDistance']")).isDisplayed());
-	//Select Duration
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectDuration']")).isDisplayed());
-	//Sort By
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discSelectSort']")).isDisplayed());
-	//Star Rating
-	//Route Name
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]/div[1]/div[2]")).isDisplayed());
-	//Authored By
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]/div[2]/div[1]/img")).isDisplayed());
-	//Route Type Image
-	assertTrue(driver.findElement(By.cssSelector(".discoveredListPartnerImage>img")).isDisplayed());
-	//Select a Route
-	driver.findElement(By.xpath(".//*[@id='discoveredRoutesList']/div[1]")).click();
-	Thread.sleep(2000);
-	//verify Pop up box
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Content']/div[16]/div[1]/div/div")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[2]/div[1]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).isDisplayed());
-	
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[2]/div[2]")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopUpDetail']/div[1]/img")).isDisplayed());
-	//assertTrue(driver.findElement(By.xpath(".//*[@id='discPopUpDetail']/div[2]/div/div")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).isDisplayed());
-	//More details
-	assertTrue("Failed: More details link not found on route pop-up",driver.findElement(By.xpath(".//*[@id='discPopupContent']/div[5]")).getText().contains("More Details"));
-	driver.findElement(By.xpath(".//*[@id='discPopupContent']/img")).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(obj.Routes_Tab)).click();
-}
-//CREATE CUSTOM TRAIL
-
-public void Verify_Create_Custom_Trail() throws InterruptedException{
-	
-	//POI
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRoutePOIToggleImage']")).isDisplayed());
-	//Elevation Graph
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteElevDiagCanvas']")).isDisplayed());
-	//Cancel
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteDelete']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteDelete']/p")).isDisplayed());
-	//Undo
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteUndo']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteUndo']/p")).isDisplayed());
-	//Save
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteSave']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteSave']/p")).isDisplayed());
-	//Route Image
-	assertTrue(driver.findElement(By.xpath(".//*[@id='createRouteTypeImage']/img")).isDisplayed());
-	//Close Create Custom Trail Panel
-	driver.findElement(By.xpath(obj.Close_Create_Custom_Trail_Panel)).click(); 
-	Thread.sleep (2000);
-	
-	
-}
-
-
-//MY ROUTES
-
-public void Verify_My_Routes() throws InterruptedException{
-
-	//Filter - All
-	
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[1]")).isDisplayed());
-	//Walk
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[2]")).isDisplayed());
-	//Run
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[3]")).isDisplayed());
-	//Cycle
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[4]")).isDisplayed());
-	//Other
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[2]/div[5]")).isDisplayed());
-	//A-Z
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[3]/div[2]")).isDisplayed());
-	//Newest first
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteParent']/div/div[2]/div/div[3]/div[3]")).isDisplayed());
-	//My Trails
-	assertTrue(driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).isDisplayed());
-	driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
-	Thread.sleep(4000);
-	//My Trails - Expanded <<<<<<<<<<<<<<<<<<<<<<<<<<
-	driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
-	Thread.sleep(2000);
-	set_textBox(".//*[@id='MyRoutesSearchBox']", "Test Message");
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(".//*[@id='MyRoutesSearchBox']")).clear();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Routes_Tab)).click();
-	
-	
-
-}
-
-
-
-//GET DIRECTIONS
-
-public void Verify_Get_Directions() throws InterruptedException{
-	
-	//Start:Current Location
-	assertTrue(driver.findElement(By.xpath(".//*[@id='Window_1_Search_Input']")).isDisplayed());
-	System.out.println(getText(".//*[@id='Window_1_Search_Input']"));
-	//Finish: Destination
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABSearchInput1']")).isDisplayed());
-	set_textBox(".//*[@id='routeABSearchInput1']", "London");
-	Thread.sleep (2000);
-	driver.findElement(By.xpath(".//*[@id='routeABSearchResults1']/div[1]/div[1]/span")).click();
-	//Add Destination
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABAddDest']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABAddDest']")).isDisplayed());
-	//Reverse Destination
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABReverse']/img")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABReverse']")).isDisplayed());
-	//Icons
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABTypeDrive']")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeABTypeWalk']")).isDisplayed());
-	//Avoid
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeOptionsMotorway']")).isDisplayed());
-	assertTrue(driver.findElement(By.xpath(".//*[@id='routeOptionsToll']")).isDisplayed());
-	//Get Route Directions
-	driver.findElement(By.xpath(".//*[@id='routeABGetBtn']")).click();
-	Thread.sleep (2000);
-	driver.findElement(By.xpath(obj.Routes_Tab)).click();
-	Thread.sleep (1000);
-}
-
-// lib funtions related AB routing
-
-public void openABwindow() throws InterruptedException{
-	this.click(obj.Routes_Tab);
-	this.click(obj.Get_Directions);
-	this.waitForElementPresent(obj.ab_startLocation, 5);
-}
-
-public void choose_toRegisternewUser() throws InterruptedException{
-	this.click(obj.register);	
-}
-
-public void registernewUser() throws InterruptedException{
-	
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	Actions action = new Actions(driver);
-	Thread.sleep(4000);
-	driver.findElement(By.cssSelector("#register-form-name")).sendKeys("AutotestFirstName");	
-	driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
-	driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
-	WebElement conf_pwd= (WebElement)js.executeScript("return document.getElementById('register-form-password-repeat');");
-	action.moveToElement(conf_pwd).perform();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.reg_password)).sendKeys("Test@123");
-	driver.findElement(By.xpath(obj.reg_confirmpassword)).sendKeys("Test@123");
-	driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
-	driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(Keys.PAGE_DOWN);
-	driver.findElement(By.xpath(obj.reg_subButton)).click();
-	Thread.sleep(5000);	
-	this.waitForElementPresent("//div[contains(@class,'dialogTitle')]", 35);
-	for (String winHandle : driver.getWindowHandles()) {
-	     driver.switchTo().window(winHandle); 
-	 }
-	if(IsElementDisplayed("//div[contains(@class,'dialogTitle')]"))
-	{
-	assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Registration complete"));
-	Thread.sleep(3000);
-	driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();
-	Thread.sleep(5000);
 	}
-	else{
-	System.out.print("Registration not completed");
+	
+	public void registernewUser2() throws InterruptedException{
+		// this is to enter incorrect details (negative test)
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions action = new Actions(driver);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.reg_firstName)).sendKeys("AutotestFirstName");
+		driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
+		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
+		driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address_2);
+		WebElement conf_pwd= (WebElement)js.executeScript("return document.getElementById('registerFormPasswordRepeat');");
+		action.moveToElement(conf_pwd).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.reg_password)).sendKeys("Test@123");
+		driver.findElement(By.xpath(obj.reg_confirmpassword)).sendKeys("Test@123");
+		driver.findElement(By.xpath(obj.reg_subButton)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
+		driver.findElement(By.xpath(obj.reg_subButton)).click();
+		Thread.sleep(2000);
+	
 	}
-
-}
-
-public void registernewUser2() throws InterruptedException{
-	// this is to enter incorrect details (negative test)
 	
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	Actions action = new Actions(driver);
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.reg_firstName)).sendKeys("AutotestFirstName");
-	driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
-	driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
-	driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address_2);
-	WebElement conf_pwd= (WebElement)js.executeScript("return document.getElementById('registerFormPasswordRepeat');");
-	action.moveToElement(conf_pwd).perform();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.reg_password)).sendKeys("Test@123");
-	driver.findElement(By.xpath(obj.reg_confirmpassword)).sendKeys("Test@123");
-	driver.findElement(By.xpath(obj.reg_subButton)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
-	driver.findElement(By.xpath(obj.reg_subButton)).click();
-	Thread.sleep(2000);
-
-}
-
-public void subscribenewUser() throws InterruptedException{
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	Actions action = new Actions(driver);
-	Thread.sleep(2000);
-	WebElement conf_reg= (WebElement)js.executeScript("return document.getElementsByClassName('RegisterInputButton').item(0);");
-	action.moveToElement(conf_reg).perform();
-    Thread.sleep(2000);
-	driver.findElement(By.xpath(".//*[@id='Window_1_RegisterForm_Text_Upgrade']/a")).click();
-	Thread.sleep(2000);
-}
-
-//Delete a route
-public void Delete_route_from_my_routes() throws InterruptedException{
-	this.click(".//*[@id='MyRouteMy']");
-	this.click(".//*[@id='myRouteListShow']");
-	this.click(".//*[@id='myRouteList']/div/div[1]/div[4]");
-	for (String winHandle : driver.getWindowHandles()) {
-		driver.switchTo().window(winHandle); 
+	public void subscribenewUser() throws InterruptedException{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions action = new Actions(driver);
+		Thread.sleep(2000);
+		WebElement conf_reg= (WebElement)js.executeScript("return document.getElementsByClassName('RegisterInputButton').item(0);");
+		action.moveToElement(conf_reg).perform();
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath(".//*[@id='Window_1_RegisterForm_Text_Upgrade']/a")).click();
+		Thread.sleep(2000);
 	}
-	driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
-	Thread.sleep(3000);	
-	driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
-	Thread.sleep(2000);	
-}
-// Basic smoke test functions
-
-public void verify_topMenuBar(){
-	assertTrue("Failed:search text box not found",IsElementPresent(obj.searchBox));
-	assertTrue("Failed:Directions Menu not found in top bar",IsElementPresent(obj.DirectionsTab));
-	assertTrue("Failed:Routes menu not found in top bar",IsElementPresent(obj.RoutesTab));
-	assertTrue("Failed:Places menu not found in top bar",IsElementPresent(obj.mapfeatures));
 	
-}
-
-public void verify_routesMenu(){
+	//Delete a route
+	public void Delete_route_from_my_routes() throws InterruptedException{
+		this.click(".//*[@id='MyRouteMy']");
+		this.click(".//*[@id='myRouteListShow']");
+		this.click(".//*[@id='myRouteList']/div/div[1]/div[4]");
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle); 
+		}
+		driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
+		Thread.sleep(3000);	
+		driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
+		Thread.sleep(2000);	
+	}
+	// Basic smoke test functions
 	
-	assertTrue("Failed:Discover Routes options not found in routes menu",IsElementPresent(obj.Discover_Routes));
-	assertTrue("Failed:Create Custom trail not found in routes menu",IsElementPresent(obj.Create_Custom_Trail));
-	assertTrue("Failed:My Routes not found in routes menu",IsElementPresent(obj.My_Routes));
-	assertTrue("Failed:Import GPX not found in routes menu",IsElementPresent(obj.ImportGPX));
-	assertTrue("Failed:Get Directions not found in routes menu",IsElementPresent(obj.Get_Directions));
+	public void verify_topMenuBar(){
+		assertTrue("Failed:search text box not found",IsElementPresent(obj.searchBox));
+		assertTrue("Failed:Directions Menu not found in top bar",IsElementPresent(obj.DirectionsTab));
+		assertTrue("Failed:Routes menu not found in top bar",IsElementPresent(obj.RoutesTab));
+		assertTrue("Failed:Places menu not found in top bar",IsElementPresent(obj.mapfeatures));
+		
+	}
 	
-}
-
-public void verify_UserLogin(String usertype) throws InterruptedException{
-	Thread.sleep(5000);
-	assertTrue("Failed:Login was not successfull",driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).getText().contains(usertype));
-}
-
+	public void verify_routesMenu(){
+		
+		assertTrue("Failed:Discover Routes options not found in routes menu",IsElementPresent(obj.Discover_Routes));
+		assertTrue("Failed:Create Custom trail not found in routes menu",IsElementPresent(obj.Create_Custom_Trail));
+		assertTrue("Failed:My Routes not found in routes menu",IsElementPresent(obj.My_Routes));
+		assertTrue("Failed:Import GPX not found in routes menu",IsElementPresent(obj.ImportGPX));
+		assertTrue("Failed:Get Directions not found in routes menu",IsElementPresent(obj.Get_Directions));
+		
+	}
+	
+	public void verify_UserLogin(String usertype) throws InterruptedException{
+		Thread.sleep(5000);
+		assertTrue("Failed:Login was not successfull",driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).getText().contains(usertype));
+	}
+	
 /*	@Author Ravi Kunaparaju
  * 	Added this method to select  a map type from mapstack options 
  */
@@ -1445,12 +1454,12 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		
 		public void clickWayPoint() throws InterruptedException{			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
-			System.out.print(Waypoint);
-			Actions action = new Actions(driver);
-			action.moveToElement(Waypoint).click().perform();
+			WebElement Waypoint;
+			Actions action = new Actions(driver);	
+			Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			System.out.print("\n Waypoint to clicked is :"+ Waypoint);
 			try{
+				action.moveToElement(Waypoint).click().perform();
 				action.click(Waypoint).build().perform();			
 			}catch(Exception e){
 				e.printStackTrace();
@@ -1459,12 +1468,15 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		
 		public void addWayPoint(String name, String description) throws InterruptedException{			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
-			Actions action = new Actions(driver);
-			action.moveToElement(Waypoint).build().perform();
-			try{action.click(Waypoint).build().perform();}//catch(Exception e){}		
-			finally{this.waypointNameDesc(name, description);}
+			WebElement Waypoint;
+			Actions action = new Actions(driver);	
+			Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");							
+			try{
+				action.moveToElement(Waypoint).build().perform();
+				action.click(Waypoint).build().perform();
+				this.waypointNameDesc(name, description);
+				}catch(Exception e){}		
+			
 		}
 		
 		
@@ -1625,9 +1637,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		public void findRouteByScroll(String rtName) throws InterruptedException{
 			JavascriptExecutor js = (JavascriptExecutor) driver;	
 			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discoveredListName]');");
-			String title = (String) js.executeScript("return document.title;");
-			System.out.print(title + "\n");
-			for(int i=1;i<rtList.size();i++){
+			for(int i=0;i<rtList.size();i++){
 				WebElement route = (WebElement) js.executeScript("return $('div[class=discoveredListName]')["+i+"];");
 				String RouteName = route.getText().toString();				
 				if(RouteName.contains(rtName)){
@@ -1635,6 +1645,18 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					this.IsElementDisplayed(obj.rtNamePopup);
 					break;
 				}
+			}
+		}
+		
+		public void getRoutes() throws InterruptedException{
+			JavascriptExecutor js = (JavascriptExecutor) driver;	
+			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discoveredListName]');");
+			System.out.print("\n no of routes for this user :"+ rtList.size());
+			System.out.print("\n Routes created are :");
+			for(int i=0;i<rtList.size();i++){
+				WebElement route = (WebElement) js.executeScript("return $('div[class=discoveredListName]')["+i+"];");
+				String RouteName = route.getText().toString();
+				System.out.print("\n"+i+" "+ RouteName);
 			}
 		}
 		

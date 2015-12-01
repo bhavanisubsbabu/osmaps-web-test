@@ -8,7 +8,7 @@ Feature: Edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, add way points and save
 		Then route is saved with updates
-	
+	@wip
 	Scenario: User should be able to edit route by deleting way points
 
 		Given I am on getamap app
@@ -48,7 +48,7 @@ Feature: Edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, change route type other and save
 		Then route is saved with updates
-		
+	@wip	
 	Scenario: User should be able to edit route by updating waypoint name and description
 	
 		Given I am on getamap app
