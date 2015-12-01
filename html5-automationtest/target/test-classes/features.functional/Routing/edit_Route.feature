@@ -1,5 +1,5 @@
 @regression
-Feature: User should able to edit routes
+Feature: Edit routes
 @smoke
 	Scenario: User should be able to edit route by adding way points
 	
@@ -8,9 +8,9 @@ Feature: User should able to edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, add way points and save
 		Then route is saved with updates
-		
-	Scenario: User should be able to edit route by deleting way points
 	
+	Scenario: User should be able to edit route by deleting way points
+
 		Given I am on getamap app
 		When I login as registered user
 		And I navigate to my routes to select a route for editing
@@ -48,7 +48,7 @@ Feature: User should able to edit routes
 		And I navigate to my routes to select a route for editing
 		When I click on edit link, change route type other and save
 		Then route is saved with updates
-@wip		
+		
 	Scenario: User should be able to edit route by updating waypoint name and description
 	
 		Given I am on getamap app

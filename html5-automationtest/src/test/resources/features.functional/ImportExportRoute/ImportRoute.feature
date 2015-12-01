@@ -1,5 +1,5 @@
 
-Feature: A logged in user should be able to import route
+Feature: 	mport route
 
 	Scenario: user should be able to import a route
 	

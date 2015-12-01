@@ -1,5 +1,5 @@
-Feature: User should be able to Print maps and routes
-@wip@regression
+Feature: Print maps and routes
+@regression
 Scenario: A user should be able to hide and open preview window
 
 	Given I am on getamap app

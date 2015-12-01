@@ -2,15 +2,11 @@ package uk.co.ordnancesurvey.pagemodel;
 
 import static org.junit.Assert.assertTrue;
 
-import java.awt.Point;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.Assert;
-
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -18,15 +14,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.gargoylesoftware.htmlunit.javascript.host.Document;
-import com.steadystate.css.parser.Locatable;
 
 import uk.co.ordnancesurvey.stepdefs.SharedWebDriver;
 import uk.co.ordnancesurvey.stepdefs.WhenSteps;
@@ -52,7 +44,9 @@ public class Html5Page {
 		 this.driver=(WebDriver) driver;
 		 obj= new ObjectRepository();
 	 }
-	 
+	 public void waitforGlobalWaitElementDisapear(){
+		 (new WebDriverWait(driver, 20)).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.loadPreferences)));		  
+	 }
 	 public void waitForElementPresent(String xpath,long sec) throws InterruptedException{
 		  (new WebDriverWait(driver, sec)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		  Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
@@ -71,7 +65,7 @@ public class Html5Page {
 			
 		 (new WebDriverWait(driver, sec)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);	
-		 if(IsElementDisplayed(obj.busyElement)){				 	
+		 if(IsElementPresent(obj.busyElement)){				 	
 			 try {
 				 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(obj.busyElement)));
 			 	}
@@ -81,12 +75,13 @@ public class Html5Page {
 			}
 		}
 	 
+	 
 	 public void waitForElementPresentifStale(WebElement xpath){
 		 Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);			 		 		 				  		
 	 }
 
 	 public void clickElement(WebElement locator) throws InterruptedException{
-			this.waitForElementPresentifStale(locator);			
+			this.waitForElementPresentifStale(locator);
 			try{
 				Thread.sleep(2000);
 				locator.click();
@@ -94,25 +89,15 @@ public class Html5Page {
 			catch(Exception e){
 				Thread.sleep(5000);
 				locator.click();
-			}
-		
+			}			
 	 }
 
 	
 	 public void ClickAt( WebDriver driver, String selector, int x, int y)
-	 {
-	 	
-		 
+	 {	 	 
 		Object rootElement = driver.findElement(By.xpath(selector));
-
-	 	new Actions(driver)
-	 		.moveToElement((WebElement) rootElement, 0, 0)
-	 		.moveByOffset(x, y)
-	 		.click()
-	 		.build()
-	 		.perform();
-	 	
-	 	 }
+	 	new Actions(driver).moveToElement((WebElement) rootElement, 0, 0).moveByOffset(x, y).click().build().perform();	
+	 }
 	 
 	 
 	 // Open Routes top nav
@@ -131,20 +116,16 @@ public class Html5Page {
 	 
 	 public void click_discoverRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(obj.RoutesTab)).click();
+		 this.click(obj.RoutesTab);
 		 this.waitForElementPresent(obj.RoutesTab_DiscoverRoutes, 3);
-		 Thread.sleep(2000);
-		 clickLinkByXpath(obj.RoutesTab_DiscoverRoutes);
+		 this.click(obj.RoutesTab_DiscoverRoutes);
 		}
 	 
 	 public void open_myRoutes() throws InterruptedException{
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(obj.RoutesTab)).click();
-		 Thread.sleep(200);
+		 this.click(obj.RoutesTab);
 		 this.waitForElementPresent(obj.RoutesTab, 3);
-		 clickLinkByXpath(obj.My_Routes);					  
+		 this.click(obj.My_Routes);					  
 	 }
 	 
 	 public void zoomout(){
@@ -203,6 +184,7 @@ public class Html5Page {
 		 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
 		 Thread.sleep(500);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
+		 Thread.sleep(1000);
 	 }
 	 
 	 public void plot_newRoute_MapStack() throws InterruptedException{
@@ -222,8 +204,7 @@ public class Html5Page {
 		 Thread.sleep(1000);
 		 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();
 	 }
-	 
-	 
+	 	 	
 	 public void delete_route() throws InterruptedException{
 		 driver.findElement(By.xpath("//div[@id='myRouteListShow']")).click();
 		 if(IsElementDisplayed("//div[contains(@class,'discoveredListDelete Basic_Btn')]")){
@@ -251,10 +232,9 @@ public class Html5Page {
 	 public void signOUt() throws InterruptedException{
 		 Thread.sleep(3000);
 		 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 3);
-		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user']")).click();
-		 driver.findElement(By.xpath(".//*[@id='main-top-bar-user-menu']/div[@data-action='logout']")).click();
-		 Thread.sleep(2000);
-
+		 this.click(".//*[@id='main-top-bar-user']");
+		 this.click(".//*[@id='main-top-bar-user-menu']/div[@data-action='logout']");
+		 Thread.sleep(2000); 
 	 }
 	
 	 
@@ -555,12 +535,16 @@ public class Html5Page {
 	 
 	 //----- Launches application with the given url --//
 	 public void launch_app() throws InterruptedException{		
+		 if(browser.equalsIgnoreCase("ie")){
+			 driver.manage().deleteAllCookies(); 
+		 }		 
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
 		 Thread.sleep(2000);
 		 if(this.IsElementPresent(obj.InterfaceTourClose)){
 			 this.closeInterfaceTour();
 		 }
+		 
 	 }
 	 
 	 
@@ -572,14 +556,15 @@ public class Html5Page {
 	 //* Login Functions //
 	 
 	 public void open_login_window() throws InterruptedException{
-		 Thread.sleep(3000);
-		  if (IsElementDisplayed(".//*[@id='main-top-bar-sign-in']")){	
-			  this.click(".//*[@id='main-top-bar-sign-in']");
-		}
-		  else {
-			  this.signOUt();
-			  this.click(".//*[@id='main-top-bar-sign-in']");
-		  }
+		 this.waitForElementPresent(".//*[@id='main-top-bar-sign-in']", 10);
+			 try{
+				 this.click(".//*[@id='main-top-bar-sign-in']");
+			 }catch(Exception e){
+				 this.signOUt();
+				 this.click(".//*[@id='main-top-bar-sign-in']");
+			 }
+			 
+		
 	 }
 	 
 	 //Closing the Login Window Popup
@@ -598,14 +583,15 @@ public class Html5Page {
 	//Open Map Features
 	 
 		 public void open_Mapfeatures() throws InterruptedException{
-			 this.clickLinkByXpath(obj.mapfeatures); 
+			 this.waitForElementClickable(obj.mapfeatures, 20);
+			 this.click(obj.mapfeatures); 
 		 }
 	 
 	 
 	 
 	 public void verify_poi_categories_exist() throws InterruptedException{
 		 this.waitForElementPresent(obj.poi_CastlesAndAttractions, 5);
-		 assertTrue(this.IsElementDisplayed(obj.poi_CastlesAndAttractions));
+		 assertTrue(this.IsElementPresent(obj.poi_CastlesAndAttractions));
 }
 	public void set_textBox(String locator,String value) throws InterruptedException{
 		this.waitForElementPresent(locator, 10);
@@ -649,39 +635,35 @@ public class Html5Page {
 	  try
 	  {
 	   driver.findElement(By.xpath(xpath));
-
 	    return true;
 	  }
 	  catch(Exception e)
 	  {
-	 	 System.out.println("Element not found on the page");
+	 	 //System.out.println("Element not found on the page");
 	 	 return false;
 	  }
 	 }
 	 
 	 public boolean elementDoesntExists(String element){
-		 
-		if(driver.findElement(By.xpath(element)).isDisplayed()){ 
-		 return false;
+		 try{
+			 driver.findElement(By.xpath(element)).isDisplayed();
+			 return true;
+		 }
+		catch(Exception e){
+			return false;
 		}
-		return true;
 	 }
 	 
 	 public boolean IsElementDisplayed(String xpath) throws InterruptedException{
-		  boolean flag;
-		  try{
-			  driver.findElement(By.xpath(xpath)).isDisplayed();			  
+		  try{			  
+			  driver.findElement(By.xpath(xpath)).isDisplayed();	
+			  return true;
 		  }
 		  catch(NoSuchElementException e){
 			  e.getAdditionalInformation();
-			  Thread.sleep(2000);
+			  return false;
 		  }
-		  if(driver.findElement(By.xpath(xpath)).isDisplayed())
-			  flag= true; 
-		 else{
-			 flag= false;
-		 }
-		  return flag;
+		  
 	 }
 	 
 	 
@@ -700,22 +682,28 @@ public class Html5Page {
 	 }
 	 
 	 public void pinPOI() throws InterruptedException{
-		 if(this.IsElementPresent(obj.POIunpin)){
-			 unpinPOI();
-			 this.click(obj.POIMoreInfo);
-		 }
+		 try{
 		 this.waitForElementPresent(obj.POIpin,10);	
 		 this.click(obj.POIpin);
+		 }catch(Exception e){
+			 this.click(obj.POIunpin);
+			 this.click(obj.POIMoreInfo);
+		 }
+		 
 	 }
 	 
 	 public void unpinPOI() throws InterruptedException{
+		 	try{
+		 	this.waitForElementPresent(obj.POIunpin, 3);
 		 	this.click(obj.POIunpin);
+		 	}catch(Exception e){
+		 		this.click(obj.POIpin);
+		 		this.click(obj.POIunpin);
+		 	}
 	 }
 	 
 	 public void verifyPinOnMap() throws InterruptedException{
-		 this.waitForElementPresent(obj.POI, 3);
-		 this.IsElementPresent(obj.POI);
-		 
+		 this.IsElementPresent(obj.POI);		 
 	 }
 	 
 	 //filter POI by Type
@@ -733,7 +721,7 @@ public class Html5Page {
 	 
 	 public void verify_pinnedPOIexist(){
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 WebElement POI= (WebElement) js.executeScript("return document.getElementsByTagName('image').item(0)");
+		 WebElement POI= (WebElement) js.executeScript("return document.getElementsByTagName('image').item(0)");		 
 		 assertTrue("Failed POI Not found,",POI.isDisplayed());
 		 
 	 }
@@ -1143,17 +1131,13 @@ public void Verify_Get_Directions() throws InterruptedException{
 // lib funtions related AB routing
 
 public void openABwindow() throws InterruptedException{
-	Thread.sleep(5000);
-	driver.findElement(By.xpath(obj.Routes_Tab)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.Get_Directions)).click();
+	this.click(obj.Routes_Tab);
+	this.click(obj.Get_Directions);
+	this.waitForElementPresent(obj.ab_startLocation, 5);
 }
 
 public void choose_toRegisternewUser() throws InterruptedException{
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(obj.register)).click();
-	Thread.sleep(2000);
-	
+	this.click(obj.register);	
 }
 
 public void registernewUser() throws InterruptedException{
@@ -1226,21 +1210,16 @@ public void subscribenewUser() throws InterruptedException{
 
 //Delete a route
 public void Delete_route_from_my_routes() throws InterruptedException{
-driver.findElement(By.xpath(".//*[@id='MyRouteMy']")).click();
-Thread.sleep(2000);	
-driver.findElement(By.xpath(".//*[@id='myRouteListShow']")).click();
-Thread.sleep(4000);	
-driver.findElement(By.xpath(".//*[@id='myRouteList']/div/div[1]/div[4]")).click();
-Thread.sleep(2000);	
-for (String winHandle : driver.getWindowHandles()) {
-    driver.switchTo().window(winHandle); 
-}
-driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
-Thread.sleep(3000);	
-driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
-Thread.sleep(2000);	
-
-
+	this.click(".//*[@id='MyRouteMy']");
+	this.click(".//*[@id='myRouteListShow']");
+	this.click(".//*[@id='myRouteList']/div/div[1]/div[4]");
+	for (String winHandle : driver.getWindowHandles()) {
+		driver.switchTo().window(winHandle); 
+	}
+	driver.findElement(By.cssSelector(obj.delete_routeDlgButton)).click();
+	Thread.sleep(3000);	
+	driver.findElement(By.cssSelector(obj.delete_OkButton)).click();
+	Thread.sleep(2000);	
 }
 // Basic smoke test functions
 
@@ -1453,13 +1432,45 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		
 		public void deleteWaypoint() throws InterruptedException{
 			this.editrouteNav();
-			this.click(obj.delete);		
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
-			WebElement removeWaypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
-			this.clickElement(removeWaypoint);			
+			this.click(obj.delete);
+			Thread.sleep(3000);
+			this.clickWayPoint();			
 		}
 		
+		public void clickWayPoint() throws InterruptedException{			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
+			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			System.out.print(Waypoint);
+			Actions action = new Actions(driver);
+			action.moveToElement(Waypoint).click().perform();
+			try{
+				action.click(Waypoint).build().perform();			
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		public void addWayPoint(String name, String description) throws InterruptedException{			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			int waypoints = Integer.parseInt(js.executeScript("return $('image[id^=OpenLayers]').length;").toString());
+			WebElement Waypoint = (WebElement) js.executeScript("return $('image[id^=OpenLayers]')[1];");
+			Actions action = new Actions(driver);
+			action.moveToElement(Waypoint).build().perform();
+			try{action.click(Waypoint).build().perform();}//catch(Exception e){}		
+			finally{this.waypointNameDesc(name, description);}
+		}
+		
+		
+		public void waypointNameDesc(String name, String description) throws InterruptedException{
+			this.waitForElementClickable(obj.editPopup, 10);
+			this.click(obj.editPopup);
+			this.set_textBox(obj.waypointName, name);
+			this.set_textBox(obj.waypointDescription, description);
+			this.click(obj.saveWaypoint);
+		}
+		
+				
 		public void routeStyle() throws InterruptedException{
 			this.editrouteNav();
 			this.click(obj.style);
@@ -1534,6 +1545,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		}
 				
 		public void shareRouteConfirm() throws InterruptedException{
+			this.waitForElementPresent(obj.shareEmailConfirm, 20);
 			this.IsElementDisplayed(obj.shareEmailConfirm);
 			this.click(obj.ShareEmailConfirmOkButton);
 		}
@@ -1541,7 +1553,6 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 		public void shareRouteByFacebook() throws InterruptedException{
 			this.shareRouteNav();
 			this.click(obj.facebookShare);
-			Thread.sleep(10000);
 			for (String winHandle : driver.getWindowHandles()) {
 				driver.switchTo().window(winHandle);
 				String title = driver.switchTo().window(winHandle).getTitle();
@@ -1602,30 +1613,30 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			Thread.sleep(1000);
 		}
 		/*
-		 *  to create a Route with 500 way points 
+		 * Scroll route list 
 		 */
-
-		public void longRoute() throws InterruptedException{
-			int i,j;
-			Actions action = new Actions(driver);
-			 this.waitForElementPresent(obj.RoutesTab, 5);
-			 this.click(obj.RoutesTab);
-			    Thread.sleep(1000);
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();
-					 this.zoomIn();	 		 
-			 this.waitForElementPresent(obj.RoutesTab_CreateCustomRouteTrial, 5);
-			 this.click(obj.RoutesTab_CreateCustomRouteTrial);
-			 JavascriptExecutor js = (JavascriptExecutor) driver;
-			 WebElement waypoint= (WebElement) js.executeScript("return document.getElementById('g_mapController.m_currentMap.m_map.id');");  	
-			 action.moveToElement(waypoint,410,96).click(waypoint).build().perform(); 
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,205).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,300,150).click(waypoint).build().perform();
-			 Thread.sleep(500);
-			 action.moveToElement(waypoint,500,224).click(waypoint).build().perform();		 
+		@SuppressWarnings("unchecked")
+		public void findRouteByScroll(String rtName) throws InterruptedException{
+			JavascriptExecutor js = (JavascriptExecutor) driver;	
+			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discoveredListName]');");
+			String title = (String) js.executeScript("return document.title;");
+			System.out.print(title + "\n");
+			for(int i=1;i<rtList.size();i++){
+				WebElement route = (WebElement) js.executeScript("return $('div[class=discoveredListName]')["+i+"];");
+				String RouteName = route.getText().toString();				
+				if(RouteName.contains(rtName)){
+					route.click();
+					this.IsElementDisplayed(obj.rtNamePopup);
+					break;
+				}
+			}
+		}
+		
+		public void searchRoute(String rtName) throws InterruptedException{
+			this.set_textBox(obj.rtSearchbox, rtName);
+			this.hitEnterKey(obj.rtSearchbox);
+			this.waitforGlobalWaitElementDisapear();
+			this.findRouteByScroll(rtName);
 		}
 		
 		// #################################### WhiteLabel + DofE functions ####################################
@@ -1650,8 +1661,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			this.waitForElementPresent(obj.user_logged, 5);
 			assertTrue(this.IsElementDisplayed(obj.user_logged));
 		}
-		
-		
+
 		 //----- Launches application with the given url (for SingleUserMode) --//
 		 public void LaunchAppSingleUserMode() throws InterruptedException{		
 			 
@@ -1666,6 +1676,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 
 			 if(this.IsElementPresent(obj.InterfaceTourClose)){
 		    	this.closeInterfaceTour();
+
 			    }
 		 }
 			 
@@ -1682,20 +1693,11 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 					 this.zoomIn();
 					 this.zoomIn();	 		 
 					 
-//					 JavascriptExecutor js = (JavascriptExecutor) driver;
-//					 WebElement waypoint= (WebElement) js.executeScript("$('#diagramCanvas').click();");
+//	JavascriptExecutor js = (JavascriptExecutor) driver;
+//	WebElement waypoint= (WebElement) js.executeScript("$('#diagramCanvas').click();");
 					 
 					 WebElement waypoint = driver.findElement(By.xpath(".//*[@id='create-route-draw']"));
-					 
-//			 Action drawAction = action.moveToElement(waypoint,-50,120) //start points x axis and y axis. 
-//					 .click()
-//					 .moveByOffset(-100, 80) // 2nd points (x1,y1)
-//					 .click()
-//					 .moveByOffset(100, 100)// 3rd points (x2,y2)
-//					 .doubleClick()
-//					 .build();
-//			 drawAction.perform();
-			 
+
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,-50,120).click().build().perform();
 			 Thread.sleep(500);
@@ -1705,6 +1707,7 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			 Thread.sleep(500);
 			 action.moveToElement(waypoint,100,200).click().build().perform();
 			 Thread.sleep(500);
+
 		 }
 		
 //		/*
@@ -1720,5 +1723,5 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 //				  this.click(".//*[@id='main-top-bar-user']");
 //			  }
 //		 }
-		
+	
 }

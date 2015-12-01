@@ -6,8 +6,6 @@ import org.openqa.selenium.support.How;
 
 public class ObjectRepository {
 	
-		 
-	
 
 	
 	@FindBy(how = How.XPATH, using = ".//*[@id='Window_1_Btn_Mode_Route']")
@@ -54,7 +52,8 @@ public class ObjectRepository {
 	
 	// Subscriber Page Objects
 
-	
+	public final String loginUser="//*[@id='main-top-bar-user']";
+	public final String login="//*[@id='main-top-bar-sign-in']";
 	
 	// Login page objects
 
@@ -345,6 +344,8 @@ public class ObjectRepository {
 	 * Route edit side panel link
 	 */
 	public final String editSideLink="//div[@class='sidePaneAction link'][text()='Edit']";
+	public final String rtNamePopup = "//div[@class='pin-box-title']";
+	public final String rtSearchbox = "//*[@id='MyRoutesSearchBox']";
 	/*
 	 * stylying elements. 
 	 */	
@@ -368,14 +369,27 @@ public class ObjectRepository {
 	 * Interface tour
 	 */
 	public final String InterfaceTourClose = "//div[@class='bbutton-close']";
+	
+	/*
+	 * Waypoint popup
+	 */
+	
+	public final String clearPopup = "//span[@class='link save-waypoint-clear']";
+	public final String editPopup = "//span[@class='link edit-waypoint-edit']";
+	public final String closePopup = "//span[@class='remove-waypoint-edit']";
+	
+	//public final String strangeElement = "//div[@class='Basic_Style DiscoverRoute_PopUp PopUp_Dropped_Pin']";
+	
 	/*
 	 * Waypoint name and description
 	 */
+	
 	public final String selectWaypoint = "//div[@id='createRoutePointTitle0']";
 	public final String editWaypoint = "//*[@id='createRoutePointEdit0']";
-	public final String waypointName = "//*[@id='createRoutePointInputName0']";
-	public final String waypointDescription = "//*[@id='createRoutePointInputNote0']";
-	public final String saveWaypoint = "//div[@class='link'][text()='Save']";
+	public final String waypointName = "//*[@id='input-name-waypoint-edit']";
+	public final String waypointDescription = "//*[@id='input-description-waypoint-edit']";
+	public final String saveWaypoint = "//span[@class='link save-waypoint-edit'][text()='Save']";
+	public final String cancelWaypoint = "//span[@class='link cancel-waypoint-edit'][text()='Cancel']";
 	
 	/*
 	 * Share route
@@ -389,7 +403,7 @@ public class ObjectRepository {
 	public final String ShareEmailConfirmOkButton = "//div[@class='Basic_Btn dialogButton '][text()='Ok']";
 	
 	/*
-	 * 
+	 * Share facebook
 	 */
 	public final String facebookShare = "//*[@id='facebook-share-button']";
 	public final String facebookWindow = "//*[@id='homelink']";

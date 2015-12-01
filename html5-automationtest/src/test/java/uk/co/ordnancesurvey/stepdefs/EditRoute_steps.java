@@ -70,7 +70,8 @@ public class EditRoute_steps {
 	
 	@When("^I click on edit link, edit waypoint name and description and save$")
 	public void i_click_on_edit_link_edit_waypoint_name_and_description_and_save() throws Throwable {
-	    mainPage.waypointName("ravi", "automation testing");
+		mainPage.editrouteNav();
+		mainPage.addWayPoint("ravi", "automation testing");
 	    mainPage.saveRoute();
 	}
 }

@@ -1,8 +1,5 @@
 @regression
-Feature: Map features
- In order to choose and display POIs by one or more categories
-	As a getamap user 
-	I should be able to filter POI by Type
+Feature: Places and Point of Interests
 
 Scenario: Verify POI Categories displayed on POI Panel for guest user
 	Given I am on getamap app
@@ -38,7 +35,7 @@ Scenario: User should be able to view a POI
 	And from Places I select POI Castles and Attractions
 	And click on a POI and select more info
 	Then I should see a right side panel view with details
-@regression
+@regression @wip
 Scenario: User should be able to pin POI to map and see when logs back to the application
 
 	Given I am on getamap app
@@ -47,7 +44,7 @@ Scenario: User should be able to pin POI to map and see when logs back to the ap
 	And click on a POI and select more info
 	And select pin POI to map
 	Then I should see POI on map after logging into the application as registered user
-@regression
+@regression @wip
 Scenario: User should be able to unpin POI from map 
 
 	Given I am on getamap app

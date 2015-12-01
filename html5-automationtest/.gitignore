@@ -1,1 +1,13 @@
-/target/
+# Files to ignore from checking 
+
+#ignore bin folder
+/bin
+
+#ignore any thing under target folder
+/target
+
+#ignore properties files
+src/test/resources/TestConfig-ci.properties
+src/test/resources/TestConfig-dev.properties
+src/test/resources/TestConfig-ite.properties
+src/test/resources/TestConfig-dev.properties

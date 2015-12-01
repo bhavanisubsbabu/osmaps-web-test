@@ -1,5 +1,5 @@
-@regression@smoke
-Feature: Logged in user should be able to export a route
+@regression@smoke@wip
+Feature: Export a route
 
 	Scenario: A logged in user should be able to export route
 	

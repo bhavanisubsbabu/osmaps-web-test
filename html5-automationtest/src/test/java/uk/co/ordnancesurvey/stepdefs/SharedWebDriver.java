@@ -29,7 +29,6 @@ public class SharedWebDriver extends EventFiringWebDriver {
 	
 	static {
 		try {
-			// DefaultEnvironment env=new DefaultEnvironment();
 			String browser = AppProperties.get("browser");
 			String env = AppProperties.get("environment");
 			String platform= AppProperties.get("platform");
@@ -38,12 +37,10 @@ public class SharedWebDriver extends EventFiringWebDriver {
 		        capabilities.setCapability("platformVersion", "4.3");
 		        capabilities.setCapability("platformName","Android");
 		        capabilities.setCapability("context","Auto-Webview");
-		       // capabilities.setCapability("appActivity", ".ApiDemos");
 		        capabilities.setCapability("deviceName", "5ea8582c");
 		        capabilities.setCapability("app", "C:\\Users\\NKhan\\AppData\\Local\\Temp\\resigned-android-driver4184407910641574526.apk");
 		        capabilities.setCapability("browserName", "chrome");
 		        
-		        //mobdriver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		        driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			   
 			   
@@ -56,25 +53,18 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					DesiredCapabilities cap = DesiredCapabilities.firefox();
 					cap.setBrowserName("firefox");
 					cap.setPlatform(org.openqa.selenium.Platform.ANY);
-					// driver = new RemoteWebDriver(new
-					// URL("http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
 					driver = new RemoteWebDriver(new URL(
 							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 
-					// FirefoxProfile prof = new FirefoxProfile();
-					// prof.setEnableNativeEvents(true);
-					// driver = new FirefoxDriver(prof);
 					driver.manage().window().maximize();
 				} else if (browser.equalsIgnoreCase("chrome")) {
 					DesiredCapabilities cap = DesiredCapabilities.chrome();
 					cap.setBrowserName("chrome");
 					cap.setPlatform(org.openqa.selenium.Platform.WINDOWS);
 					System.out.println(System.getProperty("user.dir"));
-					// System.setProperty("webdriver.chrome.driver","c://jar//chromedriver.exe");
 					driver = new RemoteWebDriver(new URL(
-							"http://10.160.176.100:5555/wd/hub"), cap);
+							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 
-					// driver = new ChromeDriver();
 					driver.manage().window().maximize();
 
 				} else if (browser.equalsIgnoreCase("ie")) {
@@ -84,8 +74,6 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					cap.setBrowserName("ie");
 
 					cap.setPlatform(org.openqa.selenium.Platform.ANY);
-					// driver = new RemoteWebDriver(new
-					// URL("http://osvm944.ordsvy.gov.uk:4444/wd/hub"), cap);
 					driver = new RemoteWebDriver(new URL(
 							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
 					driver.manage().window().maximize();
@@ -97,11 +85,8 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					cap.setBrowserName("safari");
 					cap.setPlatform(org.openqa.selenium.Platform.WINDOWS);
 					System.out.println(System.getProperty("user.dir"));
-					// System.setProperty("webdriver.chrome.driver","c://jar//chromedriver.exe");
 					driver = new RemoteWebDriver(new URL(
 							"http://osvm944.ordsvy.gov.uk:5555/wd/hub"), cap);
-
-					// driver = new ChromeDriver();
 					driver.manage().window().maximize();
 
 				}
@@ -122,6 +107,7 @@ public class SharedWebDriver extends EventFiringWebDriver {
 					System.setProperty("webdriver.chrome.driver",
 							System.getProperty("user.dir")
 									+ "/src/test/resources/chromedriver.exe");
+					System.out.print(System.getProperty("user.dir")+"/src/test/resources/chromedriver.exe");
 					driver = new ChromeDriver();
 					driver.manage().window().maximize();
 
@@ -132,7 +118,6 @@ public class SharedWebDriver extends EventFiringWebDriver {
 							System.getProperty("user.dir")
 									+ "/src/test/resources/IEDriverServer.exe");
 					driver = new InternetExplorerDriver();
-					Thread.sleep(3000);
 					driver.manage().window().maximize();
 				}
 

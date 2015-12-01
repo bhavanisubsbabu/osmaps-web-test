@@ -1,5 +1,5 @@
 @wip@regression@smoke
-Feature: Application should auto route between way points when subscribed user create routes in National Park pathways
+Feature: DPN route
 
 	Scenario: Plot a route in national park pathways with snap enabled
 	
