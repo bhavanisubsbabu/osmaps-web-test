@@ -1,4 +1,4 @@
-@testEnabled
+
 Feature: Verify if DofE 'Route Card' for selected route is created
 
 	Scenario: Check if DofE 'Route Card' is created
@@ -14,5 +14,6 @@ Feature: Verify if DofE 'Route Card' for selected route is created
 		Given I log into OS maps as a guest/registered/subscribed user
 		When I navigate to my routes to select a route
 		And I click 'Route Card' button in top bar
-		Then I should be able to edit editable fields on 'Route Card' 
-		
+		Then I should be able to edit 'Expedition details' 
+		And I should be able to edit 'Route breakdown' table 
+		And I should be able to 'Save' route card

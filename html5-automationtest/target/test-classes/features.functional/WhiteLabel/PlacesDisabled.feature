@@ -5,7 +5,7 @@ Feature: Verify if user is NOT able to see "Places" functionality
 		Given I log into OS maps as a guest/registered/subscribed user
 		Then 'Places' should NOT be visible
 	
-	Scenario: Check whether "Places" is available NOT in left slider menu
+	Scenario: Check whether "Places" is NOT available in left slider menu
 		Given I log into OS maps as a guest/registered/subscribed user
 		When I select left slider menu
 		Then 'Places' in left burger menu should NOT be visible

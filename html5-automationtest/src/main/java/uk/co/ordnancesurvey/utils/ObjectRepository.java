@@ -488,5 +488,13 @@ public class ObjectRepository {
 		public final String topBarSearchIcon = ".//*[@id='main-top-bar-search-icon']";
 		public final String routeCardDetails = ".//*[@id='route-card-details']";
 		public final String routeCardBreakdown = ".//*[@id='route-card-new']/div/div[@class='route-card-table-wrapper']/table";
-		
+		public final String routeSaveButton = ".//*[@id='route-card-details']/div[@class='top-section']/button";
+		public final String routeEditImport = ".//*[@id='routeEditImport']";
+		public final String routeEditExport = ".//*[@id='routeEditExport']";
+		public final String exportRouteSaveMessage = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(., 'You have to save route first')]";
+		public final String editMyRoute = ".//*[@id='myRouteList']/div/div[@class='discoveredListRoute']/div[@class='discoveredListEdit link']";
+		public final String importRouteOverwriteMessage = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(., 'If you import new route then the current one is going to be overwritten')]";
+		public final String burgerPrint = ".//*[@id='BurgerPrint']";
+		public final String quickStartGuide = ".//*[@id='startGuide']";
+
 }

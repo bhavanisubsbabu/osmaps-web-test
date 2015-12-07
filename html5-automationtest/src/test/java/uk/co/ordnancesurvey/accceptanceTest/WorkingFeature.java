@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		format = {"pretty", "html:target/reports/workingset"}, 
-		features = {"src/test/resources/features.functional/WhiteLabel"},glue="uk.co.ordnancesurvey.stepdefs", tags="@testDisabled")
+		features = {"src/test/resources/features.functional/WhiteLabel"},glue="uk.co.ordnancesurvey.stepdefs", tags="@test")
 
 public class WorkingFeature {
 	
