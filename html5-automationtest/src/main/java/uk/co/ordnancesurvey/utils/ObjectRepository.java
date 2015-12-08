@@ -489,6 +489,7 @@ public class ObjectRepository {
 		public final String routeCardDetails = ".//*[@id='route-card-details']";
 		public final String routeCardBreakdown = ".//*[@id='route-card-new']/div/div[@class='route-card-table-wrapper']/table";
 		public final String routeSaveButton = ".//*[@id='route-card-details']/div[@class='top-section']/button";
+		public final String routeSaveOK = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogButtonGroup']/div";
 		public final String routeEditImport = ".//*[@id='routeEditImport']";
 		public final String routeEditExport = ".//*[@id='routeEditExport']";
 		public final String exportRouteSaveMessage = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(., 'You have to save route first')]";

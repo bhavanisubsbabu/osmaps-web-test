@@ -78,7 +78,7 @@ public class RouteCardEnabled_steps {
 		dropdown.selectByValue("3");
 		Thread.sleep(2000);
 //		Setting Speed in km		
-		mainPage.click(".//*[@id='route-card-details']/div[@class='form-section']/form/div/div[10]/label");
+		mainPage.click(".//*[@id='route-card-details']/div[@class='form-section']/form/div/div[10]/label");		// set focus on speed field
 		speedInkmInput.sendKeys(Keys.chord(Keys.CONTROL, "a"), "5", Keys.chord(Keys.ENTER));
 		Thread.sleep(2000);
 	}
@@ -114,8 +114,10 @@ public class RouteCardEnabled_steps {
 	@Then("^I should be able to 'Save' route card$")
 	public void i_should_be_able_to_Save_route_card() throws Throwable {
 		mainPage.click(obj.routeSaveButton);
-		Thread.sleep(5000);
+		// Wait for 20sec -> saving route card can take some time 
+		mainPage.waitForElementClickable((obj.routeSaveOK), 20);
 		assertTrue(mainPage.IsElementPresent(".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(.,'Saved')]")); 
+		mainPage.click(obj.routeSaveOK);
 	}
 
 }
