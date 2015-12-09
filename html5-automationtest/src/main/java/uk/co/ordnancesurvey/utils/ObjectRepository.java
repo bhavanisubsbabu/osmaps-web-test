@@ -498,5 +498,6 @@ public class ObjectRepository {
 		public final String burgerPrint = ".//*[@id='BurgerPrint']";
 		public final String quickStartGuide = ".//*[@id='startGuide']";
 		public final String burgerFeedback = ".//*[@id='BurgerInfo' and contains(., 'Feedback')]";
-	
+		public final String burgerHelpAndInformation = ".//*[@id='BurgerInfo' and contains(., 'Help and Information')]";
+		
 }
