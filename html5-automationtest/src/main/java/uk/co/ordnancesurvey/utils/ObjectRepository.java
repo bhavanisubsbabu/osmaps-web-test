@@ -497,5 +497,6 @@ public class ObjectRepository {
 		public final String importRouteOverwriteMessage = ".//*[@id='Window_1_Content']/div[@class='FullScreen']/div/div[@class='dialogText' and contains(., 'If you import new route then the current one is going to be overwritten')]";
 		public final String burgerPrint = ".//*[@id='BurgerPrint']";
 		public final String quickStartGuide = ".//*[@id='startGuide']";
-
+		public final String burgerFeedback = ".//*[@id='BurgerInfo' and contains(., 'Feedback')]";
+	
 }
