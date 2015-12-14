@@ -457,6 +457,7 @@ public class ObjectRepository {
 		public final String GetDirectionDescription="html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[contains(.,'Get Directions:')]";
 		public final String myRoutesHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[contains(.,'My Routes:')]";
 		public final String importGPXHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[contains(.,'Import GPX:')]";
+		public final String weatherHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[contains(.,'Weather:')]";
 		public final String findMyLocationButton = ".//*[@id='Window_1_CurrLocation']";
 		public final String viewRoute = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text pin-box-type']/span[1]";
 		public final String preferencesMenu = ".//*[@id='main-top-bar-user-menu']/div[@data-action='preferences']";
@@ -499,5 +500,9 @@ public class ObjectRepository {
 		public final String quickStartGuide = ".//*[@id='startGuide']";
 		public final String burgerFeedback = ".//*[@id='BurgerInfo' and contains(., 'Feedback')]";
 		public final String burgerHelpAndInformation = ".//*[@id='BurgerInfo' and contains(., 'Help and Information')]";
-		
+		public final String weatherInPOI = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[@class='sidePaneBody']/div/div[1]/div[@class='border-bottom border-top center margin-top-medium icon-panel']/div[@class='weather-icon']";
+		public final String weatherInDroppedPin = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[@class='sidePaneBody']/div/div[1]/div[4]/div[@class='weather-icon weather-icon-hide']";
+		public final String weatherInPlaces = ".//*[@id='poiContainer']/div[1]/div/div[@class='POI_Parent_Name' and contains(., 'Weather')]";
+		public final String weatherInRouteDetails = ".//*[@id='routeDetailWeather']";
+		public final String weatherPanel = ".//*[@id='weatherParent']";
 }

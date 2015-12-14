@@ -673,7 +673,9 @@ public class Html5Page {
 	  */
 	 
 	 public void viewPOI() throws InterruptedException{
+		 Thread.sleep(2000);
 		 this.click(obj.POI);
+		 Thread.sleep(2000);
 		 this.click(obj.POIMoreInfo);
 	 }
 	 
