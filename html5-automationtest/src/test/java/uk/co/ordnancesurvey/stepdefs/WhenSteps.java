@@ -490,4 +490,9 @@ public class WhenSteps {
 		mainPage.click(obj.CustomRoute_Save);
 	}
 
+	@When("^I click 'Expand' button$")
+	public void i_click_Expand_button() throws Throwable {
+		mainPage.click(obj.expand);
+	}
+	
 }

@@ -505,4 +505,11 @@ public class ObjectRepository {
 		public final String weatherInPlaces = ".//*[@id='poiContainer']/div[1]/div/div[@class='POI_Parent_Name' and contains(., 'Weather')]";
 		public final String weatherInRouteDetails = ".//*[@id='routeDetailWeather']";
 		public final String weatherPanel = ".//*[@id='weatherParent']";
+		public final String elevationButtonInRouteDetails = ".//*[@id='routeShowElevation']";
+		public final String elevationGraphInRouteDetails = ".//*[@id='route-details-elevation-model']";
+		public final String elevationGraphInCreateRoute = ".//*[@id='create-route-elevation-model']";
+		public final String elevationButtonInDirections = ".//*[@id='routeABResultsElevBtn']";
+		public final String elevationGraphInDirections = ".//*[@id='ab-route-elevation-model']";
+		public final String elevationGraphExpanded = ".//*[@id='elevation-model-big-container']";
+
 }
