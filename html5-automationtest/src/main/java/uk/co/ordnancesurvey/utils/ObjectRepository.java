@@ -474,6 +474,8 @@ public class ObjectRepository {
 		public final String placesWindow = ".//*[@id='Window_1_Content']/div[@class='SidePane']/div/div[@class='sidePaneTitle']";
 		public final String snapButton = ".//*[@id='create-route-snap']";
 		public final String snapHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[2]/div[@class='snap-help-hide']";
+		public final String gridRefHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[2]/div[contains(.,'This tool displays the OS grid reference')]";
+		public final String expandHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[2]/div[contains(.,'Expand shows you as much map as possible. Great for plotting complex routes')]";
 		public final String sortByRatingHelpDescription = "html/body/div[@class='tooltipster-base tooltipster-default tooltipster-fullscreen tooltipster-fade tooltipster-fade-show']/div[1]/div/div[1]/div[3]/span[1]";
 		public final String popupRating = ".//*[@id='Window_1_Content']/div[@class='Basic_Style DiscoverRoute_PopUp']/div/div[@class='pin-box-text']/div[@class='starCount']";
 		public final String ratingInDiscoverRoutes = ".//*[@id='discover-route-panel-routes']/div/div[1]/div[@class='discover-route-panel-item-rate']";

@@ -1,4 +1,4 @@
-@test
+@testEnabled
 Feature: Verify if user is able to see "Elevation" functionality
 
 	Scenario: Check if 'Elevation' is available in 'Route Details'

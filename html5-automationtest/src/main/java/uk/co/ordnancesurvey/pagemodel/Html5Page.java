@@ -1687,6 +1687,11 @@ public void verify_UserLogin(String usertype) throws InterruptedException{
 			return !webElement.getAttribute("class").contains("disabled");
 		}
 		
+		public boolean IsElementVisible(String xpath) throws InterruptedException{
+			WebElement webElement = driver.findElement(By.xpath(xpath));
+			return !webElement.getAttribute("class").contains("ng-hide");
+		}
+		
 		public void plot_Route() throws InterruptedException{
 			 Actions action = new Actions(driver);
 			    Thread.sleep(1000);
