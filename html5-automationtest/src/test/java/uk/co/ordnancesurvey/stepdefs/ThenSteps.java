@@ -609,6 +609,11 @@ public class ThenSteps {
 		    mainPage.clickWayPoint();
 		    mainPage.waypointNameDesc("Ravi", "Kumar");
 		}
+//Session Timeout test
 		
+		@Then("^I should be able to create route with some delay$")
+		public void i_should_be_able_to_create_route_with_some_delay() throws Throwable {
+		    mainPage.plot_newRoute_with_delay();
+		}
 }
 	

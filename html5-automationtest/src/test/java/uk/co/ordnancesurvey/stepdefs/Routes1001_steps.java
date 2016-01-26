@@ -22,6 +22,6 @@ public class Routes1001_steps {
 	
 	@Then("^I should be able to create (\\d+) routes$")
 	public void i_should_be_able_to_create_routes(int arg1) throws Throwable {
-	    mainPage.createRoutes(1001);
+	    mainPage.plot_newRoutes(250);
 	}
 }

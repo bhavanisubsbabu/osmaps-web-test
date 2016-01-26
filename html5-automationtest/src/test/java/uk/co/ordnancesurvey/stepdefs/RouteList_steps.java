@@ -33,7 +33,7 @@ public class RouteList_steps {
 	}
 	@Then("^I should be able to search to find a route$")
 	public void i_should_be_able_to_search_to_find_a_route() throws Throwable {
-	   mainPage.searchRoute("import");
+	   mainPage.searchRoute("Auto");
 	}
 
 }

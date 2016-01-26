@@ -103,8 +103,8 @@ public class ObjectRepository {
 // route popup elements
 
 	public final String routePopup = "//div[@class='Basic_Style DiscoverRoute_PopUp']";
-	public final String routeMoreInfo = "//span[@class='link'][text()='View route']";
-	public final String routeViewroute = "//span[@class='link'][text()='More info']";
+	public final String routeMoreInfo = "//span[@class='link'][text()='More info']";
+	public final String routeViewroute = "//span[@class='link view-route-pin'][text()='View route']";
 	public final String routeGetDirection = "//*[@id='directions-route-pin']";
 	public final String routeDetailsSidePanel = "//div[@class='sidePaneTitle'][text()='Route Details']";
 	public final String routeDirectionsSidePanel = "//div[@class='sidePaneTitle'][text()='Directions']";
