@@ -294,17 +294,18 @@ public class Html5Page {
 	 
 	 public void signOUt() throws InterruptedException{
 		 Thread.sleep(1000);
+		 Boolean isPresentRoutes = driver.findElement(By.xpath(obj.Routes_Tab)).isDisplayed();
 		 try{
-		 boolean isUserPresent = driver.findElement(By.xpath("//*[@id='main-top-bar-user']")).isDisplayed();
-		 if(isUserPresent){
-			 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 5);
-			 this.click(".//*[@id='main-top-bar-user']");
-			 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
-		 }
+			 
+			 if(isPresentRoutes){
+				 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 5);
+				 this.click(".//*[@id='main-top-bar-user']");
+				 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+			 }
 		 else{
 			 for(int i=0;i<=5;i++){
 				 driver.navigate().refresh();
-				 if(isUserPresent){
+				 if(isPresentRoutes){
 					 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 5);
 					 this.click(".//*[@id='main-top-bar-user']");
 					 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
@@ -699,15 +700,10 @@ public class Html5Page {
 	 //* Login Functions //
 	 
 	 public void open_login_window() throws InterruptedException{		
-		 Boolean isPresentSignIn = driver.findElement(By.xpath("//*[@id='main-top-bar-sign-in']")).isDisplayed();
-		 Boolean isPresentUser = driver.findElement(By.xpath("//*[@id='main-top-bar-user']")).isDisplayed();
+		 Boolean isPresentRoutes = driver.findElement(By.xpath(obj.Routes_Tab)).isDisplayed();
 			 try{
 				 
-				 if(isPresentSignIn){
-					 this.click(".//*[@id='main-top-bar-sign-in']");
-				 }
-				 else if(isPresentUser){
-					 this.signOUt();
+				 if(isPresentRoutes){
 					 this.click(".//*[@id='main-top-bar-sign-in']");
 				 }
 				 else{
@@ -717,7 +713,7 @@ public class Html5Page {
 				 
 			 }catch(Exception e){
 				 this.signOUt();
-				 if(isPresentSignIn){
+				 if(isPresentRoutes){
 					 this.click(".//*[@id='main-top-bar-sign-in']");
 				 }
 				 else{
