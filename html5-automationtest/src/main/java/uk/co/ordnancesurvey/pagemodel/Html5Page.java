@@ -3,7 +3,9 @@ package uk.co.ordnancesurvey.pagemodel;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+
+//Uncomment this line when running tests to add multiple routes for accounts
+//import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -356,7 +358,7 @@ public class Html5Page {
 	 }
 	 
 	 public void save_route_new(int n) throws InterruptedException{
-		 LocalDateTime ldt = LocalDateTime.now();
+		 //LocalDateTime ldt = LocalDateTime.now();
 		 Actions action = new Actions(driver);
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 if(driver.findElement(By.xpath(obj.CustomRoute_Save)).isDisplayed())		 
@@ -365,7 +367,7 @@ public class Html5Page {
 			 this.waitForElementPresent(obj.CustomRoute_RouteName, 5);
 		     driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys("Sixth Test Route " + n); 
-			 driver.findElement(By.xpath(obj.CustomRoute_RouteNotes)).sendKeys("Route created @ "+ ldt);
+			 //driver.findElement(By.xpath(obj.CustomRoute_RouteNotes)).sendKeys("Route created @ "+ ldt);
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
 			 WebElement route_save =(WebElement)js.executeScript("return document.getElementById('saveRouteBtn');");
 			 WebElement route_walk =(WebElement)js.executeScript("return document.getElementById('btn_activity_walking');");
