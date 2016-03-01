@@ -350,7 +350,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
-			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 15);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			}
 		 else{
