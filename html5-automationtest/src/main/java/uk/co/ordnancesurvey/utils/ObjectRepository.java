@@ -95,9 +95,9 @@ public class ObjectRepository {
 	
 	public final String RoutesTab_MyRoutes = "//div[text()='My Routes']";
 	public final String MyRoutes_routes = "//*[@id='myRouteListShow']";
-	public final String routeNameDiv1 = "//div[@class='discoveredListName']";
-	public final String routeEdit = "//div[@class='discoveredListEdit link']";
-	public final String routeDelete = "//div[@class='discoveredListDelete link']";
+	public final String routeNameDiv1 = "//div[@class='discover-route-panel-item-title']";
+	public final String routeEdit = "//div[@class='discover-route-panel-item-action link edit']";
+	public final String routeDelete = "//div[@class='discover-route-panel-item-action link delete']";
 	
 	public final String busyElement="//div[@class='common-box-busy']";
 // route popup elements

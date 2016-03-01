@@ -10,7 +10,9 @@ Feature: Get no of routes and all route Names
 		
 	Examples:
 		|user|pwd|
-		|vd@example.com|123456|
+		|deltapack@sub.com|123456|
+		|deltapack@reg.com|123456|
+		|nasirkhantestite@example.com|123456|
 	
 	Scenario: Get no of routes and all route names for Subscribed user 
 

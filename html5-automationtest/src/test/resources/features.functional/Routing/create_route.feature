@@ -11,7 +11,6 @@ When I login as registered user
 Then I should be able to create route
 And  Save the route.
 
-
 Scenario: Create Route and Save as Subscriber 
 Given I am on getamap app
 When I login as subscriber user

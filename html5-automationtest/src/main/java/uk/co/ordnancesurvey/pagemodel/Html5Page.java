@@ -350,6 +350,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			}
 		 else{
@@ -379,6 +380,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			}
 		 else{
@@ -411,7 +413,8 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
-			 this.close_routecreateDialog();	
+			 this.close_routecreateDialog();
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			}
 		 else{
@@ -446,6 +449,7 @@ public class Html5Page {
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 Thread.sleep(3000);
 			 this.close_routecreateDialog();
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			  this.signOUt();
 		 }
@@ -496,6 +500,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			 this.signOUt();
 		 }
@@ -528,6 +533,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			 this.signOUt();
 		 }
@@ -562,7 +568,8 @@ public class Html5Page {
 				 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 				 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 				 action.moveToElement(route_save,0,900).click(route_save).build().perform();
-				 this.close_routecreateDialog();	
+				 this.close_routecreateDialog();
+				 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
 				 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 				 this.signOUt();
 			 }
@@ -769,7 +776,7 @@ public class Html5Page {
 	}
 	
 		public void click(String locator) throws InterruptedException{
-			this.waitForElementClickable(locator, 5);			
+			this.waitForElementClickable(locator, 10);			
 				try{
 					this.driver.findElement(By.xpath(locator)).click();
 				}
@@ -1304,7 +1311,7 @@ public class Html5Page {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions action = new Actions(driver);
-		//Thread.sleep(4000);
+		this.waitForElementPresent(obj.reg_lastName, 5);
 		driver.findElement(By.cssSelector("#register-form-name")).sendKeys("AutotestFirstName");	
 		driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
 		driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
@@ -1406,8 +1413,8 @@ public class Html5Page {
 	public void Delete_route_from_my_routes() throws InterruptedException{
 		this.click(".//*[@id='MyRouteMy']");
 		this.click(".//*[@id='myRouteListShow']");
-		this.waitForElementPresent(".//*[@id='myRouteList']/div/div[1]/div[4]", 30);
-		this.click(".//*[@id='myRouteList']/div/div[1]/div[4]");
+		this.waitForElementPresent(obj.routeDelete, 30);
+		this.click(obj.routeDelete);
 		for (String winHandle : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandle); 
 		}
@@ -1549,6 +1556,7 @@ public class Html5Page {
 			this.click(obj.Routes_Tab);			
 			this.click(obj.RoutesTab_MyRoutes);			
 			this.click(obj.MyRoutes_routes);			
+			//Thread.sleep(30000);
 			this.waitForElementPresent(obj.routeNameDiv1, 60);
 		}
 		
@@ -1587,7 +1595,7 @@ public class Html5Page {
  */
 		
 		public void editrouteNav() throws InterruptedException{
-			this.waitForElementClickable(obj.routeEdit, 5);
+			this.waitForElementClickable(obj.routeEdit, 20);
 			this.click(obj.routeEdit);
 			if(this.IsElementPresent(obj.editSideLink)){
 				System.out.print("found edit link");
@@ -1862,11 +1870,11 @@ public class Html5Page {
 		
 		public void getRoutes() throws InterruptedException{
 			JavascriptExecutor js = (JavascriptExecutor) driver;	
-			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discoveredListName]');");
+			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discover-route-panel-item-title]');");
 			System.out.print("\n no of routes for this user :"+ rtList.size());
 			System.out.print("\n Routes created are :");
 			for(int i=0;i<rtList.size();i++){
-				WebElement route = (WebElement) js.executeScript("return $('div[class=discoveredListName]')["+i+"];");
+				WebElement route = (WebElement) js.executeScript("return $('div[class=discover-route-panel-item-title]')["+i+"];");
 				String RouteName = route.getText().toString();
 				System.out.print("\n"+i+" "+ RouteName);
 			}
