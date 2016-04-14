@@ -484,12 +484,9 @@ public class ThenSteps {
 					
 						
 		@Then("^I should be given an option to upgrade to a Registered user by completing the registration process within the application$")
-		public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {
-			
+		public void i_should_be_given_an_option_to_upgrade_to_a_Registered_user_by_completing_the_registration_process_within_the_application() throws Throwable {			
 			mainPage.registernewUser();
-			Thread.sleep(2000);
-
-						
+			mainPage.registrationSuccess();						
 		}
 						
 		@Then("^I should be able to register by completing the registration process within the application$")

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -380,7 +381,7 @@ public class Html5Page {
 			 action.moveToElement(route_save).sendKeys(Keys.ARROW_DOWN);
 			 action.moveToElement(route_save,0,900).click(route_save).build().perform();
 			 this.close_routecreateDialog();	
-			 this.waitForElementClickable(".//*[@id='routeDetailName']", 5);
+			 this.waitForElementClickable(".//*[@id='routeDetailName']", 15);
 			 assertTrue("Failedroute not created at all",IsElementPresent(".//*[@id='routeDetailName']"));
 			}
 		 else{
@@ -822,7 +823,8 @@ public class Html5Page {
 	 }
 	 
 	 public boolean IsElementDisplayed(String xpath) throws InterruptedException{
-		  try{			  
+		  try{
+			  Thread.sleep(1000);
 			  driver.findElement(By.xpath(xpath)).isDisplayed();	
 			  return true;
 		  }
@@ -1323,7 +1325,9 @@ public class Html5Page {
 		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
 		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(Keys.PAGE_DOWN);
 		driver.findElement(By.xpath(obj.reg_subButton)).click();
-		//Thread.sleep(5000);	
+	}
+	
+	public void registrationSuccess() throws InterruptedException{
 		this.waitForElementPresent("//div[contains(@class,'dialogTitle')]", 35);
 		for (String winHandle : driver.getWindowHandles()) {
 		     driver.switchTo().window(winHandle); 
@@ -1331,20 +1335,16 @@ public class Html5Page {
 		if(IsElementDisplayed("//div[contains(@class,'dialogTitle')]"))
 		{
 		assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Registration complete"));
-		Thread.sleep(3000);
 		driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();
-		Thread.sleep(5000);
 		}
 		else{
 		System.out.print("Registration not completed");
 		}
-	
 	}
-	
 	
 	public void multiUserRegistration(String fn, String ln, String email) throws InterruptedException{
 		//String mail = System.currentTimeMillis()+"@example.com";
-		String mail = "@example.com";
+		String mail = "@os.com";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions action = new Actions(driver);
 		this.waitForElementPresent(obj.reg_lastName, 5);
@@ -1358,18 +1358,7 @@ public class Html5Page {
 		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(fn);
 		driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(Keys.PAGE_DOWN);
 		driver.findElement(By.xpath(obj.reg_subButton)).click();
-		this.waitForElementPresent("//div[contains(@class,'dialogTitle')]", 60);
-		for (String winHandle : driver.getWindowHandles()) {
-		     driver.switchTo().window(winHandle); 
-		 }
-		if(IsElementDisplayed("//div[contains(@class,'dialogTitle')]"))
-		{
-		assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Registration complete"));
-		driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();		
-		}
-		else{
-		System.out.print("Registration not completed");
-		}
+		this.registrationSuccess();
 	}
 	
 	
@@ -1769,7 +1758,7 @@ public class Html5Page {
 		 */
 				
 		public void shareRouteNav() throws InterruptedException{
-			this.click(obj.shareRoute);
+			this.click(obj.shareRoute);			
 		}
 
 		public void shareRouteByEmail(String emailaddr) throws InterruptedException{
@@ -1778,6 +1767,7 @@ public class Html5Page {
 			this.set_textBox(obj.shareEmailAddr, emailaddr);
 			this.click(obj.shareEmailSend);
 		}
+		
 		public void shareRouteEmailText(String text) throws InterruptedException{
 			this.set_textBox(obj.shareEmailMessage, text);
 		}
@@ -1880,10 +1870,111 @@ public class Html5Page {
 			}
 		}
 		
+		public void deleteRoutes() throws InterruptedException{
+			JavascriptExecutor js = (JavascriptExecutor) driver;	
+			List<WebElement> rtList = (List<WebElement>) js.executeScript("return $('div[class=discover-route-panel-item-title]');");
+			System.out.print("\n no of routes for this user :"+ rtList.size());
+			System.out.print("\n Routes created are :");
+			for(int i=0;i<rtList.size();i++){
+				this.click(obj.routeDelete);
+				this.waitForElementPresent(obj.routeDeleteConfirm, 5);
+				this.click(obj.routeDeleteConfirm);
+				this.waitForElementPresent(obj.routeDeleteConfirmOk, 15);
+				this.click(obj.routeDeleteConfirmOk);
+			}	
+		}
+		
 		public void searchRoute(String rtName) throws InterruptedException{
 			this.set_textBox(obj.rtSearchbox, rtName);
 			this.hitEnterKey(obj.rtSearchbox);
 			this.waitforGlobalWaitElementDisapear();
 			this.findRouteByScroll(rtName);
+		}
+		
+/*
+ * Authored routes access for guest, registered and subscribed users		
+ */
+		public void navToDiscoverRoutes() throws InterruptedException{
+			this.zoomIn(8);
+			this.click(obj.Routes_Tab);
+			this.click(obj.RoutesTab_DiscoverRoutes);
+		}
+		
+		public void searchAuthoredRoute() throws InterruptedException{
+			this.searchMap("SC 21192 68015");
+			this.click(obj.removeDroppedPin);
+			this.click(obj.maplocator);			
+		}
+		public void clickAuthoredRoute() throws InterruptedException{
+			this.click(obj.viewRoute);
+		}
+		public void assertUpsellScreen() throws InterruptedException{
+			assertTrue(this.IsElementDisplayed(obj.upsellText));
+		}
+		public void assertAuthoredRoute() throws InterruptedException{
+			assertTrue(this.IsElementDisplayed(obj.authoredRtText));
+		}
+		
+/*
+ * Subscription 		
+ */		
+		public void submitDiscountCoupon() throws InterruptedException{
+			this.waitForElementPresent(obj.discountCode, 60);
+			this.set_textBox(obj.discountCode, "gamrr");
+			this.hitEnterKey(obj.discountCode);
+			this.waitForElementPresent(obj.priceAfterDiscount, 20);
+		}
+		
+		public void addressDetails() throws InterruptedException{
+			this.set_textBox(obj.zipcode, "SO160AS");
+			this.click(obj.submitZip);
+			this.click(obj.address);
+			this.alertPopup();
+			this.click(obj.saveStep1);
+		}
+		
+		public void ccDeatils() throws InterruptedException{
+			this.click(obj.step2);
+		}
+		public void orderReview() throws InterruptedException{
+			this.click(obj.acceptTerms);
+			this.click(obj.step3);
+		}
+		public void alertPopup() throws InterruptedException{
+			try{
+				   WebDriverWait wait = new WebDriverWait(driver, 10);
+				   Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+				   alert.accept();				  
+				}catch(Throwable e){
+				   System.err.println("Error came while waiting for the alert popup. "+e.getMessage());
+				}
+		}
+		
+		public void Subscription() throws InterruptedException{
+			this.submitDiscountCoupon();
+			this.addressDetails();
+			this.ccDeatils();
+			this.orderReview();
+		}
+		
+		public void assertSubSuccess() throws InterruptedException{
+			this.waitForElementPresent(obj.subSuccess, 25);
+			assertTrue(this.IsElementDisplayed(obj.subSuccess));
+		}
+		
+		public void assertCancelSub() throws InterruptedException{
+			this.waitForElementPresent(obj.Routes_Tab, 25);
+			assertTrue(this.IsElementDisplayed(obj.Routes_Tab));
+		}
+		
+		public void upgradeRegisteredUser() throws InterruptedException{
+			this.waitForElementPresent(obj.loginUser, 30);
+			this.click(obj.loginUser);
+			this.click(obj.regUserUpgrade);
+		}
+		
+		public void navRegistration() throws InterruptedException{
+			this.open_login_window();
+			this.click(obj.registerFree);
 		}
 }

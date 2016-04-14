@@ -35,7 +35,7 @@ public class RoutesForUsers_steps {
 
 	@Then("^I should create (\\d+) routes$")
 	public void i_should_create_routes(int arg1) throws Throwable {
-	    mainPage.plot_newRoutes(250);
+	    mainPage.plot_newRoutes(arg1);
 	}
 
 }

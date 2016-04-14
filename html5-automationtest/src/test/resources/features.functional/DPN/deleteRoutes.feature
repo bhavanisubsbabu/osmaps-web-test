@@ -1,16 +1,15 @@
+Feature: Delete route for all users
 
-Feature: Get no of routes and all route Names
-@wip
 	Scenario Outline: Get no of routes and all route names for registered user 
 
 		Given I am on getamap app
 		When I login as "<user>" and "<pwd>"
 		And I navigate to my routes
-		Then I should be get all routes 
+		Then I should delete all routes 
 		
-	Examples:
+		Examples:
 		|user|pwd|
-		|mf@example.com|123456|
-		|sp@example.com|123456|
-		|cb@example.com|123456|		
-		 
+		|jd@example.com|123456|
+		|ld@example.com|123456|	
+		|ss@example.com|123456|	
+		|sc@example.com|123456|		

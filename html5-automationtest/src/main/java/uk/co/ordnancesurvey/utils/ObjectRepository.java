@@ -96,9 +96,12 @@ public class ObjectRepository {
 	public final String RoutesTab_MyRoutes = "//div[text()='My Routes']";
 	public final String MyRoutes_routes = "//*[@id='myRouteListShow']";
 	public final String routeNameDiv1 = "//div[@class='discover-route-panel-item-title']";
+	//public final String routeNameDiv1 = "//div[@class='discoveredListName']";
 	public final String routeEdit = "//div[@class='discover-route-panel-item-action link edit']";
 	public final String routeDelete = "//div[@class='discover-route-panel-item-action link delete']";
 	
+	public final String routeDeleteConfirm = "//div[@class='Basic_Btn dialogButton '][text()='Delete']";
+	public final String routeDeleteConfirmOk = "//div[@class='Basic_Btn dialogButton '][text()='Ok']";
 	public final String busyElement="//div[@class='common-box-busy']";
 // route popup elements
 
@@ -398,6 +401,8 @@ public class ObjectRepository {
 	/*
 	 * Share route
 	 */
+	public final String shareWarning = "//div[class='dialogBody']";
+	public final String shareWarningOk = "//div[class='Basic_Btn dialogButton '][text()='Ok']";
 	public final String shareRoute = "//div[@id='routeDetailShare']";
 	public final String shareEmailButton = "//div[@id='email-share-button']";
 	public final String shareEmailAddr = "//*[@id='shared-email-to']";
@@ -431,9 +436,52 @@ public class ObjectRepository {
 	public final String importSave = "//div[@id='import-route-form-save']";
 	public final String confirmImportSuccess = "//span[@class='header'][text()='Success.']";
 	public final String editImportRouteButton = "//*[@id='route-import-edit-route-details-button']";
+	
 	/*
 	 * Export route
 	 */
 	public final String exportGPX = "//*[@id='routeDetailExportRoute']";
+	
+	/*
+	 * Authored routes
+	 */
+	public final String removeDroppedPin = "//span[@id='remove-dropped-pin']";
+	public final String maplocator = "//*[contains(@id,'OpenLayers_Geometry_Point_')]";
+	public final String authoredText = "//div[@class='pin-box-text'][@text='Country Walking Magazine']";
+	public final String viewRoute = "//span[@class='link view-route-pin'][text()='View route']";
+	/*
+	 * upsell screen
+	 */
+	public final String upsellText = "//div[@class='title2 margin-bottom-medium margin-top-medium'][text()='Unlock OS Maps with a Premium subscription']";
+	public final String upsellRegistrationFree = "//div[@class='button center margin-top-small users-only-register']";
+	public final String upsellRegistrationSub = "//div[@class='button center margin-top-small users-only-subscription']";
+	public final String authoredRtText = "//div[contains(text(),'Country Walking Magazine')]";
+	
+	/*
+	 * Subscription related objects 
+	 */
+	public final String registerFree = "//div[@class='button-white center login-form-register-button margin-top-medium']";
+	public final String registerPremium = "//div[@class='button-white center login-form-register-premium-button margin-top-small']";
+	public final String premiumMonth = "//div[@data-id='gam-sub-1']";
+	public final String premium3Months = "//div[@data-id='gam-sub-3']";
+	public final String premiumYear = "//div[@data-id='gam-sub ']";
+	
+	public final String discountCode = "//input[@name='coupon_code']";
+	public final String priceAfterDiscount = "//span[text()='£0.00']";
+	public final String codeSubmit = "//input[@class='button-secondary']";
+	
+	public final String zipcode = "//input[@id='billing:postcode']";
+	public final String submitZip = "//button[@id='meanbee:billing_address_find']";
+	public final String address = "//a[@onclick='meanbee_postcode_billing.fillFields(52126562.00); return false;']";
+	
+	public final String saveStep1 = "//button[@title='Next step']";
+	public final String step2 = "//button[@class='button']";
+	public final String acceptTerms = "//input[@id='agreement-1']";
+	public final String step3 = "//button[@class='default-button-blue btn-checkout']";
+	public final String subSuccess = "//*[contains(text(),'You are subscribed')]";
+	public final String cancelSub = "//a[text()='Cancel purchase and return to OS Maps']";
+	
+	
+	public final String regUserUpgrade = "//div[@id='user-menu-action-upgrade']";
 	
 }

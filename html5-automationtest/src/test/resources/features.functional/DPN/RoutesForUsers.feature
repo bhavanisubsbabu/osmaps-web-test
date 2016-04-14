@@ -4,11 +4,11 @@ Feature: Create 100s of routes for users
 	
 		Given I am on getamap app
 		When I login as "<user>" and "<pwd>"
-		Then I should create 100 routes
+		Then I should create 10 routes
 		
 	Examples:
 		|user|pwd|
-		|deltapack@sub.com|123456|
-		|deltapack@reg.com|123456|
+		|vd@example.com|123456|
+		|gc@reg.com|123456|
 		
 		
