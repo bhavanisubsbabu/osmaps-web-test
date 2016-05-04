@@ -15,7 +15,7 @@ Setup:
 1. Checkout latest code from stash git clone http://yourusername@stash.ordsvy.gov.uk/scm/omw/osmaps-web-test.git
 2. Launch Eclipse
 3. click on File -> Import
-5. Select Maven -> Existing Maven Projects and click on Next button
+4. Select Maven -> Existing Maven Projects and click on Next button
 5. Click on Browse and navigate to git directory and select "OSMaps Web App" -> "html5-automationtest" folder
 6. Select pom.xml and click on finish button.
 
