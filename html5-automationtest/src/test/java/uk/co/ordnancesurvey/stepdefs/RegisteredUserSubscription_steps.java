@@ -26,7 +26,7 @@ public class RegisteredUserSubscription_steps {
 	public void i_registered_a_user() throws Throwable {
 		mainPage.navRegistration();
 	    mainPage.registernewUser();
-	   // mainPage.registrationSuccess();
+	    mainPage.registrationSuccess();
 	}
 	
 	@When("^selected upgrade from menu$")

@@ -40,7 +40,7 @@ public class GuestUserSubscription_steps {
 
 	@When("^complete registration process$")
 	public void complete_registration_process() throws Throwable {
-	    mainPage.registernewUser();
+	    mainPage.subscriptionRegisternewUser();	    
 	}
 
 	@When("^complete subscription process$")

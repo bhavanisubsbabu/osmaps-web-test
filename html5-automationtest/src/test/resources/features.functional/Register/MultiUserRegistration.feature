@@ -8,23 +8,12 @@ Scenario Outline: Application should allow to create multiple users
 	   
 Examples:
 |First Name|Last Name|email address|
-|George|Clooney|gc|
-|Josh|Brolin|jb|
-|Colin|Farrell|cf|
-|Robert|Downey Jr|rdj|
-|Christoph|Waltz|cw|
-|Sam|Rockwell|sr|
-|Michael|Shannon|ms|
-|Jamie|Foxx|jf|
-|Hugh|Jackman|hj|
-|Vin|Diesel|vd|
-|Russell|Crowe|rc|
-|Brad|Pitt|bd|
-|Kevin|Spacey|ks|
-|Michael|Fassbender|mf|
-|Sean|Penn|sp|
-|Christian|Bale|cb|
-|Johnny|Depp|jd|
-|Leonardo|DiCaprio|ld|
-|sylvester|stallone|ss|
-|Sean|Connery|sc|
+|free|trail|freetrail22|
+|free|trail|freetrail23|
+|free|trail|freetrail24|
+|free|trail|freetrail25|
+|free|trail|freetrail26|
+|free|trail|freetrail27|
+|free|trail|freetrail28|
+|free|trail|freetrail29|
+|free|trail|freetrail30|

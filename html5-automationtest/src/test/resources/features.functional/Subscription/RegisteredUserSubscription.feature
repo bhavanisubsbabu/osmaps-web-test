@@ -1,4 +1,3 @@
-@regression
 Feature: Registered user should be able to upgrade as subscriber
 
 

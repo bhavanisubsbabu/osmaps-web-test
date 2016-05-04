@@ -485,7 +485,7 @@ public class Html5Page {
 			 
 		 {
 			 this.click(obj.CustomRoute_Save); 
-			 Thread.sleep(1500);
+			 this.waitForElementPresent(obj.CustomRoute_RouteName, 10);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); 
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -518,7 +518,7 @@ public class Html5Page {
 			 
 		 {
 			 this.click(obj.CustomRoute_Save); 
-			 Thread.sleep(1500);
+			 this.waitForElementPresent(obj.CustomRoute_RouteName, 10);
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 			 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name);
 			 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -551,7 +551,7 @@ public class Html5Page {
 				 
 			 {
 				 this.click(obj.CustomRoute_Save); 
-				 Thread.sleep(1500);
+				 this.waitForElementPresent(obj.CustomRoute_RouteName, 10);
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).clear();
 				 driver.findElement(By.xpath(obj.CustomRoute_RouteName)).sendKeys(route_name); 
 				 this.waitForElementPresent(obj.CustomerRoute_RadioBtn_View_Everyone, 10);
@@ -1334,7 +1334,7 @@ public class Html5Page {
 		 }
 		if(IsElementDisplayed("//div[contains(@class,'dialogTitle')]"))
 		{
-		assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Registration complete"));
+		assertTrue("Failed: User registration was not successfull,check manually",driver.findElement(By.xpath("//div[contains(@class,'dialogTitle')]")).getText().contains("Congratulations!"));
 		driver.findElement(By.cssSelector(".Basic_Btn.dialogButton")).click();
 		}
 		else{
@@ -1918,6 +1918,24 @@ public class Html5Page {
 /*
  * Subscription 		
  */		
+		public void subscriptionRegisternewUser() throws InterruptedException{
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			Actions action = new Actions(driver);
+			this.waitForElementPresent(obj.reg_lastName, 5);
+			driver.findElement(By.cssSelector("#register-form-name")).sendKeys("AutotestFirstName");	
+			driver.findElement(By.xpath(obj.reg_lastName)).sendKeys("AutotestLastName");
+			driver.findElement(By.xpath(obj.reg_emailAddress)).sendKeys(email_address);
+			WebElement conf_pwd= (WebElement)js.executeScript("return document.getElementById('register-form-password-repeat');");
+			action.moveToElement(conf_pwd).perform();
+			//Thread.sleep(2000);
+			driver.findElement(By.xpath(obj.reg_password)).sendKeys("Test@123");
+			driver.findElement(By.xpath(obj.reg_confirmpassword)).sendKeys("Test@123");
+			driver.findElement(By.xpath(obj.reg_nickName)).sendKeys("TestNickname");
+			driver.findElement(By.xpath(obj.reg_nickName)).sendKeys(Keys.PAGE_DOWN);
+			driver.findElement(By.xpath(obj.reg_subButton)).click();
+		}
+		
 		public void submitDiscountCoupon() throws InterruptedException{
 			this.waitForElementPresent(obj.discountCode, 60);
 			this.set_textBox(obj.discountCode, "gamrr");
