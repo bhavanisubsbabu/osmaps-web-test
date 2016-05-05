@@ -11,25 +11,25 @@
 2.  Click on ITE server.
 
  
-![](/images/select_env.png)
+![](/html5-automationtest/images/select_env.png)
  
 
 3.	Click on the ite-branch
  	
 
-![](/images/select_branch.jpg)
+![](/html5-automationtest/images/select_branch.jpg)
  
  
 4.	Click on “Build with Parameters” link.	
  
 
-![](/images/Select_parameters.jpg)
+![](/html5-automationtest/images/Select_parameters.jpg)
 
 
 5.	Select master branch and click on build.
 
 
-![](/images/Select_Git_branch_build.jpg)
+![](/html5-automationtest/images/Select_Git_branch_build.jpg)
 
 
 
