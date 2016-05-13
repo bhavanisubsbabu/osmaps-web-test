@@ -303,7 +303,8 @@ public class Html5Page {
 			 if(isPresentRoutes){
 				 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 5);
 				 this.click(".//*[@id='main-top-bar-user']");
-				 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+				 //this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+				 this.click(".//*[@id='main-top-bar-user-menu']/div[4]");
 			 }
 		 else{
 			 for(int i=0;i<=5;i++){
@@ -311,7 +312,8 @@ public class Html5Page {
 				 if(isPresentRoutes){
 					 this.waitForElementPresent(".//*[@id='main-top-bar-user']", 5);
 					 this.click(".//*[@id='main-top-bar-user']");
-					 this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+					 //this.click(".//*[@id='main-top-bar-user-menu']/div[5]");
+					 this.click(".//*[@id='main-top-bar-user-menu']/div[4]");
 					 break;
 				 }
 			 }
