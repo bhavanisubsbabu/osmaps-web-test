@@ -1903,7 +1903,7 @@ public class Html5Page {
 		}
 		
 		public void searchAuthoredRoute() throws InterruptedException{
-			this.searchMap("SC 21192 68015");
+			this.searchMap("SC 20942 67935");
 			this.click(obj.removeDroppedPin);
 			this.click(obj.maplocator);			
 		}
