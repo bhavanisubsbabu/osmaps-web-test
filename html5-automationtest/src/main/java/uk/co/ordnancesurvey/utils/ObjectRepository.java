@@ -117,7 +117,7 @@ public class ObjectRepository {
 	
 // Elements for the Routes Tab -Create CustomRoute Trail
 	
-	public final String RoutesTab_CreateCustomRouteTrial = ".//*[@id='MyRouteCreate']";
+	public final String RoutesTab_CreateCustomRouteTrial = "//*[@id='MyRoutePanel']/div[2]";
 
 // Updated save to click on tool bar save 	
 
@@ -139,7 +139,7 @@ public class ObjectRepository {
 	public final String delete_routeDlgButton=".Basic_Btn.dialogButton";
     public final String delete_OkButton=".Basic_Btn.dialogButton";
 	// Elements for Routes Tab Discover Route:
-	public final String RoutesTab_DiscoverRoutes = ".//*[@id='MyRouteDiscover']";
+	public final String RoutesTab_DiscoverRoutes = "//*[@id='MyRoutePanel']/div[1]";
 	
 	// Directions Tab
 	
@@ -257,9 +257,9 @@ public class ObjectRepository {
 	//Discover Routes
 	public final String Discover_Routes = ".//*[@id='MyRouteDiscover']";
 	//Create Custom Trail
-	public final String Create_Custom_Trail = ".//*[@id='MyRouteCreate']";
+	public final String Create_Custom_Trail = "//*[@id='MyRoutePanel']/div[2]";
 	//My Routes
-	public final String My_Routes = ".//*[@id='MyRouteMy']";
+	public final String My_Routes = "//*[@id='MyRoutePanel']/div[3]";
 	/*
 	 * @Author Ravi Kunaparaju
 	 * Adding element Directions to fix ABDirections test failures
@@ -270,11 +270,11 @@ public class ObjectRepository {
 	public final String Directions = ".//*[@id='main-top-bar-directions']";
 	
 	//Get Directions
-	public final String Get_Directions = ".//*[@id='MyRouteAB']";//*[@id="main-top-bar-directions"];
+	public final String Get_Directions = "//*[@id='MyRoutePanel']/div[5]";
 	//directions results for to field
 	public final String dirLocSearch="//div[@class='GazTown']";
 	//Import GPX 	
-	public final String ImportGPX=".//*[@id='MyRouteImport']";
+	public final String ImportGPX="//*[@id='MyRoutePanel']/div[4]";
 	
 	//Close Discover Routes Panel
 	public final String Close_Discover_Routes_Panel = ".//*[@id='Window_1_Content']/div[15]/div[1]/div[1]/div[1]";
