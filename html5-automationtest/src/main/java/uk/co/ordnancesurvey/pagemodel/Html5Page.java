@@ -1402,7 +1402,7 @@ public class Html5Page {
 	
 	//Delete a route
 	public void Delete_route_from_my_routes() throws InterruptedException{
-		this.click(".//*[@id='MyRouteMy']");
+		this.click("//*[@id='MyRoutePanel']/div[3]");
 		this.click(".//*[@id='myRouteListShow']");
 		this.waitForElementPresent(obj.routeDelete, 30);
 		this.click(obj.routeDelete);
