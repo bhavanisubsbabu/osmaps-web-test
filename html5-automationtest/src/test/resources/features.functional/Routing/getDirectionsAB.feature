@@ -12,7 +12,6 @@ Scenario: Guest user should be able to do A-B Car routing
 	And I open A-B Routing window
 	And I enter start location
 	And I enter finish location
-	And I select car icon
 	And I click on GetDirections button
 	Then I should be able to see A-B car directions
 	
@@ -23,7 +22,6 @@ Scenario: Registered user should be able to do A-B car routing
 	And I open A-B Routing window
 	And I enter start location
 	And I enter finish location
-	And I select car icon
 	And I click on GetDirections button	
 	Then I should be able to see A-B car directions
 	
@@ -35,7 +33,6 @@ Scenario: Subscriber user should be able to do A-B car routing
 	And I open A-B Routing window
 	And I enter start location
 	And I enter finish location
-	And I select car icon
 	And I click on GetDirections button	
 	Then I should be able to see A-B car directions
 

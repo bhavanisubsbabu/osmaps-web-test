@@ -134,8 +134,8 @@ public class ObjectRepository {
 	public final String CustomRoute_Type_Running = ".//*[@id='btn_activity_running']";
 	public final String CustomRoute_Type_Cycling = ".//*[@id='btn_activity_cycling']";
 	public final String CustomRoute_Type_Other = ".//*[@id='btn_activity_other']";
-	public final String CustomerRoute_RadioBtn_View_OnlyMe = ".//*[@id='btn_view_me']";
-	public final String CustomerRoute_RadioBtn_View_Everyone = ".//*[@id='btn_view_everyone']";
+	public final String CustomerRoute_RadioBtn_View_OnlyMe = ".//*[@id='btn_view_pubmode_2']";
+	public final String CustomerRoute_RadioBtn_View_Everyone = ".//*[@id='btn_view_pubmode_1']";
 	public final String delete_routeDlgButton=".Basic_Btn.dialogButton";
     public final String delete_OkButton=".Basic_Btn.dialogButton";
 	// Elements for Routes Tab Discover Route:
