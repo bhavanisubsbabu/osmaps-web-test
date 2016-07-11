@@ -22,7 +22,7 @@ public class ObjectRepository {
 	// public final String MapFeatures=".//*[@id='Window_1_Btn_Mode_POI']";
 	public final String mapStackButton="//*[@id='layer_menu']";
 	
-	
+	public final String pinBoxRemove="//*[@id='remove-dropped-pin']";
 //Search box object
 	public final String searchBox=".//*[@id='main-top-bar-search-input']";
 	public final String searchBoxPopUpClose="//div[contains(@class,'Close_Btn')]/img[@src='bundles/osapp/images/close_window.png']";
