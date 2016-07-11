@@ -287,11 +287,6 @@ public class WhenSteps {
 		  mainPage.hitEnterKey(obj.ab_finishLocation);
 		}
 
-		@When("^I select car icon$")
-		public void i_select_car_icon() throws Throwable {
-			mainPage.click(obj.ab_carIcon);
-		}
-
 		@When("^I click on GetDirections button$")
 		public void i_click_on_GetDirections_button() throws Throwable {
 			mainPage.waitForElementPresent(obj.ab_getDirectionBttn, 10);
