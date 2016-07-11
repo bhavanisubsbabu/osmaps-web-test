@@ -387,6 +387,7 @@ public class WhenSteps {
 		public void from_Places_I_select_POI_Castles_and_Attractions() throws Throwable {
 			mainPage.set_textBox(obj.searchBox, "Windsor Castle");
 			mainPage.hitEnterKey(obj.searchBox);
+			mainPage.click(obj.pinBoxRemove);
 			mainPage.click(obj.mapfeatures);
 			mainPage.click(obj.poi_CastlesAndAttractions);
 		}
