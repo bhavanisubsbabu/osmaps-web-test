@@ -1615,6 +1615,7 @@ public class Html5Page {
 			this.waitForElementPresent(obj.savedRouteConfirm, 20);
 			assertTrue(driver.findElement(By.xpath(obj.savedRouteConfirm)).isDisplayed());
 			driver.findElement(By.xpath(obj.saveDialogDone)).click();
+			this.waitForElementPresent(obj.routeDetailName, 2000);
 			assertTrue(driver.findElement(By.xpath(obj.routeDetailName)).isDisplayed());
 		}
 		
