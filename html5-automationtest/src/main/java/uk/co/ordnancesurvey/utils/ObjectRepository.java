@@ -23,6 +23,7 @@ public class ObjectRepository {
 	public final String mapStackButton="//*[@id='layer_menu']";
 	
 	public final String pinBoxRemove="//*[@id='remove-dropped-pin']";
+	
 //Search box object
 	public final String searchBox=".//*[@id='main-top-bar-search-input']";
 	public final String searchBoxPopUpClose="//div[contains(@class,'Close_Btn')]/img[@src='bundles/osapp/images/close_window.png']";
@@ -70,7 +71,7 @@ public class ObjectRepository {
 	public final String close_login = "//div[contains(@class,'button-x')]";
 	
 	public final String loadPreferences = "//div[@class='Window_1_GlobalWait_Outer']";
-	
+
 
 	public final String ZoomIn = ".//*[@id='zoom-slider-plus']";
 	public final String ZoomOut = ".//*[@id='zoom-slider-minus']";
@@ -452,7 +453,7 @@ public class ObjectRepository {
 	/*
 	 * upsell screen
 	 */
-	public final String upsellText = "//div[@class='title2 margin-bottom-medium margin-top-medium'][text()='Unlock OS Maps with a Premium subscription']";
+	public final String upsellText = "//*[@id='subs1-title']";
 	public final String upsellRegistrationFree = "//div[@class='button center margin-top-small users-only-register']";
 	public final String upsellRegistrationSub = "//div[@class='button center margin-top-small users-only-subscription']";
 	public final String authoredRtText = "//div[contains(text(),'Country Walking Magazine')]";
@@ -484,4 +485,20 @@ public class ObjectRepository {
 	
 	public final String regUserUpgrade = "//div[@id='user-menu-action-upgrade']";
 	
+	/*
+	 * Onboarding Welcome screen
+	 */
+	public final String Welcomescreen = "//*[@id='onboarding-container']";
+	public final String WelcomeText = "//*[@id='onboarding-container']/div/div/div[2]";
+	public final String SignUpLink = "//*[@id='main-top-bar-sign-in']";
+	public final String FindRouteLink = "//*[@id='onboarding-find-route']/div[1]";
+	public final String DiscoverRoutesScreen = "//*[@id='Window_1_Content']/div[15]/div[1]/div[1]";
+	public final String CreateARouteLink = "//*[@id='onboarding-create-route']";
+	public final String CreateRouteScreen = "//*[@id='Window_1_Content']/div[15]/div[1]/div[1]";
+	public final String DoNotShowWCMessage = "//*[@id='onboarding-container']/div/div/div[5]/div";		
+	
+
 }
+	 
+	
+
