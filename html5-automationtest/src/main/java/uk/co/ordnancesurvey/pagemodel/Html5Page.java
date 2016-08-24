@@ -1947,7 +1947,7 @@ public class Html5Page {
 		}
 		
 		public void addressDetails() throws InterruptedException{
-			this.set_textBox(obj.zipcode, "SO160AS");
+			this.set_textBox(obj.zipcode, "SO237HW");
 			this.click(obj.submitZip);
 			this.click(obj.address);
 			this.alertPopup();
@@ -1965,6 +1965,7 @@ public class Html5Page {
 			try{
 				   WebDriverWait wait = new WebDriverWait(driver, 10);
 				   Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+				   Thread.sleep(30);
 				   alert.accept();				  
 				}catch(Throwable e){
 				   System.err.println("Error came while waiting for the alert popup. "+e.getMessage());
@@ -1989,9 +1990,12 @@ public class Html5Page {
 		}
 		
 		public void upgradeRegisteredUser() throws InterruptedException{
-			this.waitForElementPresent(obj.loginUser, 30);
-			this.click(obj.loginUser);
-			this.click(obj.regUserUpgrade);
+			//this.waitForElementPresent(obj.loginUser, 30);
+			this.waitForElementPresent(obj.trialButton, 100);
+			Thread.sleep(50);
+			this.click(obj.trialButton);
+			Thread.sleep(50);
+			//this.click(obj.regUserUpgrade);
 		}
 		
 		public void navRegistration() throws InterruptedException{

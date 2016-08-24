@@ -59,6 +59,7 @@ public class ObjectRepository {
 
 	public final String loginUser="//*[@id='main-top-bar-user']";
 	public final String login="//*[@id='main-top-bar-sign-in']";
+	public final String trialButton = "//*[@id='main-top-bar-trial-button']";
 	
 	// Login page objects
 
@@ -473,9 +474,11 @@ public class ObjectRepository {
 	
 	public final String zipcode = "//input[@id='billing:postcode']";
 	public final String submitZip = "//button[@id='meanbee:billing_address_find']";
-	public final String address = "//a[@onclick='meanbee_postcode_billing.fillFields(52126562.00); return false;']";
+	//blic final String address = "//a[@onclick='meanbee_postcode_billing.fillFields(52126562.00); return false;']";
+	public final String address = "//*[@id='meanbee:billing_address_selector_select']/li[1]/a";
 	
 	public final String saveStep1 = "//button[@title='Next step']";
+	//*[@id="billing-buttons-container"]/button/span/span
 	public final String step2 = "//button[@class='button']";
 	public final String acceptTerms = "//input[@id='agreement-1']";
 	public final String step3 = "//button[@class='default-button-blue btn-checkout']";

@@ -31,6 +31,7 @@ public class RegisteredUserSubscription_steps {
 	
 	@When("^selected upgrade from menu$")
 	public void selected_upgrade_from_menu() throws Throwable {
+		Thread.sleep(100);
 	    mainPage.upgradeRegisteredUser();
 	}
 
