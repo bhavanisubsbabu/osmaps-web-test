@@ -89,6 +89,12 @@ public class WhenSteps {
 	public void i_login_as_registered_user() throws Throwable {
 		loginToApplicationAfterLogout(AppProperties.get("regUname"),AppProperties.get("regPwd"));			
 	}
+	
+	@When("^I login as a specific registered user$")
+	public void i_login_as_a_specific_registered_user() throws Throwable {
+		loginToApplicationAfterLogout(AppProperties.get("specificUser"),AppProperties.get("specificRPwd"));
+	}
+	
 
 	@When("^I login as subscriber user$")
 	public void i_login_as_subscriber_user() throws Throwable {
