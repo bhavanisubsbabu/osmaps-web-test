@@ -697,11 +697,32 @@ public class Html5Page {
 		 String envurl= AppProperties.get("envurl");
 		 driver.get(envurl);
 		 Thread.sleep(2000);
-		 if(this.IsElementPresent(obj.InterfaceTourClose)){
-			 this.closeInterfaceTour();
+		// if(this.IsElementPresent(obj.InterfaceTourClose)){
+		 if(this.IsElementPresent(obj.WelcomeOnboardingScreen)){
+		//	 this.closeInterfaceTour();
+			 this.closeOnboardingScreen();
 		 }
 		 
 	 }
+	 
+	 
+	 /*
+	  * Close Onboarding Screen
+	  */
+	     public void closeOnboardingScreen() throws InterruptedException{
+	    	 this.waitForElementPresent(obj.CloseOnboardingScreen, 60);
+	    	 this.click(obj.DonotShowOnboardingScreen);
+	    	 Thread.sleep(500);
+	    	 this.click(obj.CloseOnboardingScreen);
+	     }
+	  
+	 /*
+	  *  Close Interface Tour for new user		
+	  */
+	 	//	public void closeInterfaceTour() throws InterruptedException{
+	 	//			this.waitForElementClickable(obj.InterfaceTourClose, 5);
+	 	//			this.click(obj.InterfaceTourClose);			
+	 	//	}
 	 
 	 
 	 public void click_Discover(){
@@ -1574,13 +1595,7 @@ public class Html5Page {
 			driver.findElement(By.xpath(obj.routeGetDirection)).click();
 			this.waitForElementPresent(obj.routeDirectionsSidePanel, 5);
 		}
-/*
- *  Close Interface Tour for new user		
- */
-		public void closeInterfaceTour() throws InterruptedException{
-				this.waitForElementClickable(obj.InterfaceTourClose, 5);
-				this.click(obj.InterfaceTourClose);			
-		}
+
 /*
  * Edit route 
  */

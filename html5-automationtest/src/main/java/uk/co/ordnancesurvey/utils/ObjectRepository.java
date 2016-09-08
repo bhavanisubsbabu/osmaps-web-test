@@ -375,9 +375,12 @@ public class ObjectRepository {
 	public final String routeStyleTransper80 = "//span[@class='ui-slider-pip ui-slider-pip-4']";
 	
 	/*
-	 * Interface tour
+	 * Interface tour / Welcome onboarding screen close
 	 */
-	public final String InterfaceTourClose = "//div[@class='bbutton-close']";
+	//public final String InterfaceTourClose = "//div[@class='bbutton-close']";
+	public final String WelcomeOnboardingScreen= "//*[@id='onboarding-container']/div/div/div[2]";
+	public final String CloseOnboardingScreen = "//*[@id='onboarding-container']/div/div/div[1]";
+	public final String DonotShowOnboardingScreen = "//html/body/div[4]/div/div/div[5]/div";
 	
 	/*
 	 * Waypoint popup
